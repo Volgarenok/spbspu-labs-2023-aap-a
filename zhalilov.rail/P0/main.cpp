@@ -2,5 +2,5 @@
 
 int main()
 {
-  std::cout << "Hello, Nigger";
+  std::cout << "zhalilov.rail";
 }
