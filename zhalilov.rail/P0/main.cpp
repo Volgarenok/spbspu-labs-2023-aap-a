@@ -2,5 +2,5 @@
 
 int main()
 {
-  std::cout << "zhalilov.rail";
+  std::cout << "zhalilov.rail\n";
 }
