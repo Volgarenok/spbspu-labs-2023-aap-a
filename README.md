@@ -142,6 +142,24 @@ Boost
 Accepted Labs
 =============
 
-| Name      | P0 | P1 | T1 |
-|-----------|----|----|----|
-| __Total__ |   0|   0|   0|
+| Name                    | P0 | P1 | T1 |
+|-------------------------|----|----|----|
+| Arakelyan Daniil        | ✓  |    |    |
+| Baranov Pavel           | ✓  |    |    |
+| Dobsov Sergey           | ✓  |    |    |
+| Erohin Vladimir         | ✓  |    |    |
+| Gladyshev Matvey        | ✓  |    |    |
+| Grechishnikov Roman     | ✓  |    |    |
+| Marishin Leonid         | ✓  |    |    |
+| Namestnikov Kirill      | ✓  |    |    |
+| Nikitov Dmitriy         | ✓  |    |    |
+| Novokhatskiy Danil      | ✓  |    |    |
+| Petuhov Kirill          | ✓  |    |    |
+| Piyavkin Anton          | ✓  |    |    |
+| Sivkov Filipp           | ✓  |    |    |
+| Stepanov Gena           | ✓  |    |    |
+| Strelyaev Roman         | ✓  |    |    |
+| Zaitsev Vladimir        | ✓  |    |    |
+| Zakozhurnikova Kristina | ✓  |    |    |
+| Zhalilov Rail           | ✓  |    |    |
+| __Total__               |  18|   0|   0|
