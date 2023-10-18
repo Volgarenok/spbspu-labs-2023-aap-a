@@ -2,5 +2,5 @@
 
 int main()
 {
-	std::cout << "shabalin.dmitrij\n";
+  std::cout << "shabalin.dmitrij\n";
 }
