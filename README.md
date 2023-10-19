@@ -146,20 +146,28 @@ Accepted Labs
 |-------------------------|----|----|----|
 | Arakelyan Daniil        | ✓  |    |    |
 | Baranov Pavel           | ✓  |    |    |
+| Belokurskaya Sofia      | ✓  |    |    |
 | Dobsov Sergey           | ✓  |    |    |
 | Erohin Vladimir         | ✓  |    |    |
 | Gladyshev Matvey        | ✓  |    |    |
 | Grechishnikov Roman     | ✓  |    |    |
+| Isaychev Vladislav      | ✓  |    |    |
+| Lopatina Sofia          | ✓  |    |    |
 | Marishin Leonid         | ✓  |    |    |
 | Namestnikov Kirill      | ✓  |    |    |
 | Nikitov Dmitriy         | ✓  |    |    |
 | Novokhatskiy Danil      | ✓  |    |    |
 | Petuhov Kirill          | ✓  |    |    |
 | Piyavkin Anton          | ✓  |    |    |
+| Rebdev Pavel            | ✓  |    |    |
+| Sakovskaia Maiia        | ✓  |    |    |
+| Shabalin Dmitrij        | ✓  |    |    |
+| Shibaleva Ekaterina     | ✓  |    |    |
 | Sivkov Filipp           | ✓  |    |    |
+| Spiridonov Mikhail      | ✓  |    |    |
 | Stepanov Gena           | ✓  |    |    |
 | Strelyaev Roman         | ✓  |    |    |
 | Zaitsev Vladimir        | ✓  |    |    |
 | Zakozhurnikova Kristina | ✓  |    |    |
 | Zhalilov Rail           | ✓  |    |    |
-| __Total__               |  18|   0|   0|
+| __Total__               |  26|   0|   0|
