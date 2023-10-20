@@ -146,6 +146,7 @@ Accepted Labs
 |-------------------------|----|----|----|
 | Arakelyan Daniil        | ✓  |    |    |
 | Baranov Pavel           | ✓  |    |    |
+| Belokurskaya Sofia      | ✓  |    |    |
 | Dobsov Sergey           | ✓  |    |    |
 | Erohin Vladimir         | ✓  |    |    |
 | Gladyshev Matvey        | ✓  |    |    |
@@ -169,4 +170,4 @@ Accepted Labs
 | Zaitsev Vladimir        | ✓  |    |    |
 | Zakozhurnikova Kristina | ✓  |    |    |
 | Zhalilov Rail           | ✓  |    |    |
-| __Total__               |  25|   0|   0|
+| __Total__               |  26|   0|   0|
