@@ -2,6 +2,8 @@
 #define COUNTER_HPP
 
 #include <cstddef>
+#include <stdexcept>
+#include <limits>
 
 namespace zhalilov
 {

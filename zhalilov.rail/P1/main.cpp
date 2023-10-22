@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdexcept>
+
 #include "counter.hpp"
 
 int main()
@@ -9,7 +11,15 @@ int main()
   Counter counter;
   while(std::cin >> curr && curr)
   {
-    counter(prev, curr);
+    try
+    {
+      counter(prev, curr);
+    }
+    catch(std::exception &e)
+    {
+      std::cerr << "Error: " << e.what() << "\n";
+      return 2;
+    }
     prev = curr;
   }
 

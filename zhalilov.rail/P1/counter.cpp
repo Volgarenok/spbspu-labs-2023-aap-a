@@ -9,6 +9,10 @@ void zhalilov::Counter::operator()(int prev, int curr)
 {
   if(curr == prev)
   {
+    if(count == std::numeric_limits<size_t>::max())
+    {
+      throw std::logic_error("sequence it too long");
+    }
     count++;
   }
   else
