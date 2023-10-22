@@ -24,12 +24,12 @@ int main()
         ++lenght;
       }
     }
-    else
-    {
-      std::cout << "Sequence is too small\n";
-      return 2;
-    }
   }while (num != 0);
-  std::cout << count << "\n";
+  if(count == 0){
+    std::cerr << "Sequence is too small\n";
+    return 2;
+  }else{
+    std::cout << count << "\n";
+  }
   return 0;
 }
