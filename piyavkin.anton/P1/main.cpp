@@ -3,7 +3,7 @@
 
 int main() {
   long long int num = 1;
-  long long int max_ll = std::numericlimits< long long int >::max();
+  const long long int max_ll = std::numeric_limits< long long int >::max();
   long long int prev = max_ll;
   size_t count = 0;
   size_t maxc = 0;
