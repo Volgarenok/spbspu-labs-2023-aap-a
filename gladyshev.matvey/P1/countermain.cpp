@@ -25,7 +25,7 @@ void gladyshev::Countermain::operator()(long long int number)
   {
     ++counterznak;
   }
-  supnumber = number; 
+  supnumber = number;
 }
 unsigned long long int gladyshev::Countermain::operator()() const
 {
