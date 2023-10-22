@@ -17,7 +17,7 @@ int main()
     {
       counter = 1;
     }
-    
+
     if(counter > maxSeq)
     {
       maxSeq = counter;
@@ -25,6 +25,6 @@ int main()
     }
     prev = curr;
   }
-  
+
   std::cout << maxSeq;
 }
