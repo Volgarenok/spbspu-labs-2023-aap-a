@@ -5,9 +5,12 @@ class Mondec
 {
   public:
     Mondec();
-    void limitCheck(int num);
+    void numberCheck(int num);
     size_t resultlog() const;
+    void counterCheck();
   private:
-    size_t counter;
+    size_t new_counter;
+    size_t max_counter;
+    int past_number;
 };
 #endif
