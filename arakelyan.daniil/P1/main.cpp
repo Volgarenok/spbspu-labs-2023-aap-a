@@ -2,24 +2,22 @@
 
 int main()
 {
-    int num = 0;
+  unsigned long long count = 0;
+  int num = 0;
+  do {
+    int past = num;
     std::cin >> num;
-    if(!std::cin)
+    if(!std::cin){
+      std::cerr << "Not a num\n";
+      return 1;
+    }else if (num != 0)
     {
-        std::cerr << "Is not a number\n";
-        return 1;
+      if(num % past == 0)
+      {
+        ++count;
+      }
     }
-    int count = 0;
-    while(num != 0)
-    {
-        int past = num;
-        std::cin >> num;
-        if (num % past == 0)
-        {
-            std::cout << num << ":" << past  << ":" << count << "\n";
-            count += 1;
-        }
-    }
-    std::cout << count << "\n";
-    return 0;
+  }while (num != 0);
+  std::cout << count << "\n";
+  return 0;
 }
