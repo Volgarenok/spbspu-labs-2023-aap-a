@@ -2,6 +2,7 @@
 #include <limits>
 #include <stdexcept>
 #include <iostream>
+
 /* Специальный метод. Задаёт counter значение 0 */
 strelyaev::Mondec::Mondec():
   max_counter(0),

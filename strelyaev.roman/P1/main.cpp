@@ -12,7 +12,7 @@ int main()
     std::cin >> currentNumber;
     if (!std::cin)
     {
-      std::cerr << "AN ERROR HAS OCCURRED\n";
+      std::cerr << "AN ERROR HAS OCCURRED: NOT A NUMBER\n";
       return 1;
     }
     else if (currentNumber != 0)
@@ -28,11 +28,8 @@ int main()
         return 2;
       }
     }
-
-
   }
   while (currentNumber != 0);
-
   std::cout << count.resultlog() << "\n";
 }
 
