@@ -26,7 +26,7 @@ public:
       maxSeq = count;
     }
   }
-  
+
   size_t operator()() const
   {
     return maxSeq;
@@ -37,7 +37,7 @@ int main()
 {
   int prev = 0;
   int curr = 0;
- 
+
   Counter counter;
   while(std::cin >> curr && curr)
   {
