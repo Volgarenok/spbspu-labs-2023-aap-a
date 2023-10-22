@@ -1,4 +1,4 @@
 
 
-output: main.cpp
-	g++ main.cpp -o result
+output: main.cpp mondec.h mondec.cpp
+	g++ $^ -o $@
