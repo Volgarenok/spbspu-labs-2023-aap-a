@@ -14,7 +14,7 @@ struct Sequens
     }
     return false;
   }
-  
+
   void seqLenghtAndCount(int a, int b){
     size_t max_lenght = std::numeric_limits<size_t>::max();
     if (lenght == max_lenght) {
@@ -28,11 +28,11 @@ struct Sequens
       }
     }
   }
-  
+
   size_t get_count() {
     return count;
   }
-  
+
   size_t get_lenght() {
     return lenght;
   }
@@ -61,8 +61,8 @@ int main()
       return 2;
     } else if (num != 0) {
       try {
-        counter.seqLenghtAndCount(num,past); 
-      } 
+        counter.seqLenghtAndCount(num,past);
+      }
       catch (const std::exception & e) {
         std::cout << "Error: " << e.what() << "\n";
         return 2;
