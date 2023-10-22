@@ -3,8 +3,7 @@
 int main()
 {
   int max_num = 0;
-  int counter_now = 0;
-  int counter_max = 0;
+  int counter = 0;
 
   while (true)
   {
@@ -16,20 +15,20 @@ int main()
       return 1;
     }
 
-    if (num > max_num){
+    if (num == max_num){
+      counter += 1;
+    }
+    else if (num > max_num){
       max_num = num;
-    }
-    else if (num == max_num){
-      counter_now += 1;
-    }
-    else{
-      if (counter_now > counter_max){
-	counter_max = counter_now;
-      }
+      counter = 1;
     }
 
     if (num == 0){
-      std::cout << counter_max;
+      if (max_num == 0){
+        std::cout << 0  << "\n";
+        break;
+    }
+      std::cout << counter << "\n";
       break;
     }
   }
