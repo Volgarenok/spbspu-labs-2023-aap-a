@@ -37,7 +37,7 @@ int main()
 {
   int prev = 0;
   int curr = 0;
-  
+ 
   Counter counter;
   while(std::cin >> curr && curr)
   {
