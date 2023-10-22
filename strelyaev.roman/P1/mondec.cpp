@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <iostream>
 /* Специальный метод. Задаёт counter значение 0 */
-Mondec::Mondec():
+strelyaev::Mondec::Mondec():
   max_counter(0),
   new_counter(1),
   past_number(0)
@@ -12,7 +12,7 @@ Mondec::Mondec():
 
 /* Метод в классе, который проверяет число на переполнение.
 так же добавляет к полю counter значение, если все ОК*/
-void Mondec::numberCheck(int num)
+void strelyaev::Mondec::numberCheck(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (new_counter == max_size)
@@ -32,7 +32,7 @@ void Mondec::numberCheck(int num)
 
 
 /*Метод, который сравнивает max_counter с new_counter*/
-void Mondec::counterCheck()
+void strelyaev::Mondec::counterCheck()
 {
   if (new_counter > max_counter)
   {
@@ -42,7 +42,7 @@ void Mondec::counterCheck()
 
 
 /*Метод, возвращающий counter*/
-size_t Mondec::resultlog() const
+size_t strelyaev::Mondec::resultlog() const
 {
   return max_counter;
 }

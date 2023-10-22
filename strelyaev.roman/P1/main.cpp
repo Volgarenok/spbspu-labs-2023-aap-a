@@ -3,6 +3,7 @@
 
 int main()
 {
+  using namespace strelyaev;
   int currentNumber;
   Mondec count;
 /* В голову ничего кроме самого обычно do-while цикла не пришло. Извиняйте */
