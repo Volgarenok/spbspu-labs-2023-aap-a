@@ -27,7 +27,7 @@ int main()
     std::cerr << "The input data is not a sequence\n";
     return 1;
   }
-  
+
   std::cout << std::max(curr_len, max_len) << '\n';
 
   return 0;
