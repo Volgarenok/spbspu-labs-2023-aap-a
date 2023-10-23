@@ -1,15 +1,6 @@
 #include <iostream>
 #include "sequence_counter.cpp"
-
-void isMax(int now, int& actual, int& pre)
-{
-  if (now >= actual){
-    pre = actual;
-    actual = now;
-  } else if (now > pre){
-    pre = now;
-  }
-}
+#include "ismax.cpp"
 
 int main()
 {
