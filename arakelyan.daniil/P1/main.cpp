@@ -28,12 +28,13 @@ struct SequensOfNums
       return true;
     }
   }
-  // подсчет количества пар последовательности, которая не нулевая и не слишком большая
+  // подсчет количества пар последовательности
+  // которая не нулевая и не слишком большая
   void seqLengthAndCount(int a, int b) {
     // size_t max_lenght = std::numeric_limits<size_t>::max();
     // if (lenght == max_lenght) {
       // throw std::logic_error("Sequence is too long.");
-    // } 
+    // }
     // else {
       // if (quotientOfNums(a,b)) {
         // ++count;
