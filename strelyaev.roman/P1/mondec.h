@@ -8,9 +8,9 @@ namespace strelyaev
   {
     public:
       Mondec();
-      void numberCheck(int num);
-      size_t resultlog() const;
-      void counterCheck();
+      void operator()(int num);
+      size_t resultLog() const;
+      void operator()();
     private:
       size_t new_counter;
       size_t max_counter;
