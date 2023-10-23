@@ -1,34 +1,59 @@
 #include <iostream>
 #include <limits>
+#include <stdexcept>
+
+struct MonDec{
+  MonDec(): 
+    count_(0),
+    maxc(0),
+    prev(std::numeric_limits< long long int >::max())
+  {}
+  void count(long long int num) {
+    size_t max_size = std::numeric_limits< size_t >::max();
+    if (count_ == max_size) {
+      throw std::logic_error("error\n");
+    }
+    else if (num == 0) {
+      if (count_ > maxc) {
+        maxc = count_;
+      }
+    }
+    else if (num <= prev) {
+      ++count_;
+    }
+    else {
+      if (count_ > maxc) {
+        maxc = count_;
+      }
+      count_ = 1;
+    }
+    prev = num;
+  }
+  size_t get_result_() const {
+    return maxc;
+  }
+private:
+  size_t count_;
+  size_t maxc;
+  long long int prev;
+};
 
 int main() {
   long long int num = 1;
-  const long long int max_ll = std::numeric_limits< long long int >::max();
-  long long int prev = max_ll;
-  size_t count = 0;
-  size_t maxc = 0;
+  MonDec counter;
   while (num != 0) {
     std::cin >> num;
     if (!std::cin) {
       std::cout << "error\n";
       return 1;
     }
-    else if (num == 0) {
-      std::cout << maxc;
+    try {
+      counter.count(num);
     }
-    else if (num <= prev) {
-      if (count == max_ll) {
-        std::cout << "error\n";
-        return 2;
-      }
-      ++count;
+    catch (const std::exception& e) {
+      std::cerr << "error\n";
+      return 2;
     }
-    else {
-      if (count > maxc) {
-        maxc = count;
-      }
-      count = 1;
-    }
-    prev = num;
   }
+  std::cout << counter.get_result_() << "\n";
 }
