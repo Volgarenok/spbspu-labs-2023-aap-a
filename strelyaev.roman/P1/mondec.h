@@ -9,11 +9,12 @@ namespace strelyaev
     public:
       Mondec();
       void operator()(int num);
-      size_t resultLog() const;
       void operator()();
+      size_t resultLog() const;
+
     private:
-      size_t new_counter;
       size_t max_counter;
+      size_t new_counter;
       int past_number;
   };
 }
