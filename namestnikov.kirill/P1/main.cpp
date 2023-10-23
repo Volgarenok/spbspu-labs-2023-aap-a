@@ -1,32 +1,6 @@
 #include <iostream>
-#include <limits>
 #include <stdexcept>
-
-
-struct LocalMinCounter
-{
-  LocalMinCounter():
-    count_(0)
-  {}
-  void count(int lastnumber, int currentnumber, int futurenumber)
-  {
-    size_t max_size = std::numeric_limits< size_t >::max();
-    if (count_ == max_size)
-    {
-      throw std::logic_error("sequence is too long\n");
-    }
-    if ((currentnumber < lastnumber) && (currentnumber < futurenumber))
-    {
-      ++count_;
-    }
-  }
-  size_t get_result() const
-  {
-    return count_;
-  }
-private:
-  size_t count_;
-};
+#include "local_min_counter.hpp"
 
 int main()
 {
