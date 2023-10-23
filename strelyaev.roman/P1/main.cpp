@@ -1,6 +1,8 @@
+#include <iostream>
+
 int main()
 {
-<<<<<<< HEAD
+
   using namespace strelyaev;
   int currentNumber;
   Mondec count;
@@ -29,7 +31,5 @@ int main()
   }
   while (currentNumber != 0);
   std::cout << count.resultlog() << "\n";
-=======
->>>>>>> 1d21a00f447d68f8f52c14cc5e622ae2a156bb77
 }
 
