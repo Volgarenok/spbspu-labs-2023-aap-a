@@ -1,5 +1,5 @@
 #include <iostream>
-#include <limits>
+#include "Sequence_counter.hpp"
 #include <stdexcept>
 
 struct SequenceCounter
@@ -14,7 +14,7 @@ struct SequenceCounter
     {
       throw std::logic_error("Sequence is too long");
      }
-     if (num > max)
+     else if (num > max)
      {
 	max = num;
         count_ = 0;
