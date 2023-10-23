@@ -1,9 +1,37 @@
 #include <iostream>
 #include <limits>
+#include <stdexcept>
+
+
+struct LocalMinCounter
+{
+  LocalMinCounter():
+    count_(0)
+  {}
+  void count(int lastnumber, int currentnumber, int futurenumber)
+  {
+    size_t max_size = std::numeric_limits< size_t >::max();
+    if (count_ == max_size)
+    {
+      throw std::logic_error("sequence is too long\n");
+    }
+    if ((currentnumber < lastnumber) && (currentnumber < futurenumber))
+    {
+      ++count_;
+    }
+  }
+  size_t get_result() const
+  {
+    return count_;
+  }
+private:
+  size_t count_;
+};
 
 int main()
 {
   int lastnumber = 0;
+  LocalMinCounter counter;
   std::cin >> lastnumber;
   if (!std::cin)
   {
@@ -39,18 +67,16 @@ int main()
     std::cerr << "There is no way to find a local min\n";
     return 2;
   }
-  size_t counter = 0;
   while (futurenumber != 0)
   {
-    if ((currentnumber < lastnumber) && (currentnumber < futurenumber))
+    try
     {
-      size_t max_size = std::numeric_limits< size_t >::max();
-      if (counter == max_size)
-      {
-        std::cerr << "Sequence is too long\n";
-        return 2;
-      }
-      ++counter;
+      counter.count(lastnumber, currentnumber, futurenumber);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << "Error: " << e.what() << "\n";
+      return 2;
     }
     lastnumber = currentnumber;
     currentnumber = futurenumber;
@@ -61,5 +87,5 @@ int main()
       return 1;
     }
   }
-  std::cout << counter << std::endl;
+  std::cout << counter.get_result() << "\n";
 }
