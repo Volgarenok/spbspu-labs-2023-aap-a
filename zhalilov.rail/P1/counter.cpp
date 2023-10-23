@@ -1,32 +1,35 @@
 #include "counter.hpp"
 
+#include <stdexcept>
+#include <limits>
+
 zhalilov::Counter::Counter():
-  count(1),
-  maxSeq(0)
+  m_count(1),
+  m_maxSeq(0)
 {}
 
-void zhalilov::Counter::operator()(int prev, int curr)
+void zhalilov::Counter::operator()(const int prev, const int curr)
 {
   if(curr == prev)
   {
-    if(count == std::numeric_limits<size_t>::max())
+    if(m_count == std::numeric_limits<size_t>::max())
     {
       throw std::logic_error("sequence it too long");
     }
-    count++;
+    m_count++;
   }
   else
   {
-    count = 1;
+    m_count = 1;
   }
 
-  if(count > maxSeq)
+  if(m_count > m_maxSeq)
   {
-    maxSeq = count;
+    m_maxSeq = m_count;
   }
 }
 
 size_t zhalilov::Counter::operator()() const
 {
-  return maxSeq;
+  return m_maxSeq;
 }

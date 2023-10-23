@@ -5,10 +5,10 @@
 
 int main()
 {
-  int prev = 0;
-  int curr = 0;
   using namespace zhalilov;
   Counter counter;
+  int prev = 0;
+  int curr = 0;
   while(std::cin >> curr && curr)
   {
     try
@@ -25,7 +25,7 @@ int main()
 
   if(!std::cin)
   {
-    std::cout << "Bad input";
+    std::cout << "Bad input" << "\n";
     return 1;
   }
 

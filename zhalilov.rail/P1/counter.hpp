@@ -2,15 +2,13 @@
 #define COUNTER_HPP
 
 #include <cstddef>
-#include <stdexcept>
-#include <limits>
 
 namespace zhalilov
 {
   class Counter
   {
-    size_t count;
-    size_t maxSeq;
+    size_t m_count;
+    size_t m_maxSeq;
   public:
     Counter();
     void operator()(int prev, int curr);
