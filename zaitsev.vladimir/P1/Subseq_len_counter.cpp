@@ -1,13 +1,15 @@
 #include "Subseq_len_counter.h"
+#include <algorithm>
 #include <limits>
 #include <stdexcept>
+
 
 zaitsev::Subseq_len_counter::Subseq_len_counter() : beg_element_(0), curr_len_(0), max_len_(0)
 {}
 
 unsigned long long zaitsev::Subseq_len_counter::get_max_len()
 {
-  return max_len_;
+  return std::max(max_len_,curr_len_);
 }
 
 void zaitsev::Subseq_len_counter::reset(long long beg_element = 0)
@@ -35,4 +37,3 @@ void zaitsev::Subseq_len_counter::operator()(long long next_element)
     reset(next_element);
   }
 }
-

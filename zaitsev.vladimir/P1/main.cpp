@@ -1,24 +1,21 @@
 #include <iostream>
-#include <algorithm>
+#include "Subseq_len_counter.h"
 
 int main()
 {
-  int curr_element = 1;
-  int seq_beg_element = 0;
-  int curr_len = 0;
-  int max_len = 0;
+  long long curr_element = 1;
+  zaitsev::Subseq_len_counter counter;
 
   while ((std::cin >> curr_element) && curr_element != 0)
   {
-    if (curr_element == seq_beg_element)
+    try
     {
-      ++curr_len;
+      counter(curr_element);
     }
-    else
+    catch (const std::exception &e)
     {
-      max_len = std::max(max_len, curr_len);
-      curr_len = 1;
-      seq_beg_element = curr_element;
+      std::cerr << "Error: " << e.what() << "\n";
+      return 2;
     }
   }
 
@@ -28,7 +25,7 @@ int main()
     return 1;
   }
 
-  std::cout << std::max(curr_len, max_len) << '\n';
+  std::cout << counter.get_max_len() << '\n';
 
   return 0;
 }
