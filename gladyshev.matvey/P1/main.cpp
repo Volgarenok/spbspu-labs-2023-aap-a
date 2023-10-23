@@ -15,7 +15,7 @@ int main()
     }
     if (counter == 0 && number == 0)
     {
-      std::cout << "is not a sequence\n";
+      std::cout << "zero sequence\n";
     }
     ++counter;
     try
