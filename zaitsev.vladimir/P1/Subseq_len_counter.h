@@ -9,10 +9,11 @@ namespace zaitsev
     Subseq_len_counter();
     void operator()(long long);
     void reset(long long);
-    unsigned long long get_len();
+    unsigned long long get_max_len();
   private:
-    long long seq_beg_element;
-    unsigned long long curr_seq_len;
+    long long beg_element_;
+    unsigned long long curr_len_;
+    unsigned long long max_len_;
   };
 }
-#endif  
+#endif
