@@ -19,8 +19,8 @@ int main()
     {
       try
       {
-        count(currentNumber);
-        count();
+        count.numberCheck(currentNumber);
+        count.counterCheck();
       }
       catch (std::exception & e)
       {
@@ -30,5 +30,6 @@ int main()
     }
   }
   while (currentNumber != 0);
-  std::cout << count.resultLog() << "\n";
+  std::cout << count.resultlog() << "\n";
 }
+
