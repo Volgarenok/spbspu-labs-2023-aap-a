@@ -1,46 +1,31 @@
+#include <exception>
 #include <iostream>
 #include <limits>
+#include <stdexcept>
 
-//класс последовательности
+
+// класс последовательности
 struct SequensOfNums
 {
   SequensOfNums():
-    count(0),
-    lenght(0)
+    count()
   {}
+private:
+  size_t count;
 
-  //делится или текущ. число на пред
-  bool quotientOfNums(int a, int b) {
+public:
+  bool lenghtCheck (size_t length,int curr) {
+    size_t max_length = std::numeric_limits<size_t>::max();
+    if (length == max_length) {
+      throw std::logic_error("Sequense is too long\n");
+    } else if ((length == 2 && curr == 0) || (curr == 0 && length == 1)) {
+      throw std::logic_error("Sequence is too short\n");
+    } else {
+      return 0;
+    }
+  }
+  void countOfque(int a,int b) {
     if (a % b == 0) {
-      return true;
-    }
-    return false;
-  }
-  //проверка последовательности. слишком длинная или короткая
-  bool lengthCheck(size_t lenght, int curr) {
-    size_t max_lenght = std::numeric_limits<size_t>::max();
-    if (lenght == max_lenght) {
-      throw std::logic_error("Sequence is too long.\n");
-    } else if (lenght == 1 && curr == 0) {
-      throw std::logic_error("Sequence is too short.\n");
-    }
-    else {
-      return true;
-    }
-  }
-  // подсчет количества пар последовательности
-  // которая не нулевая и не слишком большая
-  void seqLengthAndCount(int a, int b) {
-    // size_t max_lenght = std::numeric_limits<size_t>::max();
-    // if (lenght == max_lenght) {
-    // throw std::logic_error("Sequence is too long.");
-    // }
-    // else {
-    // if (quotientOfNums(a,b)) {
-    // ++count;
-    // }
-    // }
-    if (lengthCheck(lenght, a) && quotientOfNums(a, b)) {
       ++count;
     }
   }
@@ -48,44 +33,40 @@ struct SequensOfNums
   size_t get_count() {
     return count;
   }
-
-  size_t get_length() {
-    return lenght;
-  }
-
-private:
-  size_t count;
-  size_t lenght;
 };
 
 
 int main()
 {
   int currentNum = 0;
-  SequensOfNums counter;
+  size_t length = 1;
+  int pastNum = 0;
+  SequensOfNums counttt;
 
-  do
-  {
-    int pastNum = currentNum;
-    std::cin >> currentNum;   // проверка ввод
+  try {
+    std::cin >> currentNum;
     if (!std::cin) {
-      std::cerr << "Not a num.\n";
+      std::cerr << "Enter num\n";
       return 1;
-      // } else if (currentNum == 0 && counter.get_length() < 2) {
-      // std::cerr << "Seq is too short.\n";
-      // return 2;
     }
-    else if (currentNum != 0) {
-      try {
-        counter.seqLengthAndCount(currentNum,pastNum);
+    counttt.lenghtCheck(length,currentNum);
+    while(currentNum != 0) {
+      pastNum = currentNum;
+      std::cin >> currentNum;
+      if (!std::cin) {
+        std::cerr << "Enter num\n";
+        return 1;
       }
-      catch (const std::exception & e) {
-        std::cout << "Error: " << e.what() << "\n";
-        return 2;
+      ++length;
+      counttt.lenghtCheck(length,currentNum);
+      if (currentNum != 0) {
+        counttt.countOfque(currentNum,pastNum);
       }
     }
+  } catch(const std::exception & e) {
+    std::cout << "Error: " << e.what() << "\n";
+    return 2;
   }
-  while (currentNum != 0);
-  std::cout << counter.get_count() << " : " <<  counter.get_length() << "\n";
+  std::cout << "Ansver: " << counttt.get_count() << "\n";
   return 0;
 }
