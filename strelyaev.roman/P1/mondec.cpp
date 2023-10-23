@@ -13,7 +13,7 @@ strelyaev::Mondec::Mondec():
 
 /* Метод в классе, который проверяет число на переполнение.
 так же добавляет к полю counter значение, если все ОК*/
-void strelyaev::Mondec::numberCheck(int num)
+void strelyaev::Mondec::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (new_counter == max_size)
@@ -33,7 +33,7 @@ void strelyaev::Mondec::numberCheck(int num)
 
 
 /*Метод, который сравнивает max_counter с new_counter*/
-void strelyaev::Mondec::counterCheck()
+void strelyaev::Mondec::operator()()
 {
   if (new_counter > max_counter)
   {
@@ -43,7 +43,7 @@ void strelyaev::Mondec::counterCheck()
 
 
 /*Метод, возвращающий counter*/
-size_t strelyaev::Mondec::resultlog() const
+size_t strelyaev::Mondec::resultLog() const
 {
   return max_counter;
 }
