@@ -23,11 +23,11 @@ int main()
     prev = curr;
   }
 
-  if(!std::cin.good())
+  if(!std::cin)
   {
     std::cout << "Bad input";
     return 1;
   }
 
-  std::cout << counter();
+  std::cout << counter() << "\n";
 }
