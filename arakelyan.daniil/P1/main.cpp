@@ -8,8 +8,8 @@ struct SequensOfNums
     count(0),
     lenght(0)
   {}
-  
-  //делится или текущ. число на пред.
+
+  //делится или текущ. число на пред
   bool quotientOfNums(int a, int b) {
     if (a % b == 0) {
       return true;
@@ -33,12 +33,12 @@ struct SequensOfNums
   void seqLengthAndCount(int a, int b) {
     // size_t max_lenght = std::numeric_limits<size_t>::max();
     // if (lenght == max_lenght) {
-      // throw std::logic_error("Sequence is too long.");
+    // throw std::logic_error("Sequence is too long.");
     // }
     // else {
-      // if (quotientOfNums(a,b)) {
-        // ++count;
-      // }
+    // if (quotientOfNums(a,b)) {
+    // ++count;
+    // }
     // }
     if (lengthCheck(lenght, a) && quotientOfNums(a, b)) {
       ++count;
@@ -63,7 +63,7 @@ int main()
 {
   int currentNum = 0;
   SequensOfNums counter;
-  
+
   do
   {
     int pastNum = currentNum;
@@ -71,7 +71,7 @@ int main()
     if (!std::cin) {
       std::cerr << "Not a num.\n";
       return 1;
-    // } else if (currentNum == 0 && counter.get_length() < 2) {
+      // } else if (currentNum == 0 && counter.get_length() < 2) {
       // std::cerr << "Seq is too short.\n";
       // return 2;
     }
