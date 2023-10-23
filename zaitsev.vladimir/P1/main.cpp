@@ -5,7 +5,8 @@ int main()
 	int curr_element = 1;
 
 	while ((std::cin >> curr_element) && curr_element != 0)
-	{}
+	{
+	}
 
 	if (!std::cin)
 	{
