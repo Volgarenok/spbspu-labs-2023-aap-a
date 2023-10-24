@@ -25,8 +25,8 @@ int main()
 
     if (num == 0){
       if (max_num == 0){
-        std::cout << 0  << "\n";
-        break;
+        std::cout << "There are no numbers in the sequence" << "\n";
+        return 2;
     }
       std::cout << counter << "\n";
       break;
