@@ -2,14 +2,15 @@
 #define SEQUENCE_COUNTER_HPP
 
 #include <cstddef>
-
-struct SequenceCounter
+namespace nikitov
 {
-  SequenceCounter();
-  void isLimit(int);
-  size_t check_count() const;
+  struct SequenceCounter
+  {
+    SequenceCounter();
+    void operator()(int);
+    size_t operator()();
   private:
-    size_t count_;
-};
-
+      size_t count_;
+  };
+}
 #endif

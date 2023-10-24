@@ -1,14 +1,13 @@
 #include <iostream>
-#include "sequence_counter.cpp"
-#include "ismax.cpp"
+#include "sequence_counter.hpp"
+#include "ismax.hpp"
 
 int main()
 {
   int number = 0;
   int actual_max = 0;
-  int &act = actual_max;
   int pre_max = 0;
-  int &pre = pre_max;
+  using namespace nikitov;
   SequenceCounter counter;
 
   do{
@@ -18,18 +17,21 @@ int main()
       return 1;
     }
     else if (number != 0){
-      try{
-        counter.isLimit(number);
-      } catch (const std::exception & e){
-      std::cerr << "Error: " << e.what() << '\n';
-      return 2;
+      try
+      {
+        counter(number);
+      } 
+      catch (const std::exception & e)
+      {
+        std::cerr << "Error: " << e.what() << '\n';
+        return 2;
       }
-      isMax(number, act, pre);
+      isMax(number, actual_max, pre_max);
     }
   }
   while (number != 0);
 
-  if (counter.check_count() == 0 || counter.check_count() == 1){
+  if (counter() == 0 || counter() == 1){
     std::cerr << "Error: This sequence is too short\n";
     return 2;
   }

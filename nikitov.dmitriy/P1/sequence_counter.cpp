@@ -2,11 +2,11 @@
 #include <limits>
 #include <stdexcept>
 
-SequenceCounter::SequenceCounter():
-    count_(0)
+nikitov::SequenceCounter::SequenceCounter():
+  count_(0)
 {}
 
-void SequenceCounter::isLimit(int)
+void nikitov::SequenceCounter::operator()(int)
 {
   size_t max_limit = std::numeric_limits< size_t >::max();
   if (count_ == max_limit){
@@ -14,7 +14,7 @@ void SequenceCounter::isLimit(int)
   }
   ++count_;
 }
-size_t SequenceCounter::check_count() const
+size_t nikitov::SequenceCounter::operator()()
 {
   return count_;
 }
