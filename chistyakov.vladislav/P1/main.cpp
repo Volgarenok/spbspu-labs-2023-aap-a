@@ -2,8 +2,7 @@
 
 int main()
 {
-  int max_num = 0;
-  int counter = 0;
+  int max_num = 0;;
   int num = 0;
 
   std::cin >> num;
@@ -16,11 +15,12 @@ int main()
       std::cout << "There are no numbers in the sequence\n";
       return 2;
   }
+
   max_num = num;
+  int counter = 1;
 
   while (true)
   {
-    int num = 0;
     std::cin >> num;
 
     if (!std::cin){
