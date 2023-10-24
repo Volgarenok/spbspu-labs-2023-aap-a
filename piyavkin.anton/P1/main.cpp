@@ -3,7 +3,7 @@
 #include <stdexcept>
 
 struct MonDec{
-  MonDec(): 
+  MonDec():
     count_(0),
     maxc(0),
     prev(std::numeric_limits< long long int >::max())
