@@ -9,11 +9,11 @@ int main()
   std::cin >> num;
   // Input first num and put it in max_num
   if (!std::cin){
-      std::cout << "Bad input, try again!";
+      std::cout << "Bad input, try again!\n";
       return 1;
   }
   if (num == 0){
-      std::cout << "There are no numbers in the sequence" << "\n";
+      std::cout << "There are no numbers in the sequence\n";
       return 2;
   }
   max_num = num;
@@ -24,7 +24,7 @@ int main()
     std::cin >> num;
 
     if (!std::cin){
-      std::cout << "Bad input, try again!";
+      std::cout << "Bad input, try again!\n";
       return 1;
     }
 
