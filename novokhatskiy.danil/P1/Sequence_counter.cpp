@@ -2,10 +2,10 @@
 #include <limits>
 #include <stdexcept>
 
-SequenceCounter::Sequence():
+novokhatskiy::SequenceCounter::Sequence():
   count_(0)
 {}
-void SequenceCounter::count(int)
+void novokhatskiy::SequenceCounter::operator()(int)
 {
   size_t max_size = std::numeric_limits size_t >::max();
   if (count_ == max_size)
@@ -22,7 +22,7 @@ void SequenceCounter::count(int)
     ++count_;
   }
 }
-size_t SequenceCounter::get_result() const
+size_t novokhatskiy::SequenceCounter::operator()() const
 {
   return count_;
 }
