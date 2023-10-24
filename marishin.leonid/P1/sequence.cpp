@@ -25,3 +25,11 @@ void marishin::Sequence::operator()(int num)
   prev1 = num;
   ++global_count;
 }
+size_t marishin::Sequence::operator()() const
+{
+  return count;
+}
+size_t marishin::Sequence::get_global_count() const
+{
+  return global_count;
+}
