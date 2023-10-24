@@ -6,7 +6,6 @@ int main()
 {
   using namespace novokhatskiy;
   SequenceCounter counter;
-  size_t count = 0;
   int num = 0;
   size_t max = 0;
   std::cin >> num;
