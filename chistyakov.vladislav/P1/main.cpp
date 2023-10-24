@@ -4,6 +4,19 @@ int main()
 {
   int max_num = 0;
   int counter = 0;
+  int num = 0;
+
+  std::cin >> num;
+  // Input first num and put it in max_num
+  if (!std::cin){
+      std::cout << "Bad input, try again!";
+      return 1;
+  }
+  if (num == 0){
+      std::cout << "There are no numbers in the sequence" << "\n";
+      return 2;
+  }
+  max_num = num;
 
   while (true)
   {
@@ -24,10 +37,6 @@ int main()
     }
 
     if (num == 0){
-      if (max_num == 0){
-        std::cout << "There are no numbers in the sequence" << "\n";
-        return 2;
-    }
       std::cout << counter << "\n";
       break;
     }
