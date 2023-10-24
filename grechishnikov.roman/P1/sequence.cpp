@@ -1,6 +1,6 @@
 #include "sequence.hpp"
 #include <stdexcept>
- 
+
 void sequence::doCount(long long num)
 {
   if (num == number_min)
@@ -12,13 +12,13 @@ void sequence::doCount(long long num)
     sequence::changeNum(num);
   }
 }
- 
+
 void sequence::changeNum(long long num)
 {
   number_min = num;
   number_count = 1;
 }
- 
+
 void sequence::changeNum()
 {
   if (number_count == max_length)
@@ -27,7 +27,7 @@ void sequence::changeNum()
   }
   number_count += 1;
 }
- 
+
 int sequence::getRez()
 {
   return number_count;

@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <cstddef>
 #include "sequence.hpp"
- 
+
 int main()
 {
   sequence seq;
