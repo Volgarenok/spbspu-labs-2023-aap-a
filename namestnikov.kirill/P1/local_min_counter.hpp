@@ -7,8 +7,8 @@ namespace namestnikov
   struct LocalMinCounter
   {
     LocalMinCounter();
-    void count(int lastnumber, int currentnumber, int futurenumber);
-    size_t get_result() const;
+    void operator()(int lastnumber, int currentnumber, int futurenumber);
+    size_t operator()() const;
   private:
     size_t count_;
   };

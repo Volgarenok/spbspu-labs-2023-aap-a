@@ -46,7 +46,7 @@ int main()
   {
     try
     {
-      counter.count(lastnumber, currentnumber, futurenumber);
+      counter(lastnumber, currentnumber, futurenumber);
     }
     catch (const std::exception & e)
     {
@@ -62,5 +62,5 @@ int main()
       return 1;
     }
   }
-  std::cout << counter.get_result() << "\n";
+  std::cout << counter() << "\n";
 }
