@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 
 int main()
 {
@@ -12,16 +12,14 @@ int main()
       return 0;
     }
   }
-  
   int counter = 0;
   while (!std::cin.eof() && (arrayElements[2] != 0))
   {
     counter += (arrayElements[0] > arrayElements[1]) && (arrayElements[1] > arrayElements[2]);
     arrayElements[0] = arrayElements[1];
-    arrayElements[1] = arrayElements[2];  	
+    arrayElements[1] = arrayElements[2];
     std::cin >> arrayElements[2];
   }
-  
   if (arrayElements[2] == 0)
   {
     std::cout << counter << '\n';
