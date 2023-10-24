@@ -7,4 +7,10 @@ int main() {
     std::cerr << "Is not a sequence\n";
     return 1;
   }
+  while (num != 0) {
+    if (!std::cin) {
+      std::cerr << "Is not a sequence\n";
+      return 1;
+    }
+  }
 }
