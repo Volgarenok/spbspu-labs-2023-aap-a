@@ -7,6 +7,7 @@ int main()
   using namespace novokhatskiy;
   SequenceCounter counter;
   int num = 0;
+  size_t max = 0;
   std::cin >> num;
   if (!std::cin)
   {
@@ -25,7 +26,7 @@ int main()
     {
       try
       {
-        counter(num,max);
+        counter(num);
       }
       catch (const std::exception& e)
       {
