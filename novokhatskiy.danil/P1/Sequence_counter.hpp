@@ -7,10 +7,12 @@ namespace novokhatskiy
   struct SequenceCounter
   {
     SequenceCounter();
-    void operator()(int);
+    void operator()(int,size_t);
     size_t operator()() const;
   private:
     size_t count_;
+    size_t max;
+    int num;
   };
 }
 #endif
