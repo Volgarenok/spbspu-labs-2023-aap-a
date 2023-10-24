@@ -2,11 +2,11 @@
 #include <limits>
 #include <stdexcept>
 
-LocalMinCounter::LocalMinCounter():
+namestnikov::LocalMinCounter::LocalMinCounter():
   count_(0)
 {}
 
-void LocalMinCounter::count(int lastnumber, int currentnumber, int futurenumber)
+void namestnikov::LocalMinCounter::count(int lastnumber, int currentnumber, int futurenumber)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (count_ == max_size)
@@ -18,7 +18,7 @@ void LocalMinCounter::count(int lastnumber, int currentnumber, int futurenumber)
     ++count_;
   }
 }
-size_t LocalMinCounter::get_result() const
+size_t namestnikov::LocalMinCounter::get_result() const
 {
   return count_;
 }

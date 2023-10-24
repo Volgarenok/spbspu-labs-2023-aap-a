@@ -5,6 +5,7 @@
 int main()
 {
   int lastnumber = 0;
+  using namespace namestnikov;
   LocalMinCounter counter;
   std::cin >> lastnumber;
   if (!std::cin)
