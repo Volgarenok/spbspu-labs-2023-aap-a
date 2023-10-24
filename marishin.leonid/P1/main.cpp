@@ -35,7 +35,9 @@ namespace marishin
 
 int main()
 {
+  marishin::Sequence seq;
   long long int num;
+  Sequence seq;
   std::cin >> num;
   if (!std::cin)
   {
@@ -63,4 +65,10 @@ int main()
     }
     std::cin >> num;
   }
+  if (seq.global_count <= 2)
+  {
+    std::cerr << "Error: The sequence is too short\n";
+    return 2;
+  }
+  std::cout << seq() << "\n";
 }
