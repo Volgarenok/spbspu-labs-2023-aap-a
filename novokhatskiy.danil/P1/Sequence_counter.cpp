@@ -7,7 +7,7 @@ novokhatskiy::SequenceCounter::SequenceCounter():
   num(0),
   max(0)
 {}
-void novokhatskiy::SequenceCounter::operator()(int num, size_t max)
+void novokhatskiy::SequenceCounter::operator()(size_t,int)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (count_ == max_size)
