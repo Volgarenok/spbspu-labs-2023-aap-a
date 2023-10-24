@@ -1,10 +1,9 @@
-#include <exception>
 #include <iostream>
-#include <limits>
-#include <stdexcept>
+#include "sequenceofnums.hpp"
 
 
 // класс последовательности
+/*
 struct SequensOfNums
 {
   SequensOfNums():
@@ -34,6 +33,7 @@ public:
     return count;
   }
 };
+*/
 
 
 int main()
@@ -41,7 +41,8 @@ int main()
   int currentNum = 0;
   size_t length = 1;
   int pastNum = 0;
-  SequensOfNums counttt;
+  using namespace arakelyan;
+  SequenceOfNums counttt;
 
   try {
     std::cin >> currentNum;
@@ -49,7 +50,7 @@ int main()
       std::cerr << "Enter num\n";
       return 1;
     }
-    counttt.lenghtCheck(length,currentNum);
+    counttt.lengthCheck(length,currentNum);
     while(currentNum != 0) {
       pastNum = currentNum;
       std::cin >> currentNum;
@@ -58,7 +59,7 @@ int main()
         return 1;
       }
       ++length;
-      counttt.lenghtCheck(length,currentNum);
+      counttt.lengthCheck(length,currentNum);
       if (currentNum != 0) {
         counttt.countOfque(currentNum,pastNum);
       }
