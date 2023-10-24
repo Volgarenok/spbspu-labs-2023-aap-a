@@ -38,6 +38,18 @@ int main()
       std::cerr << "Is not a sequence\n";
       return 1;
     }
+    else if (num != 0)
+    {
+      try
+      {
+        seq(num);
+      }
+      catch (const std::exception& e)
+      {
+        std::cerr << "ERROR: " << e.what() << "\n";
+        return 2;
+      }
+    }
     std::cin >> num;
   }
 }
