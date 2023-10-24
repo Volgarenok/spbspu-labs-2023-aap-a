@@ -3,11 +3,10 @@
 #include <limits>
 #include <stdexcept>
 
-
 zaitsev::Subseq_len_counter::Subseq_len_counter() : beg_element_(0), curr_len_(0), max_len_(0)
 {}
 
-unsigned long long zaitsev::Subseq_len_counter::get_max_len()
+unsigned long long zaitsev::Subseq_len_counter::get_max_len() const
 {
   return std::max(max_len_,curr_len_);
 }

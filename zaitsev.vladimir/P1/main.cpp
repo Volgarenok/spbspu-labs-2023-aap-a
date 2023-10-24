@@ -21,7 +21,7 @@ int main()
 
   if (!std::cin)
   {
-    std::cerr << "The input data is not a sequence\n";
+    std::cerr << "Error: The input data is not a sequence\n";
     return 1;
   }
 

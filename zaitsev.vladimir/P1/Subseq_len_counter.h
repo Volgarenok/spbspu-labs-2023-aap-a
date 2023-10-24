@@ -9,7 +9,7 @@ namespace zaitsev
     Subseq_len_counter();
     void operator()(long long);
     void reset(long long);
-    unsigned long long get_max_len();
+    unsigned long long get_max_len() const;
   private:
     long long beg_element_;
     unsigned long long curr_len_;
