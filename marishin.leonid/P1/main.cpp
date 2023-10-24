@@ -6,7 +6,18 @@ namespace marishin
 {
   class Sequence
   {
+    long long int prev1;
+    long long int prev2;
   public:
+    unsigned int count;
+    unsigned int global_count;
+    Sequence()
+    {
+      prev1 = 0;
+      prev2 = 0;
+      count = 0;
+      global_count = 1;
+    }
     void operator()(int num)
     {
       size_t max_size = std::numeric_limits< size_t >::max();
