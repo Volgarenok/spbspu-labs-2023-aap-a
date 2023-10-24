@@ -10,17 +10,20 @@ int main()
   using namespace nikitov;
   SequenceCounter counter;
 
-  do{
+  do
+  {
     std::cin >> number;
-    if (!std::cin){
+    if (!std::cin)
+    {
       std::cerr << "Error: This is not a sequence\n";
       return 1;
     }
-    else if (number != 0){
+    else if (number != 0)
+    {
       try
       {
         counter(number);
-      } 
+      }
       catch (const std::exception & e)
       {
         std::cerr << "Error: " << e.what() << '\n';
@@ -31,7 +34,8 @@ int main()
   }
   while (number != 0);
 
-  if (counter() == 0 || counter() == 1){
+  if (counter() == 0 || counter() == 1)
+  {
     std::cerr << "Error: This sequence is too short\n";
     return 2;
   }

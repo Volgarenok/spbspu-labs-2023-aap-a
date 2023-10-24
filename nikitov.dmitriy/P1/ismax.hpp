@@ -1,9 +1,12 @@
 void isMax(int now, int& actual, int& pre)
 {
-  if (now >= actual){
+  if (now >= actual)
+  {
     pre = actual;
     actual = now;
-  } else if (now > pre){
+  }
+  else if (now > pre)
+  {
     pre = now;
   }
 }

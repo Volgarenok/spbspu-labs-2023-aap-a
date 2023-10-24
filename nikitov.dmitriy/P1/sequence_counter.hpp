@@ -2,8 +2,7 @@
 #define SEQUENCE_COUNTER_HPP
 
 #include <cstddef>
-namespace nikitov
-{
+namespace nikitov {
   struct SequenceCounter
   {
     SequenceCounter();

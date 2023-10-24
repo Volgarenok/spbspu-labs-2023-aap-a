@@ -9,7 +9,8 @@ nikitov::SequenceCounter::SequenceCounter():
 void nikitov::SequenceCounter::operator()(int)
 {
   size_t max_limit = std::numeric_limits< size_t >::max();
-  if (count_ == max_limit){
+  if (count_ == max_limit)
+  {
     throw std::logic_error("This sequence has no end\n");
   }
   ++count_;
