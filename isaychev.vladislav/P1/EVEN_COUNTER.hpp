@@ -1,3 +1,6 @@
+#ifndef EVEN_COUNTER
+#define EVEN_COUNTER
+
 namespace isaychev
 {
   class Even_counter
@@ -11,3 +14,5 @@ namespace isaychev
     unsigned long long int operator()() const;
   };
 }
+
+#endif 
