@@ -8,7 +8,7 @@ struct MonDec{
     maxc(0),
     prev(std::numeric_limits< long long int >::max())
   {}
-  void count(long long int num) {
+  void operator()(long long int num) {
     size_t max_size = std::numeric_limits< size_t >::max();
     if (count_ == max_size) {
       throw std::logic_error("error\n");
@@ -29,7 +29,7 @@ struct MonDec{
     }
     prev = num;
   }
-  size_t get_result_() const {
+  size_t operator()() const {
     return maxc;
   }
 private:
@@ -48,12 +48,12 @@ int main() {
       return 1;
     }
     try {
-      counter.count(num);
+      counter(num);
     }
     catch (const std::exception& e) {
       std::cerr << "error\n";
       return 2;
     }
   }
-  std::cout << counter.get_result_() << "\n";
+  std::cout << counter() << "\n";
 }
