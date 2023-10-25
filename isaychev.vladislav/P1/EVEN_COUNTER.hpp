@@ -1,13 +1,13 @@
 namespace isaychev
 {
-  struct even_counter
+  class Even_counter
   {
-    even_counter();
-    void evn_cnt(int);
-    unsigned long long int get_res() const;
-
-  private:
     unsigned long long int count;
     unsigned long long int max_count;
+
+  public:
+    Even_counter();
+    void operator()(int c_num);
+    unsigned long long int operator()() const;
   };
 }

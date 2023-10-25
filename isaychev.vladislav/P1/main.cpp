@@ -5,7 +5,7 @@
 
 int main()
 {
-  isaychev::even_counter counter1;
+  isaychev::Even_counter counter1;
   int c_number = 0;
   std::cin >> c_number;
   if (!std::cin)
@@ -17,7 +17,7 @@ int main()
   {
     try
     {
-      counter1.evn_cnt(c_number);
+      counter1(c_number);
     }
     catch (const std::exception & e)
     {
@@ -31,7 +31,7 @@ int main()
       return 1;
     }
   }
-  std::cout << counter1.get_res() << "\n";
+  std::cout << counter1() << "\n";
 }
 
 
