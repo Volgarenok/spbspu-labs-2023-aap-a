@@ -33,5 +33,3 @@ int main()
   }
   std::cout << counter1() << "\n";
 }
-
-
