@@ -1,6 +1,6 @@
+#include "EVEN_COUNTER.hpp"
 #include <limits>
 #include <stdexcept>
-#include "EVEN_COUNTER.hpp"
 
 isaychev::Even_counter::Even_counter():
   count(0),
@@ -16,19 +16,19 @@ void isaychev::Even_counter::operator()(int c_num)
   }
   else if (c_num % 2 == 0)
   {
-    ++count;
-    if (count > max_count)
+    ++count_;
+    if (count_ > max_count_)
     {
-      max_count = count;
+      max_count_ = count_;
     }
   }
   else if (c_num % 2 != 0)
   {
-    count = 0;
+    count_ = 0;
   }
 }
 
 unsigned long long int isaychev::Even_counter::operator()() const
 {
-  return max_count;
+  return max_count_;
 }

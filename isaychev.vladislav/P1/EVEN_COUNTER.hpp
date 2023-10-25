@@ -2,8 +2,8 @@ namespace isaychev
 {
   class Even_counter
   {
-    unsigned long long int count;
-    unsigned long long int max_count;
+    unsigned long long int count_;
+    unsigned long long int max_count_;
 
   public:
     Even_counter();
