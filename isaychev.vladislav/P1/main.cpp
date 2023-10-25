@@ -1,22 +1,11 @@
 #include <iostream>
 #include <limits>
-
-namespace isaychev
-{
-  struct even_counter
-  {
-    even_counter();
-    void evn_cnt(int);
-    unsigned long long int get_res();
-
-    private:
-    unsigned long long int count;
-    unsigned long long int max_count;
-  };
-}
+#include <stdexcept>
+#include "EVEN_COUNTER.hpp"
 
 int main()
 {
+  isaychev::even_counter counter1;
   int c_number = 0;
   std::cin >> c_number;
   if (!std::cin)
@@ -26,23 +15,14 @@ int main()
   }
   while (c_number != 0)
   {
-    unsigned long long int u_border = std::numeric_limits <unsigned long long int>::max();
-    if (count == u_border)
+    try
     {
-      std::cerr << "sequence is too long\n";
+      counter1.evn_cnt(c_number);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << e.what() << "\n";
       return 2;
-    }
-    else if (c_number % 2 == 0)
-    {
-      ++count;
-      if (count > max_count)
-      {
-        max_count = count;
-      }
-    }
-    else if (c_number % 2 != 0)
-    {
-      count = 0;
     }
     std::cin >> c_number;
     if (!std::cin)
@@ -51,7 +31,7 @@ int main()
       return 1;
     }
   }
-  std::cout << max_count << "\n";
+  std::cout << counter1.get_res() << "\n";
 }
 
 
