@@ -3,9 +3,10 @@
 #include <stdexcept>
 
 novokhatskiy::SequenceCounter::SequenceCounter():
-  count_(0)
+  count_(0),
+  max(0)
 {}
-void novokhatskiy::SequenceCounter::operator()(int num,size_t max)
+void novokhatskiy::SequenceCounter::operator()(int num)
 {
  
   size_t max_size = std::numeric_limits< size_t >::max();
