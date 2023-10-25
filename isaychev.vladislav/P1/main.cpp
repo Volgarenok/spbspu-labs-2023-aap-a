@@ -5,14 +5,9 @@ namespace isaychev
 {
   struct even_counter
   {
-    even_counter():
-     count(0)
-     max_count(0)
-    {}
-    void evn_cnt()
-    {}
-    unsigned long long int get_res()
-    {}
+    even_counter();
+    void evn_cnt(int);
+    unsigned long long int get_res();
 
     private:
     unsigned long long int count;
