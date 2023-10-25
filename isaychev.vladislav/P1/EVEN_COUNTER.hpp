@@ -15,4 +15,4 @@ namespace isaychev
   };
 }
 
-#endif 
+#endif
