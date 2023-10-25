@@ -1,6 +1,25 @@
 #include <iostream>
 #include <limits>
 
+namespace isaychev
+{
+  struct even_counter
+  {
+    even_counter():
+     count(0)
+     max_count(0)
+    {}
+    void evn_cnt()
+    {}
+    unsigned long long int get_res()
+    {}
+
+    private:
+    unsigned long long int count;
+    unsigned long long int max_count;
+  };
+}
+
 int main()
 {
   int c_number = 0;
@@ -10,7 +29,6 @@ int main()
     std::cerr << "not a number was inputed\n";
     return 1;
   }
-  unsigned long long int count = 0, max_count = 0;
   while (c_number != 0)
   {
     unsigned long long int u_border = std::numeric_limits <unsigned long long int>::max();
