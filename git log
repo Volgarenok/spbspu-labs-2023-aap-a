@@ -1,0 +1,1029 @@
+[33mcommit 893c9dfce82ab4eccf6dfe4c93223241afbf293a[m[33m ([m[1;36mHEAD -> [m[1;32mserter.tugce/P0[m[33m)[m
+Author: mafeeoet <serter.t@spbstu.ru>
+Date:   Thu Oct 26 13:59:49 2023 +0300
+
+    P0 first try
+
+[33mcommit 7057aeb5fd2a027354899a7da7520896df2fa2b4[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: SergeyDobsov <kasilov_va@spbstu.ru>
+Date:   Fri Oct 20 15:02:01 2023 +0300
+
+    stats update
+
+[33mcommit 7aad661001cab0c0e93abd1ff64dce1bdc6154cd[m
+Merge: 7b00ec5 6db4194
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Fri Oct 20 14:51:25 2023 +0300
+
+    Merge pull request #38 from seedlair/poleleyko.ivan/P0
+    
+    poleleyko.ivan/P0
+
+[33mcommit 6db419437d51675307519f3063a68c676b899daf[m
+Merge: a227ca8 7b00ec5
+Author: seedlair <poleleyko.ivan@gmail.com>
+Date:   Fri Oct 20 14:27:20 2023 +0300
+
+    Merge remote-tracking branch 'upstream/master' into poleleyko.ivan/P0
+
+[33mcommit 7b00ec5c53014688697790caefd0270e1cccd2ae[m
+Merge: 29a8eb7 b4e7e13
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Fri Oct 20 02:28:44 2023 +0300
+
+    Merge pull request #39 from puzz13/kovtun.alexander/P0
+    
+    kovtun.alexander/P0
+
+[33mcommit 29a8eb7a0bfbb968e1ea63d4981e0862a9d24f00[m
+Merge: d125939 c528424
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Fri Oct 20 02:24:53 2023 +0300
+
+    Merge pull request #40 from Skuratov09/skuratov.danil/P0
+    
+    skuratov.danil/P0
+
+[33mcommit b4e7e13f5d08eff8bc8891f9d326da1d491eaf5c[m
+Merge: 62ef0a5 d125939
+Author: puzz13 <puzz13one@gmail.com>
+Date:   Fri Oct 20 02:10:06 2023 +0300
+
+    Merge branch 'master' into kovtun.alexander/P0
+
+[33mcommit c528424333aea508cafded5257d18402632484a5[m
+Merge: 018ab53 d125939
+Author: Skuratov09 <Skyratovdaniil28@gmail.com>
+Date:   Fri Oct 20 01:56:49 2023 +0300
+
+    Merge branch 'master' into skuratov.danil/P0
+
+[33mcommit d1259390ee7176495cf06f5b4a9059df44e15c6d[m
+Merge: 5fbdc97 af9e921
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Fri Oct 20 01:39:27 2023 +0300
+
+    Merge pull request #37 from jiggerman/chistyakov.vladislav/P0
+    
+    chistyakov.vladislav/P0
+
+[33mcommit 5fbdc97f9c716402ef7b163be589f1df62d41c7c[m
+Merge: 22dd9d6 e3ca879
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Fri Oct 20 01:36:07 2023 +0300
+
+    Merge pull request #13 from CA21lmFlame/chernov.artem/P0
+    
+    chernov.artem/P0
+
+[33mcommit 62ef0a50ca0e80f9747d916b9cab81bae54ad0af[m
+Author: puzz13 <puzz13one@gmail.com>
+Date:   Fri Oct 20 00:58:03 2023 +0300
+
+    CG fix
+
+[33mcommit e3ca87992dddf30d214aee44db8494fa41807aea[m
+Merge: e859b76 22dd9d6
+Author: CA21lmFlame <chernov.ar@spbstu.ru>
+Date:   Fri Oct 20 00:57:15 2023 +0300
+
+    Merge branch 'master' into chernov.artem/P0
+
+[33mcommit 018ab533ebd457d96252d2aafce0cf97d9fbb702[m
+Author: Skuratov09 <Skyratovdaniil28@gmail.com>
+Date:   Fri Oct 20 00:19:30 2023 +0300
+
+    P0 first try
+
+[33mcommit af9e9212a6cafefdd1893ee06d16e8e4222a7c1c[m
+Merge: 2e1fc5f 22dd9d6
+Author: jiggerman <128889342+jiggerman@users.noreply.github.com>
+Date:   Fri Oct 20 00:15:51 2023 +0300
+
+    Merge branch 'Volgarenok:master' into chistyakov.vladislav/P0
+
+[33mcommit a227ca85931c8727d4ed7919348f16993d46fe43[m
+Author: seedlair <poleleyko.ivan@gmail.com>
+Date:   Thu Oct 19 23:30:46 2023 +0300
+
+    P0 first try
+
+[33mcommit 4b65fdef9ec83a26b1c43d3a2290fa7d460b12c8[m
+Author: puzz13 <puzz13one@gmail.com>
+Date:   Thu Oct 19 23:25:06 2023 +0300
+
+    P0 dai bog
+
+[33mcommit 22dd9d68c9fd14f90864d2e1985738fc2f4e3b02[m
+Merge: 5e30787 6d4adef
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Thu Oct 19 23:13:56 2023 +0300
+
+    Merge pull request #34 from polykisa/skopchenko.alexander/P0
+    
+    skopchenko.alexander/P0
+
+[33mcommit 2e1fc5fb78b6ad3407a9bc1937b171a9b512def7[m
+Author: jiggerman <liggerman@mail.ru>
+Date:   Thu Oct 19 22:56:12 2023 +0300
+
+    P0 first try
+
+[33mcommit 6d4adef8e7f56ad679d7385e875ebe85cedacd86[m
+Merge: 9a6898f 5e30787
+Author: polykisa <147135732+polykisa@users.noreply.github.com>
+Date:   Thu Oct 19 22:35:33 2023 +0300
+
+    Merge branch 'Volgarenok:master' into skopchenko.alexander/P0
+
+[33mcommit 5e307870c6b1e7f0ca93900efa8d1d8712ec4472[m
+Author: SergeyDobsov <kasilov_va@spbstu.ru>
+Date:   Thu Oct 19 22:04:23 2023 +0300
+
+    stats update
+
+[33mcommit 9a6898fab7c08d0184fd15f22211c394e2920646[m
+Author: polykisa <s.sanek2005@gmail.com>
+Date:   Thu Oct 19 21:12:47 2023 +0300
+
+    P0 ft
+
+[33mcommit 38ddd3e21115d9c9fae4075701352f974882e4f8[m
+Merge: c36f0f9 6bed87f
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Thu Oct 19 20:08:22 2023 +0300
+
+    Merge pull request #33 from sonia66666/belokurskaya.sofia/P0
+    
+    belokurskaya.sofia/P0
+
+[33mcommit c36f0f9e30f64191b58bc5d60797e101e0be893c[m
+Author: SergeyDobsov <kasilov_va@spbstu.ru>
+Date:   Thu Oct 19 19:55:39 2023 +0300
+
+    stats update
+
+[33mcommit 6bed87f1471e4644111ab75eb8ecfd349ec6db02[m
+Merge: f703272 c1371ff
+Author: sofabelokurskaya@yandex.ru <sofabelokurskaya@yandex.ru>
+Date:   Thu Oct 19 19:37:09 2023 +0300
+
+    Merge branch 'master' into belokurskaya.sofia/P0
+
+[33mcommit f70327243a9a5b427e813c4402236b0797cb9c84[m
+Author: sofabelokurskaya@yandex.ru <sofabelokurskaya@yandex.ru>
+Date:   Thu Oct 19 12:23:52 2023 +0300
+
+    P0 first try
+
+[33mcommit c1371ff30d80fda2127b2d92eae53ee1936ee783[m
+Merge: 799269d f9b6cca
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Thu Oct 19 11:43:45 2023 +0300
+
+    Merge pull request #29 from dmitei/shabalin.dmitrij/P0
+    
+    shabalin.dmitrij/P0
+
+[33mcommit 799269d11a4913868930f6c48b2a39e3940f15db[m
+Merge: 271cfaf a36ec30
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Thu Oct 19 11:43:34 2023 +0300
+
+    Merge pull request #32 from MayaSakovskaya/sakovskaia.maiia/P0
+    
+    sakovskaia.maiia/P0
+
+[33mcommit f9b6cca7882c253d0834765fb7b61ecfafc26cfc[m
+Merge: b42df98 271cfaf
+Author: dmitei <147191652+dmitei@users.noreply.github.com>
+Date:   Thu Oct 19 11:17:10 2023 +0300
+
+    Merge branch 'Volgarenok:master' into shabalin.dmitrij/P0
+
+[33mcommit a36ec3032f57a7309014844aae3b8f3479a07738[m
+Merge: 3c708f2 271cfaf
+Author: MayaSakovskaya <147191353+MayaSakovskaya@users.noreply.github.com>
+Date:   Thu Oct 19 11:16:48 2023 +0300
+
+    Merge branch 'Volgarenok:master' into sakovskaia.maiia/P0
+
+[33mcommit 271cfaff1aa73e6042dcc6c5cd6165a03fc19aef[m
+Merge: 0ea7597 f16e2f5
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Thu Oct 19 02:17:56 2023 +0300
+
+    Merge pull request #31 from mordw1n/spiridonov.mikhail/P0
+    
+    spiridonov.mikhail/P0
+
+[33mcommit f16e2f5525131bd23d1e1dd71d196f546bcd7450[m
+Merge: 0417cea 0ea7597
+Author: mordw1n <124354351+mordw1n@users.noreply.github.com>
+Date:   Thu Oct 19 00:39:49 2023 +0300
+
+    Merge branch 'Volgarenok:master' into spiridonov.mikhail/P0
+
+[33mcommit 0ea7597408915be87939aaabfb392c4a292cd475[m
+Merge: 057a752 ba6af7c
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 23:52:36 2023 +0300
+
+    Merge pull request #30 from SofiyLop/lopatina.sofia/P0
+    
+    lopatina.sofia/P0
+
+[33mcommit ba6af7c4f56fce86cdadfef71246df5340a0cea2[m
+Merge: c2dba6d 057a752
+Author: SofiyLop <lopatina.sa@edu.spbstu.ru>
+Date:   Wed Oct 18 23:36:41 2023 +0300
+
+    Merge branch 'master' into lopatina.sofia/P0
+
+[33mcommit c2dba6d5a894d5aa24a83ade9ffcbc22e3207498[m
+Merge: 9c5f8c8 f739205
+Author: SofiyLop <lopatina.sa@edu.spbstu.ru>
+Date:   Wed Oct 18 23:28:24 2023 +0300
+
+    Merge branch 'master' into lopatina.sofia/P0
+
+[33mcommit 057a75292542c0d4ddba606fe4340717cc48d3a6[m
+Merge: f739205 368a747
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 23:24:12 2023 +0300
+
+    Merge pull request #24 from eshikta/shibaleva.ekaterina/P0
+    
+    shibaleva.ekaterina/P0
+
+[33mcommit 368a7478ef8c3f7686ee878512e7b605ac56ac41[m
+Merge: 108183a f739205
+Author: eshikta <katya.shibaleva@gmail.com>
+Date:   Wed Oct 18 23:02:49 2023 +0300
+
+    Merge branch 'master' into shibaleva.ekaterina/P0
+
+[33mcommit f7392052cf14fe929c70ec0523f8e96be4c3255f[m
+Merge: 2ee49a3 fe6e523
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 22:57:56 2023 +0300
+
+    Merge pull request #5 from User1235321/rebdev.pavel/P0
+    
+    rebdev.pavel/P0
+
+[33mcommit fe6e523374b4bc2056d9da78552f22355b92fa0c[m
+Merge: 04eaf9b 2ee49a3
+Author: User1235321 <pavreb1235321@gmail.com>
+Date:   Wed Oct 18 22:41:09 2023 +0300
+
+    synchronization with the main repository
+
+[33mcommit 3c708f23d3d6b20677fa11f1a611e5f8d3f6512d[m
+Author: MayaSakovskaya <zloyejik05@gmail.com>
+Date:   Wed Oct 18 22:16:51 2023 +0300
+
+    P0 first try
+
+[33mcommit b42df98717848f320e8ec88cff5b16cf0769cc82[m
+Author: dmitei <dima9990860349@icloud.com>
+Date:   Wed Oct 18 22:16:16 2023 +0300
+
+    fix 3
+
+[33mcommit 2ee49a33a460560fec8ea80f4cdebc3f7e72f3b6[m
+Merge: 4cc7c5b f1c321f
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 22:09:49 2023 +0300
+
+    Merge pull request #28 from Z0ltaan/isaychev.vladislav/P0
+    
+    isaychev.vladislav/P0
+
+[33mcommit f1c321f0cef9c959ffed51b8f99e7ea6db2f1bb4[m
+Merge: a366821 4cc7c5b
+Author: Z0ltaan <gregnov69@gmail.com>
+Date:   Wed Oct 18 22:00:45 2023 +0300
+
+    Merge branch 'master' into isaychev.vladislav/P0
+
+[33mcommit acdcac68d7b58faef4080b5aa3aa56fc1ce1c48a[m
+Author: dmitei <dima9990860349@icloud.com>
+Date:   Wed Oct 18 21:44:42 2023 +0300
+
+    fix2
+
+[33mcommit 021eeabc8ab768af7a4cbe33c93be6e80068989a[m
+Author: dmitei <dima9990860349@icloud.com>
+Date:   Wed Oct 18 21:36:35 2023 +0300
+
+    fix
+
+[33mcommit 9c5f8c807958af7607190424671fd65161f64c68[m
+Author: SofiyLop <lopatina.sa@edu.spbstu.ru>
+Date:   Wed Oct 18 21:34:04 2023 +0300
+
+    P0 first try
+
+[33mcommit 4cc7c5ba77c8ad72ad511d4a2cb6c77ac4635f2f[m
+Author: SergeyDobsov <kasilov_va@spbstu.ru>
+Date:   Wed Oct 18 21:14:01 2023 +0300
+
+    stats update
+
+[33mcommit d47c70466e4eed1f80b735c816b57e48bcd471b6[m
+Merge: 2c13f4f 514cd67
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 21:04:43 2023 +0300
+
+    Merge pull request #25 from Kastelia/zakozhurnikova.kristina/P0
+    
+    zakozhurnikova.kristina/P0
+
+[33mcommit 45f1cbf575490fd9f317c15c3982316343d9b981[m
+Author: dmitei <dima9990860349@icloud.com>
+Date:   Wed Oct 18 21:03:21 2023 +0300
+
+    first attempt
+
+[33mcommit 2c13f4f3813fafe25fa3a1c91b576c745d49ae88[m
+Merge: 933be67 fa3643e
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 20:22:15 2023 +0300
+
+    Merge pull request #20 from DirnASSVTRusAX/nikitov.dmitriy/P0
+    
+    nikitov.dmitriy/P0
+
+[33mcommit a3668219779f3bb64101037f48bc98f86e3a98fe[m
+Author: Z0ltaan <gregnov69@gmail.com>
+Date:   Wed Oct 18 20:11:27 2023 +0300
+
+    fixed end of line
+
+[33mcommit 514cd670b81b4ff202c048ed71be2bf103bee931[m
+Merge: 005511f 933be67
+Author: Kastelia <kristinazak150@gmail.com>
+Date:   Wed Oct 18 20:08:49 2023 +0300
+
+    Merge branch 'master' into zakozhurnikova.kristina/P0
+
+[33mcommit fa3643ede1c501bcde6cb0bd762ded2442e13d28[m
+Merge: 1db11a3 b9e3be7
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Wed Oct 18 17:45:07 2023 +0300
+
+    Merge branch 'master' into nikitov.dmitriy/P0
+
+[33mcommit b9e3be7e811d6c0c2a1f1583cb364ab5f8b8e0ad[m
+Merge: b8e200b 933be67
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Wed Oct 18 17:44:40 2023 +0300
+
+    Merge remote-tracking branch 'upstream/master'
+
+[33mcommit 0417ceae2e4234826e034c7ca9c379ebe936446d[m
+Author: mordw1n <lolpovar0@gmail.com>
+Date:   Wed Oct 18 17:24:57 2023 +0300
+
+    P0 first try
+
+[33mcommit f222f321869137ea84ab69eee37ee7b5bf234edf[m
+Author: mordw1n <lolpovar0@gmail.com>
+Date:   Wed Oct 18 17:16:34 2023 +0300
+
+    P0 first try
+
+[33mcommit 1db11a3e5ed247ce63db66184c1df9d132ab0246[m
+Merge: b8e200b f497992
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Wed Oct 18 17:13:37 2023 +0300
+
+    Merge branch 'master' into nikitov.dmitriy/P0
+
+[33mcommit f49799269107810dede11bbf9c5416b3c5771dc9[m
+Merge: 878a7cf 933be67
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Wed Oct 18 17:13:05 2023 +0300
+
+    Merge remote-tracking branch 'upstream/master'
+
+[33mcommit b8e200b84219c677330ea2b710f644b4d9da506d[m
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Wed Oct 18 17:08:08 2023 +0300
+
+    Add spaces to fix CG
+
+[33mcommit 8d668eb2b70e7030cdbe894439d80a5118675bdd[m
+Author: mordw1n <lolpovar0@gmail.com>
+Date:   Wed Oct 18 16:59:23 2023 +0300
+
+    P0 first try
+
+[33mcommit 933be67f3e23d46e6d3b0d5f900214f21d6477d4[m
+Merge: 2e45ee7 c77e12d
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 13:17:01 2023 +0300
+
+    Merge pull request #18 from YoungSusanoo/zhalilov.rail/P0
+    
+    zhalilov.rail/P0
+
+[33mcommit 2e45ee74b780bb701241ebaece5613e61cd9b652[m
+Merge: f4a6eb5 fc57171
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 13:15:51 2023 +0300
+
+    Merge pull request #19 from WarriorVortex/erohin.vladimir/P0
+    
+    erohin.vladimir/P0
+
+[33mcommit f4a6eb50c7de3fd1aeb205471fe7c00c7b68a4d3[m
+Merge: 0cf0c7c c00a1e2
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 13:14:59 2023 +0300
+
+    Merge pull request #17 from exxiiint/sivkov.filipp/P0
+    
+    sivkov.filipp/P0
+
+[33mcommit 0cf0c7c077178bfdd4fb62bed5db0e51893d66bb[m
+Merge: c382d98 10fd496
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 13:13:52 2023 +0300
+
+    Merge pull request #23 from pashko2303/baranov.pavel/P0
+    
+    baranov.pavel/P0
+
+[33mcommit c382d98d994492aed00548bcd8fa1c651ff8f15b[m
+Merge: 1fbce1a 54b230f
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Wed Oct 18 13:08:55 2023 +0300
+
+    Merge pull request #15 from fromOsaka/arakelyan.daniil/P0
+    
+    Arakelyan.daniil/p0
+
+[33mcommit 10fd496e0b149cfc89fe70711df2aa711662fd04[m
+Merge: 7f125dc 1fbce1a
+Author: pashko2303 <baranov-p.b@yandex.ru>
+Date:   Tue Oct 17 20:38:15 2023 +0300
+
+    Merge branch 'master' into baranov.pavel/P0
+
+[33mcommit 58ec9e211a50480eb82533a49f14a4c7617365fc[m
+Author: Z0ltaan <gregnov69@gmail.com>
+Date:   Tue Oct 17 20:17:43 2023 +0300
+
+    P0 first try 0_0
+
+[33mcommit 878a7cf3609d704a3b6a47f238b2d3369d304229[m
+Merge: 48c5761 b04acd2
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Tue Oct 17 19:37:35 2023 +0300
+
+    Merge branch 'master' of github.com:DirnASSVTRusAX/spbspu-labs-2023-aap-a
+
+[33mcommit 48c5761e0f332804efeac2793cf9d6d77c1282c7[m
+Merge: db0e27c 1fbce1a
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Tue Oct 17 19:36:34 2023 +0300
+
+    Merge remote-tracking branch 'upstream/master'
+
+[33mcommit c00a1e20c7d458868828fee8d221731b31ee85d5[m
+Merge: 6ac5a18 1fbce1a
+Author: exxiiint <filipp.sivkov@yandex.ru>
+Date:   Tue Oct 17 18:55:38 2023 +0300
+
+    Merge branch 'master' into sivkov.filipp/P0
+
+[33mcommit b04acd23466d7b0b13ddb819fef4c3eda1b8deaa[m
+Merge: db0e27c 1fbce1a
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Tue Oct 17 11:59:34 2023 +0300
+
+    Merge branch 'master' of github.com:Volgarenok/spbspu-labs-2023-aap-a
+
+[33mcommit c77e12ded63a58671c944280d697ca70baa63725[m
+Merge: 798b74f 1fbce1a
+Author: Rail (Susanoo) <zhalilov.rsh@edu.spbstu.ru>
+Date:   Tue Oct 17 10:07:56 2023 +0300
+
+    Merge branch 'master' into zhalilov.rail/P0
+
+[33mcommit fc571711fd7bda7bf455daed0bafce0d78801dd2[m
+Merge: 170e6a6 1fbce1a
+Author: WarriorVortex <erohinvova01010111@gmail.com>
+Date:   Tue Oct 17 04:21:51 2023 +0300
+
+    Merge branch 'master' into erohin.vladimir/P0
+
+[33mcommit 54b230f580a5ef0cf63e3cd986a25d5305f05718[m
+Merge: b112dee 19066e0
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Tue Oct 17 02:05:25 2023 +0300
+
+    Merge branch 'master' into arakelyan.daniil/P0
+
+[33mcommit 19066e0e118c981df16753d9af567588ed69679f[m
+Merge: 3865881 a188fec
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Tue Oct 17 01:58:59 2023 +0300
+
+    Merge branch 'master' of github.com:fromOsaka/spbspu-labs-2023-aap-a
+
+[33mcommit 3865881f9f967c2dc6b982a0ba10d174dfe3a814[m
+Merge: efd41b5 1fbce1a
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Tue Oct 17 01:33:14 2023 +0300
+
+    Merge remote-tracking branch 'upstream/master'
+
+[33mcommit 005511f5a0c34b91b2d820d318f24e9b501d6c4d[m
+Author: Kastelia <kristinazak150@gmail.com>
+Date:   Tue Oct 17 01:26:00 2023 +0300
+
+    Fix probels
+
+[33mcommit a188fec945206c68e0f1af52a85fc9f56f142726[m
+Merge: 17e85b9 1fbce1a
+Author: osaka <115036987+fromOsaka@users.noreply.github.com>
+Date:   Tue Oct 17 01:22:24 2023 +0300
+
+    Merge branch 'Volgarenok:master' into master
+
+[33mcommit efd41b5e39d2898fc0a604ca58eb4524a98933c6[m
+Merge: 50d5757 17e85b9
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Tue Oct 17 01:21:10 2023 +0300
+
+    Merge branch 'master' of github.com:fromOsaka/spbspu-labs-2023-aap-a
+
+[33mcommit 1fbce1aa2d1858b59821c255c4425b366388614f[m
+Merge: 36a11af 4ed6589
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Tue Oct 17 01:16:24 2023 +0300
+
+    Merge pull request #16 from Piyavva/piyavkin.anton/P0
+    
+    piyavkin.anton/P0
+
+[33mcommit 36a11afef3bb674fcd23ba4c094b571bf62166bf[m
+Merge: 4fb2fb5 e4e18e3
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Tue Oct 17 01:10:59 2023 +0300
+
+    Merge pull request #26 from Steuger7/grechishnikov.roman/P0
+    
+    grechishnikov.roman/p0
+
+[33mcommit 7f125dcc202eea8b405653638179993291fa51c8[m
+Author: pashko2303 <baranov-p.b@yandex.ru>
+Date:   Tue Oct 17 00:58:44 2023 +0300
+
+    Fix CG
+
+[33mcommit e4e18e36d3751ccb1ba0635a646f4dbc169ff6dc[m
+Merge: ce60d43 4fb2fb5
+Author: Steuger7 <steuger7@mail.ru>
+Date:   Tue Oct 17 00:50:50 2023 +0300
+
+    Merge branch 'master' into grechishnikov.roman/P0
+
+[33mcommit d7cde30c6ae51dc1f4b8d2326afb79496064beb9[m
+Author: Kastelia <kristinazak150@gmail.com>
+Date:   Tue Oct 17 00:12:05 2023 +0300
+
+    P0 first job
+
+[33mcommit 108183a6174f10a1e0b9df71dc0999108e78e9ba[m
+Author: eshikta <katya.shibaleva@gmail.com>
+Date:   Mon Oct 16 23:58:49 2023 +0300
+
+    P0 first try
+
+[33mcommit ce60d435f32e4d3e0b9478abf4fe3b5448edaba4[m
+Author: Steuger7 <steuger7@mail.ru>
+Date:   Mon Oct 16 23:53:28 2023 +0300
+
+    P0 first try
+
+[33mcommit 50d57570ea6ca4f9c83fc408c3914a81ae6169b9[m
+Merge: 0787dd7 4fb2fb5
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Mon Oct 16 23:39:47 2023 +0300
+
+    Merge remote-tracking branch 'upstream/master'
+
+[33mcommit 3f7df8ad6ade2f232c28b6bf4ed7893361ba1349[m
+Author: pashko2303 <baranov-p.b@yandex.ru>
+Date:   Mon Oct 16 23:35:53 2023 +0300
+
+    P0 first try
+
+[33mcommit 4ed65893d6666927bf9b7cdaffdafec5a0ef810b[m
+Merge: 3fad54e 4fb2fb5
+Author: Piyavva <147034440+Piyavva@users.noreply.github.com>
+Date:   Mon Oct 16 23:32:46 2023 +0300
+
+    Merge branch 'Volgarenok:master' into piyavkin.anton/P0
+
+[33mcommit 0787dd7f82cb8070c167b0badbb0c389425ab884[m
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Mon Oct 16 23:30:50 2023 +0300
+
+    push to master
+
+[33mcommit 17e85b91b7f7b3ef80b292dcdfb02f0aaa76d9db[m
+Merge: 6c5fe8a 4fb2fb5
+Author: osaka <115036987+fromOsaka@users.noreply.github.com>
+Date:   Mon Oct 16 23:14:51 2023 +0300
+
+    Merge branch 'Volgarenok:master' into master
+
+[33mcommit b112dee6521a933d6d3856182770543444fd9f32[m
+Merge: d9f2ddd 4fb2fb5
+Author: osaka <115036987+fromOsaka@users.noreply.github.com>
+Date:   Mon Oct 16 22:31:42 2023 +0300
+
+    Merge branch 'Volgarenok:master' into arakelyan.daniil/P0
+
+[33mcommit 4fb2fb5fc265fc15c107a9caea2549c163b7caea[m
+Merge: bc14db2 a4a237f
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Mon Oct 16 22:28:27 2023 +0300
+
+    Merge pull request #21 from v-zaycev/zaitsev.vladimir/P0
+    
+    zaitsev.vladimir/P0
+
+[33mcommit a4a237fadd14a543abb51a24c94e193a674e6096[m
+Author: v-zaycev <70699650+v-zaycev@users.noreply.github.com>
+Date:   Mon Oct 16 20:18:50 2023 +0300
+
+    P0 first try
+
+[33mcommit 618149627b17dc88ed0057b78b4ba12f237de51e[m
+Author: v-zaycev <70699650+v-zaycev@users.noreply.github.com>
+Date:   Mon Oct 16 20:10:42 2023 +0300
+
+    P0 first try
+
+[33mcommit 3ee97ee8575079419e4f939c58936f73ce9bec53[m
+Author: v-zaycev <70699650+v-zaycev@users.noreply.github.com>
+Date:   Mon Oct 16 19:44:31 2023 +0300
+
+    P0 first try
+
+[33mcommit 6b4a3a46ff0acceac7402b2a650634bf652f270f[m
+Author: v-zaycev <70699650+v-zaycev@users.noreply.github.com>
+Date:   Mon Oct 16 19:14:04 2023 +0300
+
+    Initial commit for P0
+
+[33mcommit db0e27ca09e4ae487ed7ab6777097c5d04bbd181[m
+Author: Dmitriy <Dmitry5335@yandex.ru>
+Date:   Mon Oct 16 17:13:57 2023 +0300
+
+    Initial commit for P0
+
+[33mcommit 798b74f60230dde4787a446eb602a52374474d68[m
+Author: Rail (Susanoo) <zhalilov.rsh@edu.spbstu.ru>
+Date:   Mon Oct 16 12:31:01 2023 +0300
+
+    Added moving to a new line after output name
+
+[33mcommit 950d152e47152cf007f75a347b29225b0c6eb896[m
+Author: Rail (Susanoo) <zhalilov.rsh@edu.spbstu.ru>
+Date:   Mon Oct 16 12:23:35 2023 +0300
+
+    Added student's name output
+
+[33mcommit 7d362519f04da6224eda066c8dc01f8ae0dfe7a6[m
+Author: Rail (Susanoo) <zhalilov.rsh@edu.spbstu.ru>
+Date:   Mon Oct 16 12:10:48 2023 +0300
+
+    Initial commit for P0
+
+[33mcommit 170e6a657b2681ad38a42f34df58dc7657fb9aa6[m
+Author: WarriorVortex <erohinvova01010111@gmail.com>
+Date:   Mon Oct 16 12:08:57 2023 +0300
+
+    It's the first attempt to submit the work.
+
+[33mcommit 04eaf9b5157df87d918381223922ddaafeeadd26[m
+Author: User1235321 <pavreb1235321@gmail.com>
+Date:   Mon Oct 16 11:43:26 2023 +0300
+
+    Second correction CG
+
+[33mcommit 6c5fe8acb457a96d88ab48dcfb38a3daa77fc9d5[m
+Merge: bc14db2 d9f2ddd
+Author: osaka <115036987+fromOsaka@users.noreply.github.com>
+Date:   Mon Oct 16 01:47:53 2023 +0300
+
+    Merge pull request #1 from fromOsaka/arakelyan.daniil/P0
+    
+    first commit
+
+[33mcommit d9f2ddd30acd9ea7718ca730ba8107df72807a3e[m
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Mon Oct 16 01:42:42 2023 +0300
+
+    CG
+
+[33mcommit 6ac5a189d171860026d4dddfe9314cabe1389be1[m
+Author: exxiiint <filipp.sivkov@yandex.ru>
+Date:   Sun Oct 15 23:18:02 2023 +0300
+
+    P0 first try
+
+[33mcommit 3fad54e006a39e15678a60f984722efe2b76f10d[m
+Author: Piyavva <piyavkin05@bk.ru>
+Date:   Sun Oct 15 23:10:58 2023 +0300
+
+    Second try
+
+[33mcommit 85272a6e42327f978b862abfc570d06a75bff867[m
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Sun Oct 15 22:52:54 2023 +0300
+
+    добавил перенос строки
+
+[33mcommit deb1e5ab477f250eb6f8d634ffaa2c0df1503d5e[m
+Author: osakasonyboy@gmail.com <sensh0god@gmail.com>
+Date:   Sun Oct 15 22:24:21 2023 +0300
+
+    first commit
+
+[33mcommit bc14db2520a412f6a122affbc04fca548bdc3f8f[m
+Merge: c143624 111db85
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Sun Oct 15 21:08:41 2023 +0300
+
+    Merge pull request #9 from deadshumz/petuhov.kirill/P0
+    
+    petuhov.kirill/P0
+
+[33mcommit 111db8552850a2ca13bfd6c5bf79d4192cb10e5b[m
+Merge: 359f108 c143624
+Author: deadshumz <61364206+deadshumz@users.noreply.github.com>
+Date:   Sun Oct 15 20:58:40 2023 +0300
+
+    Merge branch 'Volgarenok:master' into petuhov.kirill/P0
+
+[33mcommit c143624bcb750516cdf1995dea81fdb36fe82806[m
+Merge: 080a078 c4711e4
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Sun Oct 15 19:16:50 2023 +0300
+
+    Merge pull request #12 from magggottt/gladyshev.matvey/P0
+    
+    gladyshev.matvey/P0
+
+[33mcommit c4711e4a59e67b6e6f06a2cb88469018cf26046b[m
+Merge: bcdc9e4 080a078
+Author: magggottt <gladyshevmatvey@gmail.com>
+Date:   Sun Oct 15 23:04:32 2023 +0700
+
+    Merge branch 'master' of github.com:magggottt/spbspu-labs-2023-aap-a into gladyshev.matvey/P0
+
+[33mcommit 080a078cacbfc89868a917f0b3a1592a8d52432a[m
+Merge: cdf49ae 0d532d9
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Sun Oct 15 17:53:16 2023 +0300
+
+    Merge pull request #10 from kirillnamestnikov/namestnikov.kirill/P0
+    
+    namestnikov.kirill/P0
+
+[33mcommit e859b768dcaff61a1686e22e6b68e077f2ce7362[m
+Author: CA21lmFlame <chernov.ar@spbstu.ru>
+Date:   Sun Oct 15 17:49:11 2023 +0300
+
+    P0 first try
+
+[33mcommit 0d532d9ff9270880a314aababa3cb38b323774cf[m
+Merge: 1a32b27 cdf49ae
+Author: kirillnamestnikov <kir.namestnikov@gmail.com>
+Date:   Sun Oct 15 17:40:49 2023 +0300
+
+    merged
+    Merge branch 'master' into namestnikov.kirill/P0
+
+[33mcommit bcdc9e4e5c7a629ecec730658a01e22ff43b4ae8[m
+Author: magggottt <gladyshevmatvey@gmail.com>
+Date:   Sun Oct 15 21:36:24 2023 +0700
+
+    P0 1st try pls
+
+[33mcommit cdf49ae8c8606c4d149baea15bacfaf4fe6706cf[m
+Merge: 95fe8ef a9a5703
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Sun Oct 15 16:38:09 2023 +0300
+
+    Merge pull request #11 from fncg/stepanov.gena/P0
+    
+    stepanov.gena/P0
+
+[33mcommit a9a57033999bff409221cb0a48bb207099cb92c2[m
+Merge: a68dc21 95fe8ef
+Author: fncg <145484773+fncg@users.noreply.github.com>
+Date:   Sun Oct 15 16:15:46 2023 +0300
+
+    Merge branch 'Volgarenok:master' into stepanov.gena/P0
+
+[33mcommit 1a32b2727bd3bdf5a2f869377e8024f37489e026[m
+Author: kirillnamestnikov <kir.namestnikov@gmail.com>
+Date:   Sun Oct 15 15:42:51 2023 +0300
+
+    P0 first try
+
+[33mcommit 359f1085c163fa166bdd6ae5143fe172068bc9e6[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 15:37:01 2023 +0300
+
+    табуляция 2 пробела
+
+[33mcommit a68dc21ef8146667517cfde1c9d3ed1f33cb8a5a[m
+Author: fncg <id@stepanowid>
+Date:   Sun Oct 15 15:25:39 2023 +0300
+
+    P0 First try
+
+[33mcommit 63adcb5442d9b24362506d00df0917264766796b[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:55:23 2023 +0300
+
+    cg(
+
+[33mcommit 6b84728f474cf9059524814967c038cd31ae9847[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:51:48 2023 +0300
+
+    new line at end
+
+[33mcommit 70662bb08ef70d065b066dcd8f44c0f8ae5e09e9[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:50:37 2023 +0300
+
+    line endings
+
+[33mcommit dfb1d6825919ab088b32903045d890a96dd4447a[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:47:51 2023 +0300
+
+    line endings
+
+[33mcommit 293fc10c60e88f57adcfdd8965de2fe8a34c3060[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:43:32 2023 +0300
+
+    CRLF
+
+[33mcommit 37658960068a6df9abe5185703a8062cd465e57c[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:41:17 2023 +0300
+
+    CRLF
+
+[33mcommit 3f14c884971252c8ffc5708243e480298136ea9e[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:39:42 2023 +0300
+
+    CRLF
+
+[33mcommit 6c9bb875990d47cba7d578b88907eefb677f40ab[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:37:44 2023 +0300
+
+    CRLF
+
+[33mcommit 324b17961dc5e92b544d8efff0cc599b45edefca[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 14:31:23 2023 +0300
+
+    Normalize all the line endings
+
+[33mcommit 95fe8efef9af8646cce077499b04ab2a12f230ad[m
+Merge: 98ebc2e fcecb31
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Sun Oct 15 14:25:18 2023 +0300
+
+    Merge pull request #7 from katagiriwhy/novokhatskiy.danil/P0
+    
+    novokhatskiy.danil/P0
+
+[33mcommit 29f8c8d25fa87405ceb1ea1f4a814d43fd95824b[m
+Author: deadshumz <shumzz@bk.ru>
+Date:   Sun Oct 15 13:52:15 2023 +0300
+
+    P0 first try
+
+[33mcommit fcecb316072818b2acda264449969cc360144c36[m
+Merge: 4b422f7 98ebc2e
+Author: DanilNovokhatskiy <karuk.vova2005@mail.ru>
+Date:   Sun Oct 15 13:49:58 2023 +0300
+
+    Merge branch 'master' into novokhatskiy.danil/P0
+
+[33mcommit 98ebc2e92fafb266df3ba267057f182ba56e01ab[m
+Merge: 122beb6 c6a16a1
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Sun Oct 15 13:20:48 2023 +0300
+
+    Merge pull request #8 from marlions/marishin.leonid/P0
+    
+    marishin.leonid/P0
+
+[33mcommit c6a16a12dd4a13795e27be6ce248b02bc80acef5[m
+Author: marlions <marishin.lv@edu.spbstu.ru>
+Date:   Sun Oct 15 01:02:18 2023 +0300
+
+    P0 first
+
+[33mcommit 4b422f7719b33400c430358e16d75cfa7641e0aa[m
+Author: DanilNovokhatskiy <karuk.vova2005@mail.ru>
+Date:   Sat Oct 14 20:23:46 2023 +0300
+
+    fix 1
+
+[33mcommit ce6a6b8bcf149412ece2aaf7deacbae32f88bdd4[m
+Author: User1235321 <pavreb1235321@gmail.com>
+Date:   Sat Oct 14 19:48:54 2023 +0300
+
+    correction CG
+
+[33mcommit 122beb625548bf5e5cef2a2bf94bd79b501e75b0[m
+Merge: 94c3eac d97be33
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Sat Oct 14 18:48:42 2023 +0300
+
+    Merge pull request #3 from SlivkaSadovka/strelyaev.roman/P0
+    
+    strelyaev.roman/P0
+
+[33mcommit 488e247ae595b3cf21758ab0e52743b634e72ec8[m
+Author: User1235321 <pavreb1235321@gmail.com>
+Date:   Sat Oct 14 18:03:28 2023 +0300
+
+    P0 first try
+
+[33mcommit c27e8c12bd595dee4e49ff472d6bd7c8221ba6ea[m
+Author: DanilNovokhatskiy <karuk.vova2005@mail.ru>
+Date:   Sat Oct 14 17:14:27 2023 +0300
+
+    P0 first try
+
+[33mcommit d97be33d9b69efe32f41204ec6601e7b09b2c639[m
+Author: SlivkaSadovka <strelyaev_ra@spbstu.ru>
+Date:   Sat Oct 14 17:11:32 2023 +0300
+
+    GC fix 2
+
+[33mcommit 9ea6cd94960bbde14bf47b313e34811b15eba9f9[m
+Author: SlivkaSadovka <strelyaev_ra@spbstu.ru>
+Date:   Sat Oct 14 17:02:27 2023 +0300
+
+    CG fix
+
+[33mcommit 28c3b3bbd04d94998a84c9ed23bef98734bae35c[m
+Author: SlivkaSadovka <strelyaev_ra@spbstu.ru>
+Date:   Sat Oct 14 16:05:59 2023 +0300
+
+    fix 1
+
+[33mcommit 2b910a509576d070f5dc7003450b214b1238ba57[m
+Author: SlivkaSadovka <strelyaev_ra@spbstu.ru>
+Date:   Sat Oct 14 15:17:16 2023 +0300
+
+    P0 first commit
+
+[33mcommit 94c3eac85be195adbd1f7fbd1111beb99cc19fb0[m
+Merge: d307d17 ef9bd5e
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Fri Oct 13 20:34:09 2023 +0300
+
+    Merge pull request #1 from SergeyDobsov/dobsov.sergey/P0
+    
+    dobsov.sergey/P0
+
+[33mcommit ef9bd5eb12921dc959258de5c887e81c88f2f55f[m
+Author: SergeyDobsov <kasilov_va@spbstu.ru>
+Date:   Fri Oct 13 20:24:59 2023 +0300
+
+    Fix output
+
+[33mcommit 9197292135272047efa6fdccd4be2ebd09f34e87[m
+Author: SergeyDobsov <kasilov_va@spbstu.ru>
+Date:   Fri Oct 13 20:04:25 2023 +0300
+
+    P0 first try
+
+[33mcommit d307d17d6b45b31ba62bc150050284f89cd441eb[m
+Author: Volgarenok <volgarenok@gmail.com>
+Date:   Thu Oct 5 13:02:18 2023 +0300
+
+    Initial commit
