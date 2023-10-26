@@ -20,14 +20,6 @@ void SequenceNumOfMax::count(size_t nowNum)
   {
     throw std::logic_error("sequence is too long\n");
   }
-  else if (maxNum == max_size)
-  {
-    throw std::logic_error("max numder is too big\n");
-  }
-  else if (nowNum == max_size)
-  {
-    throw std::logic_error("input numder is too big\n");
-  }
 
   if (nowNum > maxNum)
   {
