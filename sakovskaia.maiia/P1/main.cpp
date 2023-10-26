@@ -1,9 +1,34 @@
 #include <iostream>
 #include <limits>
+#include <stdexcept>
+
+struct SequenceCounter
+{
+  SequenceCounter():
+    count_(0)
+  {}
+
+  void count(int num)
+  {
+    size_t max_size = std::numeric_limits< size_t >::max();
+    if (count == max_size)
+    {
+      throw std::logic_error("Sequence is too long");
+    }
+    ++count;
+  }
+  size_t get_result() const
+  {
+    return count_;
+  }
+private:
+  size_t count_;
+};
+
 int main()
 {
   int number = 0;
-  size_t count = 0;
+  SequenceCounter counter;
   do
   {
     std::cin >> number;
@@ -14,15 +39,17 @@ int main()
     }
     else if (number != 0)
     {
-      size_t max_size = std::numeric_limits< size_t >::max();
-      if (count == max_size)
+      try
       {
-        std::cerr << "Sequence is too long\n";
+        counter.count(number);
+      }
+      catch (const std::exception & e)
+      {
+        std::cerr << "Error: " << e.what() << "\n";
         return 2;
       }
-      ++count;
     }
   }
   while (number != 0);
-  std::cout << count << "\n";
+  std::cout << counter.get_result() << "\n";
 }
