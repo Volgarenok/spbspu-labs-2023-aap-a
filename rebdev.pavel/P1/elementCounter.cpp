@@ -15,7 +15,7 @@ rebdev::element_counter::element_counter(int last_element, int current_element):
 
 void rebdev::element_counter::operator()(int next_element)
 {
-  if(counter <  maxSize)
+  if (counter <  maxSize)
   {
     counter += (lastElement > currentElement) && (currentElement > next_element);
     lastElement = currentElement;

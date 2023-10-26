@@ -1,8 +1,8 @@
 #ifndef ELEMENTCOUNTER_HPP
 #define ELEMENTCOUNTER_HPP
 
-#include <iostream>
 #include <limits>
+#include <cstddef>
 
 namespace rebdev
 {

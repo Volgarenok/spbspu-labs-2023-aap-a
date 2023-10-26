@@ -3,32 +3,54 @@
 
 int main()
 {
-  int arrayElements[3] = {0, 0, 0};
-  for (int i = 0; i < 3; ++i)
+  using namespace rebdev;
+
+  int firstElement = 0, secondElement = 0;
+  std::cin >> firstElement;
+
+  if (!std::cin)
   {
-    std::cin >> arrayElements[i];
-    if (std::cin.fail() || (arrayElements[i] == 0))
-    {
-      std::cout << "0\n";
-      return 0;
-    }
+    std::cerr << "Input error!\n";
+    return 1;
   }
-  int counter = 0;
-  while (!std::cin.eof() && (arrayElements[2] != 0))
-  {
-    counter += (arrayElements[0] > arrayElements[1]) && (arrayElements[1] > arrayElements[2]);
-    arrayElements[0] = arrayElements[1];
-    arrayElements[1] = arrayElements[2];
-    std::cin >> arrayElements[2];
-  }
-  if (arrayElements[2] == 0)
-  {
-    std::cout << counter << '\n';
-    return 0;
-  }
-  else
+  else if (firstElement == 0)
   {
     std::cout << "0\n";
     return 0;
   }
+  
+  std::cin >> secondElement;
+  if (!std::cin)
+  {
+    std::cerr << "Input error!\n";
+    return 1;
+  }
+  
+  element_counter objectOfElementCounter(firstElement, secondElement);
+
+  while (secondElement != 0)
+  {
+    std::cin >> secondElement;
+
+    if (!std::cin)
+    {
+      std::cerr << "Input error!\n";
+      return 1;
+    }
+    else if (secondElement != 0)
+    {
+      try
+      {
+        objectOfElementCounter(secondElement);
+      }
+      catch (const std::exception & e)
+      {
+        std::cerr << "Error: " << e.what() << '\n';
+        return 2;
+      }
+    }
+  }
+
+  std::cout << objectOfElementCounter() << '\n';
+  return 0;
 }
