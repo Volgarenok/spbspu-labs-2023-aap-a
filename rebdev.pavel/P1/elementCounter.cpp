@@ -9,7 +9,7 @@ rebdev::element_counter::element_counter():
 
 rebdev::element_counter::element_counter(int last_element, int current_element):
   lastElement(last_element),
-  currentElement(currect_element),
+  currentElement(current_element),
   counter(0)
 {}
 
