@@ -7,7 +7,7 @@ rebdev::element_counter::element_counter():
   counter(0)
 {}
 
-rebdev::element_counter::element_counter(int last_element, int current_element): 
+rebdev::element_counter::element_counter(int last_element, int current_element):
   lastElement(last_element),
   currentElement(currect_element),
   counter(0)

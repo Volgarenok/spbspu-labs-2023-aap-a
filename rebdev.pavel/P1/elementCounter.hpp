@@ -13,7 +13,7 @@ namespace rebdev
     element_counter(int last_element, int current_element);
     void operator()(int next_element);
     size_t operator()() const;
-  
+
   private:
     int lastElement;
     int currentElement;
