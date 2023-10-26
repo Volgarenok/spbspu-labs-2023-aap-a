@@ -18,14 +18,14 @@ int main()
     std::cout << "0\n";
     return 0;
   }
-  
+
   std::cin >> secondElement;
   if (!std::cin)
   {
     std::cerr << "Input error!\n";
     return 1;
   }
-  
+
   element_counter objectOfElementCounter(firstElement, secondElement);
 
   while (secondElement != 0)
