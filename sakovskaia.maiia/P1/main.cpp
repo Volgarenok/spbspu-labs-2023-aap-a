@@ -11,11 +11,11 @@ struct SequenceCounter
   void count(int num)
   {
     size_t max_size = std::numeric_limits< size_t >::max();
-    if (count == max_size)
+    if (count_ == max_size)
     {
       throw std::logic_error("Sequence is too long");
     }
-    ++count;
+    ++count_;
   }
   size_t get_result() const
   {
