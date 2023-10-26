@@ -1,4 +1,5 @@
 #include <iostream>
+#include "elementCounter.hpp"
 
 int main()
 {
