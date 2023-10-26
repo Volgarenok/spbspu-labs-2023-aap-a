@@ -2,24 +2,26 @@
 
 int main()
 {
-    int number = 0;
-    size_t size = 0;
+  int number = 0;
+  size_t size = 0;
 
-    do 
+  do
+  {
+    std::cin >> number;
+    if (!std::cin)
     {
-        std::cin >> number;
-        if (!std::cin) {
-            std::cerr << "sequence is not valid\n";
-            return 1;
-        }
-
-        if (number != 0) {
-            size++;
-        }
+      std::cerr << "sequence is not valid\n";
+      return 1;
     }
-    while (number != 0);
-    
-    std::cout << size << std::endl;
 
-    return 0;
+    if (number != 0)
+    {
+      size++;
+    }
+  }
+  while (number != 0);
+
+  std::cout << size << std::endl;
+  return 0;
 }
+
