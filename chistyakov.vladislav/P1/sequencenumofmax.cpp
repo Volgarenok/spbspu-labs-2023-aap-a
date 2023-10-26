@@ -1,6 +1,7 @@
 #include <limits>
 #include <stdexcept>
-#include "SequenceNumOfMax.hpp"
+#include "sequencenumofmax.hpp"
+#include <iostream>
 
 SequenceNumOfMax::SequenceNumOfMax():
   counter(0)
