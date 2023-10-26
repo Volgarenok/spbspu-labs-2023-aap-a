@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "SequenceNumOfMax.hpp"
+#include "sequencenumofmax.hpp"
 
 int main()
 {
