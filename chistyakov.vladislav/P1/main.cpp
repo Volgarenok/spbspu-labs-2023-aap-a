@@ -14,7 +14,7 @@ int main()
   }
   else if (nowNum == 0)
   {
-    std::cout << "There are no numbers in the sequence, the number of maximum numbers: 0\n"; 
+    std::cout << "There are no numbers in the sequence, the number of maximum numbers: 0\n";
     return 0;
   }
   SequenceNumOfMax counter;

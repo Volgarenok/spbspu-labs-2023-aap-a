@@ -44,4 +44,3 @@ size_t SequenceNumOfMax::get_result() const
 {
   return counter;
 }
-
