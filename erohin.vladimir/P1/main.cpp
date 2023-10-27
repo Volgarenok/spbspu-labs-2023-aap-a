@@ -1,8 +1,24 @@
 #include <iostream>
 #include <stdexcept>
 
+struct SequencePythTriple
+{
+  SequencePythTriple();
+  void operator()(int);
+  size_t operator()();
+private:
+  size_t number_;
+  size_t pythtriple_;
+};
+
+SequencePythTriple::SequencePythTriple():
+  number_(0),
+  pythtriple_(0)
+{}
+
 int main() {
   int current = 0;
+  SequencePythTriple pythtriple;
   do
   {
     std::cin >> current;
