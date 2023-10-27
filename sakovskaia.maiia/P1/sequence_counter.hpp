@@ -7,7 +7,8 @@ namespace sakovskaia
   struct SequenceCounter
   {
     SequenceCounter();
-    void operator()(int);
+    void operator()(size_t, int);
+    void operator()(int, int);
     size_t operator()() const;
   private:
     size_t count_;
