@@ -5,6 +5,7 @@ int main()
   long long int prevNumber = 1;
   long long int currentNumber = 1;
   long long int nextNumber = 1;
+  size_t count = 0;
 
   std::cin >> prevNumber;
   if (!std::cin)
@@ -38,6 +39,17 @@ int main()
       std::cerr << "Is not a sequence\n";
       return 1;
     }
+    else if (nextNumber != 0)
+    {
+      if (currentNumber > prevNumber && currentNumber > nextNumber)
+      {
+        ++count;
+      }
+    }
+  prevNumber = currentNumber;
+  currentNumber = nextNumber;
   }
   while (nextNumber != 0);
+
+  std::cout << count << '\n';
 }
