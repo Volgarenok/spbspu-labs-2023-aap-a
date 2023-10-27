@@ -1,5 +1,5 @@
-#ifndef SUBSEQ_LEN_COUNER_H
-#define SUBSEQ_LEN_COUNER_H
+#ifndef SUBSEQ_LEN_COUNTER_H
+#define SUBSEQ_LEN_COUNTER_H
 
 namespace zaitsev
 {
