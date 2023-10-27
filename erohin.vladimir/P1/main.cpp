@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdexcept>
+#include <limits>
 
 struct SequencePythTriple
 {
@@ -16,6 +17,16 @@ SequencePythTriple::SequencePythTriple():
   pythtriple_(0)
 {}
 
+void SequencePythTriple::operator()(int)
+{
+  size_t max_size = std::numeric_limits< size_t >::max();
+  if (number_ == max_size)
+  {
+    throw std::logic_error("Sequence is too long");
+  }
+  ++number_;
+}
+
 int main() {
   int current = 0;
   SequencePythTriple pythtriple;
@@ -29,7 +40,15 @@ int main() {
     }
     else if (current != 0)
     {
-      
+      try
+      {
+        SequencePythTriple(current);
+      }
+      catch (const std::exception & e)
+      {
+        std::cerr << "Error: " << e.what() << "\n";
+        return 2;
+      }
     }
   }
   while (current != 0);
