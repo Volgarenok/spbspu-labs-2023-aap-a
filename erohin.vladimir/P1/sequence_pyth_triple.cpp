@@ -1,15 +1,15 @@
 #include "sequence_pyth_triple.hpp"
 #include <limits>
-#include <stdexcepts>
+#include <stdexcept>
 
-SequencePythTriple::SequencePythTriple():
+erohin::SequencePythTriple::SequencePythTriple():
   number_(0),
   pythtriple_(0),
   prev_(0),
   pre_prev_(0)
 {}
 
-void SequencePythTriple::operator()(int current)
+void erohin::SequencePythTriple::operator()(int current)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (number_ == max_size)
@@ -25,7 +25,7 @@ void SequencePythTriple::operator()(int current)
   prev_ = current;
 }
 
-bool SequencePythTriple::isPythTriple(int current)
+bool erohin::SequencePythTriple::isPythTriple(int current)
 {
   size_t a = pre_prev_;
   size_t b = prev_;
@@ -40,7 +40,7 @@ bool SequencePythTriple::isPythTriple(int current)
   }
 }
 
-size_t SequencePythTriple::operator()() const
+size_t erohin::SequencePythTriple::operator()() const
 {
   return pythtriple_;
 }
