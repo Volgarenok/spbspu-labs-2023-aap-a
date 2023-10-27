@@ -1,2 +1,2 @@
-build: main.cpp
-	g++ main.cpp -o sequence
+build: main.cpp sequence_counter.cpp sequence_counter.hpp
+	g++ $^ -o $@
