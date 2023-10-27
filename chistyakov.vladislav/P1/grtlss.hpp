@@ -14,7 +14,6 @@ namespace mySpace
   private:
     size_t fstNum;
     size_t midNum;
-    size_t endNum;
     size_t counter;
   }
 }
