@@ -34,6 +34,8 @@ void SequencePythTriple::operator()(int current)
   {
     ++pythtriple_;
   }
+  pre_prev_ = prev_;
+  prev_ = current;
 }
 
 bool SequencePythTriple::isPythTriple(int current)
