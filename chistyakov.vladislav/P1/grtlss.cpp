@@ -3,20 +3,20 @@
 #include "grtlss.hpp"
 #include <iostream>
 
-mySpace::grt-lss::grt-lss():
-  counter(0);
+mySpace::grt_lss::grt_lss():
+  counter(0)
 {}
 
-void mySpace::grt-lss::firstNumber(size_t number)
+void mySpace::grt_lss::firstNumber(size_t number)
 {
   fstNum = number;
 }
-void mySpace::grt-lss::middleNumber(size_t number)
+void mySpace::grt_lss::middleNumber(size_t number)
 {
   midNum = number;
 }
 
-void mySpace::grt-lss::countGRT(size_t number)
+void mySpace::grt_lss::countGRT(size_t number)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (counter == max_size)
@@ -24,13 +24,15 @@ void mySpace::grt-lss::countGRT(size_t number)
     throw std::logic_error("sequence is too long\n");
   }
 
-  if (fstNum < midNum && midNum > number)
+  if (fstNum > midNum and midNum > number)
   {
     ++counter;
   }
+  fstNum = midNum;
+  midNum = number;
 }
 
-size_t mySpace::grt-lss::get_result-grt() const
+size_t mySpace::grt_lss::get_result_grt() const
 {
   return counter;
 }
