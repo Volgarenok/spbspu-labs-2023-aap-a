@@ -1,4 +1,6 @@
 #include <iostream>
+#include <limits>
+#include <stdexcept>
 
 struct SequenceEvenCounter {
   SequenceEvenCounter():
@@ -8,6 +10,11 @@ struct SequenceEvenCounter {
 
   void count(int num)
   {
+    size_t max_size = std::numeric_limits< size_t >::max();
+    if (temp_count == max_size)
+    {
+      throw std::logic_error("Sequence is too long");
+    }
     if (num % 2 == 0)
     {
       ++temp_count;
@@ -50,7 +57,15 @@ int main()
     }
     else
     {
-      counter.count(num);
+      try
+      {
+        counter.count(num);
+      }
+      catch (const std::exception & e)
+      {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 2;
+      }
     }
   }
 
