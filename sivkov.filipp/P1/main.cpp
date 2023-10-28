@@ -1,32 +1,6 @@
 #include <iostream>
-#include <limits>
 #include <stdexcept>
-struct SeqCount
-{
-  SeqCount():
-    k1(0)
-  {}
-
-  void k(int num, int num_old)
-  {
-    size_t max_size = std::numeric_limits < size_t > ::max();
-    if (k1 == max_size)
-    {
-      throw std::logic_error("seq is to long");
-    }
-    if (num_old % num == 0)
-    {
-      ++k1;
-    }
-  }
-  size_t get_result() const
-  {
-    return k1;
-  }
-private:
-  size_t k1;
-};
-
+#include "seq.hpp"
 int main()
 {
   int num = 0;
@@ -55,5 +29,5 @@ int main()
     }
   }
   while(num != 0);
-  std::cout << "answ" <<counter.get_result() - 1 << std::endl;
+  std::cout << "otvet: " <<counter.get_result() - 1 << std::endl;
 }
