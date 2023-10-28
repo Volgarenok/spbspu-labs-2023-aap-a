@@ -3,9 +3,11 @@
 int main()
 {
   int num = 0;
+  int num_old = 0;
   size_t k =0;
   do
   {
+    num_old = num;
     std::cin >> num;
     if (!std::cin)
     {
@@ -20,8 +22,12 @@ int main()
         std::cout << "seq is too long\n";
         return 2;
       }
+      if (num_old % num ==0)
+      {
+        ++k;
+      }
     }
   }
   while(num != 0);
-  std::cout << k << std::endl;
+  std::cout << k-1 << std::endl;
 }
