@@ -1,44 +1,11 @@
 #include <iostream>
-#include <limits>
 #include <stdexcept>
-
-struct SequenceEvenCounter {
-  SequenceEvenCounter():
-    temp_count(0),
-    max_count(0)
-  {}
-
-  void count(int num)
-  {
-    size_t max_size = std::numeric_limits< size_t >::max();
-    if (temp_count == max_size)
-    {
-      throw std::logic_error("Sequence is too long");
-    }
-    if (num % 2 == 0)
-    {
-      ++temp_count;
-      max_count = max_count < temp_count ? temp_count : max_count;
-    }
-    else
-    {
-      temp_count = 0;
-    }
-  }
-
-  size_t getMax() const
-  {
-    return max_count;
-  }
-
-  private:
-    size_t temp_count;
-    size_t max_count;
-};
+#include "sequence_even_counter.hpp"
 
 int main()
 {
   int num = 0;
+  using namespace petuhov;
   SequenceEvenCounter counter;
 
   while (true)
@@ -59,7 +26,7 @@ int main()
     {
       try
       {
-        counter.count(num);
+        counter(num);
       }
       catch (const std::exception & e)
       {
@@ -69,5 +36,5 @@ int main()
     }
   }
 
-  std::cout << counter.getMax() << std::endl;
+  std::cout << counter() << std::endl;
 }
