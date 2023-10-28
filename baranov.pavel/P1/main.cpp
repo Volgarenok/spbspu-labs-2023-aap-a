@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 int main()
 {
@@ -43,6 +44,12 @@ int main()
     {
       if (currentNumber > prevNumber && currentNumber > nextNumber)
       {
+        size_t max_size = std::numeric_limits< size_t >::max();
+        if (count == max_size)
+        {
+          std::cerr << "Sequence is too long\n";
+          return 2;
+        }
         ++count;
       }
     }
