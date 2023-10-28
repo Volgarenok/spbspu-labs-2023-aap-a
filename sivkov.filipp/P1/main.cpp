@@ -55,5 +55,5 @@ int main()
     }
   }
   while(num != 0);
-  std::cout << counter.get_result() - 1 << std::endl;
+  std::cout << "answ" <<counter.get_result() - 1 << std::endl;
 }
