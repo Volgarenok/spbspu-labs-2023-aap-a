@@ -5,7 +5,7 @@ sivkov::SeqCount::SeqCount():
   k1(0)
 {}
 
-void sivkov::SeqCount::k(int num, int num_old)
+void sivkov::SeqCount::operator()(int num, int num_old)
 {
   size_t max_size = std::numeric_limits < size_t > ::max();
   if (k1 == max_size)
@@ -17,7 +17,7 @@ void sivkov::SeqCount::k(int num, int num_old)
     ++k1;
   }
 }
-size_t sivkov::SeqCount::get_result() const
+size_t sivkov::SeqCount::operator()() const
 {
   return k1;
 }

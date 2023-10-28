@@ -6,8 +6,8 @@ namespace sivkov
   struct SeqCount
   {
     SeqCount();
-    void k(int num, int num_old);
-    size_t get_result() const;
+    void operator()(int num, int num_old);
+    size_t operator()() const;
   private:
     size_t k1;
   };

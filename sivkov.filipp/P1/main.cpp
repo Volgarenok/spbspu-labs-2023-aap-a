@@ -20,7 +20,7 @@ int main()
     {
       try
       {
-        counter.k(num, num_old);
+        counter(num, num_old);
       }
       catch (const std::exception & e)
       {
@@ -30,5 +30,5 @@ int main()
     }
   }
   while(num != 0);
-  std::cout << "otvet: " <<counter.get_result() - 1 << std::endl;
+  std::cout << "otvet: " <<counter() - 1 << std::endl;
 }
