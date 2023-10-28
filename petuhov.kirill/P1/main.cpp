@@ -1,10 +1,38 @@
 #include <iostream>
 
+struct SequenceEvenCounter {
+  SequenceEvenCounter():
+    temp_count(0),
+    max_count(0)
+  {}
+
+  void count(int num)
+  {
+    if (num % 2 == 0)
+    {
+      ++temp_count;
+      max_count = max_count < temp_count ? temp_count : max_count;
+    }
+    else
+    {
+      temp_count = 0;
+    }
+  }
+
+  size_t getMax() const
+  {
+    return max_count;
+  }
+
+  private:
+    size_t temp_count;
+    size_t max_count;
+};
+
 int main()
 {
   int num = 0;
-  int temp_count = 0;
-  int max_count = 0;
+  SequenceEvenCounter counter;
 
   while (true)
   {
@@ -20,17 +48,11 @@ int main()
     {
       break;
     }
-
-    if (num % 2 == 0)
-    {
-      ++temp_count;
-      max_count = max_count < temp_count ? temp_count : max_count;
-    }
     else
     {
-      temp_count = 0;
+      counter.count(num);
     }
   }
 
-  std::cout << max_count << std::endl;
+  std::cout << counter.getMax() << std::endl;
 }
