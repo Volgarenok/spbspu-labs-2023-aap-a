@@ -3,10 +3,15 @@
 int main()
 {
   int num = 0;
-  std::cin >> num;
-  if (!std::cin)
+  int k;
+  do
   {
-    std::cerr << "is not a seq...\n";
-    return 1;
+    std::cin >> num;
+    if (!std::cin)
+    {
+      std::cerr << "is not a seq...\n";
+      return 1;
+    }
   }
+  while(num != 0);
 }
