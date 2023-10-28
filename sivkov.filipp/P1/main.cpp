@@ -5,6 +5,7 @@ int main()
 {
   int num = 0;
   int num_old = 0;
+  using namespace sivkov;
   SeqCount counter;
   do
   {
