@@ -6,9 +6,9 @@
 
 
 gladyshev::Counterreversal::Counterreversal():
-    counterznak(0),
-    number(0),
-    supnumber(0)
+   counterznak(0),
+   number(0),
+   supnumber(0)
 {}
 
 void gladyshev::Counterreversal::operator()(long long int number)
