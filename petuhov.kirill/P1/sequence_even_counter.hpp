@@ -1,5 +1,5 @@
-#ifndef SEQUENCE_EVEN_COUNTER
-#define SEQUENCE_EVEN_COUNTER
+#ifndef SEQUENCE_EVEN_COUNTER_HPP
+#define SEQUENCE_EVEN_COUNTER_HPP
 
 #include <cstddef>
 namespace petuhov
