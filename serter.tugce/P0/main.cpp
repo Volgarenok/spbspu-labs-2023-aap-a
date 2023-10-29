@@ -4,7 +4,7 @@
 int main()
 {
    using namespace serter;
-   outCredentials();
+   outCredentials(Credentials{"serter","tugce"});
    std::cout << "\n";
 }
 
