@@ -1,47 +1,6 @@
 #include <iostream>
-#include <limits>
 #include <stdexcept>
-
-class LocalMaxCounter
-{
-public:
-  LocalMaxCounter(long long int firstNumber, long long int secondNumber);
-  void count(long long int number);
-  size_t get_result() const;
-private:
-  long long int prevNumber;
-  long long int currentNumber;
-  long long int nextNumber;
-  size_t count_;
-};
-
-LocalMaxCounter::LocalMaxCounter(long long int firstNumber, long long int secondNumber):
-  prevNumber(firstNumber),
-  currentNumber(secondNumber),
-  nextNumber(1),
-  count_(0)
-{}
-
-void LocalMaxCounter::count(long long int number)
-{
-  nextNumber = number;
-  if (currentNumber > prevNumber && currentNumber > nextNumber)
-  {
-    size_t max_size = std::numeric_limits< size_t >::max();
-    if (count_ == max_size)
-    {
-      throw std::logic_error("sequence is too long");
-    }
-    ++count_;
-  }
-prevNumber = currentNumber;
-currentNumber = nextNumber;
-}
-
-size_t LocalMaxCounter::get_result() const
-{
-  return count_;
-}
+#include "local_max_counter.hpp"
 
 int main()
 {
@@ -72,7 +31,9 @@ int main()
     std::cout << 0 << '\n';
     return 0;
   }
+
   LocalMaxCounter counter(firstNumber, secondNumber);
+
   do
   {
     std::cin >> number;
@@ -98,3 +59,4 @@ int main()
 
   std::cout << counter.get_result()  << '\n';
 }
+
