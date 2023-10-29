@@ -1,29 +1,6 @@
 #include <iostream>
-#include <limits>
+#include "sequence_counter.hpp"
 #include <stdexcept>
-
-struct SequenceCounter
-{
-  SequenceCounter():
-   count(0)
-  {}
-
-  void size(int num)
-  {
-     size_t max_s = std::numeric_limits< size_t >::max();
-      if (count == max_s)
-      {
-        throw  std::logic_error("Sequence is too long!\n");
-      }
-      ++count;
-  }
-  size_t get_res() const
-  {
-    return count;
-  }
-private:
-  size_t count;
-};
 
 int main()
 {
