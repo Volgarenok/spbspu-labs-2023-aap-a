@@ -1,43 +1,41 @@
 #include <limits>
 #include <stdexcept>
-#include <iostream>
 #include "moninc.hpp"
 
 namespace spiridonov
 {
   spiridonov::Moninc::Moninc():
-    max_length(0),
-    curr_length(0),
-    prev_num(0)
+    max_length_(0),
+    curr_length_(0),
+    prev_num_(0)
   {}
 
-  void spiridonov::Moninc::Moninc::operator()(int num) // Метод, проверяющий на переполнение
+void spiridonov::Moninc::Moninc::operator()(int num)
+{
+  size_t max_size = std::numeric_limits< size_t >::max();
+  if (prev_num_ < num)
   {
-    size_t max_size = std::numeric_limits< size_t >::max();
-    if (curr_length == max_size)
-    {
-      throw std::logic_error("The sequence is too big");
-    }
-    if (prev_num < num)
-    {
-      ++curr_length;
-    }
-    else
-    {
-      curr_length = 1;
-    }
-      prev_num = num;
+    ++curr_length_;
+  }
+  else
+  {
+    curr_length_ = 1;
+  }
+  prev_num_ = num;
+
+  if (curr_length_ == max_size)
+  {
+    throw std::logic_error("The sequence is too long");
   }
 
-  void spiridonov::Moninc::Moninc::operator()() // Метод сравнения
+  if (curr_length_ > max_length_)
   {
-    if (curr_length > max_length)
-    {
-      max_length = curr_length;
-    }
+    max_length_ = curr_length_;
   }
-  size_t spiridonov::Moninc::Moninc::output() const // Метод, возвращающий максимальную длину
+}
+
+  size_t spiridonov::Moninc::Moninc::operator()() const
   {
-    return max_length;
+    return max_length_;
   }
 }

@@ -4,7 +4,7 @@
 int main()
 {
   using namespace spiridonov;
-  int num;
+  int num = 0;
   Moninc count;
   do
   {
@@ -19,9 +19,8 @@ int main()
       try
       {
         count(num);
-        count();
       }
-      catch (std::exception& e)
+      catch (const std::logic_error & e)
       {
         std::cerr << "Error: " << e.what() << "\n";
         return 2;
@@ -29,5 +28,5 @@ int main()
     }
   }
   while (num != 0);
-  std::cout << "\nMaximum length of a monotonically increasing fragment:" << count.output() << "\n";
+  std::cout << "\nMaximum length of a monotonically increasing fragment:" << count() << "\n";
 }

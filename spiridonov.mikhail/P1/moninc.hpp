@@ -2,20 +2,19 @@
 #define MONINC_HPP
 #include <cstddef>
 
-namespace spiridonov // добавил пространство имён
+namespace spiridonov
 {
   class Moninc
   {
     public:
       Moninc();
       void operator()(int num);
-      void operator()();
-      size_t output() const;
+      size_t operator()() const;
 
     private:
-      size_t max_length;
-      size_t curr_length;
-      int prev_num;
+      size_t max_length_;
+      size_t curr_length_;
+      int prev_num_;
   };
 }
 #endif
