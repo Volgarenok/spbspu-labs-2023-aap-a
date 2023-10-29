@@ -24,7 +24,7 @@ void gladyshev::Counterreversal::operator()(long long int number)
   {
     std::cerr << "sequence is too short\n";
   }
-  if (supnumber * number < 0)
+  if (((supnumber > 0) && (number < 0)) || ((supnumber < 0) && (number > 0)))
   {
     ++counterznak;
   }
