@@ -4,8 +4,8 @@
 #include "sequence_even_counter.hpp"
 
 petuhov::SequenceEvenCounter::SequenceEvenCounter():
-  temp_count(0),
-  max_count(0)
+ temp_count(0),
+ max_count(0)
 {}
 
 void petuhov::SequenceEvenCounter::operator()(int num)
