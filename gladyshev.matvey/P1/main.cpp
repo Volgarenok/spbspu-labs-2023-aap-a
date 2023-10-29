@@ -5,7 +5,7 @@ int main()
   using namespace gladyshev;
   long long int number = 1;
   unsigned long long counter = 0;
-  Countermain itog;
+  Countermain result;
   while (number != 0)
   {
     std::cin >> number;
@@ -20,7 +20,7 @@ int main()
     ++counter;
     try
     {
-      itog(number);
+      result(number);
     }
     catch (const std::exception & e)
     {
@@ -28,6 +28,6 @@ int main()
       return 2;
     }
   }
-  std::cout << itog() << "\n";
+  std::cout << result() << "\n";
 }
 
