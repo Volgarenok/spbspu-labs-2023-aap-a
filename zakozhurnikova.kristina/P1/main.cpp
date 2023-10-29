@@ -3,11 +3,17 @@
 int main ()
 {
   int number = 0;
-  size_t count = -1;
+  size_t count = 0;
   int max = 0;
+  int i = 0;
   do
   {
     std::cin >> number;
+    if (i<1)
+    {
+      max = number - 1;
+      i = 1;
+    }
     if (!std::cin)
     {
       std::cerr << "Is not sequence\n";
