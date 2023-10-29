@@ -19,7 +19,7 @@ int main()
     {
       try
       {
-        counter.size(num);
+        counter(num);
       }
       catch (const std::exception & e)
       {
@@ -30,5 +30,5 @@ int main()
   }
 
   while (num != 0);
-  std::cout << counter.get_res() << "\n";
+  std::cout << counter() << "\n";
 }

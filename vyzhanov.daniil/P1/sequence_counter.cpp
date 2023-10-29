@@ -6,7 +6,7 @@ vyzhanov::SequenceCounter::SequenceCounter():
   count(0)
 {
 }
-void vyzhanov::SequenceCounter::size(int num)
+void vyzhanov::SequenceCounter::operator()(int num)
 {
    size_t max_s = std::numeric_limits< size_t >::max();
     if (count == max_s)
@@ -15,7 +15,7 @@ void vyzhanov::SequenceCounter::size(int num)
     }
     ++count;
 }
-size_t vyzhanov::SequenceCounter::get_res() const
+size_t vyzhanov::SequenceCounter::operator()() const
 {
   return count;
 }

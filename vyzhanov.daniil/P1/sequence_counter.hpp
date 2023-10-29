@@ -8,8 +8,8 @@ namespace vyzhanov
   struct SequenceCounter
   {
     SequenceCounter();
-    void size(int num);
-    size_t get_res() const;
+    void operator()(int num);
+    size_t operator()() const;
   private:
     size_t count;
   };
