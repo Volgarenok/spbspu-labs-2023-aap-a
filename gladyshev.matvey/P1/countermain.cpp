@@ -1,6 +1,9 @@
 #include "countermain.h"
+
+#include <iostream>
 #include <limits>
 #include <stdexcept>
+
 
 gladyshev::Countermain::Countermain():
     counterznak(0),

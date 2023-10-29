@@ -1,7 +1,6 @@
 #ifndef COUNTERMAIN_H
 #define COUNTERMAIN_H
 
-#include <iostream>
 namespace gladyshev
 {
   struct Countermain
