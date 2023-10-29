@@ -3,9 +3,9 @@
 #include <limits>
 #include <stdexcept>
 
-zaitsev::Subseq_len_counter::Subseq_len_counter(): 
+zaitsev::Subseq_len_counter::Subseq_len_counter():
   beg_element_(0),
-  curr_len_(0), 
+  curr_len_(0),
   max_len_(0)
 {}
 
