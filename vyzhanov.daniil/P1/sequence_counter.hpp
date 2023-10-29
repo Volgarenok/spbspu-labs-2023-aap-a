@@ -3,13 +3,15 @@
 
 #include <cstddef>
 
-struct SequenceCounter
+namespace vyzhanov
 {
-  SequenceCounter();
-  void size(int num);
-  size_t get_res() const;
-private:
-  size_t count;
-};
-
+  struct SequenceCounter
+  {
+    SequenceCounter();
+    void size(int num);
+    size_t get_res() const;
+  private:
+    size_t count;
+  };
+}
 #endif

@@ -2,11 +2,11 @@
 #include <stdexcept>
 #include "sequence_counter.hpp"
 
-SequenceCounter::SequenceCounter():
+vyzhanov::SequenceCounter::SequenceCounter():
   count(0)
 {
 }
-void SequenceCounter::size(int num)
+void vyzhanov::SequenceCounter::size(int num)
 {
    size_t max_s = std::numeric_limits< size_t >::max();
     if (count == max_s)
@@ -15,7 +15,7 @@ void SequenceCounter::size(int num)
     }
     ++count;
 }
-size_t SequenceCounter::get_res() const
+size_t vyzhanov::SequenceCounter::get_res() const
 {
   return count;
 }

@@ -5,6 +5,7 @@
 int main()
 {
   int num = 0;
+  using namespace vyzhanov;
   SequenceCounter counter;
   do
   {
