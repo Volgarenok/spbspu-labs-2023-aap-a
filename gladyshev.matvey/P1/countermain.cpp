@@ -5,14 +5,14 @@
 #include <stdexcept>
 
 
-gladyshev::Countermain::Countermain():
+gladyshev::Counterreversal::Counterreversal():
     counterznak(0),
     number(0),
     supnumber(0),
     counter(0)
 {}
 
-void gladyshev::Countermain::operator()(long long int number)
+void gladyshev::Counterreversal::operator()(long long int number)
 {
   ++counter;
   size_t maxsize = std::numeric_limits< size_t >::max();
@@ -30,7 +30,7 @@ void gladyshev::Countermain::operator()(long long int number)
   }
   supnumber = number;
 }
-unsigned long long int gladyshev::Countermain::operator()() const
+unsigned long long int gladyshev::Counterreversal::operator()() const
 {
   return counterznak;
 }

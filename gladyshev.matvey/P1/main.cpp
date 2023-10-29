@@ -6,7 +6,7 @@ int main()
   using namespace gladyshev;
   long long int number = 1;
   unsigned long long counter = 0;
-  Countermain result;
+  Counterreversal result;
   while (number != 0)
   {
     std::cin >> number;
