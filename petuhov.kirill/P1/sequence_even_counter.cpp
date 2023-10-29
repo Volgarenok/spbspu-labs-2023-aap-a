@@ -11,7 +11,7 @@ petuhov::SequenceEvenCounter::SequenceEvenCounter():
 void petuhov::SequenceEvenCounter::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  
+
   if (num % 2 == 0)
   {
     if (temp_count == max_size)
