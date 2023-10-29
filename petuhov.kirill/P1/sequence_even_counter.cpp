@@ -11,12 +11,12 @@ petuhov::SequenceEvenCounter::SequenceEvenCounter():
 void petuhov::SequenceEvenCounter::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (temp_count == max_size)
-  {
-    throw std::logic_error("Sequence is too long");
-  }
   if (num % 2 == 0)
   {
+    if (temp_count == max_size)
+    {
+      throw std::logic_error("Sequence is too long");
+    }
     ++temp_count;
     max_count = max_count < temp_count ? temp_count : max_count;
   }
