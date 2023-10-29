@@ -1,5 +1,5 @@
 #include <iostream>
-#include "countermain.h"
+#include "counterresult.h"
 
 int main()
 {
