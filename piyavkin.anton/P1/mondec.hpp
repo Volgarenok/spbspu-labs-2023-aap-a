@@ -1,7 +1,7 @@
-#ifndef COUNTER_HPP
-#define COUNTER_HPP
+#ifndef MONDEC_HPP
+#define MONDEC_HPP
 
-#include <iostream>
+#include <cstddef>
 namespace piyavkin
 {
   struct MonDec{
@@ -9,8 +9,8 @@ namespace piyavkin
     void operator()(long long int num);
     size_t operator()() const;
   private:
-    size_t count_;
-    size_t maxc;
+    size_t cur_count;
+    size_t max_count;
     long long int prev;
   };
 }

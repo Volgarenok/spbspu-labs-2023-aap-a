@@ -1,24 +1,28 @@
 #include <iostream>
-#include <stdexcept>
-#include "counter.hpp"
+#include "mondec.hpp"
 
-int main() {
+int main()
+{
   long long int num = 1;
   using namespace piyavkin;
-  MonDec counter;
-  while (num != 0) {
+  MonDec mondec;
+  while (num != 0)
+  {
     std::cin >> num;
-    if (!std::cin) {
-      std::cout << "error\n";
+    if (!std::cin)
+    {
+      std::cerr << "error: This is not a sequence\n";
       return 1;
     }
-    try {
-      counter(num);
+    try
+    {
+      mondec(num);
     }
-    catch (const std::exception& e) {
-      std::cerr << "error\n";
+    catch (const std::exception& e)
+    {
+      std::cerr << "error: " << e.what() << "\n";
       return 2;
     }
   }
-  std::cout << counter() << "\n";
+  std::cout << mondec() << "\n";
 }
