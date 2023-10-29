@@ -5,7 +5,6 @@ int main()
 {
   using namespace gladyshev;
   long long int number = 1;
-  unsigned long long counter = 0;
   Counterreversal result;
   while (number != 0)
   {
@@ -14,11 +13,6 @@ int main()
     {
       return 1;
     }
-    if (counter == 0 && number == 0)
-    {
-      std::cout << "zero sequence\n";
-    }
-    ++counter;
     try
     {
       result(number);

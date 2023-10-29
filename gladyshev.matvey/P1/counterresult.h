@@ -11,7 +11,6 @@ namespace gladyshev
     unsigned long long counterznak;
     long long int number;
     long long int supnumber;
-    unsigned long long counter;
   };
 }
 #endif
