@@ -3,10 +3,14 @@
 int main()
 {
   int num = 0;
-  std::cin << num;
-  if(!std::cin
+  do
   {
-    std::cerr >> "Is not a sequance\n";
-    return 1;
+    std::cin >> num;
+    if(!std::cin)
+    {
+      std::cerr << "Is not a sequance\n";
+      return 1;
+    }
   }
+  while(num != 0);
 }
