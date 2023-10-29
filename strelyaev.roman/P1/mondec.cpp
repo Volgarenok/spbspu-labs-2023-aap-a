@@ -1,7 +1,6 @@
 #include "mondec.h"
 #include <limits>
 #include <stdexcept>
-#include <iostream>
 
 strelyaev::Mondec::Mondec():
   max_counter_(0),
