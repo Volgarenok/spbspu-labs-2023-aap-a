@@ -2,6 +2,8 @@
 #define LOCAL_MAX_COUNTER_HPP
 
 #include <cstddef>
+namespace baranov
+{
 class LocalMaxCounter
 {
 public:
@@ -14,6 +16,7 @@ private:
   long long int nextNumber;
   size_t count_;
 };
+}
 
 #endif
 

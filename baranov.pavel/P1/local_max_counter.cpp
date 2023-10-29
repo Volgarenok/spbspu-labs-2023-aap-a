@@ -2,14 +2,14 @@
 #include <limits>
 #include <stdexcept>
 
-LocalMaxCounter::LocalMaxCounter(long long int firstNumber, long long int secondNumber):
+baranov::LocalMaxCounter::LocalMaxCounter(long long int firstNumber, long long int secondNumber):
   prevNumber(firstNumber),
   currentNumber(secondNumber),
   nextNumber(1),
   count_(0)
 {}
 
-void LocalMaxCounter::count(long long int number)
+void baranov::LocalMaxCounter::count(long long int number)
 {
   nextNumber = number;
   if (currentNumber > prevNumber && currentNumber > nextNumber)
@@ -25,7 +25,7 @@ prevNumber = currentNumber;
 currentNumber = nextNumber;
 }
 
-size_t LocalMaxCounter::get_result() const
+size_t baranov::LocalMaxCounter::get_result() const
 {
   return count_;
 }

@@ -32,6 +32,7 @@ int main()
     return 0;
   }
 
+  using namespace baranov;
   LocalMaxCounter counter(firstNumber, secondNumber);
 
   do
