@@ -8,6 +8,7 @@ namespace petuhov
     SequenceEvenCounter();
     void operator()(int num);
     size_t operator()() const;
+    
     private:
       size_t temp_count;
       size_t max_count;

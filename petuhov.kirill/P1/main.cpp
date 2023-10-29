@@ -17,7 +17,6 @@ int main()
       std::cerr << "Input is not a valid number!" << std::endl;
       return 1;
     }
-
     if (num == 0)
     {
       break;
