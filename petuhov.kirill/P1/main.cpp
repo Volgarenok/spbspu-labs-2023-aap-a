@@ -34,5 +34,6 @@ int main()
       }
     }
   }
+  
   std::cout << counter() << std::endl;
 }
