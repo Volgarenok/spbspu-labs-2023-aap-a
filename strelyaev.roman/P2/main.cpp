@@ -4,6 +4,7 @@
 int main(int argc, char * argv[])
 {
   std::fstream input(argv[2]);
+  std::fstream output(argv[3]);
   int i = 0;
   input >> i;
   if (!input)
@@ -12,6 +13,6 @@ int main(int argc, char * argv[])
     return 2;
   }
 
-  std::cout << i << "\n";
+  output << i;
 
 }
