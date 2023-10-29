@@ -15,7 +15,7 @@ gladyshev::Countermain::Countermain():
 void gladyshev::Countermain::operator()(long long int number)
 {
   ++counter;
-  unsigned long long int maxsize = std::numeric_limits< unsigned long long int >::max();
+  size_t maxsize = std::numeric_limits< size_t >::max();
   if (counter == maxsize)
   {
     throw std::logic_error("sequence is too long");
