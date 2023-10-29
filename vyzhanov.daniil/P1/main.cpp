@@ -28,7 +28,6 @@ int main()
       }
     }
   }
-
   while (num != 0);
   std::cout << counter() << "\n";
 }
