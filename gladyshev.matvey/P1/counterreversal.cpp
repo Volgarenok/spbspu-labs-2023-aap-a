@@ -1,4 +1,4 @@
-#include "counterresult.h"
+#include "counterreversal.h"
 
 #include <iostream>
 #include <limits>

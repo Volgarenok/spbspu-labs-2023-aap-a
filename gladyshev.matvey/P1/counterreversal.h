@@ -1,5 +1,5 @@
-#ifndef COUNTERRESULT_H
-#define COUNTERRESULT_H
+#ifndef COUNTERREVERSAL_H
+#define COUNTERREVERSAL_H
 
 namespace gladyshev
 {
