@@ -1,41 +1,17 @@
 #include <iostream>
-#include <limits>
+#include "locmax.hpp"
 
-struct SequenceCounter
-{
-  SequenceCounter():
-   count_(0)
-  {}
-
-  void count(int)
-  {
-    size_t max_size = std::numeric_limits<size_t>::max();
-    if (count_ == max_size)
-    {
-      throw std::logic_error("sequence is too long");
-    }
-    ++count_;
-  }
-  size_t get_result() const
-  {
-    return count_;
-  }
-  private:
-  size_t count_;
-};
 
 
 int main()
 {
-  size_t count = 0;
   int CurNum = 0;
-  int first; 
-  int third;
+  int first;
   int kount = 0;
   SequenceCounter counter;
   do
   {
-    std::cin >> CurNum;
+    std::cin >>CurNum;
     if (!std::cin)
     {
       std::cerr << ("Is not a sequence\n");
@@ -43,6 +19,8 @@ int main()
       }
     else if(CurNum != 0)
     {
+     
+        
       try 
       {
         counter.count(CurNum);
@@ -55,4 +33,5 @@ int main()
     }
   }
   while (CurNum != 0);
+  std::cout << kount;
 }
