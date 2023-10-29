@@ -4,9 +4,9 @@
 int main()
 {
   using namespace strelyaev;
-  int currentNumber;
+  int currentNumber = 0;
   Mondec count;
-/* В голову ничего кроме самого обычно do-while цикла не пришло. Извиняйте */
+
   do
   {
     std::cin >> currentNumber;
@@ -20,9 +20,8 @@ int main()
       try
       {
         count(currentNumber);
-        count();
       }
-      catch (std::exception & e)
+      catch (const std::logic_error & e)
       {
         std::cerr << "ERROR: " << e.what() << "\n";
         return 2;
@@ -30,5 +29,5 @@ int main()
     }
   }
   while (currentNumber != 0);
-  std::cout << count.resultLog() << "\n";
+  std::cout << count() << "\n";
 }

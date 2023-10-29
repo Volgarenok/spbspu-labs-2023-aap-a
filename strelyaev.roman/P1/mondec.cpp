@@ -3,47 +3,38 @@
 #include <stdexcept>
 #include <iostream>
 
-/* Специальный метод. Задаёт counter значение 0 */
 strelyaev::Mondec::Mondec():
-  max_counter(0),
-  new_counter(1),
-  past_number(0)
+  max_counter_(0),
+  new_counter_(1),
+  past_number_(0)
 {}
 
 
-/* Метод в классе, который проверяет число на переполнение.
-так же добавляет к полю counter значение, если все ОК*/
 void strelyaev::Mondec::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (new_counter == max_size)
+  if (past_number_ >= num)
   {
-    throw std::logic_error("SEQUENCE IS TOO BIG");
-  }
-  if (past_number >= num)
-  {
-    ++new_counter;
+    ++new_counter_;
   }
   else
   {
-    new_counter = 1;
+    new_counter_ = 1;
   }
-    past_number = num;
-}
+  past_number_ = num;
 
 
-/*Метод, который сравнивает max_counter с new_counter*/
-void strelyaev::Mondec::operator()()
-{
-  if (new_counter > max_counter)
+  if (new_counter_ == max_size)
   {
-    max_counter = new_counter;
+    throw std::logic_error("SEQUENCE IS TOO BIG");
+  }
+
+  if (new_counter_ > max_counter_)
+  {
+    max_counter_ = new_counter_;
   }
 }
-
-
-/*Метод, возвращающий counter*/
-size_t strelyaev::Mondec::resultLog() const
+size_t strelyaev::Mondec::operator()() const
 {
-  return max_counter;
+  return max_counter_;
 }
