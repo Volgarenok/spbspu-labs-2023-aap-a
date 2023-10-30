@@ -8,8 +8,8 @@ class LocalMaxCounter
 {
 public:
   LocalMaxCounter(long long int firstNumber, long long int secondNumber);
-  void count(long long int number);
-  size_t get_result() const;
+  void operator()(long long int number);
+  size_t operator()() const;
 private:
   long long int prevNumber;
   long long int currentNumber;

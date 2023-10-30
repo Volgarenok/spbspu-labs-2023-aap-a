@@ -47,7 +47,7 @@ int main()
     {
       try
       {
-        counter.count(number);
+        counter(number);
       }
       catch (const std::exception & e)
       {
@@ -58,6 +58,6 @@ int main()
   }
   while (number != 0);
 
-  std::cout << counter.get_result()  << '\n';
+  std::cout << counter()  << '\n';
 }
 

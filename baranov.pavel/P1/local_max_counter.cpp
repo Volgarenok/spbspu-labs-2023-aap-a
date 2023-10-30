@@ -9,7 +9,7 @@ baranov::LocalMaxCounter::LocalMaxCounter(long long int firstNumber, long long i
   count_(0)
 {}
 
-void baranov::LocalMaxCounter::count(long long int number)
+void baranov::LocalMaxCounter::operator()(long long int number)
 {
   nextNumber = number;
   if (currentNumber > prevNumber && currentNumber > nextNumber)
@@ -25,7 +25,7 @@ prevNumber = currentNumber;
 currentNumber = nextNumber;
 }
 
-size_t baranov::LocalMaxCounter::get_result() const
+size_t baranov::LocalMaxCounter::operator()() const
 {
   return count_;
 }
