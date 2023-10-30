@@ -3,7 +3,7 @@
 #include <cstddef>
 namespace arakelyan
 {
-  struct CounterOfNums 
+  struct CounterOfNums
   {
     CounterOfNums();
   public:

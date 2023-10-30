@@ -1,5 +1,5 @@
 #include <iostream>
-#include "sequenceofnums.hpp"
+#include "counterofnums.hpp"
 #include <limits>
 
 arakelyan::CounterOfNums::CounterOfNums():
