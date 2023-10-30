@@ -23,6 +23,7 @@ void shabalin::LocMax::operator()(size_t nextNum)
   {
     ++kount;
   }
+  else if (curNum )
   behindNum = curNum;
   curNum = nextNum;
 };
