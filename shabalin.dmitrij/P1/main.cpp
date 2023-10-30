@@ -1,5 +1,5 @@
-#include <iostream>
 #include "locmax.hpp"
+#include <iostream>
 #include <stdexcept>
 
 using namespace shabalin;

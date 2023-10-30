@@ -26,7 +26,7 @@ void shabalin::LocMax::operator()(size_t nextNum)
   behindNum = curNum;
   curNum = nextNum;
 }
-size_t shabalin::LocMax::operator()()
+size_t shabalin::LocMax::operator()() const
 {
   return kount;
 }
