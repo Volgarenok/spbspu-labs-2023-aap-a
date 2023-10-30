@@ -1,8 +1,7 @@
-name: Lab testing
+name: Lab testing on push
 
 on:
   push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
