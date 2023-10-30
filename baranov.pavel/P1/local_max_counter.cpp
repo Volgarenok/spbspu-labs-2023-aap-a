@@ -3,16 +3,16 @@
 #include <stdexcept>
 
 baranov::LocalMaxCounter::LocalMaxCounter(long long int firstNumber, long long int secondNumber):
-  prevNumber(firstNumber),
-  currentNumber(secondNumber),
-  nextNumber(1),
+  prevNumber_(firstNumber),
+  currentNumber_(secondNumber),
+  nextNumber_(1),
   count_(0)
 {}
 
 void baranov::LocalMaxCounter::operator()(long long int number)
 {
-  nextNumber = number;
-  if (currentNumber > prevNumber && currentNumber > nextNumber)
+  nextNumber_ = number;
+  if (currentNumber_ > prevNumber_ && currentNumber_ > nextNumber_)
   {
     size_t max_size = std::numeric_limits< size_t >::max();
     if (count_ == max_size)
@@ -21,8 +21,8 @@ void baranov::LocalMaxCounter::operator()(long long int number)
     }
     ++count_;
   }
-prevNumber = currentNumber;
-currentNumber = nextNumber;
+prevNumber_ = currentNumber_;
+currentNumber_ = nextNumber_;
 }
 
 size_t baranov::LocalMaxCounter::operator()() const
