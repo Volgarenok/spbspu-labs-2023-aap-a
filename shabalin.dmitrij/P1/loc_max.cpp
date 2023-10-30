@@ -2,9 +2,10 @@
 #include <limits>
 #include <stdexcept>
 
-shabalin::LocMax::LocMax(size_t behindInt,size_t curInt):
-  curNum(curInt),
+shabalin::LocMax::LocMax(size_t behindInt,size_t curInt,size_t nextInt):
   behindNum(behindInt),
+  curNum(curInt),
+  nextNum(nextInt),
   kount(0)
 {}
 
@@ -17,15 +18,15 @@ void shabalin::LocMax::SequenceCounter(size_t lenght)
     }
 };
 
-void shabalin::LocMax::operator()(size_t nextNum)
+void shabalin::LocMax::operator()(size_t Number)
 {
-  if (curNum > nextNum && curNum > behindNum)
+  nextNum = Number;
+  if (curNum > Number && curNum > behindNum)
   {
     ++kount;
   }
-  else if (curNum )
   behindNum = curNum;
-  curNum = nextNum;
+  curNum = Number;
 };
 
 size_t shabalin::LocMax::operator()() const
