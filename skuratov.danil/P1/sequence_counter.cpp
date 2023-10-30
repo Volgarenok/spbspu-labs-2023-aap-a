@@ -2,21 +2,9 @@
 #include <limits>
 #include <stdexcept>
 
-skuratov::SequenceCounter::SequenceCounter() :
+skuratov::SequenceCounter::SequenceCounter():
     count_(0)
 {}
-//void skuratov::SequenceCounter::count_max(int number)
-//{
-//    static int max_number = 0;
-//    if (number > max_number)
-//    {
-//        max_number = number;
-//    }
-//    else if (max_number == number)
-//    {
-//        ++count_;
-//    }
-//}
 
 void skuratov::SequenceCounter::operator()(int number)
 {

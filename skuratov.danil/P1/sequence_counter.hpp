@@ -15,4 +15,5 @@ namespace skuratov
         size_t count_;
     };
 }
+
 #endif
