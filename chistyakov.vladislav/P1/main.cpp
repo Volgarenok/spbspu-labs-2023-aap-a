@@ -5,11 +5,11 @@
 
 int main()
 {
-  
+
   using namespace mySpace;
   grt_lss counterGRT;
   SequenceNumOfMax counter;
-  
+
   // 3 cin для построение минимальной последовательности
   size_t number = 0;
   std::cin >> number;
@@ -59,7 +59,7 @@ int main()
     std::cerr << "Error: " << e.what() << "\n";
     return 2;
   }
-  
+
   do
   {
     std::cin >> number;
@@ -81,7 +81,7 @@ int main()
         return 2;
       }
     }
-  } 
+  }
   while (number != 0);
   std::cout << "[CNT-MAX]: " << counter.get_result() << "\n";
   std::cout << "[GRT-LSS]: " << counterGRT.get_result_grt() << "\n";
