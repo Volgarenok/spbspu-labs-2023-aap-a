@@ -4,7 +4,7 @@
 
 novokhatskiy::SequenceCounter::SequenceCounter():
   count_(0),
-  max(0)
+  max_(0)
 {}
 void novokhatskiy::SequenceCounter::operator()(int num)
 {
@@ -13,9 +13,9 @@ void novokhatskiy::SequenceCounter::operator()(int num)
   {
     throw std::logic_error("Sequence is too long");
   }
-  else if (num > max)
+  else if (num > max_)
   {
-    max = num;
+    max_ = num;
     count_ = 0;
   }
   else

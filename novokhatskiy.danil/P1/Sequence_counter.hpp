@@ -11,7 +11,7 @@ namespace novokhatskiy
     size_t operator()() const;
   private:
     size_t count_;
-    int max;
+    int max_;
   };
 }
 #endif
