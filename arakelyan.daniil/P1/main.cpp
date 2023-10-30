@@ -7,7 +7,7 @@ int main()
   int pastNum = 0;
 
   using namespace arakelyan;
-  SequenceOfNums count;
+  CounterOfNums count;
 
   std::cin >> currentNum;
   if (!std::cin)

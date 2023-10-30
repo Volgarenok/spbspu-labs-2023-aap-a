@@ -3,9 +3,9 @@
 #include <cstddef>
 namespace arakelyan
 {
-  struct SequenceOfNums
+  struct CounterOfNums 
   {
-    SequenceOfNums();
+    CounterOfNums();
   public:
     void counter(int curr,int past);
     size_t get_count() const;

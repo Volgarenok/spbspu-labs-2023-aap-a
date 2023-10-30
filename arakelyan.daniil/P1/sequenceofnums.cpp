@@ -2,15 +2,15 @@
 #include "sequenceofnums.hpp"
 #include <limits>
 
-arakelyan::SequenceOfNums::SequenceOfNums():
+arakelyan::CounterOfNums::CounterOfNums():
   count_(0),
   length_(1)
 {}
 
-void arakelyan::SequenceOfNums::counter(int curr, int past)
+void arakelyan::CounterOfNums::counter(int curr, int past)
 {
   ++length_;
-  size_t max_length = std::numeric_limits<size_t>::max();
+  size_t max_length = std::numeric_limits< size_t >::max();
   if (length_ == max_length)
   {
     throw std::logic_error("Sequense is too long");
@@ -25,7 +25,7 @@ void arakelyan::SequenceOfNums::counter(int curr, int past)
   }
 };
 
-size_t arakelyan::SequenceOfNums::get_count() const
+size_t arakelyan::CounterOfNums::get_count() const
 {
   return count_;
 }
