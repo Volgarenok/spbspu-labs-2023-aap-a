@@ -8,7 +8,6 @@
 
   void SequenceCounter::count(int number)
   {
-    int max = std::numeric_limits< int >::min();
     size_t max_size = std::numeric_limits< size_t >::max();
     if (counts == max_size)
     {
