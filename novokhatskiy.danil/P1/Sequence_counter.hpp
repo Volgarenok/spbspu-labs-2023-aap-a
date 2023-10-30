@@ -4,9 +4,9 @@
 #include <cstddef>
 namespace novokhatskiy
 {
-  struct SequenceCounter
+  struct SequenceCounterMax
   {
-    SequenceCounter();
+    SequenceCounterMax();
     void operator()(int num);
     size_t operator()() const;
   private:

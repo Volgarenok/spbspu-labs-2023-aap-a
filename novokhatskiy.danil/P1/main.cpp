@@ -5,7 +5,7 @@
 int main()
 {
   using namespace novokhatskiy;
-  SequenceCounter counter;
+  SequenceCounterMax counter;
   int num = 0;
   std::cin >> num;
   if (!std::cin)

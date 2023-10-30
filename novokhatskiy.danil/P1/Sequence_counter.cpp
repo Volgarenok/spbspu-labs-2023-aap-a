@@ -2,11 +2,11 @@
 #include <stdexcept>
 #include "Sequence_counter.hpp"
 
-novokhatskiy::SequenceCounter::SequenceCounter():
+novokhatskiy::SequenceCounterMax::SequenceCounterMax():
   count_(0),
   max_(0)
 {}
-void novokhatskiy::SequenceCounter::operator()(int num)
+void novokhatskiy::SequenceCounterMax::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (count_ == max_size)
@@ -23,7 +23,7 @@ void novokhatskiy::SequenceCounter::operator()(int num)
     ++count_;
   }
 }
-size_t novokhatskiy::SequenceCounter::operator()() const
+size_t novokhatskiy::SequenceCounterMax::operator()() const
 {
   return count_;
 }
