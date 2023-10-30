@@ -11,7 +11,7 @@ piyavkin::MonDec::MonDec():
 void piyavkin::MonDec::operator()(long long int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (flag == 1)
+  if (flag == true)
   {
     throw std::logic_error("error: sequens is too long");
   }
