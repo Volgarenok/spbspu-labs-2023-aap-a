@@ -44,7 +44,7 @@ int main()
     }
     try 
     {
-      counter.count(nextNum);
+      counter(nextNum);
     }
     catch(const std::exception & e)
     {
@@ -52,5 +52,5 @@ int main()
       return 2;
     }
   }
-  std::cout << counter.get_result() << "\n";
+  std::cout << counter() << "\n";
 }

@@ -17,7 +17,7 @@ void shabalin::LocMax::SequenceCounter(size_t lenght)
     }
 }
 
-void shabalin::LocMax::count(size_t nextNum)
+void shabalin::LocMax::operator()(size_t nextNum)
 {
   if (curNum > nextNum && curNum > behindNum)
   {
@@ -26,7 +26,7 @@ void shabalin::LocMax::count(size_t nextNum)
   behindNum = curNum;
   curNum = nextNum;
 }
-  size_t shabalin::LocMax::get_result() 
+  size_t shabalin::LocMax::operator()() 
   {
     return kount; 
   }
