@@ -6,7 +6,7 @@ using namespace shabalin;
 
 int main()
 {
-  int behindNum, curNum,  nextNum, Number;
+  int behindNum = 1, curNum = 1,  nextNum = 1, Number = 1;
   std::cin >> behindNum;
   if (!std::cin)
   {
@@ -65,6 +65,6 @@ int main()
     }
   }
   while (Number != 0);
-  
+
   std::cout << counter() << std::endl;
 }
