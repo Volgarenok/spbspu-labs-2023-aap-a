@@ -21,12 +21,12 @@ void shabalin::LocMax::operator()(size_t nextNum)
 {
   if (curNum > nextNum && curNum > behindNum)
   {
-    ++kount; 
+    ++kount;
   }
   behindNum = curNum;
   curNum = nextNum;
 }
-  size_t shabalin::LocMax::operator()() 
+  size_t shabalin::LocMax::operator()()
   {
-    return kount; 
+    return kount;
   }

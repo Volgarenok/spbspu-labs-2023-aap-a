@@ -33,7 +33,6 @@ int main()
 
   LocMax counter(behindNum,curNum);
   
-  
   while (nextNum != 0)
   {
     std::cin >> nextNum;
@@ -42,7 +41,7 @@ int main()
       std::cerr << "is not sequence\n";
       return 1;
     }
-    try 
+    try
     {
       counter(nextNum);
     }
