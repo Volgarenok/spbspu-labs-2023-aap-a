@@ -6,8 +6,8 @@ namespace lopatina
 {
   struct SequenceCounter {
     SequenceCounter();
-    void count(int);
-    size_t get_result() const;
+    void operator()(int);
+    size_t operator()() const;
   private:
     size_t count_;
   };

@@ -39,7 +39,7 @@ int main() {
 
     if (number_2 >= number_1 and number_2 >= number_3 and number_3 != 0) {
       try {
-        counter.count(number_3);
+        counter(number_3);
       }
       catch (const std::exception & e) {
         std::cerr << "Error: " << e.what() << "\n";
@@ -49,5 +49,5 @@ int main() {
     number_1 = number_2;
     number_2 = number_3;
   }
-  std::cout << counter.get_result() << "\n";
+  std::cout << counter() << "\n";
 }

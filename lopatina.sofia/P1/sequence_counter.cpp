@@ -6,13 +6,13 @@ lopatina::SequenceCounter::SequenceCounter():
   count_(0)
 {}
 
-void lopatina::SequenceCounter::count(int) {
+void lopatina::SequenceCounter::operator()(int) {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (count_ == max_size) {
     throw std::logic_error("Sequence is too long");
   }
   count_ += 1;
 }
-size_t lopatina::SequenceCounter::get_result() const {
+size_t lopatina::SequenceCounter::operator()() const {
   return count_;
 }
