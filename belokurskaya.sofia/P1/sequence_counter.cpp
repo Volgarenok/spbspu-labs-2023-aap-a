@@ -4,13 +4,13 @@
 
 const int Min = std::numeric_limits<int>::min();
 
-SequenceCounter::SequenceCounter():
+belokurskaya::SequenceCounter::SequenceCounter():
   count_(0),
   max_(Min),
   count_max_(1)
 {}
 
-void SequenceCounter:: count(int number)
+void belokurskaya::SequenceCounter:: count(int number)
 {
   size_t max_size = std::numeric_limits<size_t>::max();
   if (count_ == max_size)
@@ -28,7 +28,7 @@ void SequenceCounter:: count(int number)
   }
   ++count_;
 }
-size_t SequenceCounter::get_result() const
+size_t belokurskaya::SequenceCounter::get_result() const
 {
   return count_max_;
 }

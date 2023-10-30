@@ -4,6 +4,7 @@
 int main()
 {
   int number = 0;
+  using namespace belokurskaya;
   SequenceCounter counter;
   do
   {
