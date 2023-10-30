@@ -30,4 +30,5 @@ void shabalin::LocMax::operator()(size_t nextNum)
 size_t shabalin::LocMax::operator()() const
 {
   return kount;
+
 };
