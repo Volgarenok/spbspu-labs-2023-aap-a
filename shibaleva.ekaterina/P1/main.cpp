@@ -5,7 +5,7 @@ int main()
   int number = 0;
   size_t count = 0;
   int last = 0;
-  size_t count2 = 0;
+  int  count2 = 0;
   int answer = 0;
   do
   {
@@ -45,6 +45,5 @@ int main()
     std::cerr << "Sequence is too small!\n";
     return 2;
   }
-  std::cout << "Длина последовательности: " << count << "\n";
-  std::cout << "Ответ: " << answer << "\n";
+  std::cout << " " << answer << "\n";
 }
