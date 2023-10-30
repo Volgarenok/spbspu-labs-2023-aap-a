@@ -4,15 +4,20 @@
 
 piyavkin::MonDec::MonDec():
  cur_count(0),
+ flag(false),
  max_count(0),
  prev(std::numeric_limits< long long int >::max())
 {}
 void piyavkin::MonDec::operator()(long long int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (cur_count == max_size)
+  if (flag == 1)
   {
-    throw std::logic_error("error\n");
+    throw std::logic_error("error: sequens is too long");
+  }
+  else if (cur_count == max_size)
+  {
+    flag = true;
   }
   else if (num == 0)
   {
