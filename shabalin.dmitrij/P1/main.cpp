@@ -31,7 +31,7 @@ int main()
   }
 
   LocMax counter(behindNum,curNum);
-  
+
   while (nextNum != 0)
   {
     std::cin >> nextNum;

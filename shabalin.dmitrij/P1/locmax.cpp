@@ -13,7 +13,7 @@ void shabalin::LocMax::SequenceCounter(size_t lenght)
   size_t max_size = std::numeric_limits<size_t>::max();
     if (lenght == max_size)
     {
-      throw std::logic_error("Sequence is too long");
+      throw std::logic_error("Sequence is too long\n");
     }
 }
 
