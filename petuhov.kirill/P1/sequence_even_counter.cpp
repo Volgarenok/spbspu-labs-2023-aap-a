@@ -1,11 +1,11 @@
+#include "sequence_even_counter.hpp"
 #include <cstddef>
 #include <limits>
 #include <stdexcept>
-#include "sequence_even_counter.hpp"
 
 petuhov::SequenceEvenCounter::SequenceEvenCounter():
- temp_count(0),
- max_count(0)
+  temp_count_(0),
+  max_count_(0)
 {}
 
 void petuhov::SequenceEvenCounter::operator()(int num)
@@ -14,21 +14,20 @@ void petuhov::SequenceEvenCounter::operator()(int num)
 
   if (num % 2 == 0)
   {
-    if (temp_count == max_size)
+    if (temp_count_ == max_size)
     {
       throw std::logic_error("Sequence is too long");
     }
-
-    ++temp_count;
-    max_count = max_count < temp_count ? temp_count : max_count;
+    ++temp_count_;
+    max_count_ = max_count_ < temp_count_ ? temp_count_ : max_count_;
   }
   else
   {
-    temp_count = 0;
+    temp_count_ = 0;
   }
 }
 
 size_t petuhov::SequenceEvenCounter::operator()() const
 {
-  return max_count;
+  return max_count_;
 }

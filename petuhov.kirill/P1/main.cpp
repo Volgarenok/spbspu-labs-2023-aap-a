@@ -8,32 +8,32 @@ int main()
   using namespace petuhov;
   SequenceEvenCounter counter;
 
-  while (true)
+  do
   {
     std::cin >> num;
 
     if (!std::cin)
     {
-      std::cerr << "Input is not a valid number!" << std::endl;
+      std::cerr << "Input is not a valid number!\n";
       return 1;
-    }
-    if (num == 0)
-    {
-      break;
     }
     else
     {
-      try
+      if (num != 0)
       {
-        counter(num);
-      }
-      catch (const std::exception & e)
-      {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 2;
+        try
+        {
+          counter(num);
+        }
+        catch (const std::exception & e)
+        {
+          std::cerr << "Error: " << e.what() << "\n";
+          return 2;
+        }
       }
     }
   }
+  while (num != 0);
 
-  std::cout << counter() << std::endl;
+  std::cout << counter() << "\n";
 }
