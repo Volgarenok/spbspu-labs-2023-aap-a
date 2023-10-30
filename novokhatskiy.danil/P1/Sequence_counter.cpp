@@ -1,6 +1,6 @@
-#include "Sequence_counter.hpp"
 #include <limits>
 #include <stdexcept>
+#include "Sequence_counter.hpp"
 
 novokhatskiy::SequenceCounter::SequenceCounter():
   count_(0),

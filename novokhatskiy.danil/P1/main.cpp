@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Sequence_counter.hpp"
 #include <stdexcept>
+#include "Sequence_counter.hpp"
 
 int main()
 {
