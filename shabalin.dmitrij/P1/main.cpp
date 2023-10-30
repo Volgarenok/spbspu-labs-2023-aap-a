@@ -35,7 +35,7 @@ int main()
     std::cerr << "Is not sequence" << std::endl;
     return 1;
   }
-  else if (curNum == 0)
+  else if (nextNum == 0)
   {
     std::cerr << "Can not be calculated" << std::endl;
     return 0;
@@ -43,7 +43,7 @@ int main()
 
   LocMax counter(behindNum,curNum,nextNum);
 
-  while (Number != 0)
+  do
   {
     std::cin >> Number;
     if (!std::cin)
@@ -64,5 +64,7 @@ int main()
       }
     }
   }
+  while (Number != 0);
+  
   std::cout << counter() << std::endl;
 }
