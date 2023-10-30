@@ -16,5 +16,5 @@ namespace shabalin
   private:
     size_t kount;
   };
-};
+}
 #endif

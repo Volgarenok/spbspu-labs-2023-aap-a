@@ -8,14 +8,7 @@ shabalin::LocMax::LocMax(size_t behindInt,size_t curInt):
   kount(0)
 {}
 
-void shabalin::LocMax::SequenceCounter(size_t lenght)
-{
-  size_t max_size = std::numeric_limits<size_t>::max();
-    if (lenght == max_size)
-    {
-      throw std::logic_error("Sequence is too long\n");
-    }
-};
+
 
 void shabalin::LocMax::operator()(size_t nextNum)
 {
@@ -26,6 +19,7 @@ void shabalin::LocMax::operator()(size_t nextNum)
   behindNum = curNum;
   curNum = nextNum;
 };
+
 size_t shabalin::LocMax::operator()() const
 {
   return kount;

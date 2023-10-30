@@ -6,7 +6,7 @@ using namespace shabalin;
 
 int main()
 {
-  int behindNum, curNum,  nextNum = 1;
+  int behindNum, curNum,  nextNum;
   std::cin >> behindNum;
   if (!std::cin)
   {
@@ -26,7 +26,7 @@ int main()
   }
   else if (curNum == 0)
   {
-    std::cout << "Can not be calculated" << "\n";
+    std::cerr << "Can not be calculated" << "\n";
     return 0;
   }
 
