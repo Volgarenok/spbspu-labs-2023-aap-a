@@ -5,8 +5,9 @@
 
 int main()
 {
-  sequence seq;
-  long long num;
+  using namespace grechishnikov;
+  SequenceCountMin seq;
+  long long num = 0;
   do
   {
     std::cin >> num;
@@ -19,7 +20,7 @@ int main()
     {
       try
       {
-        seq.doCount(num);
+        seq(num);
       }
       catch (const std::exception & e)
       {
@@ -29,5 +30,5 @@ int main()
     }
   }
   while (num != 0);
-  std::cout << seq.getRez() << "\n";
+  std::cout << seq() << "\n";
 }

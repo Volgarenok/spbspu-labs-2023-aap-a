@@ -1,34 +1,31 @@
 #include "sequence.hpp"
 #include <stdexcept>
+#include <limits>
 
-void sequence::doCount(long long num)
+grechishnikov::SequenceCountMin::SequenceCountMin():
+  number_min_(std::numeric_limits<long long>::max()),
+  number_count_(0)
+{}
+
+void grechishnikov::SequenceCountMin::operator()(long long num)
 {
-  if (num == number_min)
+  size_t max_size = std::numeric_limits<size_t>::max();
+  if (num == number_min_)
   {
-    sequence::changeNum();
+    if (number_count_ == max_size)
+    {
+      throw std::overflow_error("sequence is too long");
+    }
+    number_count_ += 1;
   }
-  if (num < number_min)
+  if (num < number_min_)
   {
-    sequence::changeNum(num);
+    number_min_ = num;
+    number_count_ = 1;
   }
 }
 
-void sequence::changeNum(long long num)
+size_t grechishnikov::SequenceCountMin::operator()() const
 {
-  number_min = num;
-  number_count = 1;
-}
-
-void sequence::changeNum()
-{
-  if (number_count == max_length)
-  {
-    throw std::overflow_error("sequence is too long");
-  }
-  number_count += 1;
-}
-
-int sequence::getRez()
-{
-  return number_count;
+  return number_count_;
 }
