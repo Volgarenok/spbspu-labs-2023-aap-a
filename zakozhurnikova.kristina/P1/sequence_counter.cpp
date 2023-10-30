@@ -2,11 +2,11 @@
 #include <limits>
 #include <stdexcept>
 
-  SequenceCounter::SequenceCounter():
+zakozhurnikova::SequenceCounter::SequenceCounter():
    counts(0)
   {}
 
-  void SequenceCounter::count(int number)
+  void Zakozhurnikov::SequenceCounter::count(int number)
   {
     size_t max_size = std::numeric_limits< size_t >::max();
     if (counts == max_size)
@@ -23,7 +23,7 @@
       ++counts;
     }
   }
-  size_t SequenceCounter::get_result() const
+  size_t zakozhurnikova::SequenceCounter::get_result() const
   {
     return counts;
   }

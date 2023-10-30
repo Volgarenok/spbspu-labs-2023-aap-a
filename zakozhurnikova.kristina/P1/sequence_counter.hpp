@@ -3,14 +3,16 @@
 
 #include <limits>
 #include <cstddef>
-struct SequenceCounter
+namespace zakozhurnikova
 {
-  int max = std::numeric_limits< int >::min();
-  SequenceCounter();
-  void count(int number);
-  size_t get_result() const;
-private:
-  size_t counts;
-};
-
+  struct SequenceCounter
+  {
+    int max = std::numeric_limits< int >::min();
+    SequenceCounter();
+    void count(int number);
+    size_t get_result() const;
+  private:
+    size_t counts;
+  };
+}
 #endif
