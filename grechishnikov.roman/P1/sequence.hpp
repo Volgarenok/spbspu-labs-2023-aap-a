@@ -12,8 +12,8 @@ namespace grechishnikov
     void operator()(long long num);
     size_t operator()() const;
   private:
-    size_t number_count_;
     long long number_min_;
+    size_t number_count_;
   };
 }
 
