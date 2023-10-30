@@ -10,23 +10,23 @@ int main()
   std::cin >> behindNum;
   if (!std::cin)
   {
-    std::cerr << ("Is not sequence") << "\n";
+    std::cerr << ("Is not sequence") << std::endl;
     return 1;
   }
   else if (behindNum == 0)
   {
-    std::cerr << ("must be no zero sequence") << "\n";
+    std::cerr << ("must be no zero sequence") << std::endl;
     return 2;
   }
   std::cin >> curNum;
   if (!std::cin)
   {
-    std::cerr << ("Is not sequence") << "\n";
+    std::cerr << ("Is not sequence") << std::endl;
     return 1;
   }
   else if (curNum == 0)
   {
-    std::cerr << "Can not be calculated" << "\n";
+    std::cerr << "Can not be calculated" << std::endl;
     return 0;
   }
 
@@ -37,18 +37,21 @@ int main()
     std::cin >> nextNum;
     if (!std::cin)
     {
-      std::cerr << "is not sequence" << "\n";
+      std::cerr << "is not sequence" << std::endl;
       return 1;
     }
-    try
+    if (nextNum != 0)
     {
-      counter(nextNum);
-    }
-    catch(const std::exception & e)
-    {
-      std::cerr << "Error: " << e.what() << "\n";
-      return 2;
-    }
+      try
+      {
+        counter(nextNum);
+      }
+      catch(const std::exception & e)
+      {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 2;
+      }
+    } 
   }
-  std::cout << counter() << "\n";
+  std::cout << counter() << std::endl;
 }
