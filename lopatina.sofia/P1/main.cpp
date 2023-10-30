@@ -4,6 +4,7 @@
 
 int main() {
   int number_1 = 0, number_2 = 0, number_3 = 1, flag = 0;
+  using namespace lopatina;
   SequenceCounter counter;
 
   std::cin >> number_1;
