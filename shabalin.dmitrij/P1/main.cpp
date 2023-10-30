@@ -2,6 +2,7 @@
 #include "locmax.hpp"
 #include <stdexcept>
 
+using namespace shabalin;
 
 int main()
 {
@@ -9,27 +10,25 @@ int main()
   std::cin >> behindNum;
   if (!std::cin)
   {
-    std::cerr << ("Is not sequence\n");
+    std::cerr << ("Is not sequence") << "\n";
     return 1;
   }
   else if (behindNum == 0)
   {
-    std::cerr << ("must be no zero sequence\n");
+    std::cerr << ("must be no zero sequence") << "\n";
     return 2;
   }
   std::cin >> curNum;
   if (!std::cin)
   {
-    std::cerr << ("Is not sequence\n");
+    std::cerr << ("Is not sequence") << "\n";
     return 1;
   }
   else if (curNum == 0)
   {
-    std::cout << "Can not be calculated";
+    std::cout << "Can not be calculated" << "\n";
     return 0;
   }
-
-  using namespace shabalin;
 
   LocMax counter(behindNum,curNum);
   
@@ -38,7 +37,7 @@ int main()
     std::cin >> nextNum;
     if (!std::cin)
     {
-      std::cerr << "is not sequence\n";
+      std::cerr << "is not sequence" << "\n";
       return 1;
     }
     try
