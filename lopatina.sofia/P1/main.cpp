@@ -1,51 +1,73 @@
 #include <iostream>
 #include <limits>
+#include <stdexcept>
+
+struct SequenceCounter {
+  SequenceCounter():
+    count_(0)
+  {}
+
+  void count(int num){
+    size_t max_size = std::numeric_limits< size_t >::max();
+    if (count_ == max_size) {
+      throw std::logic_error("Sequence is too long");
+    }
+    count_ += 1;
+  }
+  size_t get_result() const
+  {
+    return count_;
+  }
+private:
+  size_t count_;
+};
+
 
 int main() {
-  int a = 0, b = 0, c = 1, f = 0;
-  size_t counter = 0;
-  std::cin >> a;
+  int number_1 = 0, number_2 = 0, number_3 = 1, flag = 0;
+  SequenceCounter counter;
+
+  std::cin >> number_1;
   if (!std::cin) {
     std::cerr << "Is not a sequence\n";
     return 1;
-  }
-  else if (a == 0) {
-    std::cerr << "Sequence is too short\n";
-    return 2;
-  }
-  std::cin >> b;
-  if (!std::cin) {
-    std::cerr << "Is not a sequence\n";
-    return 1;
-  }
-  else if (b == 0) {
+  } else if (number_1 == 0) {
     std::cerr << "Sequence is too short\n";
     return 2;
   }
 
-  while (c != 0) {
-    std::cin >> c;
+  std::cin >> number_2;
+  if (!std::cin) {
+    std::cerr << "Is not a sequence\n";
+    return 1;
+  } else if (number_2 == 0) {
+    std::cerr << "Sequence is too short\n";
+    return 2;
+  }
+
+  while (number_3 != 0) {
+    std::cin >> number_3;
 
     if (!std::cin) {
       std::cerr << "Is not a sequence\n";
       return 1;
-    }
-    else if (c == 0 and f == 0) {
+    } else if (number_3 == 0 and flag == 0) {
       std::cerr << "Sequence is too short\n";
       return 2;
     }
-    f = 1;
-    if (b >= a and b >= c and c != 0) {
-      size_t max_size = std::numeric_limits< size_t >::max();
-      if (counter == max_size) {
-        std::cerr << "Sequence is too long\n";
+    flag = 1;
+
+    if (number_2 >= number_1 and number_2 >= number_3 and number_3 != 0) {
+      try {
+        counter.count(number_3);
+      }
+      catch (const std::exception & e) {
+        std::cerr << "Error: " << e.what() << "\n";
         return 2;
       }
-      counter += 1;
     }
-    a = b;
-    b = c;
+    number_1 = number_2;
+    number_2 = number_3;
   }
-  std::cout << counter << "\n";
+  std::cout << counter.get_result() << "\n";
 }
-
