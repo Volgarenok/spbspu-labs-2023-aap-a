@@ -35,7 +35,7 @@ int main()
       count.counter(currentNum, pastNum);
     }
   }
-  catch (const std::exception &e)
+  catch (const std::exception & e)
   {
     std::cout << "Error: " << e.what() << "\n";
     return 2;

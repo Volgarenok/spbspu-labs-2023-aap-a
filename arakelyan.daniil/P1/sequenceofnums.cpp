@@ -7,12 +7,15 @@ arakelyan::SequenceOfNums::SequenceOfNums():
   length_(1)
 {}
 
-void arakelyan::SequenceOfNums::counter(int curr,int past) {
+void arakelyan::SequenceOfNums::counter(int curr,int past)
+{
   ++length_;
   size_t max_length = std::numeric_limits< size_t >::max();
-  if (length_ == max_length) {
+  if (length_ == max_length)
+  {
     throw std::logic_error("Sequense is too long");
-  } else if ((length_ == 2 && curr == 0) || (curr == 0 && length_ == 1)) {
+  } else if ((length_ == 2 && curr == 0) || (curr == 0 && length_ == 1))
+  {
     throw std::logic_error("Sequence is too short");
   }
   if (curr % past == 0 && curr != 0)
@@ -21,6 +24,7 @@ void arakelyan::SequenceOfNums::counter(int curr,int past) {
   }
 };
 
-size_t arakelyan::SequenceOfNums::get_count() const {
+size_t arakelyan::SequenceOfNums::get_count() const
+{
   return count_;
 }
