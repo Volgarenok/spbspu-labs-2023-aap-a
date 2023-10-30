@@ -10,10 +10,10 @@ struct LocMax
   void count(size_t nextNum);
   void SequenceCounter(size_t lenght);
   size_t get_result();
-  size_t kount;
-  size_t behindNum;
   size_t curNum;
-  size_t nextNum;
+  size_t behindNum;
+private:
+  size_t kount;
 }; 
 }
 #endif

@@ -2,9 +2,9 @@
 #include <limits>
 #include <stdexcept>
 
-shabalin::LocMax::LocMax(size_t BehindInt, size_t CurInt):
-  behindNum(BehindInt),
-  curNum(CurInt),
+shabalin::LocMax::LocMax(size_t behindInt,size_t curInt):
+  curNum(curInt),
+  behindNum(behindInt),
   kount(0)
 {}
 

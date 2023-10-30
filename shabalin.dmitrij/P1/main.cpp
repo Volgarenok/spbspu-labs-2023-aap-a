@@ -5,7 +5,7 @@
 
 int main()
 {
-  int behindNum, curNum,  nextNum = 0;
+  int behindNum, curNum,  nextNum = 1;
   std::cin >> behindNum;
   if (!std::cin)
   {
@@ -23,30 +23,34 @@ int main()
     std::cerr << ("Is not sequence\n");
     return 1;
   }
+  else if (curNum == 0)
+  {
+    std::cout << "Can not be calculated";
+    return 0;
+  }
 
   using namespace shabalin;
 
   LocMax counter(behindNum,curNum);
-
-  do 
+  
+  
+  while (nextNum != 0)
   {
     std::cin >> nextNum;
-    if (nextNum != 0)
-    { 
-      try {
-        counter.count(nextNum);
-      }
-      catch(const std::exception & e)
-      {
-        std::cerr << "Error: " << e.what()<< "\n";
-        return 2;
-      }
-    }
-    else if (!std::cin)
+    if (!std::cin)
     {
-      std::cerr << "Is not sequence\n";
+      std::cerr << "is not sequence\n";
+      return 1;
+    }
+    try 
+    {
+      counter.count(nextNum);
+    }
+    catch(const std::exception & e)
+    {
+      std::cerr << "Error: " << e.what()<< "\n";
+      return 2;
     }
   }
-  while (nextNum != 0);
   std::cout << counter.get_result() << "\n";
 }
