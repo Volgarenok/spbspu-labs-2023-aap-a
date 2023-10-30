@@ -55,5 +55,4 @@ int main()
   }
   std::cout << counter() << std::endl;
   return 0;
-
 }
