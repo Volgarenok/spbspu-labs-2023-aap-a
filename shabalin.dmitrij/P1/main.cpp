@@ -1,37 +1,52 @@
 #include <iostream>
 #include "locmax.hpp"
-
+#include <stdexcept>
 
 
 int main()
 {
-  int CurNum = 0;
-  int first;
-  int kount = 0;
-  SequenceCounter counter;
-  do
+  int behindNum, curNum,  nextNum = 0;
+  std::cin >> behindNum;
+  if (!std::cin)
   {
-    std::cin >>CurNum;
-    if (!std::cin)
-    {
-      std::cerr << ("Is not a sequence\n");
-      return 1;
+    std::cerr << ("Is not sequence\n");
+    return 1;
+  }
+  else if (behindNum == 0)
+  {
+    std::cerr << ("must be no zero sequence\n");
+    return 2;
+  }
+  std::cin >> curNum;
+  if (!std::cin)
+  {
+    std::cerr << ("Is not sequence\n");
+    return 1;
+  }
+
+  using namespace shabalin;
+
+  LocMax counter(behindNum,curNum);
+
+  do 
+  {
+    std::cin >> nextNum;
+    if (nextNum != 0)
+    { 
+      try {
+        counter.count(nextNum);
       }
-    else if(CurNum != 0)
-    {
-     
-        
-      try 
+      catch(const std::exception & e)
       {
-        counter.count(CurNum);
-      }
-      catch (const std::exception & e)
-      {
-        std::cerr << ("Error: ") << e.what() << "\n";
+        std::cerr << "Error: " << e.what()<< "\n";
         return 2;
       }
     }
+    else if (!std::cin)
+    {
+      std::cerr << "Is not sequence\n";
+    }
   }
-  while (CurNum != 0);
-  std::cout << kount;
+  while (nextNum != 0);
+  std::cout << counter.get_result() << "\n";
 }
