@@ -7,8 +7,8 @@ namespace belokurskaya
   struct SequenceCounter
   {
     SequenceCounter();
-    void count(int number);
-    size_t get_result() const;
+    void operator()(int number);
+    size_t operator()() const;
   private:
     size_t count_;
     int max_;

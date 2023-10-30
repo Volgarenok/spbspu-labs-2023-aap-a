@@ -10,7 +10,7 @@ belokurskaya::SequenceCounter::SequenceCounter():
   count_max_(1)
 {}
 
-void belokurskaya::SequenceCounter:: count(int number)
+void belokurskaya::SequenceCounter::operator()(int number)
 {
   size_t max_size = std::numeric_limits<size_t>::max();
   if (count_ == max_size)
@@ -28,7 +28,7 @@ void belokurskaya::SequenceCounter:: count(int number)
   }
   ++count_;
 }
-size_t belokurskaya::SequenceCounter::get_result() const
+size_t belokurskaya::SequenceCounter::operator()() const
 {
   return count_max_;
 }
