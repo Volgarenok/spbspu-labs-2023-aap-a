@@ -23,7 +23,7 @@ void arakelyan::CounterOfNums::counter(int curr, int past)
   {
     ++count_;
   }
-};
+}
 
 size_t arakelyan::CounterOfNums::get_count() const
 {
