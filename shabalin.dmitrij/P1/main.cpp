@@ -10,18 +10,18 @@ int main()
   std::cin >> behindNum;
   if (!std::cin)
   {
-    std::cerr << ("Is not sequence") << std::endl;
+    std::cerr << "Is not sequence" << std::endl;
     return 1;
   }
   else if (behindNum == 0)
   {
-    std::cerr << ("must be no zero sequence") << std::endl;
+    std::cerr << "must be no zero sequence" << std::endl;
     return 2;
   }
   std::cin >> curNum;
   if (!std::cin)
   {
-    std::cerr << ("Is not sequence") << std::endl;
+    std::cerr << "Is not sequence" << std::endl;
     return 1;
   }
   else if (curNum == 0)
@@ -51,7 +51,8 @@ int main()
         std::cerr << "Error: " << e.what() << std::endl;
         return 2;
       }
-    } 
+    }
   }
   std::cout << counter() << std::endl;
+  return 0;
 }
