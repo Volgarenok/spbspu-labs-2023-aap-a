@@ -6,7 +6,7 @@ zakozhurnikova::SequenceCounter::SequenceCounter():
    counts(0)
   {}
 
-  void Zakozhurnikov::SequenceCounter::count(int number)
+  void zakozhurnikova::SequenceCounter::count(int number)
   {
     size_t max_size = std::numeric_limits< size_t >::max();
     if (counts == max_size)
