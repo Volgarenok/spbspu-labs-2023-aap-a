@@ -1,24 +1,21 @@
 #ifndef ELEMENTCOUNTER_HPP
 #define ELEMENTCOUNTER_HPP
 
-#include <limits>
 #include <cstddef>
 
 namespace rebdev
 {
-  class element_counter
+  class ElementCounter
   {
   public:
-    element_counter();
-    element_counter(int last_element, int current_element);
-    void operator()(int next_element);
+    ElementCounter();
+    void operator()(int nextElement);
     size_t operator()() const;
 
   private:
-    int lastElement;
-    int currentElement;
-    size_t counter;
-    const size_t maxSize = std::numeric_limits< size_t >::max();
+    int lastElement_;
+    int currentElement_;
+    size_t counter_;
   };
 }
 #endif

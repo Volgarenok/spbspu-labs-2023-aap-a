@@ -1,33 +1,45 @@
 #include "elementCounter.hpp"
 #include <stdexcept>
+#include <limits>
 
-rebdev::element_counter::element_counter():
-  lastElement(0),
-  currentElement(0),
-  counter(0)
+rebdev::ElementCounter::ElementCounter():
+  lastElement_(0),
+  currentElement_(0),
+  counter_(0)
 {}
 
-rebdev::element_counter::element_counter(int last_element, int current_element):
-  lastElement(last_element),
-  currentElement(current_element),
-  counter(0)
-{}
-
-void rebdev::element_counter::operator()(int next_element)
+void rebdev::ElementCounter::operator()(int nextElement)
 {
-  if (counter <  maxSize)
+  if (nextElement != 0)
   {
-    counter += (lastElement > currentElement) && (currentElement > next_element);
-    lastElement = currentElement;
-    currentElement = next_element;
-  }
-  else
-  {
-    throw std::logic_error("there are too many elements in the sequence!");
+    if (lastElement_ == 0)
+    {
+      lastElement_ = nextElement;
+    }
+    else if (currentElement_ == 0)
+    {
+      currentElement_ = nextElement;
+    }
+    else
+    {
+      if ((lastElement_ > currentElement_) && (currentElement_ > nextElement))
+      {
+        if (counter_ < std::numeric_limits< size_t >::max())
+        {
+          counter_ += 1;
+        }
+        else
+        {
+          throw std::logic_error("there are too many elements in the sequence!");
+        }
+      }
+      lastElement_ = currentElement_;
+      currentElement_ = nextElement;
+    }
   }
 }
 
-size_t rebdev::element_counter::operator()() const
+size_t rebdev::ElementCounter::operator()() const
 {
-  return counter;
+  return counter_;
 }
