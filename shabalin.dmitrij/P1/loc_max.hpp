@@ -1,0 +1,20 @@
+#ifndef LOC_MAX_HPP
+#define LOC_MAX_HPP
+
+#include <cstddef>
+namespace shabalin
+{
+  class LocMax
+  {
+  public:
+    LocMax(size_t BehindInt, size_t CurInt);
+    void operator()(size_t nextNum);
+    void SequenceCounter(size_t lenght);
+    size_t operator()() const;
+    size_t curNum;
+    size_t behindNum;
+  private:
+    size_t kount;
+  };
+}
+#endif

@@ -1,4 +1,4 @@
-#include "locmax.hpp"
+#include "loc_max.hpp"
 #include <iostream>
 #include <stdexcept>
 
