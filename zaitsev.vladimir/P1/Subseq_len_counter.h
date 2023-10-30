@@ -3,17 +3,17 @@
 
 namespace zaitsev
 {
-  class Subseq_len_counter
+  class SubsequenceCounter
   {
   public:
-    Subseq_len_counter();
+    SubsequenceCounter();
     void operator()(long long);
-    void reset(long long);
-    unsigned long long get_max_len() const;
+    unsigned long long operator()() const;
   private:
     long long beg_element_;
     unsigned long long curr_len_;
     unsigned long long max_len_;
+    void reset(long long);
   };
 }
 #endif

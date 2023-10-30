@@ -4,7 +4,7 @@
 int main()
 {
   long long curr_element = 1;
-  zaitsev::Subseq_len_counter counter;
+  zaitsev::SubsequenceCounter counter;
 
   while ((std::cin >> curr_element) && curr_element != 0)
   {
@@ -25,7 +25,7 @@ int main()
     return 1;
   }
 
-  std::cout << counter.get_max_len() << '\n';
+  std::cout << counter() << '\n';
 
   return 0;
 }
