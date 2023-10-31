@@ -10,9 +10,13 @@ spiridonov::Moninc::Moninc():
 
 void spiridonov::Moninc::Moninc::operator()(int num)
 {
-  size_t max_size = std::numeric_limits< size_t >::max();
+  const size_t max_size = std::numeric_limits< size_t >::max();
   if (prev_num_ < num)
   {
+    if (curr_length_ == max_size)
+    {
+      throw std::logic_error("The sequence is too long");
+    }
     ++curr_length_;
   }
   else
@@ -20,12 +24,6 @@ void spiridonov::Moninc::Moninc::operator()(int num)
     curr_length_ = 1;
   }
   prev_num_ = num;
-
-  if (curr_length_ == std::numeric_limits< size_t >::max())
-  {
-    throw std::overflow_error("The sequence is too long!");
-  }
-
   if (curr_length_ > max_length_)
   {
     max_length_ = curr_length_;
