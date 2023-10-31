@@ -173,7 +173,8 @@ Accepted Labs
 | Spiridonov Mikhail      | ✓  |    |    |
 | Stepanov Gena           | ✓  |    |    |
 | Strelyaev Roman         | ✓  |    |    |
+| Vyzhanov Daniil         | ✓  |    |    |
 | Zaitsev Vladimir        | ✓  |    |    |
 | Zakozhurnikova Kristina | ✓  |    |    |
 | Zhalilov Rail           | ✓  |    |    |
-| __Total__               |  32|   0|   0|
+| __Total__               |  33|   0|   0|
