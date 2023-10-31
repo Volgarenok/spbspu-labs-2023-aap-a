@@ -5,7 +5,8 @@ void chetCounter(int now, size_t& max, size_t& actual)
   if (now % 2 == 0)
   {
     ++actual;
-    if (actual > max){
+    if (actual > max)
+    {
       max = actual;
     }
   }
