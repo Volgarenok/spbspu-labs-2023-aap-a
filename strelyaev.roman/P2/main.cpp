@@ -4,12 +4,9 @@
 #include "matrix.h"
 #include "checkargs.h"
 
-
-
 int main(int argc, char * argv[])
 {
   std::fstream input(argv[2]);
-
   int n = 0;
   try 
   {
@@ -26,14 +23,11 @@ int main(int argc, char * argv[])
     std::cerr << e.what() << "\n";
     return 2;
   }
-  
   int rows = 0;
   int columns = 0;
-
   input >> rows;
   input >> columns;
   int start_position = (rows-1) * columns + 0;
-
   if (n == 1)
   {
     try 
@@ -41,7 +35,6 @@ int main(int argc, char * argv[])
       int matrix[rows * columns] = {};
       sMatrix(input, matrix, rows*columns); 
       Clockwise(matrix, rows*columns, start_position, columns, 1);
-      
     }
     catch (const std::logic_error & e)
     {
@@ -62,9 +55,5 @@ int main(int argc, char * argv[])
       std::cerr << e.what() << '\n';
       return 2;
     }
-    
-  
   } 
-  
-
 }
