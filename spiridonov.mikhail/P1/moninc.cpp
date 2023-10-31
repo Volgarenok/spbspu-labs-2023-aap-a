@@ -10,7 +10,7 @@ spiridonov::Moninc::Moninc():
 
 void spiridonov::Moninc::Moninc::operator()(int num)
 {
-  size_t max_size = std::numeric_limits< size_t >::max();
+  size_t max_size_ = std::numeric_limits< size_t >::max();
   if (prev_num_ < num)
   {
     ++curr_length_;

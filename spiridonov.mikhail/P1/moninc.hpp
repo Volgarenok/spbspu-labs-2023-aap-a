@@ -14,6 +14,7 @@ namespace spiridonov
     private:
       size_t max_length_;
       size_t curr_length_;
+      size_t max_size_;
       int prev_num_;
   };
 }
