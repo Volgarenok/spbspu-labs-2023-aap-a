@@ -3,13 +3,15 @@
 
 #include <cstddef>
 namespace nikitov {
-  struct SequenceCounter
+  class SequenceCounter
   {
+  public:
     SequenceCounter();
     void operator()(int);
     size_t operator()() const;
+
   private:
-      size_t count_;
+    size_t count_;
   };
 }
 #endif
