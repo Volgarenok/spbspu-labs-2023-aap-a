@@ -9,7 +9,7 @@ novokhatskiy::SequenceCounterMax::SequenceCounterMax():
 void novokhatskiy::SequenceCounterMax::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (count_ == max_size)
+  if (count_ > max_size)
   {
     throw std::logic_error("Sequence is too long");
   }
