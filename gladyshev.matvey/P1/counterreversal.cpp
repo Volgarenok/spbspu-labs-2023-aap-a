@@ -1,6 +1,5 @@
 #include "counterreversal.h"
 
-#include <iostream>
 #include <limits>
 #include <stdexcept>
 
