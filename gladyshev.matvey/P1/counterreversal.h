@@ -8,7 +8,9 @@ namespace gladyshev
     CounterReversal();
     void operator()(long long int number);
     unsigned long long int operator()() const;
+  public:
     unsigned long long counterznak;
+  private:
     long long int number;
     long long int supnumber;
   };
