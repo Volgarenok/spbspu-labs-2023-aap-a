@@ -8,7 +8,6 @@ strelyaev::Mondec::Mondec():
   past_number_(0)
 {}
 
-
 void strelyaev::Mondec::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
