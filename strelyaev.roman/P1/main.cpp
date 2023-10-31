@@ -4,22 +4,22 @@
 int main()
 {
   using namespace strelyaev;
-  int currentNumber = 0;
+  int current_number = 0;
   Mondec count;
 
   do
   {
-    std::cin >> currentNumber;
+    std::cin >> current_number;
     if (!std::cin)
     {
       std::cerr << "AN ERROR HAS OCCURRED: NOT A NUMBER\n";
       return 1;
     }
-    else if (currentNumber != 0)
+    else if (current_number != 0)
     {
       try
       {
-        count(currentNumber);
+        count(current_number);
       }
       catch (const std::logic_error & e)
       {
@@ -28,6 +28,6 @@ int main()
       }
     }
   }
-  while (currentNumber != 0);
+  while (current_number != 0);
   std::cout << count() << "\n";
 }

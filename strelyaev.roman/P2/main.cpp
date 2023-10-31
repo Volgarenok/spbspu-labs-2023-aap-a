@@ -1,43 +1,45 @@
 #include <iostream>
 #include <fstream>
 #include <exception>
+#include "matrix.h"
+#include "checkargs.h"
 
-void sMatrix (std::istream & in, int * a, int e)
+void Clockwise(int * matrix, int toChange, int position, int columns, int n) // matrix, rows*columns, start_position
 {
-  for (int i = 0; i < e; i++)
+  std::cout << matrix[position] << " --> ";
+  matrix[position] -= n;
+  n++;
+  std::cout << matrix[position] << "\n";
+  while (position != 0)
   {
-    in >> a[i];
+    position-=columns;
+    std::cout << matrix[position] << " --> ";
+    matrix[position] -= n;
+    n++;
+    toChange -=1;
+    std::cout << matrix[position] << "\n";
   }
+    while (position != 0)
+  {
+    position-=columns;
+    std::cout << matrix[position] << " --> ";
+    matrix[position] -= n;
+    n++;
+    toChange -=1;
+    std::cout << matrix[position] << "\n";
+  }
+
+  /*for (position; position >= 0; position-=columns)
+  {
+    std::cout << matrix[position] << " --> ";
+    matrix[position] -= n;
+    n++;
+    toChange -=1;
+    std::cout << matrix[position] << "\n";
+  }
+  */
+  std::cout << ">> " << position << " <<\n";
 }
-
-void dMatrix (std::istream & in, int * a, int e)
-{
-  for (int i = 0; i < e; i++)
-  {
-    if(!(in >> a[i]))
-    {
-      delete [] a;
-    }
-  }
-}
-
-void checkArgs(int argc, char * argv[], int n, std::fstream & in)
-{
-  if (argc != 4) 
-  {
-    throw (std::invalid_argument("Must be 3 arguments: task, input_file, output_file"));
-  }
-  if ((n < 1) || (n > 2))
-  {
-    throw (std::invalid_argument("first arguments out of range"));
-  }
-  if (!in)
-  {
-    throw (std::logic_error("Unable to read input file"));
-  }
-
-}
-
 
 int main(int argc, char * argv[])
 {
@@ -62,25 +64,42 @@ int main(int argc, char * argv[])
   
   int rows = 0;
   int columns = 0;
+
   input >> rows;
   input >> columns;
+  int start_position = (rows-1) * columns + 0;
 
   if (n == 1)
   {
-    int matrix[rows * columns] = {};
-    sMatrix(input, matrix, rows*columns); 
-    std::cout << matrix[1 * columns + 0];
+    try 
+    {
+      int matrix[rows * columns] = {};
+      sMatrix(input, matrix, rows*columns); 
+      Clockwise(matrix, rows*columns, start_position, columns, 1);
+      
+    }
+    catch (const std::logic_error & e)
+    {
+      std::cerr << e.what() << "\n";
+      return 2;
+    }
   }
   else if (n == 2)
   {
-    int * matrix = new int[rows*columns];
-    dMatrix (input, matrix, rows*columns);
-    std::cout << matrix[1 * columns + 0];
-    delete [] matrix;
+    try
+    {
+      int * matrix = new int[rows*columns];
+      dMatrix (input, matrix, rows*columns);
+      delete [] matrix;
+    }
+    catch(const std::logic_error& e)
+    {
+      std::cerr << e.what() << '\n';
+      return 2;
+    }
+    
+  
   } 
-  else 
-  {
-    return 1;
-  }
+  
 
 }
