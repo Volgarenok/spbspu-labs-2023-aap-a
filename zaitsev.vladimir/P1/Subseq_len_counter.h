@@ -3,10 +3,10 @@
 
 namespace zaitsev
 {
-  class SubsequenceCounter
+  class SubsequenceLengthCounter
   {
   public:
-    SubsequenceCounter();
+    SubsequenceLengthCounter();
     void operator()(long long);
     unsigned long long operator()() const;
   private:
