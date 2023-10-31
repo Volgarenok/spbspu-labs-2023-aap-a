@@ -1,12 +1,13 @@
 #include <iostream>
 #include <stdexcept>
 #include <limits>
-#include "sequence_pyth_triple.hpp"
+#include "pyth_triples_counter.hpp"
 
-int main() {
+int main()
+{
   int current = 0;
   using namespace erohin;
-  SequencePythTriple pythtriple;
+  PythTriplesCounter pythtriples;
   do
   {
     std::cin >> current;
@@ -19,7 +20,7 @@ int main() {
     {
       try
       {
-        pythtriple(current);
+        pythtriples(current);
       }
       catch (const std::exception & e)
       {
@@ -29,5 +30,5 @@ int main() {
     }
   }
   while (current != 0);
-  std::cout << pythtriple() << "\n";
+  std::cout << pythtriples() << "\n";
 }
