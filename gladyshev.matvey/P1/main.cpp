@@ -1,4 +1,3 @@
-#include <iostream>
 #include "counterreversal.h"
 
 int main()
