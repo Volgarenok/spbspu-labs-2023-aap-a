@@ -1,17 +1,6 @@
+#ifndef CHET_COUNTER_HPP
+#define CHET_COUNTER_HPP
 #include <cstddef>
 
-void chet_counter(int now, size_t& max, size_t& actual)
-{
-  if (now % 2 == 0)
-  {
-    ++actual;
-    if (actual > max){
-      max = actual;
-    }
-  }
-  else
-  {
-    actual = 0;
-  }
-}
-
+void chet_counter(int now, size_t& max, size_t& actual);
+#endif

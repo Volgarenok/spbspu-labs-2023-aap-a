@@ -1,12 +1,5 @@
-void isMax(int now, int& actual, int& pre)
-{
-  if (now >= actual)
-  {
-    pre = actual;
-    actual = now;
-  }
-  else if (now > pre)
-  {
-    pre = now;
-  }
-}
+#ifndef ISMAX_HPP
+#define ISMAX_HPP
+
+void isMax(int now, int& actual, int& pre);
+#endif
