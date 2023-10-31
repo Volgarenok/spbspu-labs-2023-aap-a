@@ -27,7 +27,7 @@ int main()
       {
         counter(number);
       }
-      catch (const std::exception & e)
+      catch (const std::exception& e)
       {
         std::cerr << "Error: " << e.what() << '\n';
         return 2;
@@ -39,7 +39,7 @@ int main()
   while (number != 0);
 
   std::cout << maxChetCount << '\n';
-  if (counter() == 0 || counter() == 1)
+  if (actualMax == 0 || preMax == 0)
   {
     std::cerr << "Error: This sequence is too short for SUB-MAX\n";
     return 2;
