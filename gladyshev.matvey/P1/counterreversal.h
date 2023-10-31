@@ -3,9 +3,9 @@
 
 namespace gladyshev
 {
-  struct Counterreversal
+  struct CounterReversal
   {
-    Counterreversal();
+    CounterReversal();
     void operator()(long long int number);
     unsigned long long int operator()() const;
     unsigned long long counterznak;

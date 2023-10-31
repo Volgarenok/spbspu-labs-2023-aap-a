@@ -5,7 +5,7 @@ int main()
 {
   using namespace gladyshev;
   long long int number = 1;
-  Counterreversal result;
+  CounterReversal result;
   while (number != 0)
   {
     std::cin >> number;
