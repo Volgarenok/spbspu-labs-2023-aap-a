@@ -3,8 +3,7 @@
 #include <stdexcept>
 
 erohin::PythTriplesCounter::PythTriplesCounter():
-  number_(0),
-  pythtriple_(0),
+  pythtriples_(0),
   prev_(0),
   pre_prev_(0)
 {}
@@ -12,14 +11,13 @@ erohin::PythTriplesCounter::PythTriplesCounter():
 void erohin::PythTriplesCounter::operator()(int current)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (number_ == max_size)
+  if (pythtriples_ == max_size)
   {
-    throw std::logic_error("Sequence is too long");
+    throw std::logic_error("There are too many pythagorean triples");
   }
-  ++number_;
-  if (number_ > 2 && isPythTriple(current))
+  if (pre_prev_ != 0 && prev_ != 0 && isPythTriple(current))
   {
-    ++pythtriple_;
+    ++pythtriples_;
   }
   pre_prev_ = prev_;
   prev_ = current;
@@ -27,20 +25,13 @@ void erohin::PythTriplesCounter::operator()(int current)
 
 bool erohin::PythTriplesCounter::isPythTriple(int current)
 {
-  size_t a = pre_prev_;
-  size_t b = prev_;
-  size_t c = current;
-  if ((a * a + b * b) == c * c)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+  int a = pre_prev_;
+  int b = prev_;
+  int c = current;
+  return ((a * a + b * b) == c * c);
 }
 
 size_t erohin::PythTriplesCounter::operator()() const
 {
-  return pythtriple_;
+  return pythtriples_;
 }
