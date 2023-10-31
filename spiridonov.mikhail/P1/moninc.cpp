@@ -23,7 +23,7 @@ void spiridonov::Moninc::Moninc::operator()(int num)
 
   if (curr_length_ == std::numeric_limits< size_t >::max())
   {
-    throw std::overflow_error("The sequence is too long");
+    throw std::overflow_error("The sequence is too long!");
   }
 
   if (curr_length_ > max_length_)
