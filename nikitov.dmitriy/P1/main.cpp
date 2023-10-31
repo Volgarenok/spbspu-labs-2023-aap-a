@@ -1,15 +1,15 @@
 #include <iostream>
 #include "sequence_counter.hpp"
-#include "ismax.hpp"
+#include "is_max.hpp"
 #include "chet_counter.hpp"
 
 int main()
 {
   int number = 0;
-  int actual_max = 0;
-  int pre_max = 0;
-  size_t max_chet_count = 0;
-  size_t current_chet_count = 0;
+  int actualMax = 0;
+  int preMax = 0;
+  size_t maxChetCount = 0;
+  size_t currentChetCount = 0;
   using namespace nikitov;
   SequenceCounter counter;
 
@@ -32,18 +32,18 @@ int main()
         std::cerr << "Error: " << e.what() << '\n';
         return 2;
       }
-      isMax(number, actual_max, pre_max);
-      chet_counter(number, max_chet_count, current_chet_count);
+      isMax(number, actualMax, preMax);
+      chetCounter(number, maxChetCount, currentChetCount);
     }
   }
   while (number != 0);
 
-  std::cout << max_chet_count << '\n';
+  std::cout << maxChetCount << '\n';
   if (counter() == 0 || counter() == 1)
   {
     std::cerr << "Error: This sequence is too short for SUB-MAX\n";
     return 2;
   }
-  std::cout << pre_max << '\n';
+  std::cout << preMax << '\n';
   return 0;
 }

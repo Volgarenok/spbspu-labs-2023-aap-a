@@ -1,4 +1,4 @@
-#include "ismax.hpp"
+#include "is_max.hpp"
 
 void isMax(int now, int& actual, int& pre)
 {

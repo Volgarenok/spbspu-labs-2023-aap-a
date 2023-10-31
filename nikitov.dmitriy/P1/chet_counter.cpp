@@ -1,6 +1,6 @@
 #include "chet_counter.hpp"
 
-void chet_counter(int now, size_t& max, size_t& actual)
+void chetCounter(int now, size_t& max, size_t& actual)
 {
   if (now % 2 == 0)
   {
