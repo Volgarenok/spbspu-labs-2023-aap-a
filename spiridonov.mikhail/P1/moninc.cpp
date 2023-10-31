@@ -1,14 +1,12 @@
+#include "moninc.hpp"
 #include <limits>
 #include <stdexcept>
-#include "moninc.hpp"
 
-namespace spiridonov
-{
-  spiridonov::Moninc::Moninc():
-    max_length_(0),
-    curr_length_(0),
-    prev_num_(0)
-  {}
+spiridonov::Moninc::Moninc():
+  max_length_(0),
+  curr_length_(0),
+  prev_num_(0)
+{}
 
 void spiridonov::Moninc::Moninc::operator()(int num)
 {
@@ -23,9 +21,9 @@ void spiridonov::Moninc::Moninc::operator()(int num)
   }
   prev_num_ = num;
 
-  if (curr_length_ == max_size)
+  if (curr_length_ == std::numeric_limits< size_t >::max())
   {
-    throw std::logic_error("The sequence is too long");
+    throw std::overflow_error("The sequence is too long");
   }
 
   if (curr_length_ > max_length_)
@@ -34,8 +32,7 @@ void spiridonov::Moninc::Moninc::operator()(int num)
   }
 }
 
-  size_t spiridonov::Moninc::Moninc::operator()() const
-  {
-    return max_length_;
-  }
+size_t spiridonov::Moninc::Moninc::operator()() const
+{
+  return max_length_;
 }
