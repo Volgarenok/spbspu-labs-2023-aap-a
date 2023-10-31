@@ -1,35 +1,42 @@
 #include "sequence.hpp"
 #include <limits>
 #include <stdexcept>
-#include <iostream>
 
-marishin::Sequence::Sequence():
-  global_count(0),
-  prev1(0),
-  prev2(0),
-  count(0)
+marishin::QuantitySumOfThePreviousTwo::QuantitySumOfThePreviousTwo():
+  prev1_(0),
+  prev2_(0),
+  prev3_(0),
+  count_(0)
 {}
 
-void marishin::Sequence::operator()(int num)
+void marishin::QuantitySumOfThePreviousTwo::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (global_count == max_size)
+  long long int sum_of_two = std::numeric_limits< long long int >::max();
+  if (count_ == max_size)
   {
     throw std::logic_error("sequence is too long");
   }
-  if ((global_count > 2) && (num == prev1 + prev2))
+  if ((prev1_ + prev2_) >= sum_of_two)
   {
-    count++;
+    throw std::logic_error("overflow");
   }
-  prev2 = prev1;
-  prev1 = num;
-  ++global_count;
+  if ((num == 0) && (prev3_ == 0))
+  {
+    throw std::logic_error("sequence is too short");
+  }
+  else
+  {
+    prev3_ = prev2_;
+    prev2_ = prev1_;
+    prev1_ = num;
+    if ((prev3_ != 0) && (prev1_ == (prev2_ + prev3_)))
+    {
+      ++count_;
+    }
+  }
 }
-size_t marishin::Sequence::operator()() const
+size_t marishin::QuantitySumOfThePreviousTwo::operator()() const
 {
-  return count;
-}
-size_t marishin::Sequence::get_global_count() const
-{
-  return global_count;
+  return count_;
 }
