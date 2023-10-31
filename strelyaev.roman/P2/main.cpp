@@ -4,6 +4,37 @@
 #include "matrix.h"
 #include "checkargs.h"
 
+void Clockwise(int * matrix, int toChange, int position, int columns, int n) // matrix, rows*columns, start_position
+{
+  matrix[position] -= n;
+  n++;
+  while (position != 0)
+  {
+    position-=columns;
+    matrix[position] -= n;
+    n++;
+    toChange -=1;
+  }
+    while (position != columns)
+  {
+    position+=1;
+    matrix[position] -= n;
+    n++;
+    toChange -=1;
+  }
+
+  /*for (position; position >= 0; position-=columns)
+  {
+    std::cout << matrix[position] << " --> ";
+    matrix[position] -= n;
+    n++;
+    toChange -=1;
+    std::cout << matrix[position] << "\n";
+  }
+  */
+  std::cout << ">> " << position << " <<\n";
+}
+
 int main(int argc, char * argv[])
 {
   std::fstream input(argv[2]);
