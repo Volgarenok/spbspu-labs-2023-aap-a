@@ -11,6 +11,7 @@ int main()
     std::cin >> number;
     if (!std::cin)
     {
+      std::cerr << "Is not a sequence\n";
       return 1;
     }
     try
