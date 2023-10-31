@@ -10,7 +10,7 @@ strelyaev::Mondec::Mondec():
 
 void strelyaev::Mondec::operator()(int num)
 {
- const size_t max_size = std::numeric_limits< size_t >::max();
+  const size_t max_size = std::numeric_limits< size_t >::max();
   if (past_number_ >= num)
   {
     if (new_counter_ == max_size)
@@ -29,6 +29,7 @@ void strelyaev::Mondec::operator()(int num)
     max_counter_ = new_counter_;
   }
 }
+
 size_t strelyaev::Mondec::operator()() const
 {
   return max_counter_;

@@ -6,7 +6,6 @@ int main()
   using namespace strelyaev;
   int current_number = 0;
   Mondec count;
-
   do
   {
     std::cin >> current_number;
