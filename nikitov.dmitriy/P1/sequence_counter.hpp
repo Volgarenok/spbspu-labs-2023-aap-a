@@ -7,7 +7,7 @@ namespace nikitov {
   {
     SequenceCounter();
     void operator()(int);
-    size_t operator()();
+    size_t operator()() const;
   private:
       size_t count_;
   };

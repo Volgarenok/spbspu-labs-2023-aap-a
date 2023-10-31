@@ -15,7 +15,7 @@ void nikitov::SequenceCounter::operator()(int)
   }
   ++count_;
 }
-size_t nikitov::SequenceCounter::operator()()
+size_t nikitov::SequenceCounter::operator()() const
 {
   return count_;
 }
