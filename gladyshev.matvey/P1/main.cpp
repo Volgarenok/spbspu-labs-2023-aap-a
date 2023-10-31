@@ -4,11 +4,11 @@
 int main()
 {
   using namespace gladyshev;
-  long long int number = 1;
+  long long int number_ = 1;
   CounterReversal result;
-  while (number != 0)
+  while (number_ != 0)
   {
-    std::cin >> number;
+    std::cin >> number_;
     if (!std::cin)
     {
       std::cerr << "Is not a sequence\n";
@@ -16,7 +16,7 @@ int main()
     }
     try
     {
-      result(number);
+      result(number_);
     }
     catch (const std::exception & e)
     {

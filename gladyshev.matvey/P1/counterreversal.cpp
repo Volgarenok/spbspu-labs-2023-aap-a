@@ -6,26 +6,26 @@
 
 
 gladyshev::CounterReversal::CounterReversal():
-   counterznak(0),
-   number(0),
-   supnumber(0)
+  counter_sign_(0),
+  number_(0),
+  sup_number_(0)
 {}
 
-void gladyshev::CounterReversal::operator()(long long int number)
+void gladyshev::CounterReversal::operator()(long long int number_)
 {
   size_t maxsize = std::numeric_limits< size_t >::max();
-  if (((supnumber > 0) && (number < 0)) || ((supnumber < 0) && (number > 0)))
+  if (((sup_number_ > 0) && (number_ < 0)) || ((sup_number_ < 0) && (number_ > 0)))
   {
-    ++counterznak;
+    ++counter_sign_;
   }
-  if (counterznak == maxsize)
+  if (counter_sign_ == maxsize)
   {
     throw std::logic_error("sequence is too long");
   }
-  supnumber = number;
+  sup_number_ = number_;
 }
 unsigned long long int gladyshev::CounterReversal::operator()() const
 {
-  return counterznak;
+  return counter_sign_;
 }
 
