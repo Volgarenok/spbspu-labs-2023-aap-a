@@ -5,7 +5,7 @@
 
 int main()
 {
-  isaychev::evenCounter counter1;
+  isaychev::EvenCounter counter1;
   int c_number = 0;
   std::cin >> c_number;
   if (!std::cin)

@@ -3,12 +3,12 @@
 #include <limits>
 #include <stdexcept>
 
-isaychev::evenCounter::evenCounter():
+isaychev::EvenCounter::EvenCounter():
   count_(0),
   max_count_(0)
 {}
 
-void isaychev::evenCounter::operator()(int c_num)
+void isaychev::EvenCounter::operator()(int c_num)
 {
   unsigned long long int u_border = std::numeric_limits< unsigned long long int >::max();
   if (c_num % 2 == 0)
@@ -32,7 +32,7 @@ void isaychev::evenCounter::operator()(int c_num)
   }
 }
 
-unsigned long long int isaychev::evenCounter::operator()() const
+unsigned long long int isaychev::EvenCounter::operator()() const
 {
   return max_count_;
 }
