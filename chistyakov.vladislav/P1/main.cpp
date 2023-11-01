@@ -35,7 +35,7 @@ int main()
     }
   }
   while (number != 0);
-  
+
   if (!counterGrtLss.isSecuenceOk())
   {
     std::cerr << "Secuence is too short";

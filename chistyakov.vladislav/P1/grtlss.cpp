@@ -17,7 +17,7 @@ void chistyakovGrtLss::GrtLss::countGrt(intmax_t number)
     fstNum_ = number;
   }
   else if (!midNum_)
-  { 
+  {
     midNum_ = number;
   }
   else
@@ -32,7 +32,7 @@ void chistyakovGrtLss::GrtLss::countGrt(intmax_t number)
     {
       throw std::logic_error("sequence is too long");
     }
-    
+
     if (fstNum_ > midNum_ and midNum_ > number)
     {
       ++counter_;
