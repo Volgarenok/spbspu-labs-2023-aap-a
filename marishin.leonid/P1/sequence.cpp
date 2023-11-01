@@ -13,11 +13,11 @@ void marishin::QuantitySumOfThePreviousTwo::operator()(int num)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   long long int sum_of_two = std::numeric_limits< long long int >::max();
-  if (count_ == max_size)
+  if (count_ > max_size)
   {
     throw std::logic_error("sequence is too long");
   }
-  if ((prev1_ + prev2_) >= sum_of_two)
+  if ((prev2_ + prev3_) > sum_of_two)
   {
     throw std::logic_error("overflow");
   }
