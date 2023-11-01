@@ -2,20 +2,23 @@
 #define GRTLSS_HPP
 
 #include <cstddef>
-namespace mySpace
-{
-    struct grt_lss
-    {
-        grt_lss();
-        void firstNumber(size_t number);
-        void middleNumber(size_t number);
-        void countGRT(size_t number);
-        size_t get_result_grt() const;
-    private:
-        size_t fstNum;
-        size_t midNum;
-        size_t counter;
-    };
-};
+#include <cstdint>
 
+namespace chistyakovGrtLss
+{
+  struct GrtLss
+  {
+  public:
+    GrtLss();
+    void countGrt(intmax_t number);
+    bool isSecuenceOk() const;
+    size_t getResultGrt() const;
+
+  private:
+    intmax_t fstNum_;
+    intmax_t midNum_;
+    size_t counter_;
+    bool isSecuence_;
+  };
+}
 #endif

@@ -1,38 +1,53 @@
+#include "grtlss.hpp"
 #include <limits>
 #include <stdexcept>
-#include "grtlss.hpp"
 #include <iostream>
 
-mySpace::grt_lss::grt_lss():
-  counter(0)
+chistyakovGrtLss::GrtLss::GrtLss() :
+    fstNum_(0),
+    midNum_(0),
+    counter_(0),
+    isSecuence_(false)
 {}
 
-void mySpace::grt_lss::firstNumber(size_t number)
+void chistyakovGrtLss::GrtLss::countGrt(intmax_t number)
 {
-  fstNum = number;
-}
-void mySpace::grt_lss::middleNumber(size_t number)
-{
-  midNum = number;
-}
-
-void mySpace::grt_lss::countGRT(size_t number)
-{
-  size_t max_size = std::numeric_limits< size_t >::max();
-  if (counter == max_size)
+  if (!fstNum_)
   {
-    throw std::logic_error("sequence is too long\n");
+    fstNum_ = number;
   }
-
-  if (fstNum > midNum and midNum > number)
+  else if (!midNum_)
+  { 
+    midNum_ = number;
+  }
+  else
   {
-    ++counter;
+    if (!isSecuence_)
+    {
+      isSecuence_ = true;
+    }
+
+    size_t max_size = std::numeric_limits< size_t >::max();
+    if (counter_ > max_size)
+    {
+      throw std::logic_error("sequence is too long");
+    }
+    
+    if (fstNum_ > midNum_ and midNum_ > number)
+    {
+      ++counter_;
+    }
+    fstNum_ = midNum_;
+    midNum_ = number;
   }
-  fstNum = midNum;
-  midNum = number;
 }
 
-size_t mySpace::grt_lss::get_result_grt() const
+bool chistyakovGrtLss::GrtLss::isSecuenceOk() const
 {
-  return counter;
+  return isSecuence_;
+}
+
+size_t chistyakovGrtLss::GrtLss::getResultGrt() const
+{
+  return counter_;
 }
