@@ -18,5 +18,4 @@ namespace chistyakovCntMax
     size_t counter_;
   };
 }
-
 #endif
