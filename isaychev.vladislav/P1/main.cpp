@@ -1,11 +1,11 @@
 #include <iostream>
 #include <limits>
 #include <stdexcept>
-#include "EVEN_COUNTER.hpp"
+#include "even_counter.hpp"
 
 int main()
 {
-  isaychev::Even_counter counter1;
+  isaychev::evenCounter counter1;
   int c_number = 0;
   std::cin >> c_number;
   if (!std::cin)
