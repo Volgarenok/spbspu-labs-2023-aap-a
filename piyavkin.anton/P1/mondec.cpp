@@ -9,16 +9,16 @@ piyavkin::MonDec::MonDec():
 {}
 void piyavkin::MonDec::operator()(long long int num)
 {
-  if (1 + cur_count_ == 0)
-  {
-    throw std::logic_error("error: sequence is too long");
-  }
   if (cur_count_ > max_count_)
   {
     max_count_ = cur_count_;
   }
   if (num <= prev_)
   {
+    if (1 + cur_count_ == 0)
+    {
+      throw std::logic_error("error: sequence is too long");
+    }
     ++cur_count_;
   }
   else
