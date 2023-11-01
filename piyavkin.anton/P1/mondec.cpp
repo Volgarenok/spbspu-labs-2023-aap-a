@@ -3,44 +3,31 @@
 #include <stdexcept>
 
 piyavkin::MonDec::MonDec():
- cur_count(0),
- flag(false),
- max_count(0),
- prev(std::numeric_limits< long long int >::max())
+ cur_count_(0),
+ max_count_(0),
+ prev_(0)
 {}
 void piyavkin::MonDec::operator()(long long int num)
 {
-  size_t max_size = std::numeric_limits< size_t >::max();
-  if (flag == true)
+  if (1 + cur_count_ == 0)
   {
-    throw std::logic_error("error: sequens is too long");
+    throw std::logic_error("error: sequence is too long");
   }
-  else if (cur_count == max_size)
+  if (cur_count_ > max_count_)
   {
-    flag = true;
+    max_count_ = cur_count_;
   }
-  else if (num == 0)
+  if (num <= prev_)
   {
-    if (cur_count > max_count)
-    {
-      max_count = cur_count;
-    }
-  }
-  else if (num <= prev)
-  {
-    ++cur_count;
+    ++cur_count_;
   }
   else
   {
-    if (cur_count > max_count)
-    {
-      max_count = cur_count;
-    }
-    cur_count = 1;
+    cur_count_ = 1;
   }
-  prev = num;
+  prev_ = num;
 }
 size_t piyavkin::MonDec::operator()() const
 {
-  return max_count;
+  return max_count_;
 }
