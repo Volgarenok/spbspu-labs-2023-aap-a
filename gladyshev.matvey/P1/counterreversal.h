@@ -7,10 +7,10 @@ namespace gladyshev
 {
   struct CounterReversal
   {
+  public:
     CounterReversal();
     void operator()(long long int number_);
     size_t operator()() const;
-  public:
     size_t counter_sign_;
   private:
     long long int number_;
