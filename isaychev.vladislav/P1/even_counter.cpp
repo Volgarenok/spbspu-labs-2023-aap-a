@@ -1,4 +1,3 @@
-
 #include "even_counter.hpp"
 #include <limits>
 #include <stdexcept>
@@ -10,7 +9,7 @@ isaychev::EvenCounter::EvenCounter():
 
 void isaychev::EvenCounter::operator()(int c_num)
 {
-  unsigned long long int u_border = std::numeric_limits< unsigned long long int >::max();
+  const unsigned long long int u_border = std::numeric_limits< unsigned long long int >::max();
   if (c_num % 2 == 0)
   {
     if (count_ == u_border)
