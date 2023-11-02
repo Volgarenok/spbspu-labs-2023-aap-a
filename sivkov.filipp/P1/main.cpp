@@ -35,5 +35,5 @@ int main()
     }
   }
   while(num != 0);
-  std::cout << "Answer: " < <counter() << "\n";
+  std::cout << "Answer: " <<counter() << "\n";
 }
