@@ -3,9 +3,9 @@
 #include <stdexcept>
 
 piyavkin::MonDec::MonDec():
- cur_count_(0),
- max_count_(0),
- prev_(0)
+  cur_count_(0),
+  max_count_(0),
+  prev_(0)
 {}
 void piyavkin::MonDec::operator()(long long int num)
 {
