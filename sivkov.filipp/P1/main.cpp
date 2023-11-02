@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "seq.hpp"
+#include "SequenceCounter.hpp"
 int main()
 {
   int num = 0;
@@ -27,7 +27,7 @@ int main()
       }
       catch (const std::exception & e)
       {
-        std::cer r< <"Error: " << e.what() << "\n";
+        std::cerr <<"Error: " << e.what() << "\n";
         return 2;
       }
     }
