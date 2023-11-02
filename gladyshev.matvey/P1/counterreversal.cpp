@@ -3,7 +3,6 @@
 #include <limits>
 #include <stdexcept>
 
-
 gladyshev::CounterReversal::CounterReversal():
   counter_sign_(0),
   number_(0),
