@@ -6,12 +6,12 @@ namespace sivkov
   struct SequenceCount
   {
     SequenceCount();
+  public:
     void operator()(int num, int num_old);
     size_t operator()() const;
   private:
     size_t k1;
   };
 }
-
 #endif
 

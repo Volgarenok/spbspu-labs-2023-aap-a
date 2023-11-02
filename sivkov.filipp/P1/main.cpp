@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "SequenceCounter.hpp"
+
 int main()
 {
   int num = 0;
@@ -21,17 +22,18 @@ int main()
     }
     else if (num !=0)
     {
+
       try
       {
         counter(num, num_old);
       }
       catch (const std::exception & e)
       {
-        std::cerr <<"Error: " << e.what() << "\n";
+        std::cerr << "Error: " << e.what() << "\n";
         return 2;
       }
     }
   }
   while(num != 0);
-  std::cout << "Answer: "<<counter() <<"\n";
+  std::cout << "Answer: " < <counter() << "\n";
 }

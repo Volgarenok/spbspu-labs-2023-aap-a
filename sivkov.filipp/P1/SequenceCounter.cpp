@@ -1,6 +1,7 @@
 #include "SequenceCounter.hpp"
 #include <limits>
 #include <stdexcept>
+
 sivkov::SequenceCount::SequenceCount():
   k1(0)
 {}
