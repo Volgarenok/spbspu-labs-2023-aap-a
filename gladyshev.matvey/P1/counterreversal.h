@@ -1,7 +1,7 @@
 #ifndef COUNTERREVERSAL_H
 #define COUNTERREVERSAL_H
 
-#include <iostream>
+#include <cstddef>
 
 namespace gladyshev
 {

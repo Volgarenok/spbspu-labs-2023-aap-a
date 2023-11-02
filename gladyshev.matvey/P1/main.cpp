@@ -1,5 +1,7 @@
 #include "counterreversal.h"
 
+#include <iostream>
+
 int main()
 {
   using namespace gladyshev;
