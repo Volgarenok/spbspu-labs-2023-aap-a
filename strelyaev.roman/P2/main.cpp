@@ -4,40 +4,49 @@
 #include "matrix.h"
 #include "checkargs.h"
 
-void Clockwise(int * matrix, int toChange, int position, int columns, int n) // matrix, rows*columns, start_position
-{
-  matrix[position] -= n;
-  n++;
-  while (position != 0)
-  {
-    position-=columns;
-    matrix[position] -= n;
-    n++;
-    toChange -=1;
-  }
-    while (position != columns)
-  {
-    position+=1;
-    matrix[position] -= n;
-    n++;
-    toChange -=1;
-  }
 
-  /*for (position; position >= 0; position-=columns)
+void printMatrix(int * a, int amount, int columns)
+{
+  for (int i = 0; i < amount; i++)
   {
-    std::cout << matrix[position] << " --> ";
-    matrix[position] -= n;
-    n++;
-    toChange -=1;
-    std::cout << matrix[position] << "\n";
+    std::cout << a[i] << " ";
+    if ((i+1) % columns == 0)
+    {
+      std::cout << "\n";
+    }
   }
-  */
-  std::cout << ">> " << position << " <<\n";
+}
+
+void Clockwise(int * a, int rows, int columns)
+{
+  int start = (rows-1) * columns + 0; 
+  int num = 1;
+  for (int delta = 0; delta < rows - 2; delta++)
+  {
+  for (int i = (rows-1)*columns - delta*(columns-1); i > delta*(columns+1); i-=columns)
+  {
+    a[i] = num++;
+  }
+  for (int i  = 0 + delta*(columns+1); i < columns + delta*(columns-1); i+=1)
+  {
+    a[i] = num++;
+  }
+  --num;
+  for (int i  = (columns-1) + delta*(columns-1); i < rows*columns - delta*(columns+1) - 1; i+=columns)
+  {
+    a[i] = num++;
+  }
+  for (int i  = rows*columns - 1 - delta*(columns+1); i > (rows-1) * columns - delta*(columns-1); i-=1)
+  {
+    a[i] = num++;
+  }
+  }
 }
 
 int main(int argc, char * argv[])
 {
   std::fstream input(argv[2]);
+
   int n = 0;
   try 
   {
@@ -54,18 +63,22 @@ int main(int argc, char * argv[])
     std::cerr << e.what() << "\n";
     return 2;
   }
+  
   int rows = 0;
   int columns = 0;
+
   input >> rows;
   input >> columns;
-  int start_position = (rows-1) * columns + 0;
+
+
   if (n == 1)
   {
     try 
     {
       int matrix[rows * columns] = {};
       sMatrix(input, matrix, rows*columns); 
-      Clockwise(matrix, rows*columns, start_position, columns, 1);
+      Clockwise(matrix, rows, columns);
+      printMatrix(matrix,rows*columns,columns);      
     }
     catch (const std::logic_error & e)
     {
@@ -86,5 +99,9 @@ int main(int argc, char * argv[])
       std::cerr << e.what() << '\n';
       return 2;
     }
+    
+  
   } 
+  
+
 }
