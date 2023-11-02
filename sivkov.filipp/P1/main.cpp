@@ -34,6 +34,6 @@ int main()
       }
     }
   }
-  while(num != 0);
+  while (num != 0);
   std::cout << "Answer: " <<counter() << "\n";
 }
