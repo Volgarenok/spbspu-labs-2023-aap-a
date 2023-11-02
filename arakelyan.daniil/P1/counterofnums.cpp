@@ -15,7 +15,7 @@ void arakelyan::CounterOfNums::counter(int curr, int past)
   {
     throw std::logic_error("Sequense is too long");
   }
-  else if ((length_ == 2 && curr == 0) || (curr == 0 && length_ == 1))
+  else if ((length_ == 2 && curr == 0))
   {
     throw std::logic_error("Sequence is too short");
   }
