@@ -1,11 +1,11 @@
 #ifndef SEQ_HPP
 #define SEQ_HPP
-#include <iostream>
+#include <cstddef>
 namespace sivkov
 {
-  struct SeqCount
+  struct SequenceCount
   {
-    SeqCount();
+    SequenceCount();
     void operator()(int num, int num_old);
     size_t operator()() const;
   private:
