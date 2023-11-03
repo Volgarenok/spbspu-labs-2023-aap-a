@@ -16,6 +16,7 @@ namespace rebdev
     int lastElement_;
     int currentElement_;
     size_t counter_;
+    size_t amountOfElements_;
   };
 }
 #endif

@@ -28,7 +28,15 @@ int main()
     }
   }
   while (number != 0);
-
-  std::cout << objectOfElementCounter() << '\n';
-  return 0;
+  try
+  {
+    size_t a = objectOfElementCounter();
+    std::cout << a << '\n';
+    return 0;
+  }
+  catch (const std::exception & e)
+  {
+    std::cerr << "Error: " << e.what() << '\n';
+    return 2;
+  }
 }
