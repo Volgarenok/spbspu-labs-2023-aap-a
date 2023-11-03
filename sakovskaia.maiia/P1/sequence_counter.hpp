@@ -4,9 +4,9 @@
 #include <cstddef>
 namespace sakovskaia
 {
-  struct SequenceCounter
+  struct SequenceSignsCounter
   {
-    SequenceCounter();
+    SequenceSignsCounter();
     void operator()(size_t, int);
     void operator()(int, int);
     size_t operator()() const;

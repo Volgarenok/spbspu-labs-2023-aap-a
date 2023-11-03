@@ -6,7 +6,7 @@ int main()
 {
   int number = 0;
   using namespace sakovskaia;
-  SequenceCounter counter;
+  SequenceSignsCounter counter;
   size_t size = 0;
   int lastNumber = 0;
   do

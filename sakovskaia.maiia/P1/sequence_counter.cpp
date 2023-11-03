@@ -2,31 +2,31 @@
 #include <limits>
 #include <stdexcept>
 
-sakovskaia::SequenceCounter::SequenceCounter():
+sakovskaia::SequenceSignsCounter::SequenceSignsCounter():
   count_(0)
 {}
 
-void sakovskaia::SequenceCounter::operator()(size_t size, int curr)
+void sakovskaia::SequenceSignsCounter::operator()(size_t size, int curr)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (size == max_size)
+  if (size > max_size)
   {
-    throw std::logic_error("Sequence is too long\n");
+    throw std::logic_error("Sequence is too long");
   }
   if (size == 1 && curr == 0)
   {
-    throw std::logic_error("Sequence is too short\n");
+    throw std::logic_error("Sequence is too short");
   }
 }
 
-void sakovskaia::SequenceCounter::operator()(int a, int b)
+void sakovskaia::SequenceSignsCounter::operator()(int a, int b)
 {
   if ((a > 0 && b < 0) || (a < 0 && b > 0))
   {
     ++count_;
   }
 }
-size_t sakovskaia::SequenceCounter::operator()() const
+size_t sakovskaia::SequenceSignsCounter::operator()() const
 {
   return count_;
 }
