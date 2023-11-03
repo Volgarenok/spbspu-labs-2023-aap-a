@@ -13,8 +13,8 @@ namespace zhalilov
     size_t operator()() const;
   private:
     size_t m_count;
-    size_t m_accum;
     size_t m_maxSeq;
+    int m_accum;
   };
 }
 #endif
