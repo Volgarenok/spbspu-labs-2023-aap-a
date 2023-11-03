@@ -1,21 +1,21 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "counter.hpp"
+#include "MaxEqualSeqCounter.hpp"
 
 int main()
 {
   using namespace zhalilov;
-  Counter counter;
+  MaxEqualSeqCounter counter;
   int prev = 0;
   int curr = 0;
-  while(std::cin >> curr && curr)
+  while ((std::cin >> curr) && curr)
   {
     try
     {
-      counter(prev, curr);
+      counter(curr);
     }
-    catch(std::exception &e)
+    catch (const std::exception &e)
     {
       std::cerr << "Error: " << e.what() << "\n";
       return 1;
@@ -23,9 +23,9 @@ int main()
     prev = curr;
   }
 
-  if(!std::cin)
+  if (!std::cin)
   {
-    std::cout << "Bad input" << "\n";
+    std::cerr << "Error: bad input\n";
     return 1;
   }
 
