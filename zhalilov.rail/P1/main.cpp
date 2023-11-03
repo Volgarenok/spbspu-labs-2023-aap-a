@@ -7,7 +7,6 @@ int main()
 {
   using namespace zhalilov;
   MaxEqualSeqCounter counter;
-  int prev = 0;
   int curr = 0;
   while ((std::cin >> curr) && curr)
   {
@@ -20,7 +19,6 @@ int main()
       std::cerr << "Error: " << e.what() << "\n";
       return 1;
     }
-    prev = curr;
   }
 
   if (!std::cin)

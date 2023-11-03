@@ -5,8 +5,8 @@
 
 zhalilov::MaxEqualSeqCounter::MaxEqualSeqCounter():
   m_count(0),
-  m_accum(0),
-  m_maxSeq(0)
+  m_maxSeq(0),
+  m_accum(0)
 {}
 
 void zhalilov::MaxEqualSeqCounter::operator()(const int curr)
