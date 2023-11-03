@@ -1,7 +1,6 @@
 #include "grtlss.hpp"
 #include <limits>
 #include <stdexcept>
-#include <iostream>
 
 chistyakovGrtLss::GrtLss::GrtLss() :
     fstNum_(0),

@@ -1,7 +1,6 @@
+#include "cntmax.hpp"
 #include <limits>
 #include <stdexcept>
-#include <iostream>
-#include "cntmax.hpp"
 
 chistyakovCntMax::CntMax::CntMax() :
   max_(0),

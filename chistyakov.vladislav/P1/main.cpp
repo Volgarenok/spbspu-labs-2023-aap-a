@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdexcept>
 #include "cntmax.hpp"
 #include "grtlss.hpp"
 
