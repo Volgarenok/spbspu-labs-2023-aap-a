@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "Sequence_counter.hpp"
+#include "Sequence_counterMax.hpp"
 
 int main()
 {
