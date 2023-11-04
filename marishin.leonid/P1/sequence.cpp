@@ -18,7 +18,7 @@ void marishin::QuantitySumOfThePreviousTwo::operator()(int num)
   prev1_ = num;
   if ((prev3_ != 0) && (prev1_ == (prev2_ + prev3_)))
   {
-    if (count >= max_size)
+    if (count_ >= max_size)
     {
       throw std::logic_error("sequence is too long");
     }
