@@ -14,15 +14,26 @@ int main()
       std::cerr << "Is not a sequence\n";
       return 1;
     }
-    try
+    else if (num != 0)
     {
-      seq(num);
-    }
-    catch (const std::exception& e)
-    {
-      std::cerr << "ERROR: " << e.what() << "\n";
-      return 2;
+      try
+      {
+        seq(num);
+      }
+      catch (const std::exception& e)
+      {
+        std::cerr << "ERROR: " << e.what() << "\n";
+        return 2;
+      }
     }
   } while (num != 0);
-  std::cout << seq() << "\n";
+  try
+  {
+    std::cout << seq() << "\n";
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << "ERROR: " << e.what() << "\n";
+    return 2;
+  }
 }
