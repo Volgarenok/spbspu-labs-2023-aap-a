@@ -28,6 +28,7 @@ void vyzhanov::SequenceCounter::operator()(int num)
     }
 
     ++count;
+
 }
 size_t vyzhanov::SequenceCounter::operator()() const
 {

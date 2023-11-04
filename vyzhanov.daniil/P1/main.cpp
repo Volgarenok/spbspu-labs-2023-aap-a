@@ -15,6 +15,13 @@ int main()
       std::cerr << "Is not a sequance\n";
       return 1;
     }
+
+    if (num == 0)
+    {
+      std::cerr << "Sequence is too short!\n";
+      return 2;
+    }
+
     else if (num != 0)
     {
       try
