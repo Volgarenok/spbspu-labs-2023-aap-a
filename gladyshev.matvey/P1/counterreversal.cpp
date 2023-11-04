@@ -27,4 +27,3 @@ size_t gladyshev::CounterReversal::operator()() const
 {
   return counter_sign_;
 }
-
