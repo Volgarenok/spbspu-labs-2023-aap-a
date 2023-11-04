@@ -22,6 +22,7 @@ void gladyshev::CounterReversal::operator()(long long int number_)
   }
   sup_number_ = number_;
 }
+
 size_t gladyshev::CounterReversal::operator()() const
 {
   return counter_sign_;
