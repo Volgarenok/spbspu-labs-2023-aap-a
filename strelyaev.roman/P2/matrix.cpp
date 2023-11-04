@@ -22,3 +22,4 @@ void dMatrix (std::istream & in, int * a, int e)
     }
   }
 }
+
