@@ -3,9 +3,46 @@
 #include <stdexcept>
 #include <fstream>
 
+void read_matrix(std::ifstream& input, double* destination, size_t size)
+{
+  size_t counter = 0;
+
+  for (size_t i = 0; i < size; ++i)
+  {
+    input >> *destination;
+    ++destination;
+    if (input)
+    {
+      ++counter;
+    }
+  }
+  double check_size = 0;
+  input >> check_size;
+  if (counter!=size||input)
+  {
+    throw std::range_error("Input data is not desired matrix");
+  }
+  return;
+}
+
+//std::ofstream& write_matrix(std::ofstream& output, const double* destination, size_t rows, size_t cols)
+//{
+//
+//  for (size_t i = 0; i < rows * cols; ++i)
+//  {
+//    output << *destination;
+//    ++destination;
+//  }
+//  return output;
+//}
+
+
 
 int main(int argc, char* argv[])
 {
+  for (int i = 0; i < argc; ++i)
+    std::cout <<"'"<< argv[i]<<"'" << '\n';
+
   if (argc > 4)
   {
     std::cerr << "Too many arguments\n";
@@ -52,6 +89,17 @@ int main(int argc, char* argv[])
     if (!input)
     {
       std::cerr << "Matrix can't be read\n";
+      input.close();
+      return 2;
+    }
+    try
+    {
+      read_matrix(input, matrix, rows * cols);
+    }
+    catch (const std::range_error& e)
+    {
+      std::cerr << e.what() << "\n";
+      input.close();
       return 2;
     }
   }
@@ -63,6 +111,28 @@ int main(int argc, char* argv[])
     if (!input)
     {
       std::cerr << "Matrix can't be read\n";
+      return 2;
+    }
+
+    double* matrix = nullptr;
+    try
+    {
+      matrix = new double[rows * cols];
+    }
+    catch (const std::bad_alloc&)
+    {
+      std::cerr << "Failed to create matrix\n";
+      input.close();
+      return 2;
+    }
+    try
+    {
+      read_matrix(input, matrix, rows*cols);
+    }
+    catch (const std::range_error& e)
+    {
+      std::cerr << e.what() << "\n";
+      input.close();
       return 2;
     }
   }
