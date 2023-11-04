@@ -2,28 +2,28 @@
 #include <limits>
 #include <stdexcept>
 
-zakozhurnikova::SequenceCounter::SequenceCounter():
-   counts(0)
-  {}
-
-  void zakozhurnikova::SequenceCounter::operator()(int number)
+zakozhurnikova::SequenceAfterMaximum::SequenceAfterMaximum():
+  count_(0),
+  max_(std::numeric_limits< int >::min())
+{}
+void zakozhurnikova::SequenceAfterMaximum::operator()(int number)
+{
+  size_t max_size = std::numeric_limits< size_t >::max();
+  if (number <= max_)
   {
-    size_t max_size = std::numeric_limits< size_t >::max();
-    if (counts == max_size)
+    if (count_ == max_size)
     {
       throw std::logic_error("sequence is too long");
     }
-    else if (number > max)
-    {
-      counts = 0;
-      max = number;
-    }
-    else
-    {
-      ++counts;
-    }
+    ++count_;
   }
-  size_t zakozhurnikova::SequenceCounter::operator()() const
+  else
   {
-    return counts;
+    count_ = 0;
+    max_ = number;
   }
+}
+size_t zakozhurnikova::SequenceAfterMaximum::operator()() const
+{
+  return count_;
+}

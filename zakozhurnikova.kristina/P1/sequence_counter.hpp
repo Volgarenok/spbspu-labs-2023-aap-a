@@ -5,14 +5,14 @@
 #include <cstddef>
 namespace zakozhurnikova
 {
-  struct SequenceCounter
+  struct SequenceAfterMaximum
   {
-    int max = std::numeric_limits< int >::min();
-    SequenceCounter();
+    SequenceAfterMaximum();
     void operator()(int number);
     size_t operator()() const;
   private:
-    size_t counts;
+    size_t count_;
+    int max_;
   };
 }
 #endif
