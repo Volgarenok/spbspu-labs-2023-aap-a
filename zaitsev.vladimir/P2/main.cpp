@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <stdexcept>
 #include <fstream>
+#include <algorithm>
 
 void read_matrix(std::ifstream& input, double* destination, size_t size)
 {
@@ -25,6 +26,32 @@ void read_matrix(std::ifstream& input, double* destination, size_t size)
   return;
 }
 
+double smooth_matrix_element(const double* matrix, size_t n_rows, size_t n_cols, size_t row, size_t col)
+{
+  double res = 0;
+  double divider = (3 - (row == 0 || row == n_rows - 1)) * (3 - (col == 0 || col == n_cols - 1)) - 1;
+  for (size_t i = (row > 0 ? row - 1 : 0); i < (row < n_rows - 1 ? row + 1 : row); ++i)
+  {
+    for (size_t j = (col > 0 ? col - 1 : 0); j < (col < n_cols - 1 ? col + 1 : col); ++j)
+    {
+      res += matrix[i * n_cols + j] / divider;
+    }
+  }
+  return res;
+}
+
+void smooth_matrix(const double* matrix, double* smoothed_matrix, size_t rows, size_t cols)
+{
+  for (size_t i = 0; i < rows; ++i)
+  {
+    for (size_t j = 0; j < cols; ++j)
+    {
+      smoothed_matrix[i * cols + j] = smooth_matrix_element(matrix, rows, cols, i, j);
+    }
+  }
+  return;
+}
+
 //std::ofstream& write_matrix(std::ofstream& output, const double* destination, size_t rows, size_t cols)
 //{
 //
@@ -40,9 +67,6 @@ void read_matrix(std::ifstream& input, double* destination, size_t size)
 
 int main(int argc, char* argv[])
 {
-  for (int i = 0; i < argc; ++i)
-    std::cout <<"'"<< argv[i]<<"'" << '\n';
-
   if (argc > 4)
   {
     std::cerr << "Too many arguments\n";
@@ -92,6 +116,7 @@ int main(int argc, char* argv[])
       input.close();
       return 2;
     }
+
     try
     {
       read_matrix(input, matrix, rows * cols);
@@ -102,6 +127,9 @@ int main(int argc, char* argv[])
       input.close();
       return 2;
     }
+
+    double smoothed_matrix[capacity];
+    smooth_matrix(matrix, smoothed_matrix, rows, cols);
   }
   else
   {
@@ -135,6 +163,18 @@ int main(int argc, char* argv[])
       input.close();
       return 2;
     }
+    double* smoothed_matrix = nullptr;
+    try
+    {
+      smoothed_matrix = new double[rows * cols];
+    }
+    catch (const std::bad_alloc&)
+    {
+      std::cerr << "Failed to create matrix\n";
+      input.close();
+      return 2;
+    }
+    smooth_matrix(matrix, smoothed_matrix, rows, cols);
   }
   return 0;
 }
