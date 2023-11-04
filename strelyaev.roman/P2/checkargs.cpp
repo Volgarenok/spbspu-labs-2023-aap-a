@@ -13,5 +13,4 @@ void checkArgs(int argc, char * argv[], int n, std::fstream & in)
   {
     throw (std::logic_error("Unable to read input file"));
   }
-
 }
