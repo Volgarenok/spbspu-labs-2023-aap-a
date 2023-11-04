@@ -27,4 +27,3 @@ int main()
   }
   std::cout << result() << "\n";
 }
-
