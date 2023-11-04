@@ -1,7 +1,7 @@
 #include "checkargs.h"
 void checkArgs(int argc, char * argv[], int n, std::fstream & in)
 {
-  if (argc != 4) 
+  if (argc != 4)
   {
     throw (std::invalid_argument("Must be 3 arguments: task, input_file, output_file"));
   }
