@@ -3,7 +3,7 @@
 #include <exception>
 #include <algorithm>
 
-void checkArgs(int argc, char * argv[], int n, std::fstream & in)
+void checkArgs(int argc, int n, std::fstream & in)
 {
   if (argc != 4)
   {
@@ -52,7 +52,6 @@ void matrixSubtraction(int * original, int * reverse, int n)
 
 void clockwise(int * a, int rows, int columns)
 {
-  int start = (rows-1) * columns + 0;
   int num = 1;
   for (int delta = 0; delta < std::max(rows - 2, 1); delta++)
   {
