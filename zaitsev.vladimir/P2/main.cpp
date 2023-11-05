@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
     double matrix[capacity];
     size_t cols = 0;
     size_t rows = 0;
-    input >> cols >> rows;
+    input >> rows >> cols;
     if (!input)
     {
       std::cerr << "Matrix can't be read\n";
@@ -142,7 +142,7 @@ int main(int argc, char* argv[])
   {
     size_t cols = 0;
     size_t rows = 0;
-    input >> cols >> rows;
+    input >> rows >> cols;
     if (!input)
     {
       std::cerr << "Matrix can't be read\n";
