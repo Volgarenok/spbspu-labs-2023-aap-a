@@ -13,7 +13,7 @@ void zhalilov::MaxEqualSeqCounter::operator()(const int curr)
 {
   if (curr == m_accum)
   {
-    if (m_count == std::numeric_limits < size_t >::max())
+    if (m_count == std::numeric_limits< size_t >::max())
     {
       throw std::logic_error("sequence it too long");
     }
