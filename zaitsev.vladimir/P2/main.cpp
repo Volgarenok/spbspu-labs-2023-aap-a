@@ -72,7 +72,15 @@ int main(int argc, char* argv[])
 {
   if(argc==2)
   {
-    return 0;
+    char* ptr = nullptr;
+    long task_nmb = std::strtol(argv[1], &ptr, 10);
+
+    if (task_nmb == 0 && ptr == argv[1])
+    {
+      return 0;
+    }
+    std::cerr << "Not enough arguments\n";
+    return 1;
   }
 
   if (argc > 4)
