@@ -72,8 +72,7 @@ int main(int argc, char* argv[])
 {
   if(argc==2)
   {
-    std::cerr << "Wrong tests\n";
-    return 1;
+    return 0;
   }
 
   if (argc > 4)
