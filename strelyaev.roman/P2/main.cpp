@@ -83,7 +83,7 @@ int main(int argc, char * argv[])
   try
   {
     n = std::stoll(argv[1]);
-    checkArgs(argc, argv, n, input);
+    checkArgs(argc, n, input);
   }
   catch(const std::invalid_argument & e)
   {
