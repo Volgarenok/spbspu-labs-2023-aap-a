@@ -11,12 +11,16 @@ void novokhatskiy::SequenceCounterMax::operator()(int num)
   const size_t max_size = std::numeric_limits< size_t >::max();
   if (num > max_)
   {
+    max_ = num;
+    count_ = 0;
+  }
+  if (num < max_) {
+
     if (count_ == max_size)
     {
       throw std::logic_error("The sequence is too long!");
     }
-    max_ = num;
-    count_ = 0;
+    ++count_;
   }
   else
   {
