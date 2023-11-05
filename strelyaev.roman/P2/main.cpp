@@ -2,54 +2,7 @@
 #include <fstream>
 #include <exception>
 #include "matrix.h"
-#include "checkargs.h"
-#include <algorithm>
-
-void matrixSubtraction(int * original, int * reverse, int n)
-{
-  for (int i = 0; i < n; i++)
-  {
-    original[i] -= reverse[i];
-  }
-}
-
-void printMatrix(int * a, const int amount, const int columns)
-{
-  for (int i = 0; i < amount; i++)
-  {
-    std::cout << a[i] << " ";
-    if ((i+1) % columns == 0)
-    {
-      std::cout << "\n";
-    }
-  }
-}
-
-void clockwise(int * a, int rows, int columns)
-{
-  int start = (rows-1) * columns + 0;
-  int num = 1;
-  for (int delta = 0; delta < std::max(rows - 2, 1); delta++)
-  {
-    for (int i = (rows-1)*columns - delta*(columns-1); i > delta*(columns+1); i-=columns)
-    {
-      a[i] = num++;
-    }
-    for (int i  = 0 + delta*(columns+1); i < columns + delta*(columns-1); i+=1)
-    {
-      a[i] = num++;
-    }
-    --num;
-    for (int i  = (columns-1) + delta*(columns-1); i < rows*columns - delta*(columns+1) - 1; i+=columns)
-    {
-      a[i] = num++;
-    }
-    for (int i  = rows*columns - 1 - delta*(columns+1); i > (rows-1) * columns - delta*(columns-1); i-=1)
-    {
-      a[i] = num++;
-    }
-  }
-}
+#include "checkargs.h"  
 
 int main(int argc, char * argv[])
 {
@@ -76,7 +29,7 @@ int main(int argc, char * argv[])
 
   input >> rows;
   input >> columns;
-
+  std::fstream output(argv[3]);
 
   if (n == 1)
   {
@@ -87,7 +40,10 @@ int main(int argc, char * argv[])
       int clock_matrix[rows*columns];
       clockwise(clock_matrix, rows, columns);
       matrixSubtraction(matrix, clock_matrix, rows*columns);
-      printMatrix(matrix, rows*columns, columns);
+      for (int i = 0; i < columns*rows; i++)
+      {
+        output << matrix[i] << " ";
+      }
     }
     catch (const std::logic_error & e)
     {
@@ -101,6 +57,13 @@ int main(int argc, char * argv[])
     {
       int * matrix = new int[rows*columns];
       dMatrix (input, matrix, rows*columns);
+      int clock_matrix[rows*columns];
+      clockwise(clock_matrix, rows, columns);
+      matrixSubtraction(matrix, clock_matrix, rows*columns);
+      for (int i = 0; i < columns*rows; i++)
+      {
+        output << matrix[i] << " ";
+      }
       delete [] matrix;
     }
     catch(const std::logic_error& e)
