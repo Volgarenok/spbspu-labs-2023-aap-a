@@ -1,5 +1,5 @@
-#ifndef SEQUENCE_HPP
-#define SEQUENCE_HPP
+#ifndef SEQUENCECOUNTMIN_HPP
+#define SEQUENCECOUNTMIN_HPP
 
 #include <cstddef>
 

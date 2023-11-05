@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <cstddef>
-#include "sequence.hpp"
+#include "sequence_count_min.hpp"
 
 int main()
 {

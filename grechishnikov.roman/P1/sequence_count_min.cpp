@@ -1,15 +1,15 @@
-#include "sequence.hpp"
+#include "sequence_count_min.hpp"
 #include <stdexcept>
 #include <limits>
 
 grechishnikov::SequenceCountMin::SequenceCountMin():
-  number_min_(std::numeric_limits<long long>::max()),
+  number_min_(std::numeric_limits< long long >::max()),
   number_count_(0)
 {}
 
 void grechishnikov::SequenceCountMin::operator()(long long num)
 {
-  size_t max_size = std::numeric_limits<size_t>::max();
+  size_t max_size = std::numeric_limits< size_t >::max();
   if (num == number_min_)
   {
     if (number_count_ == max_size)
