@@ -4,7 +4,6 @@
 int main()
 {
   int currentNum = 0;
-  // int pastNum = 0;
 
   using namespace arakelyan;
   CounterOfNums count;
