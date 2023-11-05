@@ -6,7 +6,6 @@ namespace arakelyan
   struct CounterOfNums
   {
     CounterOfNums();
-  public:
     void counter(int curr,int past);
     size_t get_count() const;
   private:
