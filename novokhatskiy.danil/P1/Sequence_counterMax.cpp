@@ -14,7 +14,8 @@ void novokhatskiy::SequenceCounterMax::operator()(int num)
     max_ = num;
     count_ = 0;
   }
-  if (num < max_) {
+  if (num < max_) 
+  {
 
     if (count_ == max_size)
     {
