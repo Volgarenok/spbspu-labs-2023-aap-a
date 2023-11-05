@@ -2,7 +2,7 @@
 #include <fstream>
 #include <exception>
 #include "matrix.h"
-#include "checkargs.h"  
+#include "checkargs.h"
 
 int main(int argc, char * argv[])
 {
