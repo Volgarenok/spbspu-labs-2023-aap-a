@@ -37,7 +37,7 @@ int main()
 
   try
   {
-  std::cout << counter()  << '\n';
+    std::cout << counter()  << '\n';
   }
   catch (const std::exception & e)
   {
