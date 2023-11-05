@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <fstream>
 #include <algorithm>
+#include <iomanip>
 
 void read_matrix(std::ifstream& input, double* destination, size_t size)
 {
@@ -17,7 +18,7 @@ void read_matrix(std::ifstream& input, double* destination, size_t size)
       ++counter;
     }
   }
-  double check_size = 0;
+  char check_size = '\0';
   input >> check_size;
   if (counter!=size||input)
   {
@@ -30,11 +31,14 @@ double smooth_matrix_element(const double* matrix, size_t n_rows, size_t n_cols,
 {
   double res = 0;
   double divider = (3 - (row == 0 || row == n_rows - 1)) * (3 - (col == 0 || col == n_cols - 1)) - 1;
-  for (size_t i = (row > 0 ? row - 1 : 0); i < (row < n_rows - 1 ? row + 1 : row); ++i)
+  for (size_t i = (row > 0 ? row - 1 : 0); i <= (row < n_rows - 1 ? row + 1 : row); ++i)
   {
-    for (size_t j = (col > 0 ? col - 1 : 0); j < (col < n_cols - 1 ? col + 1 : col); ++j)
+    for (size_t j = (col > 0 ? col - 1 : 0); j <= (col < n_cols - 1 ? col + 1 : col); ++j)
     {
-      res += matrix[i * n_cols + j] / divider;
+      if (i != row || j != col)
+      {
+        res += matrix[i * n_cols + j] / divider;
+      }
     }
   }
   return res;
@@ -52,18 +56,17 @@ void smooth_matrix(const double* matrix, double* smoothed_matrix, size_t rows, s
   return;
 }
 
-//std::ofstream& write_matrix(std::ofstream& output, const double* destination, size_t rows, size_t cols)
-//{
-//
-//  for (size_t i = 0; i < rows * cols; ++i)
-//  {
-//    output << *destination;
-//    ++destination;
-//  }
-//  return output;
-//}
+std::ofstream& write_matrix(std::ofstream& output, const double* destination, size_t size)
+{
 
-
+  for (size_t i = 0; i < size; ++i)
+  {
+    output.precision(1);
+    output <<std::fixed<< *destination << " ";
+    ++destination;
+  }
+  return output;
+}
 
 int main(int argc, char* argv[])
 {
@@ -98,22 +101,23 @@ int main(int argc, char* argv[])
     std::cerr << "The input file can't be opened\n";
     return 2;
   }
+  std::ofstream output(argv[3]);
+  if (!output.is_open())
+  {
+    std::cerr << "The output file can't be opened\n";
+    return 2;
+  }
 
   if (task_nmb == 1)
   {
     const size_t capacity = 10000;
     double matrix[capacity];
-    for (size_t i = 0; i < capacity; ++i)
-    {
-      matrix[i] = 0;
-    }
     size_t cols = 0;
     size_t rows = 0;
     input >> cols >> rows;
     if (!input)
     {
       std::cerr << "Matrix can't be read\n";
-      input.close();
       return 2;
     }
 
@@ -127,9 +131,12 @@ int main(int argc, char* argv[])
       input.close();
       return 2;
     }
-
+    input.close();
     double smoothed_matrix[capacity];
     smooth_matrix(matrix, smoothed_matrix, rows, cols);
+    output << rows << " " << cols<<" ";
+    write_matrix(output, smoothed_matrix, rows * cols);
+    output.close();
   }
   else
   {
@@ -150,7 +157,6 @@ int main(int argc, char* argv[])
     catch (const std::bad_alloc&)
     {
       std::cerr << "Failed to create matrix\n";
-      input.close();
       return 2;
     }
     try
@@ -163,6 +169,7 @@ int main(int argc, char* argv[])
       input.close();
       return 2;
     }
+    input.close();
     double* smoothed_matrix = nullptr;
     try
     {
@@ -172,9 +179,15 @@ int main(int argc, char* argv[])
     {
       std::cerr << "Failed to create matrix\n";
       input.close();
+      delete[] matrix;
       return 2;
     }
     smooth_matrix(matrix, smoothed_matrix, rows, cols);
+    output << rows << " " << cols<<" ";
+    write_matrix(output, smoothed_matrix, rows * cols);
+    output.close();
+    delete[] matrix;
+    delete[] smoothed_matrix;
   }
   return 0;
 }
