@@ -14,18 +14,14 @@ void novokhatskiy::SequenceCounterMax::operator()(int num)
     max_ = num;
     count_ = 0;
   }
-  if (num < max_) 
-  {
-
-    if (count_ == max_size)
-    {
-      throw std::logic_error("The sequence is too long!");
-    }
-    ++count_;
-  }
+  
   else
   {
     ++count_;
+    if (count_ > max_size)
+    {
+      throw std::logic_error("The sequence is too long!");
+    }
   }
 }
 
