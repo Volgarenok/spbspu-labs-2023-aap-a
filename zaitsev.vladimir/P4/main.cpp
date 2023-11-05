@@ -167,6 +167,7 @@ int main(int argc, char* argv[])
     {
       std::cerr << e.what() << "\n";
       input.close();
+      delete[] matrix;
       return 2;
     }
     input.close();
