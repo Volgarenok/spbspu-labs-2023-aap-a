@@ -78,6 +78,10 @@ void clockwise(int * a, int rows, int columns)
 int main(int argc, char * argv[])
 {
   std::fstream input(argv[2]);
+  int rows = 0;
+  int columns = 0;
+  input >> rows;
+  input >> columns;
 
   int n = 0;
   try
@@ -95,11 +99,7 @@ int main(int argc, char * argv[])
     std::cerr << e.what() << "\n";
     return 2;
   }
-  int rows = 0;
-  int columns = 0;
 
-  input >> rows;
-  input >> columns;
   std::fstream output(argv[3]);
 
   if (n == 1)
