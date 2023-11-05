@@ -8,8 +8,9 @@ arakelyan::CounterOfNums::CounterOfNums():
   past_num_(0)
 {}
 
-void arakelyan::CounterOfNums::counter(int curr)
+void arakelyan::CounterOfNums::operator()(int curr)
 {
+  length_++;
   size_t max_length = std::numeric_limits< size_t >::max();
   if (length_ == max_length)
   {
@@ -19,7 +20,6 @@ void arakelyan::CounterOfNums::counter(int curr)
   {
     throw std::logic_error("Sequence is too short");
   }
-  length_++;
   if ((curr % past_num_ == 0) && (curr != 0) && (past_num_ != 0))
   {
     ++count_;
@@ -30,7 +30,7 @@ void arakelyan::CounterOfNums::counter(int curr)
   }
 }
 
-size_t arakelyan::CounterOfNums::get_count() const
+size_t arakelyan::CounterOfNums::operator()() const
 {
   return count_;
 }
