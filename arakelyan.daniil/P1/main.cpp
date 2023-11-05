@@ -24,7 +24,8 @@ int main()
       std::cout << "Error: " << e.what() << "\n";
       return 2;
     }
-  }while (currentNum != 0);
-  std::cout << "Answer: " << counter() << "\n";
+  }
+  while (currentNum != 0);
+  std::cout << counter() << "\n";
   return 0;
 }
