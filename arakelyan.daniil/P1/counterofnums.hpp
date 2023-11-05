@@ -6,11 +6,12 @@ namespace arakelyan
   struct CounterOfNums
   {
     CounterOfNums();
-    void counter(int curr,int past);
+    void counter(int curr);
     size_t get_count() const;
   private:
     size_t count_;
     size_t length_;
+    int past_num_;
   };
 }
 #endif
