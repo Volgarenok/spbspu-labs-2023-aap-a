@@ -70,6 +70,12 @@ std::ofstream& write_matrix(std::ofstream& output, const double* destination, si
 
 int main(int argc, char* argv[])
 {
+  if(argc==2)
+  {
+    std::cerr << "Wrong tests\n";
+    return 1;
+  }
+
   if (argc > 4)
   {
     std::cerr << "Too many arguments\n";
