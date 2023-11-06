@@ -1,5 +1,7 @@
 #ifndef MATRIX_PROCESSING_H
 #define MATRIX_PROCESSING_H
+#include <iosfwd>
+#include <cstddef>
 
 namespace zaitsev
 {
