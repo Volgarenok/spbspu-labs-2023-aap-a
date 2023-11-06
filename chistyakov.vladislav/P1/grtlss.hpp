@@ -13,8 +13,8 @@ namespace chistyakov
     size_t operator()() const;
 
   private:
-    int fstNum_;
-    int midNum_;
+    int firstNumber_;
+    int middleNumber_;
     size_t counter_;
     bool isSecuenceOk_;
   };
