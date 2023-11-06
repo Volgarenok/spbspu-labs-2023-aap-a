@@ -1,10 +1,10 @@
 #include <iostream>
-#include "sequence.hpp"
+#include "sumdup.hpp"
 
 int main()
 {
   using namespace marishin;
-  QuantitySumOfThePreviousTwo seq;
+  SumDup seq;
   long long int num;
   do
   {
