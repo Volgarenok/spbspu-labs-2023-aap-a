@@ -3,21 +3,6 @@
 #include <exception>
 #include <algorithm>
 
-void checkArgs(int n, std::fstream & in, std::fstream & out)
-{
-  if ((n < 1) || (n > 2))
-  {
-    throw (std::invalid_argument("first argument out of range"));
-  }
-  if (!in)
-  {
-    throw (std::logic_error("Unable to read input file"));
-  }
-  if (!out)
-  {
-    throw(std::logic_error("Unable to read output file"));
-  }
-}
 void sMatrix (std::istream & in, int * a, int e)
 {
   for (int i = 0; i < e; i++)
@@ -78,28 +63,41 @@ int main(int argc, char * argv[])
 {
   if (argc != 4)
   {
-    std::cerr << "Must be 3 arguments: task, input_file, output_file";
+    std::cerr << "Must be 3 arguments: task, input_file, output_file" << "\n";
     return 1;
   }
+
   std::fstream input(argv[2]);
+  if (!input)
+  {
+    std::cerr << "Unable to read input file" << "\n";
+    return 2;
+  }
+
   std::fstream output(argv[3]);
+  if (!output)
+  {
+    std::cerr << "Unable to read output file" << "\n";
+    return 2;
+  }
 
   int n = 0;
   try
   {
     n = std::stoll(argv[1]);
-    checkArgs(n, input, output);
   }
   catch(const std::invalid_argument & e)
   {
-    std::cerr << e.what() << "\n";
+    std::cerr << "Unable to perse 1st argument" << "\n";
     return 1;
   }
-  catch (const std::logic_error & e)
+
+  if ((n < 1) || (n > 2))
   {
-    std::cerr << e.what() << "\n";
-    return 2;
+    std::cerr << "1st argument must be 1-2 number" << "\n";
+    return 1;
   }
+
   int rows = 0;
   int columns = 0;
   input >> rows;
