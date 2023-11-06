@@ -1,6 +1,6 @@
-#include "chet_counter.hpp"
+#include "count_even_nums.hpp"
 
-void chetCounter(int now, size_t& max, size_t& actual)
+void countEvenNums(int now, size_t& max, size_t& actual)
 {
   if (now % 2 == 0)
   {

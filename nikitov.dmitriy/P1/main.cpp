@@ -1,7 +1,7 @@
 #include <iostream>
 #include "sequence_counter.hpp"
 #include "is_max.hpp"
-#include "chet_counter.hpp"
+#include "count_even_nums.hpp"
 
 int main()
 {
@@ -33,7 +33,7 @@ int main()
         return 2;
       }
       isMax(number, actualMax, preMax);
-      chetCounter(number, maxChetCount, currentChetCount);
+      countEvenNums(number, maxChetCount, currentChetCount);
     }
   }
   while (number != 0);
