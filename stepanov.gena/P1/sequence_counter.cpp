@@ -5,7 +5,7 @@ stepanov::SequenceCounter::SequenceCounter():
   count_(0)
 {}
 
-void stepanov::SequenceCounter::count(int)
+void stepanov::SequenceCounter::operator()(int)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
   if (count_ == max_size)
@@ -14,7 +14,7 @@ void stepanov::SequenceCounter::count(int)
   }
   ++count_;
 }
-size_t stepanov::SequenceCounter::get_result() const
+size_t stepanov::SequenceCounter::operator()() const
 {
   return count_;
 }
