@@ -3,21 +3,21 @@
 #include <stdexcept>
 
 chistyakov::GrtLss::GrtLss() :
-  fstNum_(0),
-  midNum_(0),
+  firstNumber_(0),
+  middleNumber_(0),
   counter_(0),
   isSecuenceOk_(false)
 {}
 
 void chistyakov::GrtLss::operator()(int number)
 {
-  if (!fstNum_)
+  if (!firstNumber_)
   {
-    fstNum_ = number;
+    firstNumber_ = number;
   }
-  else if (!midNum_)
+  else if (!middleNumber_)
   {
-    midNum_ = number;
+    middleNumber_ = number;
   }
   else
   {
@@ -26,7 +26,7 @@ void chistyakov::GrtLss::operator()(int number)
       isSecuenceOk_ = true;
     }
 
-    if (fstNum_ > midNum_ and midNum_ > number)
+    if (firstNumber_ > middleNumber_ and middleNumber_ > number)
     {
       size_t max_size = std::numeric_limits< size_t >::max();
       if (counter_ == max_size)
@@ -38,8 +38,8 @@ void chistyakov::GrtLss::operator()(int number)
         ++counter_;
       }
     }
-    fstNum_ = midNum_;
-    midNum_ = number;
+    firstNumber_ = middleNumber_;
+    middleNumber_ = number;
   }
 }
 
