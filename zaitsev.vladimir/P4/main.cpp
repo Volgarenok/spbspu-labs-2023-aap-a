@@ -1,72 +1,7 @@
 #include <iostream>
-#include <cstdlib>
-#include <stdexcept>
 #include <fstream>
-#include <algorithm>
-#include <iomanip>
-
-void read_matrix(std::ifstream& input, double* destination, size_t size)
-{
-  size_t counter = 0;
-
-  for (size_t i = 0; i < size; ++i)
-  {
-    input >> *destination;
-    ++destination;
-    if (input)
-    {
-      ++counter;
-    }
-  }
-  char check_size = '\0';
-  input >> check_size;
-  if (counter!=size||input)
-  {
-    throw std::range_error("Input data is not desired matrix");
-  }
-  return;
-}
-
-double smooth_matrix_element(const double* matrix, size_t n_rows, size_t n_cols, size_t row, size_t col)
-{
-  double res = 0;
-  double divider = (3 - (row == 0 || row == n_rows - 1)) * (3 - (col == 0 || col == n_cols - 1)) - 1;
-  for (size_t i = (row > 0 ? row - 1 : 0); i <= (row < n_rows - 1 ? row + 1 : row); ++i)
-  {
-    for (size_t j = (col > 0 ? col - 1 : 0); j <= (col < n_cols - 1 ? col + 1 : col); ++j)
-    {
-      if (i != row || j != col)
-      {
-        res += matrix[i * n_cols + j] / divider;
-      }
-    }
-  }
-  return res;
-}
-
-void smooth_matrix(const double* matrix, double* smoothed_matrix, size_t rows, size_t cols)
-{
-  for (size_t i = 0; i < rows; ++i)
-  {
-    for (size_t j = 0; j < cols; ++j)
-    {
-      smoothed_matrix[i * cols + j] = smooth_matrix_element(matrix, rows, cols, i, j);
-    }
-  }
-  return;
-}
-
-std::ofstream& write_matrix(std::ofstream& output, const double* destination, size_t size)
-{
-
-  for (size_t i = 0; i < size; ++i)
-  {
-    output.precision(1);
-    output <<std::fixed<< *destination << " ";
-    ++destination;
-  }
-  return output;
-}
+#include "i_o_processing.h"
+#include "matrix_processing.h"
 
 int main(int argc, char* argv[])
 {
@@ -120,10 +55,9 @@ int main(int argc, char* argv[])
       std::cerr << "Matrix can't be read\n";
       return 2;
     }
-
     try
     {
-      read_matrix(input, matrix, rows * cols);
+      zaitsev::readMatrix(input, matrix, rows * cols);
     }
     catch (const std::range_error& e)
     {
@@ -133,9 +67,8 @@ int main(int argc, char* argv[])
     }
     input.close();
     double smoothed_matrix[capacity];
-    smooth_matrix(matrix, smoothed_matrix, rows, cols);
-    output << rows << " " << cols<<" ";
-    write_matrix(output, smoothed_matrix, rows * cols);
+    zaitsev::smoothMatrix(matrix, smoothed_matrix, rows, cols);
+    zaitsev::writeMatrix(output, smoothed_matrix, rows, cols);
     output.close();
   }
   else
@@ -148,20 +81,16 @@ int main(int argc, char* argv[])
       std::cerr << "Matrix can't be read\n";
       return 2;
     }
-
     double* matrix = nullptr;
-    try
-    {
-      matrix = new double[rows * cols];
-    }
-    catch (const std::bad_alloc&)
+    matrix = new double[rows * cols];
+    if (!matrix)
     {
       std::cerr << "Failed to create matrix\n";
       return 2;
     }
     try
     {
-      read_matrix(input, matrix, rows*cols);
+      zaitsev::readMatrix(input, matrix, rows * cols);
     }
     catch (const std::range_error& e)
     {
@@ -172,20 +101,16 @@ int main(int argc, char* argv[])
     }
     input.close();
     double* smoothed_matrix = nullptr;
-    try
-    {
-      smoothed_matrix = new double[rows * cols];
-    }
-    catch (const std::bad_alloc&)
+    smoothed_matrix = new double[rows * cols];
+    if (!smoothed_matrix)
     {
       std::cerr << "Failed to create matrix\n";
       input.close();
       delete[] matrix;
       return 2;
     }
-    smooth_matrix(matrix, smoothed_matrix, rows, cols);
-    output << rows << " " << cols<<" ";
-    write_matrix(output, smoothed_matrix, rows * cols);
+    zaitsev::smoothMatrix(matrix, smoothed_matrix, rows, cols);
+    zaitsev::writeMatrix(output, smoothed_matrix, rows, cols);
     output.close();
     delete[] matrix;
     delete[] smoothed_matrix;
