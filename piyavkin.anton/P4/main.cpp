@@ -25,6 +25,7 @@ int main(int argc, char * argv[])
   }
   int n = 0;
   int m = 0;
+  bool flag = true;
   std::ifstream input(argv[2]);
   input >> n;
   input >> m;
@@ -39,8 +40,13 @@ int main(int argc, char * argv[])
     return 2;
   }
   std::ofstream output(argv[3]);
-  for (int i = 0; i < m * n; ++i)
+  for (int i = 0; i < n * m; ++i)
   {
-    output << a[i];
+    if (i > ((i / m) * (m + 1) + 1) && a[i] != 0)
+    {
+      flag = false;
+      break;
+    }
   }
+  output << flag;
 }
