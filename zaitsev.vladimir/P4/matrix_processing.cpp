@@ -3,10 +3,16 @@
 double zaitsev::smoothMatrixElement(const double* matrix, size_t n_rows, size_t n_cols, size_t row_pos, size_t col_pos)
 {
   double res = 0;
-  double divider = (3 - (row_pos == 0 || row_pos == n_rows - 1)) * (3 - (col_pos == 0 || col_pos == n_cols - 1)) - 1;
-  for (size_t i = (row_pos > 0 ? row_pos - 1 : 0); i <= (row_pos < n_rows - 1 ? row_pos + 1 : row_pos); ++i)
+  bool is_row_bound = (row_pos == 0 || row_pos == n_rows - 1);
+  bool is_col_bound = (col_pos == 0 || col_pos == n_cols - 1);
+  size_t l_row_bound = (row_pos > 0 ? row_pos - 1 : 0);
+  size_t r_row_bound = (row_pos < n_rows - 1 ? row_pos + 1 : row_pos);
+  size_t l_col_bound = (col_pos > 0 ? col_pos - 1 : 0);
+  size_t r_col_bound = (col_pos < n_cols - 1 ? col_pos + 1 : col_pos);
+  double divider = (3 - is_row_bound) * (3 - is_col_bound) - 1;
+  for (size_t i = l_row_bound; i <= r_row_bound; ++i)
   {
-    for (size_t j = (col_pos > 0 ? col_pos - 1 : 0); j <= (col_pos < n_cols - 1 ? col_pos + 1 : col_pos); ++j)
+    for (size_t j = l_col_bound; j <= r_col_bound; ++j)
     {
       if (i != row_pos || j != col_pos)
       {

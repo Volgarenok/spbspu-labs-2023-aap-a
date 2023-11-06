@@ -34,9 +34,9 @@ int main(int argc, char** argv)
   {
     const size_t capacity = 10000;
     double matrix[capacity];
-    size_t cols = 0;
     size_t rows = 0;
-    input >> cols >> rows;
+    size_t cols = 0;
+    input >> rows >> cols;
     if (!input)
     {
       std::cerr << "Matrix can't be read\n";
@@ -44,7 +44,7 @@ int main(int argc, char** argv)
     }
     try
     {
-      zaitsev::readMatrix(input, matrix, rows * cols);
+      zaitsev::readMatrix(input, matrix, rows, cols);
     }
     catch (const std::range_error& e)
     {
@@ -60,9 +60,9 @@ int main(int argc, char** argv)
   }
   else
   {
-    size_t cols = 0;
     size_t rows = 0;
-    input >> cols >> rows;
+    size_t cols = 0;
+    input >> rows >> cols;
     if (!input)
     {
       std::cerr << "Matrix can't be read\n";
@@ -77,7 +77,7 @@ int main(int argc, char** argv)
     }
     try
     {
-      zaitsev::readMatrix(input, matrix, rows * cols);
+      zaitsev::readMatrix(input, matrix, rows, cols);
     }
     catch (const std::range_error& e)
     {
