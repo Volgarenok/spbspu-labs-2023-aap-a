@@ -1,6 +1,7 @@
 #include "sequence_counter.hpp"
 #include <limits>
 #include <stdexcept>
+
 stepanov::SequenceCounter::SequenceCounter():
   max_count(0),
   last(0),
@@ -24,10 +25,7 @@ void stepanov::SequenceCounter::operator()(int number)
     {
       max_count = count_;
     }
-  }
-
-  else if (number < last)
-  {
+  } else if (number < last) {
     last = number;
     if (count_ > max_count)
     {
@@ -38,8 +36,8 @@ void stepanov::SequenceCounter::operator()(int number)
     ++c;
   }
 }
+
 size_t stepanov::SequenceCounter::operator()() const
 {
   return max_count;
 }
-

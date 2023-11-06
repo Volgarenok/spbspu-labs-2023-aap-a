@@ -14,9 +14,7 @@ int main()
     {
       std::cerr <<"Is not a sequence\n";
       return 1;
-    }
-    else if (number != 0)
-    {
+    } else if (number != 0) {
       try
       {
         counter(number);
