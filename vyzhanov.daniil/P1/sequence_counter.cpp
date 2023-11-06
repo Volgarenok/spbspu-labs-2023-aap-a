@@ -1,9 +1,9 @@
+#include <iostream>
 #include <limits>
 #include <stdexcept>
 #include "sequence_counter.hpp"
 
-vyzhanov::SequenceCounter::SequenceCounter():
-  count(0), maxi_num(0), after_max(0)
+vyzhanov::SequenceCounter::SequenceCounter():  count(1), maxi_num(0), after_max(0)
 {}
 
 void vyzhanov::SequenceCounter::operator()(int num)
@@ -14,6 +14,15 @@ void vyzhanov::SequenceCounter::operator()(int num)
       throw  std::logic_error("Sequence is too long!\n");
     }
 
+    if (num == 0)
+    {
+      count--;
+      if(count == 0)
+      {
+        throw  std::logic_error("Sequence is too short!\n");
+      }
+
+    }
     else if(count < max_s)
     {
       if (num > maxi_num)
@@ -21,13 +30,14 @@ void vyzhanov::SequenceCounter::operator()(int num)
         maxi_num = num;
         after_max = 0;
       }
+
       else if (num <= maxi_num)
       {
         ++after_max;
       }
-    }
 
-    ++count;
+      ++count;
+    }
 
 }
 size_t vyzhanov::SequenceCounter::operator()() const

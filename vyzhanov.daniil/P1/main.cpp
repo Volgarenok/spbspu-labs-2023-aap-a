@@ -16,12 +16,6 @@ int main()
       return 1;
     }
 
-    if (num == 0)
-    {
-      std::cerr << "Sequence is too short!\n";
-      return 2;
-    }
-
     else if (num != 0)
     {
       try
@@ -36,5 +30,17 @@ int main()
     }
   }
   while (num != 0);
-  std::cout << counter() << "\n";
+  if (num == 0)
+  {
+    try
+    {
+      counter(num);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << "Error: " << e.what() << "\n";
+      return 2;
+    }
+   std::cout <<  counter() << "\n";
+  }
 }
