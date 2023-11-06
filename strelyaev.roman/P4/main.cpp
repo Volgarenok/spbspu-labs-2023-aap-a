@@ -77,9 +77,9 @@ void clockwise(int * a, int rows, int columns)
 
 int main(int argc, char * argv[])
 {
-  std::fstream input(argv[2]);
   int rows = 0;
   int columns = 0;
+  std::fstream input(argv[2]);
   input >> rows;
   input >> columns;
 
