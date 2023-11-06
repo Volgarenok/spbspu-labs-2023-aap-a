@@ -81,7 +81,6 @@ int main(int argc, char * argv[])
     std::cerr << "Must be 3 arguments: task, input_file, output_file";
     return 1;
   }
-  
   std::fstream input(argv[2]);
   std::fstream output(argv[3]);
 
