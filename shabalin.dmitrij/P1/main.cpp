@@ -2,69 +2,74 @@
 #include <iostream>
 #include <stdexcept>
 
-using namespace shabalin;
-
 int main()
 {
-  int behindNum = 1, curNum = 1,  nextNum = 1, Number = 1;
-  std::cin >> behindNum;
+  signed long long firstNumber = 1, secondNumber = 1,  thirdNumber = 1, Number = 1;
+  
+  std::cin >> firstNumber;
+
   if (!std::cin)
   {
-    std::cerr << "Is not sequence" << std::endl;
+    std::cerr << "Is not sequence" << "\n";
     return 1;
   }
-  else if (behindNum == 0)
+  else if (firstNumber == 0)
   {
-    std::cerr << "must be no zero sequence" << std::endl;
+    std::cerr << "Must be no zero sequence" << "\n";
     return 2;
   }
-  std::cin >> curNum;
+
+  std::cin >> secondNumber;
+
   if (!std::cin)
   {
-    std::cerr << "Is not sequence" << std::endl;
+    std::cerr << "Is not sequence" << "\n";
     return 1;
   }
-  else if (curNum == 0)
+  else if (secondNumber == 0)
   {
-    std::cerr << "Can not be calculated" << std::endl;
-    return 0;
-  }
-  std::cin >> nextNum;
-  if (!std::cin)
-  {
-    std::cerr << "Is not sequence" << std::endl;
-    return 1;
-  }
-  else if (nextNum == 0)
-  {
-    std::cerr << "Can not be calculated" << std::endl;
+    std::cerr << "Can not be calculated" << "\n";
     return 0;
   }
 
-  LocMax counter(behindNum,curNum,nextNum);
+  std::cin >> thirdNumber;
+  
+  if (!std::cin)
+  {
+    std::cerr << "Is not sequence" << "\n";
+    return 1;
+  }
+  else if (thirdNumber == 0)
+  {
+    std::cerr << "Can not be calculated" << "\n";
+    return 0;
+  }
+  
+  using namespace shabalin;
+  
+  LocMax counter(firstNumber, secondNumber, thirdNumber);
 
   do
   {
     std::cin >> Number;
     if (!std::cin)
     {
-      std::cerr << "is not sequence" << std::endl;
+      std::cerr << "is not sequence" << "\n";
       return 1;
     }
-    if (nextNum != 0)
+    if (Number != 0)
     {
       try
       {
-        counter(nextNum);
+        counter(Number);
       }
-      catch(const std::exception & e)
+      catch (const std::exception & e)
       {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << "\n";
         return 2;
       }
     }
   }
   while (Number != 0);
-
-  std::cout << counter() << std::endl;
+  std::cout << counter() << "\n";
 }
