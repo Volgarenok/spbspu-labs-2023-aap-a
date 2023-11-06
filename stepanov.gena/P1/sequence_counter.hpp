@@ -9,7 +9,7 @@ namespace stepanov
     SequenceCounter();
     void operator()(int number);
     size_t operator()() const;
-  private:
+private:
     size_t max_count;
     size_t count_;
     int last;

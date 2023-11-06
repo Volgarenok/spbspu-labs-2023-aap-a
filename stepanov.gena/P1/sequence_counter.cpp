@@ -4,8 +4,8 @@
 
 stepanov::SequenceCounter::SequenceCounter():
   max_count(0),
-  last(0),
   count_(0),
+  last(0),
   c(0)
 {}
 
