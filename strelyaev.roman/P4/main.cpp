@@ -11,12 +11,10 @@ int main(int argc, char * argv[])
     std::cerr << "Must be 3 arguments: task, input_file, output_file" << "\n";
     return 1;
   }
-  int rows = 0;
-  int columns = 0;
 
   std::fstream input(argv[2]);
-  input >> rows;
-  input >> columns;
+  int rows = 0, columns = 0;
+  input >> rows >> columns;
   if (!input)
   {
     std::cerr << "Unable to read input file" << "\n";
@@ -41,20 +39,22 @@ int main(int argc, char * argv[])
   }
 
   std::fstream output(argv[3]);
+  if (!output)
+  {
+    std::cerr << "Unable to find output file" << "\n";
+    return 2;
+  }
 
   if (n == 1)
   {
     try
     {
       int matrix[rows * columns] = {};
-      sMatrix(input, matrix, rows*columns);
       int clock_matrix[rows*columns];
+      sMatrixInput(input, matrix, rows*columns);
       clockwise(clock_matrix, rows, columns);
       matrixSubtraction(matrix, clock_matrix, rows*columns);
-      for (int i = 0; i < columns*rows; i++)
-      {
-        output << matrix[i] << " ";
-      }
+      printMatrix(output, matrix, columns*rows);
     }
     catch (const std::logic_error & e)
     {
@@ -67,14 +67,11 @@ int main(int argc, char * argv[])
     try
     {
       int * matrix = new int[rows*columns];
-      dMatrix (input, matrix, rows*columns);
       int clock_matrix[rows*columns];
+      dMatrixInput(input, matrix, rows*columns);
       clockwise(clock_matrix, rows, columns);
       matrixSubtraction(matrix, clock_matrix, rows*columns);
-      for (int i = 0; i < columns*rows; i++)
-      {
-        output << matrix[i] << " ";
-      }
+      printMatrix(output, matrix, columns*rows);
       delete [] matrix;
     }
     catch(const std::logic_error& e)

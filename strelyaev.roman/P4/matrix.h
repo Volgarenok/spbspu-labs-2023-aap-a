@@ -1,6 +1,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 #include <fstream>
-void sMatrix (std::istream & in, int * a, int e);
-void dMatrix (std::istream & in, int * a, int e);
+void sMatrixInput(std::fstream & in, int * a, int e);
+void dMatrixInput(std::fstream & in, int * a, int e);
+void printMatrix(std::fstream & out, int * a, int e);
 #endif

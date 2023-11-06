@@ -1,6 +1,6 @@
 #include "matrix.h"
 
-void sMatrix (std::istream & in, int * a, int e)
+void sMatrixInput(std::fstream & in, int * a, int e)
 {
   for (int i = 0; i < e; i++)
   {
@@ -11,7 +11,7 @@ void sMatrix (std::istream & in, int * a, int e)
   }
 }
 
-void dMatrix (std::istream & in, int * a, int e)
+void dMatrixInput(std::fstream & in, int * a, int e)
 {
   for (int i = 0; i < e; i++)
   {
@@ -20,5 +20,13 @@ void dMatrix (std::istream & in, int * a, int e)
       delete [] a;
       throw (std::logic_error("Unable to create matrix"));
     }
+  }
+}
+
+void printMatrix(std::fstream & out, int * a, int e)
+{
+  for (int i = 0; i < e; i++)
+  {
+    out << a[i];
   }
 }
