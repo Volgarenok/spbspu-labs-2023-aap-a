@@ -2,7 +2,6 @@
 #include <fstream>
 #include <exception>
 #include <algorithm>
-#include "matrix.h"
 
 void checkArgs(int argc, int n, std::fstream & in)
 {
@@ -19,6 +18,7 @@ void checkArgs(int argc, int n, std::fstream & in)
     throw (std::logic_error("Unable to read input file"));
   }
 }
+
 void sMatrix (std::istream & in, int * a, int e)
 {
   for (int i = 0; i < e; i++)
@@ -41,6 +41,7 @@ void dMatrix (std::istream & in, int * a, int e)
     }
   }
 }
+
 void matrixSubtraction(int * original, int * reverse, int n)
 {
   for (int i = 0; i < n; i++)
