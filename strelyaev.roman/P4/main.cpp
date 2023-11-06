@@ -68,15 +68,15 @@ int main(int argc, char * argv[])
   }
 
   std::fstream input(argv[2]);
+  int rows = 0;
+  int columns = 0;
+  input >> rows;
+  input >> columns;
   if (!input)
   {
     std::cerr << "Unable to read input file" << "\n";
     return 2;
   }
-  int rows = 0;
-  int columns = 0;
-  input >> rows;
-  input >> columns;
 
   int n = 0;
   try
