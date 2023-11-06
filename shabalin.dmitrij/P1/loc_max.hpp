@@ -11,9 +11,9 @@ namespace shabalin
     size_t operator()() const;
   private:
     size_t count_;
-    signed long long m_firstNumber;
-    signed long long m_secondNumber;
-    signed long long m_thirdNumber;
+    signed long long firstNumber;
+    signed long long secondNumber;
+    signed long long thirdNumber;
   };
 }
 #endif

@@ -4,8 +4,8 @@
 
 int main()
 {
-  signed long long firstNumber = 1, secondNumber = 1;
-  signed long long thirdNumber = 1, Number = 1;
+  signed long long firstNumber = 0, secondNumber = 0;
+  signed long long thirdNumber = 0, Number = 1;
 
   std::cin >> firstNumber;
 
@@ -57,11 +57,11 @@ int main()
       std::cerr << "is not sequence" << "\n";
       return 1;
     }
-    if (Number != 0)
+    if (thirdNumber != 0)
     {
       try
       {
-        counter(Number);
+        counter(thirdNumber);
       }
       catch (const std::exception & e)
       {
