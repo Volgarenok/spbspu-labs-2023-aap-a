@@ -13,7 +13,7 @@ void rebdev::ElementCounter::operator()(int nextElement)
 {
   if (nextElement != 0)
   {
-    amountOfElements_+=1;
+    amountOfElements_ += 1;
     if (lastElement_ == 0)
     {
       lastElement_ = nextElement;
@@ -24,7 +24,8 @@ void rebdev::ElementCounter::operator()(int nextElement)
     }
     else
     {
-      if ((lastElement_ > currentElement_) && (currentElement_ > nextElement))
+      if ((lastElement_ > currentElement_)
+      && (currentElement_ > nextElement))
       {
         if (counter_ < std::numeric_limits< size_t >::max())
         {
