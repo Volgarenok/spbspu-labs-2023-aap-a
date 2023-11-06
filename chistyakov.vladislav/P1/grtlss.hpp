@@ -9,9 +9,8 @@ namespace chistyakov
   {
   public:
     GrtLss();
-    void countGrt(int number);
-    bool isSecuenceOk() const;
-    size_t getResultGrt() const;
+    void operator()(int number);
+    size_t operator()() const;
 
   private:
     int fstNum_;

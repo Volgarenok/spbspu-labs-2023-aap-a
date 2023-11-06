@@ -22,7 +22,7 @@ int main()
     {
       try
       {
-        counterGrtLss.countGrt(number);
+        counterGrtLss(number);
         counterCntMax(number);
       }
       catch (const std::exception & e)
@@ -34,13 +34,7 @@ int main()
   }
   while (number != 0);
 
-  if (!counterGrtLss.isSecuenceOk())
-  {
-    std::cerr << "Secuence is too short";
-    return 2;
-  }
-
   std::cout << "[CNT-MAX]: " << counterCntMax() << "\n";
-  std::cout << "[GRT-LSS]: " << counterGrtLss.getResultGrt() << "\n";
+  std::cout << "[GRT-LSS]: " << counterGrtLss() << "\n";
   return 0;
 }

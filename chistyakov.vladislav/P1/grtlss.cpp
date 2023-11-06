@@ -9,7 +9,7 @@ chistyakov::GrtLss::GrtLss() :
   isSecuence_(false)
 {}
 
-void chistyakov::GrtLss::countGrt(int number)
+void chistyakov::GrtLss::operator()(int number)
 {
   if (!fstNum_)
   {
@@ -43,12 +43,7 @@ void chistyakov::GrtLss::countGrt(int number)
   }
 }
 
-bool chistyakov::GrtLss::isSecuenceOk() const
-{
-  return isSecuence_;
-}
-
-size_t chistyakov::GrtLss::getResultGrt() const
+size_t chistyakov::GrtLss::operator()() const
 {
   return counter_;
 }
