@@ -3,7 +3,7 @@
 #include <exception>
 #include <algorithm>
 
-void checkArgs(int argc, int n, std::fstream & in)
+void  checkArgs(int argc,int n)
 {
   if (argc != 4)
   {
@@ -12,10 +12,6 @@ void checkArgs(int argc, int n, std::fstream & in)
   if ((n < 1) || (n > 2))
   {
     throw (std::invalid_argument("first argument out of range"));
-  }
-  if (!in)
-  {
-    throw (std::logic_error("Unable to read input file"));
   }
 }
 
@@ -79,28 +75,35 @@ int main(int argc, char * argv[])
 {
   int rows = 0;
   int columns = 0;
-  std::fstream input(argv[2]);
-  input >> rows;
-  input >> columns;
-
   int n = 0;
-  try
+  
+  std::fstream input(argv[2]);
+  if (!input)
   {
-    n = std::stoll(argv[1]);
-    checkArgs(argc, n, input);
-  }
-  catch(const std::invalid_argument & e)
-  {
-    std::cerr << e.what() << "\n";
-    return 1;
-  }
-  catch (const std::logic_error & e)
-  {
-    std::cerr << e.what() << "\n";
+    std::cerr << "Unable to read input file";
     return 2;
   }
 
   std::fstream output(argv[3]);
+  if (!output)
+  {
+    std::cerr << "Unable to read output file";
+    return 2;
+  }
+  
+  try
+  {
+    n = std::stoll(argv[1]);
+    checkArgs(argc, n);
+  }
+  catch(const std::invalid_argument& e)
+  {
+    std::cerr << e.what() << "\n";
+    return 1;
+  }
+  
+
+
 
   if (n == 1)
   {
