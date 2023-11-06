@@ -17,7 +17,7 @@ void novokhatskiy::SequenceCounterMax::operator()(int num)
   else
   {
     ++count_;
-    if (count_ > max_size)
+    if (count_ == max_size)
     {
       throw std::logic_error("The sequence is too long!");
     }
