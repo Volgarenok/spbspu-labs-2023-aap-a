@@ -73,13 +73,10 @@ int main(int argc, char * argv[])
     std::cerr << "Unable to read input file" << "\n";
     return 2;
   }
-
-  std::fstream output(argv[3]);
-  if (!output)
-  {
-    std::cerr << "Unable to read output file" << "\n";
-    return 2;
-  }
+  int rows = 0;
+  int columns = 0;
+  input >> rows;
+  input >> columns;
 
   int n = 0;
   try
@@ -98,10 +95,7 @@ int main(int argc, char * argv[])
     return 1;
   }
 
-  int rows = 0;
-  int columns = 0;
-  input >> rows;
-  input >> columns;
+  std::fstream output(argv[3]);
 
   if (n == 1)
   {
