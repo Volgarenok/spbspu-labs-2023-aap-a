@@ -76,6 +76,21 @@ int main(int argc, char * argv[])
   int rows = 0;
   int columns = 0;
   int n = 0;
+  try
+  {
+    n = std::stoll(argv[1]);
+    checkArgs(argc, n);
+  }
+  catch(const std::invalid_argument & e)
+  {
+    std::cerr << e.what() << "\n";
+    return 1;
+  }
+  catch (const std::logic_error & e)
+  {
+    std::cerr << e.what() << "\n";
+    return 2;
+  }
 
   std::fstream input(argv[2]);
   if (!input)
@@ -85,22 +100,13 @@ int main(int argc, char * argv[])
   }
 
   std::fstream output(argv[3]);
-  if (!output)
+   if (!(output))
   {
     std::cerr << "Unable to read output file";
-    return 2;
   }
 
-  try
-  {
-    n = std::stoll(argv[1]);
-    checkArgs(argc, n);
-  }
-  catch(const std::invalid_argument& e)
-  {
-    std::cerr << e.what() << "\n";
-    return 1;
-  }
+  input >> rows;
+  input >> columns;
 
   if (n == 1)
   {
