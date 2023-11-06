@@ -2,14 +2,14 @@
 #include <limits>
 #include <stdexcept>
 
-chistyakovGrtLss::GrtLss::GrtLss() :
+chistyakov::GrtLss::GrtLss() :
     fstNum_(0),
     midNum_(0),
     counter_(0),
     isSecuence_(false)
 {}
 
-void chistyakovGrtLss::GrtLss::countGrt(intmax_t number)
+void chistyakov::GrtLss::countGrt(intmax_t number)
 {
   if (!fstNum_)
   {
@@ -41,12 +41,12 @@ void chistyakovGrtLss::GrtLss::countGrt(intmax_t number)
   }
 }
 
-bool chistyakovGrtLss::GrtLss::isSecuenceOk() const
+bool chistyakov::GrtLss::isSecuenceOk() const
 {
   return isSecuence_;
 }
 
-size_t chistyakovGrtLss::GrtLss::getResultGrt() const
+size_t chistyakov::GrtLss::getResultGrt() const
 {
   return counter_;
 }

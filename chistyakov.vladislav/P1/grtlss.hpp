@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <cstdint>
 
-namespace chistyakovGrtLss
+namespace chistyakov
 {
   struct GrtLss
   {

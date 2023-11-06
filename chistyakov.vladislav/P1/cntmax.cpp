@@ -2,12 +2,12 @@
 #include <limits>
 #include <stdexcept>
 
-chistyakovCntMax::CntMax::CntMax() :
+chistyakov::CntMax::CntMax() :
   max_(0),
   counter_(0)
 {}
 
-void chistyakovCntMax::CntMax::operator()(intmax_t number)
+void chistyakov::CntMax::operator()(intmax_t number)
 {
   if (!max_)
   {
@@ -32,7 +32,7 @@ void chistyakovCntMax::CntMax::operator()(intmax_t number)
   }
 }
 
-size_t chistyakovCntMax::CntMax::operator()() const
+size_t chistyakov::CntMax::operator()() const
 {
   return counter_;
 }

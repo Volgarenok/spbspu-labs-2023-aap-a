@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <cstdint>
 
-namespace chistyakovCntMax
+namespace chistyakov
 {
   struct CntMax
   {

@@ -4,8 +4,7 @@
 
 int main()
 {
-  using namespace chistyakovCntMax;
-  using namespace chistyakovGrtLss;
+  using namespace chistyakov;
 
   GrtLss counterGrtLss;
   CntMax counterCntMax;
