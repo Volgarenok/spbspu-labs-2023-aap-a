@@ -3,11 +3,12 @@
 
 int main()
 {
-  int currentNum = 1;
+  int currentNum = 0;
 
   using namespace arakelyan;
   CounterOfNums counter;
-  do {
+  do
+  {
     std::cin >> currentNum;
     if (!std::cin)
     {
@@ -23,7 +24,8 @@ int main()
       std::cout << "Error: " << e.what() << "\n";
       return 2;
     }
-  }while (currentNum!=0);
+  }
+  while (currentNum!=0);
   std::cout << counter() << "\n";
   return 0;
 }
