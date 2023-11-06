@@ -43,10 +43,9 @@ void rebdev::ElementCounter::operator()(int nextElement)
 
 size_t rebdev::ElementCounter::operator()() const
 {
-  if (amountOfElements_ >=3)
+  if (amountOfElements_ < 3)
   {
-    return counter_;
+    throw std::invalid_argument("there are too little elements in the sequence!");
   }
-  throw std::invalid_argument("there are too little elements in the sequence!");
-  return 0;
+  return counter_;
 }
