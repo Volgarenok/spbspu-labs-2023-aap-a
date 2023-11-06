@@ -13,7 +13,7 @@ void shabalin::LocMax::operator()(signed long long Number)
 {
   m_firstNumber = Number;
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (Number == max_size)
+  if (count_ == max_size)
   {
     throw std::logic_error("Sequence is too long\n");
   }
