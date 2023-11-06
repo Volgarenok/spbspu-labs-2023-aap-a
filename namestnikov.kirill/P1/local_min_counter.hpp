@@ -7,12 +7,12 @@ namespace namestnikov
   struct LocalMinCounter
   {
     LocalMinCounter();
-    void operator()(int futurenumber);
+    void operator()(int futureNumber);
     size_t operator()() const;
   private:
     size_t count_;
-    int lastnumber_;
-    int currentnumber_;
+    int lastNumber_;
+    int currentNumber_;
   };
 }
 #endif
