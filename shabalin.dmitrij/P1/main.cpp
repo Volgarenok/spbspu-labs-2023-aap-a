@@ -4,8 +4,9 @@
 
 int main()
 {
-  signed long long firstNumber = 1, secondNumber = 1,  thirdNumber = 1, Number = 1;
-  
+  signed long long firstNumber = 1, secondNumber = 1;
+  signed long long thirdNumber = 1, Number = 1;
+
   std::cin >> firstNumber;
 
   if (!std::cin)
@@ -20,7 +21,6 @@ int main()
   }
 
   std::cin >> secondNumber;
-
   if (!std::cin)
   {
     std::cerr << "Is not sequence" << "\n";
@@ -33,7 +33,7 @@ int main()
   }
 
   std::cin >> thirdNumber;
-  
+
   if (!std::cin)
   {
     std::cerr << "Is not sequence" << "\n";
@@ -44,9 +44,9 @@ int main()
     std::cerr << "Can not be calculated" << "\n";
     return 0;
   }
-  
+
   using namespace shabalin;
-  
+
   LocMax counter(firstNumber, secondNumber, thirdNumber);
 
   do
