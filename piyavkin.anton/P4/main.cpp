@@ -58,7 +58,7 @@ int main(int argc, char * argv[])
     {
       for (int i = 0; i < n * m; ++i)
       {
-        if (i > ((i / m) * (m + 1) + 1) && a[i] != 0)
+        if (i > ((i / m) * (m + 1)) && a[i] != 0)
         {
           flag = false;
           break;
@@ -73,19 +73,37 @@ int main(int argc, char * argv[])
   }
   if (num == 2)
   {
-  int n = 0;
-  int m = 0;
-  std::ifstream input(argv[2]);
-  input >> n >> m;
-  int * matrix = new int [n*m];
-  size_t result = InputArray(input, matrix, n * m, n * m);
-  if (!input)
-  {
-    std::cerr << "Can not read\n";
-    delete [] matrix;
-    return 2;
-  }
-  std::ofstream output(argv[3]);
-  output << result;
+    bool flag = true;
+    int n = 0;
+    int m = 0;
+    std::ifstream input(argv[2]);
+    input >> n >> m;
+    if (n == m && n > 1)
+    {
+      int * matrix = new int [n*m];
+      size_t result = InputArray(input, matrix, n * m, n * m);
+      if (!input)
+      {
+        std::cerr << "Can not read\n";
+        delete [] matrix;
+        return 2;
+      }
+      for (int i = 0; i < n * m; ++i)
+      {
+        if (i > ((i / m) * (m + 1)) && matrix[i] != 0)
+        {
+          flag = false;
+          break;
+        }
+      }
+      std::cout << result << " ";
+      delete [] matrix;
+    }
+    else
+    {
+      flag = false;
+    }
+    std::ofstream output(argv[3]);
+    output << flag << "\n";
   }
 }
