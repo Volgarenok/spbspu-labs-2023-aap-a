@@ -8,7 +8,7 @@ int main()
 
   GrtLss counterGrtLss;
   CntMax counterCntMax;
-  intmax_t number = -1;
+  int number = -1;
 
   do
   {

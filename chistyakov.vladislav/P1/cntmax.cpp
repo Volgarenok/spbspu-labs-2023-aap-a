@@ -7,7 +7,7 @@ chistyakov::CntMax::CntMax() :
   counter_(0)
 {}
 
-void chistyakov::CntMax::operator()(intmax_t number)
+void chistyakov::CntMax::operator()(int number)
 {
   if (!max_)
   {

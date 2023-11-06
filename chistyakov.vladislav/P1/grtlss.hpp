@@ -2,7 +2,6 @@
 #define GRTLSS_HPP
 
 #include <cstddef>
-#include <cstdint>
 
 namespace chistyakov
 {
@@ -10,13 +9,13 @@ namespace chistyakov
   {
   public:
     GrtLss();
-    void countGrt(intmax_t number);
+    void countGrt(int number);
     bool isSecuenceOk() const;
     size_t getResultGrt() const;
 
   private:
-    intmax_t fstNum_;
-    intmax_t midNum_;
+    int fstNum_;
+    int midNum_;
     size_t counter_;
     bool isSecuence_;
   };

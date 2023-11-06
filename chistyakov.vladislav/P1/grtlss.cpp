@@ -9,7 +9,7 @@ chistyakov::GrtLss::GrtLss() :
     isSecuence_(false)
 {}
 
-void chistyakov::GrtLss::countGrt(intmax_t number)
+void chistyakov::GrtLss::countGrt(int number)
 {
   if (!fstNum_)
   {

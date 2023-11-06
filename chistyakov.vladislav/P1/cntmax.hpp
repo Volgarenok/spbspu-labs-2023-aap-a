@@ -2,7 +2,6 @@
 #define CNTMAX_HPP
 
 #include <cstddef>
-#include <cstdint>
 
 namespace chistyakov
 {
@@ -10,11 +9,11 @@ namespace chistyakov
   {
   public:
     CntMax();
-    void operator()(intmax_t number);
+    void operator()(int number);
     size_t operator()() const;
 
   private:
-    intmax_t max_;
+    int max_;
     size_t counter_;
   };
 }
