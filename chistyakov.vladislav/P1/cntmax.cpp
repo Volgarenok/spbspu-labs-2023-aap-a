@@ -14,21 +14,24 @@ void chistyakov::CntMax::operator()(int number)
     max_ = number;
   }
 
-  size_t max_size = std::numeric_limits< size_t >::max();
-
-  if (counter_ > max_size)
-  {
-    throw std::logic_error("sequence is too long");
-  }
-
   if (number > max_)
   {
-      max_ = number;
-      counter_ = 1;
+    max_ = number;
+    counter_ = 1;
   }
+
   else if (number == max_)
   {
+    size_t max_size = std::numeric_limits< size_t >::max();
+
+    if (counter_ == max_size)
+    {
+      throw std::logic_error("sequence is too long");
+    }
+    else
+    {
       ++counter_;
+    }
   }
 }
 

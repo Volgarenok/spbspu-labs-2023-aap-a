@@ -3,10 +3,10 @@
 #include <stdexcept>
 
 chistyakov::GrtLss::GrtLss() :
-    fstNum_(0),
-    midNum_(0),
-    counter_(0),
-    isSecuence_(false)
+  fstNum_(0),
+  midNum_(0),
+  counter_(0),
+  isSecuence_(false)
 {}
 
 void chistyakov::GrtLss::countGrt(int number)
@@ -26,15 +26,17 @@ void chistyakov::GrtLss::countGrt(int number)
       isSecuence_ = true;
     }
 
-    size_t max_size = std::numeric_limits< size_t >::max();
-    if (counter_ > max_size)
-    {
-      throw std::logic_error("sequence is too long");
-    }
-
     if (fstNum_ > midNum_ and midNum_ > number)
     {
-      ++counter_;
+      size_t max_size = std::numeric_limits< size_t >::max();
+      if (counter_ == max_size)
+      {
+        throw std::logic_error("sequence is too long");
+      }
+      else
+      {
+        ++counter_;
+      }
     }
     fstNum_ = midNum_;
     midNum_ = number;
