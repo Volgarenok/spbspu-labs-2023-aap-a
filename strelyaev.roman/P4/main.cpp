@@ -39,11 +39,6 @@ int main(int argc, char * argv[])
   }
 
   std::fstream output(argv[3]);
-  if (!output)
-  {
-    std::cerr << "Unable to find output file" << "\n";
-    return 2;
-  }
 
   if (n == 1)
   {
