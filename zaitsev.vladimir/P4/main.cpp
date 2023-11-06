@@ -4,30 +4,16 @@
 #include "i_o_processing.h"
 #include "matrix_processing.h"
 
-int main(int argc, char* argv[])
+int main(int argc, char** argv)
 {
-  if (argc > 4)
+  long task_nmb = 0;
+  try
   {
-    std::cerr << "Too many arguments\n";
-    return 1;
+    zaitsev::checkArguments(argc, argv);
   }
-  if (argc < 4)
+  catch (const std::out_of_range& e)
   {
-    std::cerr << "Not enough arguments\n";
-    return 1;
-  }
-
-  char* ptr = nullptr;
-  long task_nmb = std::strtol(argv[1], &ptr, 10);
-
-  if (task_nmb == 0 && ptr == argv[1])
-  {
-    std::cerr << "First parameter is not a number\n";
-    return 1;
-  }
-  if (task_nmb > 2 || task_nmb < 1)
-  {
-    std::cerr << "First parameter is out of range\n";
+    std::cerr << e.what() << "\n";
     return 1;
   }
 

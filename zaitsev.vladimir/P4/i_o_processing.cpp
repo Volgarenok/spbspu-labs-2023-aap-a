@@ -1,5 +1,31 @@
 #include "i_o_processing.h"
 
+long zaitsev::checkArguments(int argc, char** argv)
+{
+  if (argc > 4)
+  {
+    throw std::out_of_range("Too many arguments");
+  }
+  if (argc < 4)
+  {
+    throw std::out_of_range("Not enough arguments");
+  }
+
+  char* ptr = nullptr;
+  long task_nmb = std::strtol(argv[1], &ptr, 10);
+
+  if (task_nmb == 0 && ptr == argv[1])
+  {
+    throw std::out_of_range("First parameter is not a number");
+    return 1;
+  }
+  if (task_nmb > 2 || task_nmb < 1)
+  {
+    throw std::out_of_range("First parameter is out of range");
+  }
+  return task_nmb;
+}
+
 void zaitsev::readMatrix(std::ifstream& input, double* destination, size_t size)
 {
   size_t counter = 0;
