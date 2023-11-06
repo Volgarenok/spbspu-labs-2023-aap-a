@@ -2,29 +2,28 @@
 #include <limits>
 #include <stdexcept>
 
-skuratov::SequenceCounter::SequenceCounter():
+skuratov::MaxCounter::MaxCounter():
   count_(0)
 {}
 
-void skuratov::SequenceCounter::operator()(int number)
+void skuratov::MaxCounter::operator()(int number)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (count_ == max_size)
+  if (number > max_number_)
   {
-    throw std::logic_error("sequence is too long");
-  }
-  static int max_number = 0;
-  if (number > max_number)
-  {
-    max_number = number;
+    max_number_ = number;
     count_ = 0;
   }
-  else if (max_number == number)
+  else if (max_number_ == number)
   {
+    if (count_ == max_size)
+    {
+      throw std::logic_error("sequence is too long");
+    }
     ++count_;
   }
 }
-size_t skuratov::SequenceCounter::operator()() const
+size_t skuratov::MaxCounter::operator()() const
 {
   return count_ + 1;
 }

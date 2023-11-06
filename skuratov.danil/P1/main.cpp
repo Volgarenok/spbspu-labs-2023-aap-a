@@ -6,27 +6,28 @@ int main()
 {
   int number = 0;
   using namespace skuratov;
-    SequenceCounter counter;
-    do
+  MaxCounter counter;
+  do
+  {
+    std::cin >> number;
+    if (!std::cin)
     {
-      std::cin >> number;
-      if (!std::cin)
+      std::cerr << "Is not a sequence\n";
+      return 1;
+    }
+    else if (number != 0)
+    {
+      try
       {
-        std::cerr << "Is not a sequence\n";
-        return 1;
+        counter(number);
       }
-      else if (number != 0)
+      catch (const std::exception& e)
       {
-        try
-        {
-          counter(number);
-        }
-        catch (const std::exception& e)
-        {
-          std::cerr << "Error: " << e.what() << "\n";
-          return 2;
-        }
+        std::cerr << "Error: " << e.what() << "\n";
+        return 2;
       }
-    } while (number != 0);
-    std::cout << counter() << "\n";
+    }
+  } 
+  while (number != 0);
+  std::cout << counter() << "\n";
 }

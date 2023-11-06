@@ -4,13 +4,15 @@
 #include <cstddef>
 namespace skuratov
 {
-  struct SequenceCounter
+  struct MaxCounter
   {
-    SequenceCounter();
+  public:
+    MaxCounter();
     void operator()(int);
     size_t operator()() const;
+    int max_number_ = 0;
   private:
-    int number;
+    int number_;
     size_t count_;
   };
 }
