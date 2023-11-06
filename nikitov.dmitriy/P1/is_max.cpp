@@ -1,6 +1,6 @@
 #include "is_max.hpp"
 
-void isMax(int now, int& actual, int& pre)
+void nikitov::isMax(int now, int& actual, int& pre)
 {
   if (now >= actual)
   {

@@ -1,6 +1,6 @@
 #include "count_even_nums.hpp"
 
-void countEvenNums(int now, size_t& max, size_t& actual)
+void nikitov::countEvenNums(int now, size_t& max, size_t& actual)
 {
   if (now % 2 == 0)
   {
