@@ -2,6 +2,7 @@
 #include <fstream>
 #include <exception>
 #include <algorithm>
+#include "matrix.h"
 
 void checkArgs(int argc, int n, std::fstream & in)
 {
@@ -16,29 +17,6 @@ void checkArgs(int argc, int n, std::fstream & in)
   if (!in)
   {
     throw (std::logic_error("Unable to read input file"));
-  }
-}
-
-void sMatrix (std::istream & in, int * a, int e)
-{
-  for (int i = 0; i < e; i++)
-  {
-    if(!(in >> a[i]))
-    {
-      throw (std::logic_error("Unable to create matrix"));
-    }
-  }
-}
-
-void dMatrix (std::istream & in, int * a, int e)
-{
-  for (int i = 0; i < e; i++)
-  {
-    if(!(in >> a[i]))
-    {
-      delete [] a;
-      throw (std::logic_error("Unable to create matrix"));
-    }
   }
 }
 
