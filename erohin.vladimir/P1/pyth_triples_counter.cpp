@@ -10,13 +10,13 @@ erohin::PythTriplesCounter::PythTriplesCounter():
 
 void erohin::PythTriplesCounter::operator()(int current)
 {
-  size_t max_size = std::numeric_limits< size_t >::max();
-  if (pythtriples_ == max_size)
-  {
-    throw std::logic_error("There are too many pythagorean triples");
-  }
   if (pre_prev_ != 0 && prev_ != 0 && isPythTriple(current))
   {
+    size_t max_size = std::numeric_limits< size_t >::max();
+    if (pythtriples_ == max_size)
+    {
+      throw std::logic_error("There are too many pythagorean triples");
+    }
     ++pythtriples_;
   }
   pre_prev_ = prev_;
