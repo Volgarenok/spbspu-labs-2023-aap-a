@@ -6,7 +6,7 @@ chistyakov::GrtLss::GrtLss() :
   fstNum_(0),
   midNum_(0),
   counter_(0),
-  isSecuence_(false)
+  isSecuenceOk_(false)
 {}
 
 void chistyakov::GrtLss::operator()(int number)
@@ -21,9 +21,9 @@ void chistyakov::GrtLss::operator()(int number)
   }
   else
   {
-    if (!isSecuence_)
+    if (!isSecuenceOk_)
     {
-      isSecuence_ = true;
+      isSecuenceOk_ = true;
     }
 
     if (fstNum_ > midNum_ and midNum_ > number)
@@ -45,5 +45,12 @@ void chistyakov::GrtLss::operator()(int number)
 
 size_t chistyakov::GrtLss::operator()() const
 {
-  return counter_;
+  if (!isSecuenceOk_)
+  {
+    throw std::invalid_argument("sequence is too short");
+  }
+  else
+  {
+    return counter_;
+  }
 }

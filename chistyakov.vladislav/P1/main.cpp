@@ -15,15 +15,15 @@ int main()
     std::cin >> number;
     if (!std::cin)
     {
-      std::cerr << "Bad input, try again";
+      std::cerr << "Bad input, try again\n";
       return 1;
     }
     else if (number != 0)
     {
       try
       {
-        counterGrtLss(number);
         counterCntMax(number);
+        counterGrtLss(number);
       }
       catch (const std::exception & e)
       {
@@ -34,7 +34,18 @@ int main()
   }
   while (number != 0);
 
-  std::cout << "[CNT-MAX]: " << counterCntMax() << "\n";
-  std::cout << "[GRT-LSS]: " << counterGrtLss() << "\n";
+  try
+  {
+    size_t answOne = counterCntMax();
+    size_t answTwo = counterGrtLss();
+    std::cout << "[CNT-MAX]: " << answOne << "\n";
+    std::cout << "[GRT-LSS]: " << answTwo << "\n";
+  }
+  catch (const std::exception & e)
+  {
+    std::cerr << "Error: " << e.what();
+    return 2;
+  }
+
   return 0;
 }

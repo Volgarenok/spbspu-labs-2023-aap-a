@@ -16,7 +16,7 @@ namespace chistyakov
     int fstNum_;
     int midNum_;
     size_t counter_;
-    bool isSecuence_;
+    bool isSecuenceOk_;
   };
 }
 #endif
