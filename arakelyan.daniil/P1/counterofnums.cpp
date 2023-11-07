@@ -20,9 +20,12 @@ void arakelyan::CounterOfNums::operator()(int curr)
   {
     throw std::logic_error("Sequence is too short");
   }
-  if ((curr % past_num_ == 0) && (curr != 0) && (past_num_ != 0))
+  if ((curr != 0) && (past_num_ != 0))
   {
-    ++count_;
+    if (curr % past_num_ == 0)
+    {
+      ++count_;
+    }
   }
   if (curr != 0)
   {
