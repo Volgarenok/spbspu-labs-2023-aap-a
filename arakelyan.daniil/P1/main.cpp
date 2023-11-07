@@ -3,7 +3,7 @@
 
 int main()
 {
-  int currentNum = 0;
+  int currentNum = 1;
 
   using namespace arakelyan;
   CounterOfNums counter;
