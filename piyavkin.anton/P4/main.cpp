@@ -14,6 +14,25 @@ size_t InputArray(std::istream & in, int * a, size_t s, size_t toread)
   return std::min(toread, s);
 }
 
+bool DownTriMatrix(size_t result, int n, int m, int * a)
+{
+  if (n == m && n > 1)
+  {
+    for (size_t i = 0; i < result; ++i)
+    {
+      if (i > ((i / m) * (m + 1)) && a[i] != 0)
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 int main(int argc, char * argv[])
 {
   if (argc != 4)
@@ -40,7 +59,6 @@ int main(int argc, char * argv[])
   {
     int n = 0;
     int m = 0;
-    bool flag = true;
     std::ifstream input(argv[2]);
     input >> n >> m;
     int a[10000];
@@ -54,56 +72,24 @@ int main(int argc, char * argv[])
       return 2;
     }
     std::ofstream output(argv[3]);
-    if (n == m && n > 1)
-    {
-      for (int i = 0; i < n * m; ++i)
-      {
-        if (i > ((i / m) * (m + 1)) && a[i] != 0)
-        {
-          flag = false;
-          break;
-        }
-      }
-    }
-    else
-    {
-      flag = false;
-    }
-    output << flag << "\n";
+    output << DownTriMatrix(n * m, n, m, a) << "\n";
   }
   if (num == 2)
   {
-    bool flag = true;
     int n = 0;
     int m = 0;
     std::ifstream input(argv[2]);
     input >> n >> m;
-    if (n == m && n > 1)
+    int * matrix = new int [n*m];
+    size_t result = InputArray(input, matrix, n * m, n * m);
+    if (!input)
     {
-      int * matrix = new int [n*m];
-      size_t result = InputArray(input, matrix, n * m, n * m);
-      if (!input)
-      {
-        std::cerr << "Can not read\n";
-        delete [] matrix;
-        return 2;
-      }
-      for (int i = 0; i < n * m; ++i)
-      {
-        if (i > ((i / m) * (m + 1)) && matrix[i] != 0)
-        {
-          flag = false;
-          break;
-        }
-      }
-      std::cout << result << " ";
+      std::cerr << "Can not read\n";
       delete [] matrix;
-    }
-    else
-    {
-      flag = false;
+      return 2;
     }
     std::ofstream output(argv[3]);
-    output << flag << "\n";
+    output << DownTriMatrix(result, n, m, matrix) << "\n";
+    delete [] matrix;
   }
 }
