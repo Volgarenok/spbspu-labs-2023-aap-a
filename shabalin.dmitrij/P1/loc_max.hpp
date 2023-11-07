@@ -8,12 +8,12 @@ namespace shabalin
   public:
     LocMax(long long behindInt,long long curInt,long long nextInt);
     void operator()(signed long long Number);
-    long long operator()() const;
+    size_t operator()() const;
+    long long thirdNumber;
   private:
-    long long count_;
+    size_t count_;
     long long firstNumber;
     long long secondNumber;
-    long long thirdNumber;
   };
 }
 #endif
