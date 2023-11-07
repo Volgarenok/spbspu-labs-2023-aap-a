@@ -1,49 +1,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
-
-size_t InputArray(std::istream & in, int * a, size_t s, size_t toread)
-{
-  for (size_t i = 0; i < std::min(toread, s); ++ i)
-  {
-    if (!(in >> a[i]))
-    {
-      return i;
-    }
-  }
-  return std::min(toread, s);
-}
-
-bool DownTriMatrix(size_t result, int rows, int cols, int * matrix)
-{
-  if (rows == cols && rows > 1)
-  {
-    for (size_t i = 0; i < result; ++i)
-    {
-      if (i > ((i / cols) * (cols + 1)) && matrix[i] != 0)
-      {
-        return false;
-      }
-    }
-    return true;
-  }
-  else
-  {
-    return false;
-  }
-}
-
-bool NonZero(size_t result, int * matrix)
-{
-  for (size_t i = 0; i < result; ++i)
-  {
-    if (matrix[i] != 0)
-    {
-      return true;
-    }
-  }
-  return false;
-}
+#include "nonzero.hpp"
+#include "downtrimatrix.hpp"
+#include "inputarray.hpp"
 
 int main(int argc, char * argv[])
 {
