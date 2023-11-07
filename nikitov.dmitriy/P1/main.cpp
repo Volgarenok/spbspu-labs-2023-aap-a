@@ -1,13 +1,10 @@
 #include <iostream>
 #include "sequence_counter.hpp"
-#include "is_max.hpp"
 #include "count_even_nums.hpp"
 
 int main()
 {
-  int number = 0;
-  int actualMax = 0;
-  int preMax = 0;
+  long long int number = 0;
   size_t maxChetCount = 0;
   size_t currentChetCount = 0;
   using namespace nikitov;
@@ -32,18 +29,20 @@ int main()
         std::cerr << "Error: " << e.what() << '\n';
         return 2;
       }
-      isMax(number, actualMax, preMax);
       countEvenNums(number, maxChetCount, currentChetCount);
     }
   }
   while (number != 0);
 
   std::cout << maxChetCount << '\n';
-  if (actualMax == 0 || preMax == 0)
+  try
   {
-    std::cerr << "Error: This sequence is too short for SUB-MAX\n";
+    std::cout << counter() << '\n';
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << "Error: " << e.what() << '\n';
     return 2;
   }
-  std::cout << preMax << '\n';
   return 0;
 }

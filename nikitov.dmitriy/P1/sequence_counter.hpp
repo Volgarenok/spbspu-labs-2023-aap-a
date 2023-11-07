@@ -7,10 +7,12 @@ namespace nikitov {
   {
   public:
     SequenceCounter();
-    void operator()(int);
-    size_t operator()() const;
+    void operator()(long long int number);
+    long long int operator()() const;
 
   private:
+    long long int actualMax_;
+    long long int prevMax_;
     size_t count_;
   };
 }
