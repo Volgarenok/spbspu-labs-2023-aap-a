@@ -33,6 +33,18 @@ bool DownTriMatrix(size_t result, int rows, int cols, int * matrix)
   }
 }
 
+bool NonZero(size_t result, int * matrix)
+{
+  for (size_t i = 0; i < result; ++i)
+  {
+    if (matrix[i] != 0)
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
 int main(int argc, char * argv[])
 {
   if (argc != 4)
@@ -72,7 +84,7 @@ int main(int argc, char * argv[])
       return 2;
     }
     std::ofstream output(argv[3]);
-    output << DownTriMatrix(rows * cols, rows, cols, matrix) << "\n";
+    output << DownTriMatrix(rows * cols, rows, cols, matrix) * NonZero(rows * cols, matrix) << "\n";
   }
   if (num == 2)
   {
@@ -89,7 +101,7 @@ int main(int argc, char * argv[])
       return 2;
     }
     std::ofstream output(argv[3]);
-    output << DownTriMatrix(result, rows, cols, matrix) << "\n";
+    output << DownTriMatrix(result, rows, cols, matrix) * NonZero(result, matrix) << "\n";
     delete [] matrix;
   }
 }
