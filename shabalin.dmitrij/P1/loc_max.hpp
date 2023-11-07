@@ -10,9 +10,9 @@ namespace shabalin
     void operator()(long long Number);
     size_t operator()() const;
   private:
-    size_t count_;
     long long m_firstNumber;
     long long m_secondNumber;
+    size_t count_;
   };
 }
 #endif

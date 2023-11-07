@@ -10,12 +10,17 @@ shabalin::LocMax::LocMax():
 
 void shabalin::LocMax::operator()(long long Number)
 {
-  while (m_firstNumber == 0|| m_secondNumber == 0)
+  if (m_firstNumber == 0)
   {
     m_firstNumber = Number;
+  }
+  else if (m_secondNumber == 0)
+  {
     m_secondNumber = Number;
   }
+
   size_t max_size = std::numeric_limits< size_t >::max();
+
   if (count_ == max_size)
   {
     throw std::logic_error("Sequence is too long\n");
