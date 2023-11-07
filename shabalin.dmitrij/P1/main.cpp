@@ -4,50 +4,11 @@
 
 int main()
 {
-  long long firstNumber = 0, secondNumber = 0;
-  long long thirdNumber = 0, Number = 1;
-
-  std::cin >> firstNumber;
-
-  if (!std::cin)
-  {
-    std::cerr << "Is not sequence" << "\n";
-    return 1;
-  }
-  else if (firstNumber == 0)
-  {
-    std::cerr << "Must be no zero sequence" << "\n";
-    return 2;
-  }
-
-  std::cin >> secondNumber;
-  if (!std::cin)
-  {
-    std::cerr << "Is not sequence" << "\n";
-    return 1;
-  }
-  else if (secondNumber == 0)
-  {
-    std::cerr << "Can not be calculated" << "\n";
-    return 0;
-  }
-
-  std::cin >> thirdNumber;
-
-  if (!std::cin)
-  {
-    std::cerr << "Is not sequence" << "\n";
-    return 1;
-  }
-  else if (thirdNumber == 0)
-  {
-    std::cerr << "Can not be calculated" << "\n";
-    return 0;
-  }
-
+  long long Number = 0;
+  
   using namespace shabalin;
 
-  LocMax counter(firstNumber, secondNumber, thirdNumber);
+  LocMax counter;
 
   do
   {
@@ -57,11 +18,11 @@ int main()
       std::cerr << "is not sequence" << "\n";
       return 1;
     }
-    if (thirdNumber != 0)
+    if (Number != 0)
     {
       try
       {
-        counter(thirdNumber);
+        counter(Number);
       }
       catch (const std::exception & e)
       {
