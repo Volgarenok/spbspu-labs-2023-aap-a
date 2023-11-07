@@ -57,14 +57,14 @@ int main(int argc, char * argv[])
   int num = std::stoll(argv[1]);
   if (num == 1)
   {
-    int n = 0;
-    int m = 0;
+    int rows = 0;
+    int cols = 0;
     std::ifstream input(argv[2]);
-    input >> n >> m;
-    int a[10000];
-    for (int i = 0; i < n * m; ++i)
+    input >> rows >> cols;
+    int matrix[10000];
+    for (int i = 0; i < rows * cols; ++i)
     {
-      input >> a[i];
+      input >> matrix[i];
     }
     if (!input)
     {
@@ -72,16 +72,16 @@ int main(int argc, char * argv[])
       return 2;
     }
     std::ofstream output(argv[3]);
-    output << DownTriMatrix(n * m, n, m, a) << "\n";
+    output << DownTriMatrix(rows * cols, rows, cols, matrix) << "\n";
   }
   if (num == 2)
   {
-    int n = 0;
-    int m = 0;
+    int rows = 0;
+    int cols = 0;
     std::ifstream input(argv[2]);
-    input >> n >> m;
-    int * matrix = new int [n*m];
-    size_t result = InputArray(input, matrix, n * m, n * m);
+    input >> rows >> cols;
+    int * matrix = new int [rows*cols];
+    size_t result = InputArray(input, matrix, rows * cols, rows * cols);
     if (!input)
     {
       std::cerr << "Can not read\n";
@@ -89,7 +89,7 @@ int main(int argc, char * argv[])
       return 2;
     }
     std::ofstream output(argv[3]);
-    output << DownTriMatrix(result, n, m, matrix) << "\n";
+    output << DownTriMatrix(result, rows, cols, matrix) << "\n";
     delete [] matrix;
   }
 }
