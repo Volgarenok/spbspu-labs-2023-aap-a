@@ -13,7 +13,6 @@ namespace shabalin
     size_t count_;
     long long m_firstNumber;
     long long m_secondNumber;
-    long long m_thirdNumber;
   };
 }
 #endif
