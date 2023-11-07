@@ -14,13 +14,13 @@ size_t InputArray(std::istream & in, int * a, size_t s, size_t toread)
   return std::min(toread, s);
 }
 
-bool DownTriMatrix(size_t result, int n, int m, int * a)
+bool DownTriMatrix(size_t result, int rows, int cols, int * matrix)
 {
-  if (n == m && n > 1)
+  if (rows == cols && rows > 1)
   {
     for (size_t i = 0; i < result; ++i)
     {
-      if (i > ((i / m) * (m + 1)) && a[i] != 0)
+      if (i > ((i / cols) * (cols + 1)) && matrix[i] != 0)
       {
         return false;
       }
@@ -43,11 +43,11 @@ int main(int argc, char * argv[])
   try
   {
     int num = std::stoll(argv[1]);
-      if (num != 1 && num != 2)
-      {
-        std::cerr << "The first parameter is incorrectly specified\n";
-        return 3;
-      }
+    if (num != 1 && num != 2)
+    {
+      std::cerr << "The first parameter is incorrectly specified\n";
+      return 3;
+    }
   }
   catch (...)
   {
