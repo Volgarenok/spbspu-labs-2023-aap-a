@@ -5,7 +5,7 @@
 int main()
 {
   long long Number = 0;
-  
+
   using namespace shabalin;
 
   LocMax counter;
