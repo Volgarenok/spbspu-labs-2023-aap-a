@@ -1,14 +1,13 @@
 #include <iostream>
-#include "sequence_counter.hpp"
-#include "count_even_nums.hpp"
+#include "submax_checker.hpp"
+#include "even_nums_counter.hpp"
 
 int main()
 {
   long long int number = 0;
-  size_t maxChetCount = 0;
-  size_t currentChetCount = 0;
   using namespace nikitov;
-  SequenceCounter counter;
+  SubmaxChecker subChecker;
+  EvenNumsCounter evenCounter;
 
   do
   {
@@ -22,22 +21,22 @@ int main()
     {
       try
       {
-        counter(number);
+        subChecker(number);
+        evenCounter(number);
       }
       catch (const std::exception& e)
       {
         std::cerr << "Error: " << e.what() << '\n';
         return 2;
       }
-      countEvenNums(number, maxChetCount, currentChetCount);
     }
   }
   while (number != 0);
 
-  std::cout << maxChetCount << '\n';
   try
   {
-    std::cout << counter() << '\n';
+    std::cout << subChecker() << '\n';
+    std::cout << evenCounter() << '\n';
   }
   catch (const std::exception& e)
   {
