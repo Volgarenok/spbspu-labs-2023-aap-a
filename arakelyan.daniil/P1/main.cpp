@@ -7,7 +7,8 @@ int main()
 
   using namespace arakelyan;
   CounterOfNums counter;
-  do
+
+  while (currentNum != 0)
   {
     std::cin >> currentNum;
     if (!std::cin)
@@ -15,20 +16,17 @@ int main()
       std::cerr << "Enter num\n";
       return 1;
     }
-    if (currentNum != 0)
+    try
     {
-      try
-      {
-        counter(currentNum);
-      }
-      catch (const std::exception & e)
-      {
-        std::cout << "Error: " << e.what() << "\n";
-        return 2;
-      }
+      counter(currentNum);
+    }
+    catch (const std::exception & e)
+    {
+      std::cout << "Error: " << e.what() << "\n";
+      return 2;
     }
   }
-  while (currentNum!=0);
+
   std::cout << counter() << "\n";
   return 0;
 }
