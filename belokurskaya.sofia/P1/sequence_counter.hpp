@@ -4,9 +4,9 @@
 #include <cstddef>
 namespace belokurskaya
 {
-  struct SequenceCounter
+  struct CounterOfNumbersEqualToTheMaximum
   {
-    SequenceCounter();
+    CounterOfNumbersEqualToTheMaximum();
     void operator()(int number);
     size_t operator()() const;
   private:
