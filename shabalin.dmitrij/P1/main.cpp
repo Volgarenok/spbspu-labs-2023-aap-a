@@ -4,8 +4,8 @@
 
 int main()
 {
-  signed long long firstNumber = 0, secondNumber = 0;
-  signed long long thirdNumber = 0, Number = 1;
+  long long firstNumber = 0, secondNumber = 0;
+  long long thirdNumber = 0, Number = 1;
 
   std::cin >> firstNumber;
 

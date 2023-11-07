@@ -2,14 +2,14 @@
 #include <limits>
 #include <stdexcept>
 
-shabalin::LocMax::LocMax(signed long long firstInt,signed long long secondInt,signed long long thirdInt):
+shabalin::LocMax::LocMax(long long firstInt,long long secondInt,long long thirdInt):
   firstNumber(firstInt),
   secondNumber(secondInt),
   thirdNumber(thirdInt),
   count_(0)
 {}
 
-void shabalin::LocMax::operator()(signed long long Number)
+void shabalin::LocMax::operator()(long long Number)
 {
   thirdNumber = Number;
   size_t max_size = std::numeric_limits< size_t >::max();
@@ -25,7 +25,7 @@ void shabalin::LocMax::operator()(signed long long Number)
   secondNumber = thirdNumber;
 }
 
-size_t shabalin::LocMax::operator()() const
+long long shabalin::LocMax::operator()() const
 {
   return count_;
 };
