@@ -3,7 +3,7 @@
 
 namespace zhalilov
 {
-  int countNonZeroDiags(int matrix[], int rows, int cols);
+  int countNonZeroDiags(const int matrix[], int rows, int cols);
 }
 
 #endif

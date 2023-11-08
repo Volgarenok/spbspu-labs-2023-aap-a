@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-int zhalilov::countNonZeroDiags(int matrix[], int rows, int cols)
+int zhalilov::countNonZeroDiags(const int matrix[], int rows, int cols)
 {
   int count = 0;
   int sqrLength = std::min(rows, cols);
