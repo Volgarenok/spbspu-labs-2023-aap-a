@@ -1,24 +1,15 @@
 #include <iostream>
 #include <limits>
 
+#include "sign_change_counter.hpp"
 
-void countSignChanges(int &previousNumber, int &currentNumber, size_t &counter)
-{
-  if ((currentNumber > 0 && previousNumber < 0) || (currentNumber < 0 && previousNumber > 0))
-  {
-    counter++;
-  }
-
-  previousNumber = currentNumber;
-}
 
 int main()
 {
   int number = 0;
   size_t size = 0;
 
-  size_t signChangeCounter = 0;
-  int previousNumber = 0;
+  kovtun::SignChangeCounter signChangeCounter;
 
   do
   {
@@ -39,12 +30,12 @@ int main()
       }
       size++;
     
-      countSignChanges(previousNumber, number, signChangeCounter);
+      signChangeCounter(number);
     }
   }
   while (number != 0);
 
-  std::cout << signChangeCounter << '\n';
+  std::cout << signChangeCounter() << '\n';
 
   return 0;
 }
