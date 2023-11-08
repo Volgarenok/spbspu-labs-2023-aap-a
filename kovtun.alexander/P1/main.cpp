@@ -35,7 +35,15 @@ int main()
   }
   while (number != 0);
 
-  std::cout << signChangeCounter() << '\n';
+  try
+  {
+    std::cout << signChangeCounter() << '\n';
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+    return 2;
+  }
 
   return 0;
 }

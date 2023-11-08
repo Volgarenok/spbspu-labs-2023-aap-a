@@ -2,6 +2,7 @@
 #define SIGN_CHANGE_COUNTER_H
 
 #include <limits>
+#include <stdexcept>
 
 
 namespace kovtun
