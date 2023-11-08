@@ -1,7 +1,8 @@
 #ifndef SUBMAX_CHECKER_HPP
 #define SUBMAX_CHECKER_HPP
 
-namespace nikitov {
+namespace nikitov
+{
   class SubmaxChecker
   {
   public:

@@ -2,7 +2,8 @@
 #define EVEN_NUMS_COUNTER_HPP
 
 #include <cstddef>
-namespace nikitov {
+namespace nikitov
+{
   class EvenNumsCounter
   {
   public:
