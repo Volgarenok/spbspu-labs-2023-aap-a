@@ -11,7 +11,7 @@ namespace arakelyan
   private:
     size_t count_;
     size_t length_;
-    int past_num_;
+    int pastNum_;
   };
 }
 #endif
