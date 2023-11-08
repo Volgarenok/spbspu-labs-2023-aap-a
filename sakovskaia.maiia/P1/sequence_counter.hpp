@@ -10,8 +10,8 @@ namespace sakovskaia
     void operator()(int);
     size_t operator()() const;
   private:
-    size_t size = 0;
-    int lastNumber = 0;
+    size_t size;
+    int lastNumber;
     size_t count_;
   };
 }
