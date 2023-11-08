@@ -11,11 +11,11 @@ arakelyan::CounterOfNumsThatDevideByThePrev::CounterOfNumsThatDevideByThePrev():
 void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int currentNum)
 {
   length_++;
-  size_t max_length = std::numeric_limits< size_t >::max();
+  size_t maxLength = std::numeric_limits< size_t >::max();
 
   if (currentNum != 0)
   {
-    if (length_ == max_length)
+    if (length_ == maxLength)
     {
       throw std::logic_error("Sequense is too long");
     }
