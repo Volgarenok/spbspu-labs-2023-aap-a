@@ -7,10 +7,11 @@ namespace sakovskaia
   struct SequenceSignsCounter
   {
     SequenceSignsCounter();
-    void operator()(size_t, int);
-    void operator()(int, int);
+    void operator()(int);
     size_t operator()() const;
   private:
+    size_t size = 0;
+    int lastNumber = 0;
     size_t count_;
   };
 }
