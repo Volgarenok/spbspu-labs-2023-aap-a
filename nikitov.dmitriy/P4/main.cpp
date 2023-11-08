@@ -39,7 +39,16 @@ int main(int argc, char * argv[])
 
   if (type == 1)
   {
-    std::cout << "Static\n";
+    int matrix[10000];
+    for (int i = 0; i != rows * cols; ++i)
+    {
+      input >> matrix[i];
+    }
+    if (!input)
+    {
+      std::cerr << "Error: Wrong input\n";
+      return 1;
+    }
   }
   else if (type == 2)
   {
