@@ -3,9 +3,9 @@
 #include <stdexcept>
 
 sakovskaia::SequenceSignsCounter::SequenceSignsCounter():
-  count_(0),
   size(0),
-  lastNumber(0)
+  lastNumber(0),
+  count_(0)
 {}
 
 void sakovskaia::SequenceSignsCounter::operator()(int number_)
