@@ -1,6 +1,6 @@
+#include "Sequence_counterMax.hpp"
 #include <limits>
 #include <stdexcept>
-#include "Sequence_counterMax.hpp"
 
 novokhatskiy::SequenceCounterMax::SequenceCounterMax():
   count_(0),
