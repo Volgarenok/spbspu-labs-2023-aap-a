@@ -4,7 +4,7 @@
 #include <limits>
 
 
-namespace kovtun 
+namespace kovtun
 {
   class LocalMaxCounter
   {

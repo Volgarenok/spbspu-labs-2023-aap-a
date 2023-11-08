@@ -29,7 +29,7 @@ int main()
         return 2;
       }
       size++;
-    
+
       signChangeCounter(number);
     }
   }
