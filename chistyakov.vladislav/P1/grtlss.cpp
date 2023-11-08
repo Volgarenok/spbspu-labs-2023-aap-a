@@ -26,7 +26,7 @@ void chistyakov::GrtLss::operator()(int number)
       isSecuenceOk_ = true;
     }
 
-    if (firstNumber_ > middleNumber_ and middleNumber_ > number)
+    if (firstNumber_ > middleNumber_ && middleNumber_ > number)
     {
       size_t max_size = std::numeric_limits< size_t >::max();
       if (counter_ == max_size)
