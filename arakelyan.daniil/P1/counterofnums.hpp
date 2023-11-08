@@ -3,7 +3,7 @@
 #include <cstddef>
 namespace arakelyan
 {
-  struct CounterOfNumsThatDevideByThePrev 
+  struct CounterOfNumsThatDevideByThePrev
   {
     CounterOfNumsThatDevideByThePrev();
     void operator()(int curr);
