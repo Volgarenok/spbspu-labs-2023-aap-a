@@ -56,6 +56,7 @@ int main(int argc, char * argv[])
     if (inputMatrix(matrix, rows, cols, input) == -1)
     {
       std::cerr << "Invalid matrix source\n";
+      delete[] matrix;
       return 2;
     }
     nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
