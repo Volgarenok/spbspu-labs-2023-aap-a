@@ -11,16 +11,13 @@ namestnikov::LocalMinCounter::LocalMinCounter():
 void namestnikov::LocalMinCounter::operator()(int futureNumber)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (count_ < max_size)
+  if ((currentNumber_ < lastNumber_) && (currentNumber_ < futureNumber))
   {
-    if ((currentNumber_ < lastNumber_) && (currentNumber_ < futureNumber))
+    if (count_ == max_size)
     {
-      ++count_;
+      throw std::logic_error("sequence is too long\n");
     }
-  }
-  else
-  {
-    throw std::logic_error("sequence is too long\n");
+    ++count_;
   }
   lastNumber_ = currentNumber_;
   currentNumber_ = futureNumber;
