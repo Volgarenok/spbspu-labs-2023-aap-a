@@ -6,7 +6,7 @@ int main()
   int currentNum = 1;
 
   using namespace arakelyan;
-  CounterOfNums counter;
+  CounterOfNumsThatDevideByThePrev counter;
 
   while (currentNum != 0)
   {

@@ -3,9 +3,9 @@
 #include <cstddef>
 namespace arakelyan
 {
-  struct CounterOfNums
+  struct CounterOfNumsThatDevideByThePrev 
   {
-    CounterOfNums();
+    CounterOfNumsThatDevideByThePrev();
     void operator()(int curr);
     size_t operator()() const;
   private:
