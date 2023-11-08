@@ -27,7 +27,7 @@ int main()
       }
       catch (const std::exception & e)
       {
-        std::cerr << "Error: " << e.what();
+        std::cerr << "Error: " << e.what() << "\n";
         return 2;
       }
     }
@@ -43,7 +43,7 @@ int main()
   }
   catch (const std::exception & e)
   {
-    std::cerr << "Error: " << e.what();
+    std::cerr << "Error: " << e.what() << "\n";
     return 2;
   }
 

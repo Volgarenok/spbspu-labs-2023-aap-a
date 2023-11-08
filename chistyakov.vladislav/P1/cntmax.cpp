@@ -2,7 +2,7 @@
 #include <limits>
 #include <stdexcept>
 
-chistyakov::CntMax::CntMax() :
+chistyakov::CntMax::CntMax():
   max_(0),
   counter_(0)
 {}
