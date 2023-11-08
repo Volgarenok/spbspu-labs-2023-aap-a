@@ -5,13 +5,21 @@
 nikitov::SubmaxChecker::SubmaxChecker():
   actualMax_(std::numeric_limits< long long int >::min()),
   prevMax_(std::numeric_limits< long long int >::min()),
-  count_(0)
+  status_(0)
 {}
 
 void nikitov::SubmaxChecker::operator()(long long int number)
 {
+  if (status_ == 1)
+  {
+    status_ = 2;
+  }
   if (number >= actualMax_)
   {
+    if (status_ != 2)
+    {
+      status_ = 1;
+    }
     prevMax_ = actualMax_;
     actualMax_ = number;
   }
@@ -19,15 +27,10 @@ void nikitov::SubmaxChecker::operator()(long long int number)
   {
     prevMax_ = number;
   }
-  if (count_ == std::numeric_limits< size_t >::max())
-  {
-    throw std::logic_error("This sequence is too long");
-  }
-  ++count_;
 }
 long long int nikitov::SubmaxChecker::operator()() const
 {
-  if (count_ < 2)
+  if (status_ != 2)
   {
     throw std::logic_error("This sequence is too short");
   }

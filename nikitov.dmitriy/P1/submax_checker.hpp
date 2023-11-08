@@ -14,7 +14,7 @@ namespace nikitov
   private:
     long long int actualMax_;
     long long int prevMax_;
-    size_t count_;
+    int status_;
   };
 }
 #endif
