@@ -2,7 +2,7 @@
 #include <limits>
 #include <stdexcept>
 
-chistyakov::GrtLss::GrtLss() :
+chistyakov::GrtLss::GrtLss():
   firstNumber_(0),
   middleNumber_(0),
   counter_(0),
