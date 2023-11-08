@@ -5,7 +5,7 @@ int main()
 {
   using namespace marishin;
   SumDup seq;
-  long long int num;
+  long long int num = 0;
   do
   {
     std::cin >> num;
@@ -26,7 +26,8 @@ int main()
         return 2;
       }
     }
-  } while (num != 0);
+  }
+  while (num != 0);
   try
   {
     std::cout << seq() << "\n";
