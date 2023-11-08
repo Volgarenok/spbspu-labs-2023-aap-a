@@ -6,3 +6,12 @@ kovtun::SignChangeCounter::SignChangeCounter():
   previousNumber_(0)
 {}
 
+void kovtun::SignChangeCounter::operator()(int number)
+{
+
+}
+
+size_t kovtun::SignChangeCounter::operator()()
+{
+  return counter_;
+}
