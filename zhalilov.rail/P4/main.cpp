@@ -48,7 +48,6 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid matrix source\n";
       return 2;
     }
-    
     nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
   }
   if (num == 2)
@@ -59,13 +58,12 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid matrix source\n";
       return 2;
     }
-
     nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
   }
 
   {
     std::ofstream output(argv[3]);
     output << nonZeroDiags << "\n";
-}
+  }
   return 0;
 }

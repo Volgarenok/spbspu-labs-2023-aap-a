@@ -17,7 +17,7 @@ int zhalilov::countNonZeroDiags(int matrix[], int rows, int cols)
       if (matrix[upperIndex] == 0)
       {
         isUpperZero = true;
-      } 
+      }
       int lowerIndex = lineLength - 1 - i - (cols + 1) * j;
       if (matrix[lowerIndex] == 0)
       {
