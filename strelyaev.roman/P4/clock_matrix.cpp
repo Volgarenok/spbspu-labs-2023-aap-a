@@ -1,5 +1,5 @@
 #include "clock_matrix.h"
-void clockwise(int * a, int rows, int columns)
+void strelyaev::clockwise(int * a, int rows, int columns)
 {
   int num = 1;
   for (int delta = 0; delta < std::max(rows - 2, 1); delta++)
@@ -24,7 +24,7 @@ void clockwise(int * a, int rows, int columns)
   }
 }
 
-void matrixSubtraction(int * original, int * reverse, int n)
+void strelyaev::matrixSubtraction(int * original, int * reverse, int n)
 {
   for (int i = 0; i < n; i++)
   {

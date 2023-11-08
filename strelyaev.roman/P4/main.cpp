@@ -6,12 +6,13 @@
 
 int main(int argc, char * argv[])
 {
+  using namespace strelyaev;
   if (argc != 4)
   {
     std::cerr << "Must be 3 arguments: task, input_file, output_file" << "\n";
     return 1;
   }
-
+  std::fstream output(argv[3]);
   std::fstream input(argv[2]);
   int rows = 0, columns = 0;
   input >> rows >> columns;
@@ -28,7 +29,7 @@ int main(int argc, char * argv[])
   }
   catch(const std::invalid_argument & e)
   {
-    std::cerr << "Unable to perse 1st argument" << "\n";
+    std::cerr << "Unable to parse 1st argument" << "\n";
     return 1;
   }
 
@@ -37,8 +38,6 @@ int main(int argc, char * argv[])
     std::cerr << "1st argument must be 1-2 number" << "\n";
     return 1;
   }
-
-  std::fstream output(argv[3]);
 
   if (n == 1)
   {
