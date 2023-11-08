@@ -31,35 +31,33 @@ int main(int argc, char * argv[])
     std::cerr << "Invalid argument of task number\n";
     return 1;
   }
+  if (num != 1 && num != 2)
+  {
+    std::cerr << "Invalid first argument\n";
+    return 1;
+  }
 
   int rows = 0;
   int cols = 0;
+  std::ifstream input(argv[2]);
+  input >> rows >> cols;
+  if (!input)
+  {
+    std::cerr << "Invalid matrix parameteres\n";
+    return 2;
+  }
+
   if (num == 1)
   {
-    std::ifstream input(argv[2]);
-    input >> rows >> cols;
     int matrix[10000];
-    if (!input)
-    {
-      std::cerr << "Invalid matrix parameteres\n";
-      return 2;
-    }
     if (inputMatrix(matrix, rows, cols, input) == -1)
     {
       std::cerr << "Invalid matrix source\n";
       return 2;
     }
   }
-
   if (num == 2)
   {
-    std::ifstream input(argv[2]);
-    input >> rows >> cols;
-    if (!input)
-    {
-      std::cerr << "Invalid matrix parameteres\n";
-      return 2;
-    }
     int *matrix = new int[rows * cols];
     if (inputMatrix(matrix, rows, cols, input) == -1)
     {
