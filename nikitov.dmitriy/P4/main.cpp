@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "count_local_min.hpp"
 
 int main(int argc, char * argv[])
 {
@@ -27,20 +28,15 @@ int main(int argc, char * argv[])
   }
 
   size_t rows = 0, cols = 0;
-  {
-    std::ifstream input(argv[2]);
-    input >> rows >> cols;
-    if (!input)
-    {
-      std::cerr << "Error: Can't read numbers of rows and columns in file\n";
-      return 2;
-    }
-  }
+  size_t count = 0;
 
   if (type == 1)
   {
+    std::ifstream input(argv[2]);
+    input >> rows >> cols;
+
     int matrix[10000];
-    for (int i = 0; i != rows * cols; ++i)
+    for (size_t i = 0; i != rows * cols; ++i)
     {
       input >> matrix[i];
     }
@@ -48,6 +44,20 @@ int main(int argc, char * argv[])
     {
       std::cerr << "Error: Wrong input\n";
       return 1;
+    }
+
+    size_t position = 0;
+    if (rows != 0 && cols != 0)
+    {
+      for (size_t i = 1; i != rows - 1; ++i)
+      {
+        position = cols * i + 1;
+        for (size_t j = 1; j != cols - 1; ++j)
+        {
+          countLocalMin(position, matrix, cols, count);
+          ++position;
+        }
+      }
     }
   }
   else if (type == 2)
@@ -61,6 +71,6 @@ int main(int argc, char * argv[])
   }
 
   std::ofstream output(argv[3]);
-  output << rows << cols << '\n';
+  output << count << '\n';
   return 0;
 }
