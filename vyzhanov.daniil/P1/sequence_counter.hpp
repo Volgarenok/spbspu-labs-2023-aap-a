@@ -11,7 +11,8 @@ namespace vyzhanov
     void operator()(int num);
     size_t operator()() const;
   private:
-   size_t count, maxi_num, after_max;
+   size_t count;
+   int  maxi_num, after_max;
   };
 }
 #endif
