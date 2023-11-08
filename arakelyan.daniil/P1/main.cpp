@@ -26,7 +26,14 @@ int main()
       return 2;
     }
   }
+ 
 
-  std::cout << counter() << "\n";
-  return 0;
+  try {
+    std::cout << counter() << "\n";
+  }
+  catch (const std::exception & e)
+  {
+    std::cout << "Error: " << e.what() << "\n";
+    return 2;
+  }
 }
