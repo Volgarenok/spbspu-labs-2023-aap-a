@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ifstream>
 
 int main(int argc, char * argv[])
 {
@@ -22,6 +23,14 @@ int main(int argc, char * argv[])
     std::cerr << "Error: First argument is not a number\n";
     return 1;
   }
+  size_t rows = 0, cols = 0;
+  std::ifstream input(argv[2]);
+  input >> rows >> cols;
+  if (!input)
+  {
+    std::cerr << "Error: Can't read numbers of rows and columns in file\n";
+    return 2;
+  }
   if (type == 1)
   {
     std::cout << "Static\n";
@@ -29,7 +38,7 @@ int main(int argc, char * argv[])
   }
   else if (type == 2)
   {
-    std::cout << "Dynamic\n";
+    std::cout << "Dinamic\n";
     return 0;
   }
   else
