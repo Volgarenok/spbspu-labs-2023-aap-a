@@ -8,7 +8,18 @@ kovtun::SignChangeCounter::SignChangeCounter():
 
 void kovtun::SignChangeCounter::operator()(int number)
 {
+  if (previousNumber_ == 0)
+  {
+    previousNumber_ = number;
+    return;
+  }
 
+  if ((previousNumber_ > 0 && number < 0) || (previousNumber_ < 0 && number > 0))
+  {
+    counter_++;
+  }
+
+  previousNumber_ = number;
 }
 
 size_t kovtun::SignChangeCounter::operator()()
