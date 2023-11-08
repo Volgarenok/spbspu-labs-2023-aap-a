@@ -28,10 +28,6 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
       throw std::logic_error("Sequense is too long");
     }
   }
-  // else if ((length_ == 2 && currentNum == 0) || (length_ == 1 && currentNum == 0))
-  // {
-    // throw std::logic_error("Sequence is too short");
-  // }
 }
 
 size_t arakelyan::CounterOfNumsThatDevideByThePrev::operator()() const

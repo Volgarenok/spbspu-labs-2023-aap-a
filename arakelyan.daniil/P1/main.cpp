@@ -26,7 +26,7 @@ int main()
       return 2;
     }
   }
- 
+
 
   try {
     std::cout << counter() << "\n";
