@@ -1,54 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include <algorithm>
 
-int inputMatrix(int matrix[], int rows, int cols, std::ifstream &input)
-{
-  for (int i = 0; i < rows * cols; i++)
-  {
-    if (!(input >> matrix[i]))
-    {
-      return -1;
-    }
-  }
-  return 0;
-}
-
-int countNonZeroDiags(int matrix[], int rows, int cols)
-{
-  int count = 0;
-  int sqrLength = std::min(rows, cols);
-  int lineLength = sqrLength * sqrLength;
-  bool isUpperZero = false;
-  bool isLowerZero = false;
-  for (int i = 1; i < sqrLength; i++)
-  {
-    for (int j = 0; j < sqrLength - i; j++)
-    {
-      int upperIndex = i + (cols + 1) * j;
-      if (matrix[upperIndex] == 0)
-      {
-        isUpperZero = true;
-      }
-      
-      int lowerIndex = lineLength - 1 - i - (cols + 1) * j;
-      if (matrix[lowerIndex] == 0)
-      {
-        isLowerZero = true;
-      }
-
-      if (isLowerZero && isUpperZero)
-      {
-        break;
-      }
-    }
-    
-    count+= !isLowerZero + !isUpperZero;
-    isUpperZero = false;
-    isLowerZero = false;
-  }
-  return count;
-}
+#include "inputMatrix.hpp"
+#include "countNonZeroDiags.hpp"
 
 int main(int argc, char * argv[])
 {
@@ -83,7 +37,8 @@ int main(int argc, char * argv[])
     std::cerr << "Invalid matrix parameteres\n";
     return 2;
   }
-  
+
+  using namespace zhalilov;
   int nonZeroDiags = 0;
   if (num == 1)
   {
@@ -110,7 +65,7 @@ int main(int argc, char * argv[])
 
   {
     std::ofstream output(argv[3]);
-    output << nonZeroDiags;
-  }
+    output << nonZeroDiags << "\n";
+}
   return 0;
 }
