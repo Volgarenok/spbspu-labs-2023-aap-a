@@ -1,11 +1,11 @@
-#ifndef SEQUENCE_COUNTER_HPP
-#define SEQUENCE_COUNTER_HPP
+#ifndef LOC_MAX_COUNTER_HPP
+#define LOC_MAX_COUNTER_HPP
 
 #include <cstddef>
 namespace lopatina
 {
-  struct SequenceCounter {
-    SequenceCounter();
+  struct Loc_Max_Counter {
+    Loc_Max_Counter();
     void operator()(int);
     size_t operator()() const;
   private:

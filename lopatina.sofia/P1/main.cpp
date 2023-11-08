@@ -1,12 +1,12 @@
 #include <iostream>
 #include <stdexcept>
-#include "sequence_counter.hpp"
+#include "loc_max_counter.hpp"
 
 int main()
 {
   int number_1 = 0, number_2 = 0, number_3 = 1, flag = 0;
   using namespace lopatina;
-  SequenceCounter counter;
+  Loc_Max_Counter counter;
 
   std::cin >> number_1;
   if (!std::cin) {
