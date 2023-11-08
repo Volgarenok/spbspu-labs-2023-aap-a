@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 int inputMatrix(int matrix[], int rows, int cols, std::ifstream &input)
 {
@@ -11,6 +12,42 @@ int inputMatrix(int matrix[], int rows, int cols, std::ifstream &input)
     }
   }
   return 0;
+}
+
+int countNonZeroDiags(int matrix[], int rows, int cols)
+{
+  int count = 0;
+  int sqrLength = std::min(rows, cols);
+  int lineLength = sqrLength * sqrLength;
+  bool isUpperZero = false;
+  bool isLowerZero = false;
+  for (int i = 1; i < sqrLength; i++)
+  {
+    for (int j = 0; j < sqrLength - i; j++)
+    {
+      int upperIndex = i + (cols + 1) * j;
+      if (matrix[upperIndex] == 0)
+      {
+        isUpperZero = true;
+      }
+      
+      int lowerIndex = lineLength - 1 - i - (cols + 1) * j;
+      if (matrix[lowerIndex] == 0)
+      {
+        isLowerZero = true;
+      }
+
+      if (isLowerZero && isUpperZero)
+      {
+        break;
+      }
+    }
+    
+    count+= !isLowerZero + !isUpperZero;
+    isUpperZero = false;
+    isLowerZero = false;
+  }
+  return count;
 }
 
 int main(int argc, char * argv[])
@@ -46,7 +83,8 @@ int main(int argc, char * argv[])
     std::cerr << "Invalid matrix parameteres\n";
     return 2;
   }
-
+  
+  int nonZeroDiags = 0;
   if (num == 1)
   {
     int matrix[10000];
@@ -55,6 +93,8 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid matrix source\n";
       return 2;
     }
+    
+    nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
   }
   if (num == 2)
   {
@@ -64,6 +104,13 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid matrix source\n";
       return 2;
     }
+
+    nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
+  }
+
+  {
+    std::ofstream output(argv[3]);
+    output << nonZeroDiags;
   }
   return 0;
 }
