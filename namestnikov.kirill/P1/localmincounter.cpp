@@ -10,7 +10,7 @@ namestnikov::LocalMinCounter::LocalMinCounter():
 
 void namestnikov::LocalMinCounter::operator()(int futureNumber)
 {
-  size_t max_size = std::numeric_limits< size_t >::max();
+  const size_t max_size = std::numeric_limits< size_t >::max();
   if ((currentNumber_ < lastNumber_) && (currentNumber_ < futureNumber))
   {
     if (count_ == max_size)
