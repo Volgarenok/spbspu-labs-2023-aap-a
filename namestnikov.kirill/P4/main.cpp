@@ -102,7 +102,7 @@ int main(int argc, char ** argv)
     std::ofstream output(argv[3]);
     int minRow[10000];
     int maxCol[10000];
-    for (int i = 0; i < rows * cols; i = i + 4)
+    for (int i = 0; i < rows * cols; i = i + cols)
     {
       minRow[i] = matrix[i];
       for (int j = 0; j < cols; ++j)
@@ -116,7 +116,7 @@ int main(int argc, char ** argv)
     for (int j = 0; j < cols; ++j)
     {
       maxCol[j] = matrix[j];
-      for (int i = 0; i < rows * cols; i = i + 4)
+      for (int i = 0; i < rows * cols; i = i + cols)
       {
         if (matrix[j + i] > maxCol[j])
         {
@@ -125,7 +125,7 @@ int main(int argc, char ** argv)
       }
     }
     size_t count = 0;
-    for (int i = 0; i < rows * cols; i = i + 4)
+    for (int i = 0; i < rows * cols; i = i + cols)
     {
       for (int j = 0; j < cols; ++j)
       {
