@@ -32,7 +32,7 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
 
 size_t arakelyan::CounterOfNumsThatDevideByThePrev::operator()() const
 {
-  if (length_ == 0 || (length_ == 1 && currentNum_ == 0) || (length_ == 2 && currentNum_ == 0))
+  if ((length_ == 1 && currentNum_ == 0) || (length_ == 2 && currentNum_ == 0))
   {
     throw std::logic_error("Sequence is too short");
   }
