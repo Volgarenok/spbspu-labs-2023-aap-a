@@ -13,11 +13,6 @@ int main(int argc, char ** argv)
   }
 
   std::ifstream input(argv[2]);
-
-  if (input.peek() == EOF)
-  {
-    return 0;
-  }
   if (!input.is_open())
   {
     std::cerr << "Cann't open " << argv[2] << '\n';
@@ -45,8 +40,19 @@ int main(int argc, char ** argv)
   if (arrayMode == 1)
   {
     long long int arrMatrix[rows * colums];
-    myMatrix.filling(input, arrMatrix);
-
+    try
+    {
+      myMatrix.filling(input, arrMatrix);
+    }
+    catch (const std::logic_error & e)
+    {
+      std::cerr << e.what();
+      return 2;
+    }
+    catch (int returnCode)
+    {
+      return returnCode;
+    }  
     input.close();
 
     std::ofstream output(argv[3]);
@@ -62,7 +68,19 @@ int main(int argc, char ** argv)
   else if (arrayMode == 2)
   {
     long long int * arrMatrix = new long long int[colums * rows];
-    myMatrix.filling(input, arrMatrix);
+    try
+    {
+      myMatrix.filling(input, arrMatrix);
+    }
+    catch (const std::logic_error & e)
+    {
+      std::cerr << e.what();
+      return 2;
+    }
+    catch (int returnCode)
+    {
+      return returnCode;
+    }
 
     input.close();
 

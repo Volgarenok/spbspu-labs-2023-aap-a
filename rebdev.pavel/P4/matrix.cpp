@@ -18,6 +18,10 @@ void rebdev::matrix::filling(std::ifstream & inputFile, long long int * arr)
 {
   for (size_t i = 0; i < (colums_ * rows_); ++i)
   {
+    if (inputFile.peek() == EOF)
+    {
+      throw 0;
+    }
     inputFile >> arr[i];
     if (!inputFile)
     {
