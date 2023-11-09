@@ -8,7 +8,7 @@ void gladyshev::goStaticMatrix(std::fstream& input, int matrix[100][100], size_t
     {
       if (!input)
       {
-        throw std::logic_error("Bad matrix");
+        exit(0);
       }
       input >> matrix[i][j];
     }

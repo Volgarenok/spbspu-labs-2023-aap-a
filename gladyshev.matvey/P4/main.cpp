@@ -54,16 +54,8 @@ int main(int argc, char * argv[])
   if (ex_num == 1)
   {
     int array[100][100] {};
+    goStaticMatrix(input, array, rows, cols);
     try
-    {
-      goStaticMatrix(input, array, rows, cols);
-    }
-    catch (const std::bad_alloc & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
-     try
     {
       if ((rows * cols) > 1)
       {
