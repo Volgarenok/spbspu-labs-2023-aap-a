@@ -7,7 +7,7 @@
 
 namespace gladyshev
 {
-  bool goStaticMatrix(std::fstream & input, int matrix[100][100], size_t & rows, size_t & cols);
+  bool goStaticMatrix(std::fstream & input, int matrix[100][100], size_t & rows, size_t & cols, size_t count);
 }
 
 #endif

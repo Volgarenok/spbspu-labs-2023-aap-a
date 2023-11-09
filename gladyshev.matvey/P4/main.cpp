@@ -54,10 +54,12 @@ int main(int argc, char * argv[])
   if (ex_num == 1)
   {
     int array[100][100] {};
-    if (!goStaticMatrix(input, array, rows, cols))
+    size_t count = 0;
+    goStaticMatrix(input, array, rows, cols, count);
+    if (count != (rows * cols))
     {
-      std::cerr << "Bad matrix\n";
-      return 1;
+      std::cerr << "Lack of data";
+      return 2;
     }
     try
     {

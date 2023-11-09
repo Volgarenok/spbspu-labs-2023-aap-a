@@ -1,6 +1,6 @@
 #include "makestaticmatrix.h"
 
-bool gladyshev::goStaticMatrix(std::fstream& input, int matrix[100][100], size_t& cols, size_t& rows)
+bool gladyshev::goStaticMatrix(std::fstream& input, int matrix[100][100], size_t& cols, size_t& rows, size_t count)
 {
   for (size_t i = 0; i < rows; ++i)
   {
@@ -11,6 +11,7 @@ bool gladyshev::goStaticMatrix(std::fstream& input, int matrix[100][100], size_t
         return 0;
       }
       input >> matrix[i][j];
+      ++count;
     }
   }
   return 1;
