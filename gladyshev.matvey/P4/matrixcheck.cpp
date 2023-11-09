@@ -19,7 +19,7 @@ bool gladyshev::isUpperTriangular(int ** matrix, size_t rows, size_t cols)
   }
   else
   {
-    for (size_t i = 1; i < rows; ++i)
+    for (size_t i = 1; i < cols; ++i)
     {
       for (size_t j = 0; j < i; ++j)
       {
