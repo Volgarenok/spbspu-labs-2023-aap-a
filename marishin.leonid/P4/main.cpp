@@ -16,4 +16,7 @@ int main()
   int leftCol = 0;
   int rightCol = cols - 1;
   int count = 1;
+
+  while (topRow <= bottomRow && leftCol <= rightCol)
+  {}
 }
