@@ -23,12 +23,10 @@ long long int rebdev::localMax(long long int * arr, long long int rows, long lon
       for (long long int columIndex = -1; columIndex <= 1; ++columIndex)
       {
         //Проверка, является ли номер элемента корректным
-        //std::cout << i << " " << (i + colums * rowIndex + columIndex) << " " << isNumberOfElementIsCorrect(i, columIndex, rowIndex, rows, colums) <<'\n';
         if(isNumberOfElementIsCorrect(i, columIndex, rowIndex, rows, colums) == 1)
         {
           if (arr[i] <= arr[i + colums * rowIndex + columIndex])
           {
-          //std::cout << arr[i] << " " << arr[i + colums * rowIndex + columIndex] << '\n';
             isLocalMax = 0;
             columIndex = 2;
             rowIndex = 2;
