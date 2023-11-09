@@ -47,8 +47,8 @@ int main(int argc, char * argv[])
     size_t status = inputArray(input, matrix, rows, cols);
     if (status != 0)
     {
-      std::cerr << "Error: Wrong element at position:" << status << '\n';
-      return 1;
+      std::cerr << "Error: Wrong element at position: " << status << '\n';
+      return 2;
     }
 
     size_t position = 0;
@@ -67,7 +67,31 @@ int main(int argc, char * argv[])
   }
   else if (type == 2)
   {
-    std::cout << "Dynamic\n";
+    std::ifstream input(argv[2]);
+    input >> rows >> cols;
+    if (!input)
+    {
+      std::cerr << "Error: Wrong rows or cols input\n";
+      return 1;
+    }
+    int * matrix = new int [rows*cols];
+    size_t status = inputArray(input, matrix, rows, cols);
+    if (status != 0)
+    {
+      std:: cerr << "Error: Wrong element at position: " << status << '\n';
+      delete [] matrix;
+      return 2;
+    }
+    size_t position = 0;
+    for (size_t i = 1; i != rows - 1; ++i)
+    {
+      position = cols * i + 1;
+      for (size_t j = 1; j != cols - 1; ++j)
+      {
+        countLocalMin(position, matrix, cols, count);
+        ++position;
+      }
+    }
   }
   else
   {
