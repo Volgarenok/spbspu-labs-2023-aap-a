@@ -10,7 +10,7 @@ namespace sivkov
     void operator()(int num, int num_old);
     size_t operator()() const;
   private:
-    size_t k1;
+    size_t k_;
   };
 }
 #endif
