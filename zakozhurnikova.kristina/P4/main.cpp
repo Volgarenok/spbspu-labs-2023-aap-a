@@ -3,58 +3,6 @@
 #include <cstdlib>
 #include <string>
 
-//namespace.h
-namespace zakozhurnikova
-{
-  int rightArguments(int argc, char** argv);
-  void inputMatrix(std::ifstream& input, double* size, size_t rows, size_t cols);
-  //wywod
-  //work with matrix1
-  //an2
-}
-//namespace.cpp
-int zakozhurnikova::rightArguments(int argc, char** argv)
-{
-  if (argc != 4)
-  {
-    std::cerr << "Error in command line arguments\n";
-    return 1;
-  }
-  char* ptr = nullptr;
-  int num = std::strtol(argv[1], &ptr, 10);
-  if (num == 0 && ptr == argv[1])
-  {
-    throw std::out_of_range("First parameter is not a number");
-    return 1;
-  }
-  if (num != 2 && num != 1)
-  {
-    throw std::out_of_range("First parameter is not 1 and 2");
-    return 1;
-  }
-  return num;
-}
-void zakozhurnikova::inputMatrix(std::ifstream& input, double* size, size_t rows, size_t cols)
-{
-  size_t account = 0;
-  for (size_t i = 0; i < rows * cols; ++i)
-  {
-    input >> *size;
-    ++size;
-    if (input)
-    {
-      ++account;
-    }
-  }
-  char check_size = '\0';
-  input >> check_size;
-  if (account != rows * cols || input)
-  {
-    throw std::range_error("Input data is not desired matrix");
-  }
-  return;
-}
-//main.cpp
 int main(int argc, char * argv[])
 {
   int num = 0;
@@ -62,7 +10,7 @@ int main(int argc, char * argv[])
   {
     zakozhurnikova::rightArguments(argc, argv);
   }
-  catch (const std::out_of_range& e)
+  catch (const std::invalid_argument& e)
   {
     std::cerr << e.what() << "\n";
     return 1;
@@ -95,7 +43,69 @@ int main(int argc, char * argv[])
   }
   else
   {
-    //cod2
+    double* matrix = nullptr;
+    matrix = new double[rows * cols];
+    if (!matrix)
+    {
+      std::cerr << "Failed to create matrix\n";
+      return 2;
+    }
+    try
+    {
+      zakozhurnikova::inputMatrix(input, matrix, rows, cols);
+    }
+    catch (const std::range_error& e)
+    {
+      std::cerr << e.what() << "\n";
+      input.close();
+      delete[] matrix;
+      return 2;
+    }
+    input.close();
   }
   return 0;
 }
+
+//namespace.cpp
+int zakozhurnikova::rightArguments(int argc, char** argv)
+{
+  if (argc != 4)
+  {
+    throw std::invalid_argument("Error in command line arguments\n");
+    return 1;
+  }
+  char* ptr = nullptr;
+  int num = std::strtol(argv[1], &ptr, 10);
+  if (num == 0 && ptr == argv[1])
+  {
+    throw std::invalid_argument("First parameter is not a number");
+    return 1;
+  }
+  if (num != 2 && num != 1)
+  {
+    throw std::invalid_argument("First parameter is not 1 and 2");
+    return 1;
+  }
+  return num;
+}
+void zakozhurnikova::inputMatrix(std::ifstream& input, double* size, size_t rows, size_t cols)
+{
+  size_t account = 0;
+  for (size_t i = 0; i < rows * cols; ++i)
+  {
+    input >> *size;
+    ++size;
+    if (input)
+    {
+      ++account;
+    }
+  }
+  char check_size = '\0';
+  input >> check_size;
+  if (account != rows * cols || input)
+  {
+    throw std::range_error("Input data is not desired matrix");
+  }
+  return;
+}
+
