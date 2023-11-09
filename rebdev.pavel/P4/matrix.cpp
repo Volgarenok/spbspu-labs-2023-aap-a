@@ -59,11 +59,12 @@ size_t rebdev::matrix::localMax(long long int * arr)
 
 bool rebdev::matrix::isNumberOfElementIsCorrect(size_t itemOfNumber, int columIndex, int rowIndex)
 {
-  //проверка нижней границы
-  if ((itemOfNumber + rowIndex + colums_ * columIndex) >= 0)
+  //проверка верхней границы
+  if (((itemOfNumber + rowIndex + colums_ * columIndex) < (rows_ * colums_))
+      && (itemOfNumber < (std::numeric_limits< size_t >::max() -1 * (rowIndex + colums_ * columIndex))
   {
-    //проверка верхней границы
-    if ((itemOfNumber + rowIndex + colums_ * columIndex) < (rows_ * colums_))
+    //проверка нижней границы
+    if (itemOfNumber >= (-1 * (rowIndex + colums_ * columIndex)))
     {
       //проверка начала строки
       if (!(((itemOfNumber % colums_) == 0) && (rowIndex == -1)))
