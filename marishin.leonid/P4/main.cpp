@@ -7,4 +7,13 @@ int main()
   std::cin >> rows >> cols;
   size_t matrixSize = rows * cols;
   int* matrix = new int[matrixSize];
+  for (size_t i = 0; i < matrixSize; i++)
+  {
+    std::cin >> matrix[i];
+  }
+  int topRow = 0;
+  int bottomRow = rows - 1;
+  int leftCol = 0;
+  int rightCol = cols - 1;
+  int count = 1;
 }
