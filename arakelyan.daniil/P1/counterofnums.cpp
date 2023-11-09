@@ -6,11 +6,13 @@
 arakelyan::CounterOfNumsThatDevideByThePrev::CounterOfNumsThatDevideByThePrev():
   count_(0),
   pastNum_(0),
+  length_(0),
   currentNum_(0)
 {}
 
 void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
 {
+  length_++;
   currentNum_ = current;
   size_t maxLength = std::numeric_limits< size_t >::max();
 
@@ -21,7 +23,7 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
       ++count_;
     }
     pastNum_ = currentNum_;
-    if (count_ == maxLength)
+    if (length_ == maxLength)
     {
       throw std::logic_error("Sequense is too long");
     }
@@ -30,7 +32,7 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
 
 size_t arakelyan::CounterOfNumsThatDevideByThePrev::operator()() const
 {
-  if (count_ == 0)
+  if (length_ == 0 || (length_ == 1 && currentNum_ == 0) || (length_ == 2 && currentNum_ == 0))
   {
     throw std::logic_error("Sequence is too short");
   }
