@@ -13,9 +13,15 @@ int main(int argc, char ** argv)
   }
 
   std::ifstream input(argv[2]);
+
+  if (input.peek() == EOF)
+  {
+    return 0;
+  }
   if (!input.is_open())
   {
     std::cerr << "Cann't open " << argv[2] << '\n';
+    return 0;
   }
 
   size_t rows = 0, colums = 0;
