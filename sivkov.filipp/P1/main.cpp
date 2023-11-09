@@ -4,7 +4,7 @@
 
 int main()
 {
-  int num = 0;
+  int num = 1;
 
   using namespace sivkov;
   SequenceCounter counter;

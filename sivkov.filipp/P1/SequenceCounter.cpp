@@ -13,9 +13,10 @@ void sivkov::SequenceCounter::operator()(int num)
 {
   num_ = num;
   size_t max_size = std::numeric_limits< size_t >::max();
+
   if (num_ != 0)
   {
-    if (num_old_ % num_ == 0)
+    if ((num_old_ != 0) && (num_old_ % num_ == 0))
     {
       ++k_;
     }
@@ -28,5 +29,5 @@ void sivkov::SequenceCounter::operator()(int num)
 }
 size_t sivkov::SequenceCounter::operator()() const
 {
-  return k_ - 1;
+  return k_;
 }
