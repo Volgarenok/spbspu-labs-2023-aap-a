@@ -33,7 +33,7 @@ void gladyshev::freeMatrix(int ** matrix, size_t rows)
   {
     delete [] matrix[i];
   }
-  delete matrix;
+  delete [] matrix;
 }
 
 void gladyshev::freeMatrix(int ** matrix, size_t rows, size_t)
