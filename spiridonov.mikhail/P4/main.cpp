@@ -1,10 +1,11 @@
 #include <iostream>
 #include <fstream>
-#include <stdexcept>
-
+#include "getMinimumSum.hpp"
+#include "minSumMgt.hpp"
 
 int main(int argc, char * argv[])
 {
+  using namespace spiridonov;
   if (argc != 4)
   {
     std::cerr << "Usage: ./lab num input output" << "\n";
@@ -39,5 +40,40 @@ int main(int argc, char * argv[])
     std::cerr << "First argument must be 1 or 2" << "\n";
     return 1;
   }
-  return 0;
+
+  int* matrix;
+  if (num == 1)
+  {
+    int static_matrix[rows * cols];
+    matrix = static_matrix;
+  }
+  else if (num == 2)
+  {
+    try
+    {
+      matrix = new int[rows * cols];
+    }
+    catch (std::bad_alloc & e)
+    {
+    std::cerr << "Failed to allocate memory for matrix: " << e.what() << "\n";
+    return 2;
+    }
+  }
+  else
+  {
+    std::cout << "Invalid value for num: " << num << "\n";
+    return 1;
+  }
+  try
+  {
+    for (int i = 0; i < rows * cols; i++)
+    {
+      input >> matrix[i];
+    }
+  }
+  catch (std::ifstream::failure & e)
+  {
+    std::cerr << "Failed to read input from file: " << e.what() << "\n";
+    return 2;
+  }
 }
