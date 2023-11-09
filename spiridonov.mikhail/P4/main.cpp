@@ -2,9 +2,9 @@
 #include "minSumMgt.hpp"
 #include <iostream>
 #include <fstream>
-#include <algorithm>
+#include <string>
 
-int main(int argc, char * argv[])
+int main(int argc, char* argv[])
 {
   using namespace spiridonov;
   if (argc != 4)
@@ -13,24 +13,12 @@ int main(int argc, char * argv[])
     return 1;
   }
 
-  int num = std::atoi(argv[1]);
-  std::ifstream input(argv[2]);
-
-  if (!input)
-  {
-    std::cout << "Failed to open input file: " << argv[2] << "\n";
-    return 2;
-  }
-  int rows = 0;
-  int cols = 0;
-  input >> rows >> cols;
-
-  num = 0;
+  int num = 0;
   try
   {
     num = std::stoll(argv[1]);
   }
-  catch(const std::invalid_argument & e)
+  catch (const std::invalid_argument& e)
   {
     std::cerr << "Error parsing first argument" << "\n";
     return 1;
@@ -42,24 +30,45 @@ int main(int argc, char * argv[])
     return 1;
   }
 
+  int rows = 0, cols = 0;
+  std::ifstream input(argv[2]);
+  input >> rows >> cols;
+
+  if (!input)
+  {
+    std::cout << "Failed to open input file: " << argv[2] << "\n";
+    return 2;
+  }
+
   int* matrix;
   if (num == 1)
   {
-    int static_matrix[rows * cols];
-    matrix = static_matrix;
+    try
+    {
+      int* static_matrix = new int[rows * cols]();
+      matrix = static_matrix;
+    }
+    catch (const std::logic_error& e)
+    {
+      std::cerr << e.what() << "\n";
+      return 2;
+    }
   }
+
   else if (num == 2)
   {
     try
     {
       matrix = new int[rows * cols];
+      delete[] matrix;
     }
-    catch (std::bad_alloc & e)
+    catch (const std::logic_error& e)
     {
-    std::cerr << "Failed to allocate memory for matrix: " << e.what() << "\n";
-    return 2;
+      std::cerr << "Failed to allocate memory for matrix: " << e.what() << "\n";
+      return 2;
     }
   }
+
   else
   {
     std::cout << "Invalid value for num: " << num << "\n";
@@ -72,16 +81,16 @@ int main(int argc, char * argv[])
       input >> matrix[i];
     }
   }
-  catch (std::ifstream::failure & e)
+  catch (const std::ifstream::failure& e)
   {
     std::cerr << "Failed to read input from file: " << e.what() << "\n";
     return 2;
   }
 
-  readMatrix(input, matrix, rows * cols);
+  spiridonov::readMatrix(input, matrix, rows * cols);
   input.close();
 
-  int min_sum = getMinimumSum(matrix, rows, cols);
+  int min_sum = spiridonov::getMinimumSum(matrix, rows, cols);
   std::cout << "Minimum sum: " << min_sum << std::endl;
 
   if (num == 2)

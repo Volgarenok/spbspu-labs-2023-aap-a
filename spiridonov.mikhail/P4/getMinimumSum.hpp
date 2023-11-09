@@ -4,7 +4,7 @@
 
 namespace spiridonov
 {
-  int getMinimumSum(int* matrix, int rows, int cols);
+  int getMinimumSum(int * matrix, int rows, int cols);
 }
 
 #endif
