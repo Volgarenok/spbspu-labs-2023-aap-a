@@ -10,7 +10,6 @@ namespace arakelyan
     size_t operator()() const;
   private:
     size_t count_;
-    size_t length_;
     int pastNum_;
     int currentNum_;
   };
