@@ -8,7 +8,8 @@ void gladyshev::goStaticMatrix(std::fstream& input, int matrix[100][100], size_t
     {
       if (!input)
       {
-        exit(0);
+        std::cerr << "Can not read a matrix\n";
+        exit(1);
       }
       input >> matrix[i][j];
     }
