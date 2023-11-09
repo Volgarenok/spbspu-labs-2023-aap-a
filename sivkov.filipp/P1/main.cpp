@@ -5,14 +5,12 @@
 int main()
 {
   int num = 0;
-  int num_old = 0;
 
   using namespace sivkov;
-  SequenceCount counter;
+  SequenceCounter counter;
 
   do
   {
-    num_old = num;
     std::cin >> num;
 
     if (!std::cin)
@@ -25,7 +23,7 @@ int main()
 
       try
       {
-        counter(num, num_old);
+        counter(num);
       }
       catch (const std::exception & e)
       {

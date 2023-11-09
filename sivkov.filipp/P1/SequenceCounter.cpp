@@ -1,24 +1,32 @@
 #include "SequenceCounter.hpp"
+#include <iostream>
 #include <limits>
 #include <stdexcept>
 
-sivkov::SequenceCount::SequenceCount():
-  k_(0)
+sivkov::SequenceCounter::SequenceCounter():
+  k_(0),
+  num_(0),
+  num_old_(0)
 {}
 
-void sivkov::SequenceCount::operator()(int num, int num_old)
+void sivkov::SequenceCounter::operator()(int num)
 {
+  num_ = num;
   size_t max_size = std::numeric_limits< size_t >::max();
-  if (k_ == max_size)
+  if (num_ != 0)
   {
-     throw std::logic_error("seq is to long");
-  }
-  if (num_old % num == 0)
-  {
-    ++k_;
+    if (num_old_ % num_ == 0)
+    {
+      ++k_;
+    }
+    num_old_ = num;
+    if (k_ == max_size)
+    {
+      throw std::logic_error("Sequence is to long...");
+    }
   }
 }
-size_t sivkov::SequenceCount::operator()() const
+size_t sivkov::SequenceCounter::operator()() const
 {
-  return k_-1;
+  return k_ - 1;
 }

@@ -3,13 +3,15 @@
 #include <cstddef>
 namespace sivkov
 {
-  struct SequenceCount
+  struct SequenceCounter
   {
-    SequenceCount();
+    SequenceCounter();
   public:
-    void operator()(int num, int num_old);
+    void operator()(int num);
     size_t operator()() const;
   private:
+    int num_old_;
+    int num_;
     size_t k_;
   };
 }
