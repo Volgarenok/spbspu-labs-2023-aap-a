@@ -3,6 +3,7 @@
 #include <stdexcept>
 
 skuratov::MaxCounter::MaxCounter():
+  max_number_(0),
   count_(0)
 {}
 
