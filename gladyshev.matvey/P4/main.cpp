@@ -31,7 +31,7 @@ int main(int argc, char * argv[])
   if (ex_num != 2 and ex_num != 1)
   {
     std::cerr << "No such number of task\n";
-    return 0;
+    return 1;
   }
   size_t rows = 0, cols = 0;
   std::fstream input(argv[2]);
