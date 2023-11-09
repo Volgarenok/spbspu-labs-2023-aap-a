@@ -43,8 +43,7 @@ int main(int argc, char * argv[])
   }
   if (rows < 1 or cols < 1)
   {
-    std::cerr << "Bad input\n";
-    return 1;
+    return 0;
   }
   if (rows != cols)
   {
