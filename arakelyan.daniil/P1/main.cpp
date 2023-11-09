@@ -13,7 +13,7 @@ int main()
     std::cin >> currentNum;
     if (!std::cin)
     {
-      std::cerr << "Enter num\n";
+      std::cerr << "Enter num!\n";
       return 1;
     }
     try
