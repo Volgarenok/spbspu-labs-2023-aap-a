@@ -89,9 +89,17 @@ int main(int argc, char* argv[])
 
   spiridonov::readMatrix(input, matrix, rows * cols);
   input.close();
+  std::ofstream output(argv[3]);
 
-  int min_sum = spiridonov::getMinimumSum(matrix, rows, cols);
-  std::cout << "Minimum sum: " << min_sum << std::endl;
+  if (!output)
+  {
+    std::cerr << "Failed to open output file: " << argv[3] << "\n";
+    delete[] matrix;
+    return 1;
+  }
+
+  output << spiridonov::getMinimumSum(matrix, rows, cols) << "\n";
+  output.close();
 
   if (num == 2)
   {
