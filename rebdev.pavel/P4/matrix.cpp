@@ -1,52 +1,33 @@
-#include "matrix.hpp"
-#include <stdexcept>
 #include <limits>
-#include <iostream>
+#include "matrix.hpp"
+#include "forFile.hpp"
 
-rebdev::matrix::matrix():
-  rows_(0),
-  colums_(0)
-{}
-
-rebdev::matrix::matrix(size_t rows, size_t colums):
-  rows_(rows),
-  colums_(colums)
-{}
-
-
-void rebdev::matrix::filling(std::ifstream & inputFile, long long int * arr)
+void rebdev::filling(long long int * array, long long int rows, long long int colums, std::ifstream & inputFile)
 {
-  for (size_t i = 0; i < (colums_ * rows_); ++i)
+  for (long long int i = 0; i < (colums * rows); ++i)
   {
-    if (inputFile.peek() == EOF)
-    {
-      throw 0;
-    }
-    inputFile >> arr[i];
-    if (!inputFile)
-    {
-      throw std::logic_error("can't read number from file!\n");
-    }
+    array[i] = readFromFileLLI(inputFile);
   }
 }
 
-size_t rebdev::matrix::localMax(long long int * arr)
+long long int rebdev::localMax(long long int * arr, long long int rows, long long int colums)
 {
-  size_t numberOfLocalMax = 0;
-
-  for (size_t i = 0; i < (colums_ * rows_); ++i)
+  long long int numberOfLocalMax = 0;
+  bool isLocalMax = 1;
+  for (long long int i = 0; i < (colums * rows); ++i)
   {
-    bool isLocalMax = 1;
-
-    for (int columIndex = -1; columIndex <= 1; ++columIndex)
+    isLocalMax = 1;
+    for (long long int rowIndex = -1; rowIndex <= 1; ++rowIndex)
     {
-      for (int rowIndex = -1; rowIndex <= 1; ++rowIndex)
+      for (long long int columIndex = -1; columIndex <= 1; ++columIndex)
       {
         //Проверка, является ли номер элемента корректным
-        if(isNumberOfElementIsCorrect(i, columIndex, rowIndex))
+        //std::cout << i << " " << (i + colums * rowIndex + columIndex) << " " << isNumberOfElementIsCorrect(i, columIndex, rowIndex, rows, colums) <<'\n';
+        if(isNumberOfElementIsCorrect(i, columIndex, rowIndex, rows, colums) == 1)
         {
-          if ((arr[i] <= arr[i + rowIndex + colums_ * columIndex]) && ((columIndex != 0) || (rowIndex != 0)))
+          if (arr[i] <= arr[i + colums * rowIndex + columIndex])
           {
+          //std::cout << arr[i] << " " << arr[i + colums * rowIndex + columIndex] << '\n';
             isLocalMax = 0;
             columIndex = 2;
             rowIndex = 2;
@@ -61,25 +42,26 @@ size_t rebdev::matrix::localMax(long long int * arr)
   return numberOfLocalMax;
 }
 
-bool rebdev::matrix::isNumberOfElementIsCorrect(size_t itemOfNumber, int columIndex, int rowIndex)
+bool rebdev::isNumberOfElementIsCorrect(long long int itemOfNumber, long long int columIndex, long long int rowIndex, long long int rows, long long int colums)
 {
-  //проверка верхней границы
-  if (((itemOfNumber + rowIndex + colums_ * columIndex) < (rows_ * colums_))
-      && (itemOfNumber < (std::numeric_limits< size_t >::max() -1 * (rowIndex + colums_ * columIndex))))
+  if ((columIndex == 0) && (rowIndex == 0))
   {
-    //проверка нижней границы
-    if (itemOfNumber >= (-1 * (rowIndex + colums_ * columIndex)))
+    return 0;
+  }
+
+  if ((itemOfNumber + colums * rowIndex + columIndex) >= 0)
+  {
+    if ((itemOfNumber + colums * rowIndex + columIndex) < (colums * rows))
     {
-      //проверка начала строки
-      if (!(((itemOfNumber % colums_) == 0) && (rowIndex == -1)))
+      if (!(((itemOfNumber % colums) == 0) && (columIndex == -1)))
       {
-        //проверка конца строки
-        if (!(((itemOfNumber % colums_) == (colums_ - 1)) && (rowIndex == 1)))
+        if (!(((itemOfNumber % colums) == (colums - 1)) && (columIndex == 1)))
         {
           return 1;
         }
       }
     }
   }
+
   return 0;
 }

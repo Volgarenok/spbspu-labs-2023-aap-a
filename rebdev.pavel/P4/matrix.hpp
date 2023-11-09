@@ -1,24 +1,12 @@
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
 
-#include <cstddef>
 #include <fstream>
 
 namespace rebdev
 {
-  class matrix
-  {
-    public:
-      matrix();
-      matrix(size_t rows, size_t colums);
-
-      void filling(std::ifstream & inputFile, long long int * arr);
-      size_t localMax(long long int * arr);
-
-    private:
-      size_t rows_, colums_;
-
-      bool isNumberOfElementIsCorrect(size_t itemOfNumber, int columIndex, int rowIndex);
-  };
+  void filling(long long int * array, long long int rows, long long int colums, std::ifstream & inputFile);
+  long long int localMax(long long int * arr, long long int rows, long long int colums);
+  bool isNumberOfElementIsCorrect(long long int itemOfNumber, long long int columIndex, long long int rowIndex, long long int rows, long long int colums);
 }
 #endif
