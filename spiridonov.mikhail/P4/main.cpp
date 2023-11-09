@@ -2,7 +2,6 @@
 #include "minSumMgt.hpp"
 #include <iostream>
 #include <fstream>
-#include <string>
 
 int main(int argc, char* argv[])
 {
@@ -16,9 +15,9 @@ int main(int argc, char* argv[])
   int num = 0;
   try
   {
-    num = std::stoll(argv[1]);
+    num = std::stoi(argv[1]);
   }
-  catch (const std::invalid_argument& e)
+  catch (const std::exception & e)
   {
     std::cerr << "Error parsing first argument" << "\n";
     return 1;
@@ -48,7 +47,7 @@ int main(int argc, char* argv[])
       int* static_matrix = new int[rows * cols]();
       matrix = static_matrix;
     }
-    catch (const std::logic_error& e)
+    catch (const std::logic_error & e)
     {
       std::cerr << e.what() << "\n";
       return 2;
@@ -62,7 +61,7 @@ int main(int argc, char* argv[])
       matrix = new int[rows * cols];
       delete[] matrix;
     }
-    catch (const std::logic_error& e)
+    catch (const std::logic_error & e)
     {
       std::cerr << "Failed to allocate memory for matrix: " << e.what() << "\n";
       return 2;
@@ -81,7 +80,7 @@ int main(int argc, char* argv[])
       input >> matrix[i];
     }
   }
-  catch (const std::ifstream::failure& e)
+  catch (const std::ifstream::failure & e)
   {
     std::cerr << "Failed to read input from file: " << e.what() << "\n";
     return 2;
@@ -101,9 +100,5 @@ int main(int argc, char* argv[])
   output << spiridonov::getMinimumSum(matrix, rows, cols) << "\n";
   output.close();
 
-  if (num == 2)
-  {
-    delete[] matrix;
-  }
   return 0;
 }
