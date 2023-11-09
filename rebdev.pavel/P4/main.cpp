@@ -52,7 +52,7 @@ int main(int argc, char ** argv)
     catch (int returnCode)
     {
       return returnCode;
-    }  
+    }
     input.close();
 
     std::ofstream output(argv[3]);
