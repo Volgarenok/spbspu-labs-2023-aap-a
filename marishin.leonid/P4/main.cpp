@@ -47,4 +47,10 @@ int main()
       bottomRow--;
     }
   }
+
+  for (size_t j = 0; j < matrixSize; j++)
+  {
+    std::cout << matrix[j] << " ";
+  }
+  delete[] matrix;
 }
