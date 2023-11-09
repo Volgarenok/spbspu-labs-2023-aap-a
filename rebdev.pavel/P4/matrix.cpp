@@ -61,7 +61,7 @@ bool rebdev::matrix::isNumberOfElementIsCorrect(size_t itemOfNumber, int columIn
 {
   //проверка верхней границы
   if (((itemOfNumber + rowIndex + colums_ * columIndex) < (rows_ * colums_))
-      && (itemOfNumber < (std::numeric_limits< size_t >::max() -1 * (rowIndex + colums_ * columIndex))
+      && (itemOfNumber < (std::numeric_limits< size_t >::max() -1 * (rowIndex + colums_ * columIndex))))
   {
     //проверка нижней границы
     if (itemOfNumber >= (-1 * (rowIndex + colums_ * columIndex)))
