@@ -9,7 +9,7 @@ void spiridonov::readMatrix(std::ifstream& input, int* matrix, int size)
   }
 }
 
-int spiridonov::getMinimumSum(const int * matrix, int rows, int cols)
+int spiridonov::getMinimumSum(int * matrix, int rows, int cols)
 {
   int min_sum = matrix[cols - 1];
 
