@@ -1,7 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "input_array.hpp"
 #include "count_local_min.hpp"
+
+using namespace nikitov;
 
 int main(int argc, char * argv[])
 {
@@ -34,15 +37,17 @@ int main(int argc, char * argv[])
   {
     std::ifstream input(argv[2]);
     input >> rows >> cols;
-
-    int matrix[10000];
-    for (size_t i = 0; i != rows * cols; ++i)
-    {
-      input >> matrix[i];
-    }
     if (!input)
     {
-      std::cerr << "Error: Wrong input\n";
+      std::cerr << "Error: Wrong rows or cols input\n";
+      return 1;
+    }
+
+    int matrix[10000];
+    size_t status = inputArray(input, matrix, rows, cols);
+    if (status != 0)
+    {
+      std::cerr << "Error: Wrong element at position:" << status << '\n';
       return 1;
     }
 
