@@ -4,59 +4,29 @@
 #include <iostream>
 
 rebdev::matrix::matrix():
-  colums_(0),
   rows_(0),
-  arrayOfElements_(nullptr)
+  colums_(0)
 {}
 
-rebdev::matrix::matrix(int arrayMode, std::ifstream & inputFile):
-  colums_(0),
-  rows_(0),
-  arrayOfElements_(nullptr)
+rebdev::matrix::matrix(size_t rows, size_t colums):
+  rows_(rows),
+  colums_(colums)
+{}
+
+
+void rebdev::matrix::filling(std::ifstream & inputFile, long long int * arr)
 {
-  //Проверка, на корректность/наличие первых двух чисел в файле
-  inputFile >> rows_ >> colums_;
-  if (!inputFile)
+  for (size_t i = 0; i < (colums_ * rows_); ++i)
   {
-    throw std::invalid_argument("Error: in reading the number of rows or columns\n");
-  }
-  if (rows_ > (std::numeric_limits< size_t >::max()/colums_))
-  {
-    throw std::overflow_error("Error: there are too many elements in the matrix\n");
-  }
-  
-  //Создание массива
-  try
-  {
-   if (arrayMode == 1)
+    inputFile >> arr[i];
+    if (!inputFile)
     {
-      long long int newArrayOfElements[10000];
-      std::cout << (sizeof(newArrayOfElements) / sizeof(long long int)) << '\n';
-      *arrayOfElements_ = *newArrayOfElements;
-      std::cout << (sizeof(arrayOfElements_) / sizeof(long long int)) << '\n';
+      throw std::logic_error("can't read number from file!\n");
     }
-    else if (arrayMode == 2)
-    {
-      arrayOfElements_ = new long long int[rows_ * colums_];
-    }
-    //Заполнение массива
-    fillingTheMatrix();
-  }
-  catch (const std::exception & e)
-  {
-    delete[] arrayOfElements_;
   }
 }
 
-rebdev::matrix::~matrix()
-{
-  if(arrayOfElements_ != nullptr)
-  {
-   //delete[] arrayOfElements_;
-  }
-}
-
-size_t rebdev::matrix::localMax()
+size_t rebdev::matrix::localMax(long long int * arr)
 {
   size_t numberOfLocalMax = 0;
   
@@ -68,9 +38,9 @@ size_t rebdev::matrix::localMax()
     {
       for (int rowIndex = -1; rowIndex <= 1; ++rowIndex)
       {
-        if(!isNumberOfElementIsCorrect(numberOfLocalMax, columIndex, rowIndex))
+        if(isNumberOfElementIsCorrect(i, columIndex, rowIndex))//Проверка, является ли номер элемента корректным
         {
-          if ((arrayOfElements_[i] <= arrayOfElements_[i + rowIndex + colums_ * columIndex]) && ((columIndex != 0) || (rowIndex != 0)))
+          if ((arr[i] <= arr[i + rowIndex + colums_ * columIndex]) && ((columIndex != 0) || (rowIndex != 0)))
           {
             isLocalMax = 0;
             columIndex = 2;
@@ -86,27 +56,15 @@ size_t rebdev::matrix::localMax()
   return numberOfLocalMax;
 }
 
-void rebdev::matrix::fillingTheMatrix()
-{
-  for (size_t i = 0; i < (colums_ * rows_); ++i)
-  {
-    inputFile_ >> arrayOfElements_[i];
-    if (!inputFile_)
-    {
-      throw std::logic_error("can't read number from file!\n");
-    }
-  }
-}
-
 bool rebdev::matrix::isNumberOfElementIsCorrect(size_t itemOfNumber, int columIndex, int rowIndex)
 {
-  if ((itemOfNumber + rowIndex + colums_ * columIndex) >= 0)
+  if ((itemOfNumber + rowIndex + colums_ * columIndex) >= 0) //проверка нижней границы
   {
-    if ((itemOfNumber + rowIndex + colums_ * columIndex) < (rows_ * colums_))
+    if ((itemOfNumber + rowIndex + colums_ * columIndex) < (rows_ * colums_)) //проверка верхней гранциы
     {
-      if (!(((itemOfNumber % columIndex) == 1) && (rowIndex ==-1)))
+      if (!(((itemOfNumber % colums_) == 0) && (rowIndex == -1))) //проверка начала строки
       {
-        if (!(((itemOfNumber % columIndex) == 0) && (rowIndex ==1)))
+        if (!(((itemOfNumber % colums_) == (colums_ - 1)) && (rowIndex == 1))) //проверка конца строки
         {
           return 1;
         }

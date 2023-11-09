@@ -10,17 +10,14 @@ namespace rebdev
   {
     public:
       matrix();
-      matrix(int arrayMode, std::ifstream & inputFile);
-      ~matrix();
+      matrix(size_t rows, size_t colums);
 
-      size_t localMax();
-
-    private:
-      size_t colums_, rows_;
-      long long int * arrayOfElements_;
-      std::ifstream inputFile_;
+      void filling(std::ifstream & inputFile, long long int * arr);
+      size_t localMax(long long int * arr);
       
-      void fillingTheMatrix();
+    private:
+      size_t rows_, colums_;
+      
       bool isNumberOfElementIsCorrect(size_t itemOfNumber, int columIndex, int rowIndex);
   };
 }
