@@ -40,5 +40,3 @@ void gladyshev::freeMatrix(int ** matrix, size_t rows, size_t cols)
 {
   gladyshev::freeMatrix(matrix, rows);
 }
-
-

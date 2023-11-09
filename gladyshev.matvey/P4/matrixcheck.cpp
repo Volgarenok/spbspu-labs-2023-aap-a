@@ -65,9 +65,3 @@ bool gladyshev::isUpperTriangular(int matrix[100][100], size_t rows)
   }
   return true;
 }
-
-
-
-
-
-
