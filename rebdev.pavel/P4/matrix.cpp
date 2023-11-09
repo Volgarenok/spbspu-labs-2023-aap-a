@@ -29,7 +29,7 @@ void rebdev::matrix::filling(std::ifstream & inputFile, long long int * arr)
 size_t rebdev::matrix::localMax(long long int * arr)
 {
   size_t numberOfLocalMax = 0;
-  
+
   for (size_t i = 0; i < (colums_ * rows_); ++i)
   {
     bool isLocalMax = 1;
@@ -38,7 +38,8 @@ size_t rebdev::matrix::localMax(long long int * arr)
     {
       for (int rowIndex = -1; rowIndex <= 1; ++rowIndex)
       {
-        if(isNumberOfElementIsCorrect(i, columIndex, rowIndex))//Проверка, является ли номер элемента корректным
+        //Проверка, является ли номер элемента корректным
+        if(isNumberOfElementIsCorrect(i, columIndex, rowIndex))
         {
           if ((arr[i] <= arr[i + rowIndex + colums_ * columIndex]) && ((columIndex != 0) || (rowIndex != 0)))
           {
@@ -58,13 +59,17 @@ size_t rebdev::matrix::localMax(long long int * arr)
 
 bool rebdev::matrix::isNumberOfElementIsCorrect(size_t itemOfNumber, int columIndex, int rowIndex)
 {
-  if ((itemOfNumber + rowIndex + colums_ * columIndex) >= 0) //проверка нижней границы
+  //проверка нижней границы
+  if ((itemOfNumber + rowIndex + colums_ * columIndex) >= 0)
   {
-    if ((itemOfNumber + rowIndex + colums_ * columIndex) < (rows_ * colums_)) //проверка верхней гранциы
+    //проверка верхней границы
+    if ((itemOfNumber + rowIndex + colums_ * columIndex) < (rows_ * colums_))
     {
-      if (!(((itemOfNumber % colums_) == 0) && (rowIndex == -1))) //проверка начала строки
+      //проверка начала строки
+      if (!(((itemOfNumber % colums_) == 0) && (rowIndex == -1)))
       {
-        if (!(((itemOfNumber % colums_) == (colums_ - 1)) && (rowIndex == 1))) //проверка конца строки
+        //проверка конца строки
+        if (!(((itemOfNumber % colums_) == (colums_ - 1)) && (rowIndex == 1)))
         {
           return 1;
         }

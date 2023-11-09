@@ -17,7 +17,7 @@ int main(int argc, char ** argv)
   {
     std::cerr << "Cann't open " << argv[2] << '\n';
   }
-  
+
   size_t rows = 0, colums = 0;
   input >> rows >> colums;
   if (!input)
@@ -29,18 +29,18 @@ int main(int argc, char ** argv)
   {
     throw std::overflow_error("Error: there are too many elements in the matrix\n");
   }
-  
+
   using namespace rebdev;
-  
+
   matrix myMatrix(rows, colums);
-  
+
   int arrayMode = std::stoi(argv[1]);
 
   if (arrayMode == 1)
   {
     long long int arrMatrix[10000];
     myMatrix.filling(input, arrMatrix);
-    
+
     input.close();
 
     std::ofstream output(argv[3]);
@@ -49,7 +49,7 @@ int main(int argc, char ** argv)
       std::cerr << "Cann't open " << argv[3] << '\n';
       return 1;
     }
-  
+
     output << myMatrix.localMax(arrMatrix);
     output.close();
   }
@@ -57,7 +57,7 @@ int main(int argc, char ** argv)
   {
     long long int * arrMatrix = new long long int[colums * rows];
     myMatrix.filling(input, arrMatrix);
-    
+
     input.close();
 
     std::ofstream output(argv[3]);
@@ -66,7 +66,7 @@ int main(int argc, char ** argv)
       std::cerr << "Cann't open " << argv[3] << '\n';
       return 1;
     }
-  
+
     output << myMatrix.localMax(arrMatrix);
     output.close();
   }
@@ -75,6 +75,6 @@ int main(int argc, char ** argv)
     std::cerr << "Incorrect first parameter\n";
     return 1;
   }
-  
+
   return 0;
 }

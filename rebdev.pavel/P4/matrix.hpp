@@ -14,10 +14,10 @@ namespace rebdev
 
       void filling(std::ifstream & inputFile, long long int * arr);
       size_t localMax(long long int * arr);
-      
+
     private:
       size_t rows_, colums_;
-      
+
       bool isNumberOfElementIsCorrect(size_t itemOfNumber, int columIndex, int rowIndex);
   };
 }
