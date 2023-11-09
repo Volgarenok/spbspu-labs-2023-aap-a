@@ -38,7 +38,7 @@ int main(int argc, char ** argv)
 
   if (arrayMode == 1)
   {
-    long long int arrMatrix[10000];
+    long long int arrMatrix[rows * colums];
     myMatrix.filling(input, arrMatrix);
 
     input.close();
@@ -63,12 +63,14 @@ int main(int argc, char ** argv)
     std::ofstream output(argv[3]);
     if (!output.is_open())
     {
+      delete[] arrMatrix;
       std::cerr << "Cann't open " << argv[3] << '\n';
       return 1;
     }
 
     output << myMatrix.localMax(arrMatrix);
     output.close();
+    delete[] arrMatrix;
   }
   else
   {
