@@ -2,7 +2,8 @@
 #include "matrix.hpp"
 #include "forFile.hpp"
 
-void rebdev::filling(long long int * array, long long int rows, long long int colums, std::ifstream & inputFile)
+void rebdev::filling(long long int * array, long long int rows,
+  long long int colums, std::ifstream & inputFile)
 {
   for (long long int i = 0; i < (colums * rows); ++i)
   {
@@ -42,7 +43,8 @@ long long int rebdev::localMax(long long int * arr, long long int rows, long lon
   return numberOfLocalMax;
 }
 
-bool rebdev::isNumberOfElementIsCorrect(long long int itemOfNumber, long long int columIndex, long long int rowIndex, long long int rows, long long int colums)
+bool rebdev::isNumberOfElementIsCorrect(long long int itemOfNumber, long long int columIndex,
+  long long int rowIndex, long long int rows, long long int colums)
 {
   if ((columIndex == 0) && (rowIndex == 0))
   {
