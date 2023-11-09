@@ -4,9 +4,7 @@
 #include "input_array.hpp"
 #include "count_local_min.hpp"
 
-using namespace nikitov;
-
-int main(int argc, char * argv[])
+int main(int argc, char* argv[])
 {
   if (argc != 4)
   {
@@ -32,6 +30,8 @@ int main(int argc, char * argv[])
 
   size_t rows = 0, cols = 0;
   size_t count = 0;
+
+  using namespace nikitov;
 
   if (type == 1)
   {
