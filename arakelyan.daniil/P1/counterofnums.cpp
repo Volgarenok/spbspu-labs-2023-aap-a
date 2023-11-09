@@ -23,7 +23,7 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
       ++count_;
     }
     pastNum_ = currentNum_;
-    if (count_ == maxSize)
+    if (count_ >= maxSize)
     {
       throw std::logic_error("Sequence is too long!");
     }
