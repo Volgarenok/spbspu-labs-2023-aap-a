@@ -137,4 +137,65 @@ int main(int argc, char ** argv)
     }
     output << count << "\n";
   }
+  else if (num == 2)
+  {
+    int rows = 0;
+    int cols = 0;
+    std::ifstream input(argv[2]);
+    input >> rows >> cols;
+    if (!input)
+    {
+      std::cerr << "Can not read\n";
+      return 2;
+    }
+    int **matrix = nullptr;
+    try
+    {
+      matrix = createMatrix(rows, cols);
+      size_t result = inputArray(input, *matrix, rows * cols, rows * cols);
+      int minRow[10000];
+      int maxCol[10000];
+      for (int i = 0; i < rows; ++i)
+      {
+        minRow[i] = matrix[i][0];
+        for (int j = 0; j < cols; ++j)
+        {
+          if (matrix[i][j] < minRow[i])
+          {
+            minRow[i] = matrix[i][j];
+          }
+        }
+      }
+      for (int j = 0; j < cols; ++j)
+      {
+        maxCol[j] = matrix[0][j];
+        for (int i = 0; i < rows; ++i)
+        {
+          if (matrix[i][j] > maxCol[j])
+          {
+            maxCol[j] = matrix[i][j];
+          }
+        }
+      }
+      size_t count = 0;
+      for (int i = 0; i < rows; ++i)
+      {
+        for (int j = 0; j < cols; ++j)
+        {
+          if ((matrix[i][j] == maxCol[j]) && (matrix[i][j] == minRow[i]))
+          {
+            ++count;
+          }
+        }
+      }
+      std::ofstream output(argv[3]);
+      output << count << "\n";
+      freeMatrix(matrix, rows, cols);
+    }
+    catch (const std::bad_alloc &)
+    {
+      std::cerr << "Not enough memory\n";
+      return 4;
+    }
+  }
 }
