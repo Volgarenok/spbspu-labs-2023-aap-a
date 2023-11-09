@@ -1,7 +1,8 @@
-#include <iostream>
-#include <fstream>
 #include "getMinimumSum.hpp"
 #include "minSumMgt.hpp"
+#include <iostream>
+#include <fstream>
+#include <algorithm>
 
 int main(int argc, char * argv[])
 {
@@ -76,4 +77,16 @@ int main(int argc, char * argv[])
     std::cerr << "Failed to read input from file: " << e.what() << "\n";
     return 2;
   }
+
+  readMatrix(input, matrix, rows * cols);
+  input.close();
+
+  int min_sum = getMinimumSum(matrix, rows, cols);
+  std::cout << "Minimum sum: " << min_sum << std::endl;
+
+  if (num == 2)
+  {
+    delete[] matrix;
+  }
+  return 0;
 }

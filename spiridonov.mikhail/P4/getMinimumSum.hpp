@@ -1,6 +1,6 @@
 #ifndef GETMINIMUMSUM_HPP
 #define GETMINIMUMSUM_HPP
-#include <fstream>
+#include <algorithm>
 
 namespace spiridonov
 {
