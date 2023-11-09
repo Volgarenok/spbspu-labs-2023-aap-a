@@ -31,7 +31,7 @@ void shabalin::LocMax::operator()(long long Number)
   }
   else if (m_secondNumber > Number && m_secondNumber > m_firstNumber)
   {
-    ++count_;x
+    ++count_;
   }
   m_firstNumber = m_secondNumber;
   m_secondNumber = Number;
