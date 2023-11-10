@@ -3,26 +3,34 @@
 int ** gladyshev::goDynamicMatrix(std::fstream &input, size_t rows, size_t cols)
 {
   int ** array = new int *[rows];
-  for (size_t i = 0; i < rows; i++)
+  try
   {
-    array[i] = new int[cols];
-    for (size_t j = 0; j < cols; j++)
+    for (size_t i = 0; i < rows; i++)
     {
-      if (!input.eof())
+      array[i] = new int[cols];
+      for (size_t j = 0; j < cols; j++)
       {
-        if (!input)
+        if (!input.eof())
         {
-          throw std::bad_alloc("Error in reading");
+          if (!input)
+          {
+            throw std::runtime_error("Error in reading");
+          }
         }
+        else
+        {
+          throw std::runtime_error("Lack of data");
+        }
+        input >> array[i][j];
       }
-      else
-      {
-        throw std::runtime_error("Out of data");
-      }
-      input >> array[i][j];
     }
+    return array;
   }
-  return array;
+  catch (const std::bad_alloc &)
+  {
+    gladyshev::freeMatrix(array, rows, cols);
+    throw;
+  }
 }
 
 void gladyshev::freeMatrix(int ** matrix, size_t rows)

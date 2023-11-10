@@ -92,15 +92,9 @@ int main(int argc, char * argv[])
     int ** matrix = nullptr;
     try
     {
-      matrix = goDynamicMatrix(input, rows, cols)
+      matrix = goDynamicMatrix(input, rows, cols);
     }
     catch (const std::runtime_error & e)
-    {
-      std::cerr << e.what() << "\n";
-      freeMatrix(matrix, rows, cols);
-      return 2;
-    }
-    catch (const std::bad_alloc & e)
     {
       std::cerr << e.what() << "\n";
       freeMatrix(matrix, rows, cols);
