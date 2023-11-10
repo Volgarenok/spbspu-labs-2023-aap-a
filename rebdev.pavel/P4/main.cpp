@@ -102,7 +102,7 @@ int main(int argc, char ** argv)
       }
       fortest += 1;
       outputFile << localMax(array, rows, colums);
-      fortset += 1;
+      fortest += 1;
       outputFile.close();
     }
     catch (const std::logic_error & e)
