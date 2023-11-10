@@ -50,7 +50,6 @@ int main (int argc, char * argv[])
     std::cerr << "Cannot read input file\n";
     return 2;
   }
-  size_t curSize = rows*cols;
 
   //файл вывода
   std::ofstream output(argv[3]);
