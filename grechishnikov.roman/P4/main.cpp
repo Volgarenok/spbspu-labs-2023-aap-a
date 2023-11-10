@@ -3,7 +3,7 @@
 #include <string>
 #include <stdexcept>
 
-size_t inputArray(std::istream & in, int * a, size_t pl, size_t max)
+void inputArray(std::istream & in, int * a, size_t pl, size_t max)
 {
   for (size_t i = 0; i < std::min(pl, max); ++i)
   {
@@ -12,14 +12,13 @@ size_t inputArray(std::istream & in, int * a, size_t pl, size_t max)
       throw std::logic_error("Cannot read a matrix\n");
     }
   }
-  return std::min(pl, max);
 }
 
 size_t countInCol(int * a, long long rows, long long col, size_t j)
 {
   size_t inCol = 1;
   size_t inColMax = 1;
-  for (size_t i = 0; i < rows - 1; ++i)
+  for (long long i = 0; i < rows - 1; ++i)
   {
     if (a[i*col + j] == a[(i+1)*col + j])
     {
@@ -104,7 +103,7 @@ int main(int argc, char ** argv)
     {
       maxSize = rows * cols;
     }
-    size_t res = inputArray(input, matr, rows * cols, maxSize);
+    inputArray(input, matr, rows * cols, maxSize);
   }
   catch(const std::logic_error &e)
   {
@@ -123,7 +122,7 @@ int main(int argc, char ** argv)
   }
   size_t maxNumCol = 0;
   size_t maxPodr = 0;
-  for (size_t i = 0; i < cols; ++i)
+  for (long long i = 0; i < cols; ++i)
   {
     if (maxPodr < countInCol(matr, rows, cols, i))
     {
