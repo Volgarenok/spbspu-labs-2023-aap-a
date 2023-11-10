@@ -22,6 +22,11 @@ int main(int argc, char * argv[])
   std::ifstream input(argv[2]);
   std::ofstream output(argv[3]);
   input >> rows >> cols;
+  if(rows == 0 && cols && 0)
+  {
+    std::cerr << "Empty array\n";
+    return 2;
+  }
   const int s = rows * cols;
   if (!input)
   {
