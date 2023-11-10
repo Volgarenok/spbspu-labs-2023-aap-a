@@ -99,7 +99,7 @@ int main(int argc, char * argv[])
         return 2;
       }
     }
-    catch (const std::runtime_error & e)
+    catch (const std::bad_alloc & e)
     {
       std::cerr << e.what() << "\n";
       freeMatrix(matrix, rows, cols);
