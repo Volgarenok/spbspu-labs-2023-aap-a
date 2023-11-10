@@ -1,4 +1,3 @@
-#include <iostream>
 #include <fstream>
 #include <limits>
 #include "matrix.hpp"
@@ -32,8 +31,17 @@ int main(int argc, char ** argv)
   long long int rows = 0, colums = 0;
   try
   {
-    rows = readFromFileLLI(inputFile);
-    colums = readFromFileLLI(inputFile);
+    inputFile >> rows;
+    if ((rows == 0) && (inputFile.peek() == EOF || (inputFile.peek() == 10)))
+    {
+      return 0;
+    }
+
+    inputFile >> colums;
+    if (!inputFile)
+    {
+      return 2;
+    }
   }
   catch (const std::logic_error & e)
   {
