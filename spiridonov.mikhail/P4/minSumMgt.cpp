@@ -39,9 +39,8 @@ size_t spiridonov::getMinimumSum(int * matrix, long long rows, long long cols)
 
     if (sum < min_sum)
     {
-      min_sum = sum;
+      min_sum = std::min(min_sum, sum);
     }
   }
-
   return min_sum;
 }

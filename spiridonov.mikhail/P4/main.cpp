@@ -39,7 +39,8 @@ int main(int argc, char* argv[])
     return 2;
   }
 
-  int* matrix;
+  int* matrix = nullptr;
+
   if (num == 1)
   {
     try
