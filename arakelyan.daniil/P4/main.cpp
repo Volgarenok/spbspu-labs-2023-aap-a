@@ -74,17 +74,16 @@ int main (int argc, char * argv[])
     double * smoothedMatrix = new double[rows*cols];
     ara::inputDynMatrix(input, matrix, rows*cols);
     ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-    std::cout << "defolt\n";
-    for(size_t i = 0; i < rows*cols; ++i)
+    for (size_t i = 0; i < rows; ++i)
     {
-      std::cout << matrix[i] << "\n";
+      output << "| ";
+      for(size_t j = 0; j < cols; ++j)
+      {
+        output << std::fixed << std::setprecision(1) << " " << smoothedMatrix[i * cols + j];
+      }
+      output << " |\n";
     }
-    std::cout << "smooth\n";
-    for(size_t i = 0; i < rows*cols; ++i)
-    {
-      std::cout << smoothedMatrix[i] << "\n";
-    }
-    delete [] matrix;
+   delete [] matrix;
   }
   input.close();
   return 0;
