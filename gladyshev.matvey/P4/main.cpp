@@ -95,7 +95,7 @@ int main(int argc, char * argv[])
       if (goDynamicMatrix(input, matrix, rows, cols) == 4)
       {
         std::cerr << "Lack of data\n";
-        freeMtrix(matrix, rows, cols);
+        freeMatrix(matrix, rows, cols);
         return 2;
       }
     }
