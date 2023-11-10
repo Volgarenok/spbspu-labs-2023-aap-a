@@ -43,6 +43,7 @@ int main(int argc, char* argv[])
 
   if (num == 1)
   {
+    matrix = new int[rows * cols]();
     try
     {
       int* dynamic_matrix = new int[rows * cols]();
@@ -103,7 +104,8 @@ int main(int argc, char* argv[])
     return 0;
   }
 
-  output << spiridonov::getMinimumSum(matrix, rows, cols) << "\n";
+  int min_sum = getMinimumSum(matrix, rows, cols);
+  output << min_sum << "\n";
   output.close();
   delete[] matrix;
   return 0;
