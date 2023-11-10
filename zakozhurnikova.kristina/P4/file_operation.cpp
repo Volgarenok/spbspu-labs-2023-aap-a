@@ -42,36 +42,22 @@ void zakozhurnikova::freeMatrix(int **&matrix, int rows)
 
 void zakozhurnikova::writeToFile(std::ofstream& out, int **matrix, int rows, int cols)
 {
-  if (rows == 0 && cols == 0)
+  for (int i = 0; i < rows; i++)
   {
-    out << "0 0";
-  }
-  else
-  {
-    for (int i = 0; i < rows; i++)
+    for (int j = 0; j < cols; j++)
     {
-      for (int j = 0; j < cols; j++)
-      {
-        out << matrix[i][j] << ' ';
-      }
+      out << matrix[i][j] << ' ';
     }
   }
 }
 
 void zakozhurnikova::writeToFile(std::ofstream& out, int matrix[], int rows, int cols)
 {
- if (rows == 0 && cols == 0)
+  for (int i = 0; i < rows; i++)
   {
-    out << "0 0";
-  }
-  else
-  {
-    for (int i = 0; i < rows; i++)
+    for (int j = 0; j < cols; j++)
     {
-      for (int j = 0; j < cols; j++)
-      {
-       out << matrix[i*cols + j] << ' ';
-      }
+     out << matrix[i*cols + j] << ' ';
     }
   }
 }

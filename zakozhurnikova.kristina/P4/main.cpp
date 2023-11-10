@@ -32,6 +32,11 @@ int main(int argc, char * argv[])
     return 2;
   }
   input >> rows >> cols;
+  if (rows == 0 && cols == 0)
+  {
+    output << "0 0";
+    return 0;
+  }
   const int s = rows * cols;
   if (!input)
   {
