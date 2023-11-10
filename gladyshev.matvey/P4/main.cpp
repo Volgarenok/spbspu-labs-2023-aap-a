@@ -97,7 +97,6 @@ int main(int argc, char * argv[])
         std::cout << "Lack of data\n";
         return 2;
       }
-      matrix = goDynamicMatrix(input, rows, cols);
     }
     catch (const std::bad_alloc & e)
     {
