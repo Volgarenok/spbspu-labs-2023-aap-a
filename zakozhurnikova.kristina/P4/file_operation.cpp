@@ -52,7 +52,7 @@ void zakozhurnikova::writeToFile(std::ofstream& out, int **matrix, int rows, int
   }
 }
 
-void zakozhurnikova::writeToFile(std::ofstream out, int matrix[], int rows, int cols)
+void zakozhurnikova::writeToFile(std::ofstream& out, int matrix[], int rows, int cols)
 {
   for (int i = 0; i < rows; i++)
   {

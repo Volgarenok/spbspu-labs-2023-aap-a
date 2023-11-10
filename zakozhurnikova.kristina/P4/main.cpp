@@ -20,6 +20,7 @@ int main(int argc, char * argv[])
   int rows = 0;
   int cols = 0;
   std::ifstream input(argv[2]);
+  std::ofstream output(argv[3]);
   input >> rows >> cols;
   const int s = rows * cols;
   if (!input)
@@ -41,6 +42,7 @@ int main(int argc, char * argv[])
       }
     }
     zakozhurnikova::substractMatrix(original, matrix, rows, cols);
+    zakozhurnikova::writeToFile(output, original, rows, cols);
   }
   else
   {
@@ -79,11 +81,13 @@ int main(int argc, char * argv[])
     }
 
     zakozhurnikova::substractMatrix(origin, matrix, rows, cols);
-
+    zakozhurnikova::writeToFile(output, origin, rows, cols);
     zakozhurnikova::freeMatrix(matrix, rows);
     zakozhurnikova::freeMatrix(origin, rows);
   }
+  
   input.close();
+  output.close();
   return 0;
 }
 
