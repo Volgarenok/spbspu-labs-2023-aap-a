@@ -19,8 +19,16 @@ int main(int argc, char * argv[])
   }
   int rows = 0;
   int cols = 0;
-  std::ifstream input(argv[2]);
-  std::ofstream output(argv[3]);
+  try
+  {
+    std::ifstream input(argv[2]);
+    std::ofstream output(argv[3]);
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << "Can not open file\n";
+    return 2;
+  }
   input >> rows >> cols;
   if(rows == 0 && cols && 0)
   {
