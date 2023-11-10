@@ -1,5 +1,6 @@
 #include <fstream>
 #include <limits>
+#include <iostream>
 #include "matrix.hpp"
 #include "forFile.hpp"
 
@@ -45,7 +46,7 @@ int main(int argc, char ** argv)
   }
   catch (const std::logic_error & e)
   {
-    std::cerr << e.what();
+   //std::cerr << e.what();
     return 2;
   }
   if ((rows == 0) || (colums == 0))
