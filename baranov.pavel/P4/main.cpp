@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 
 int main(int argc, char ** argv)
@@ -22,5 +23,17 @@ int main(int argc, char ** argv)
   {
     std::cerr << "Incorrect task number\n";
     return 1;
+  }
+
+  unsigned int rows = 0;
+  unsigned int columns = 0;
+  {
+    std::fstream input(argv[2]);
+    input >> rows >> columns;
+    if (!input)
+    {
+      std::cerr << "Incorrect parametrs for matrix\n";
+      return 2;
+    }
   }
 }
