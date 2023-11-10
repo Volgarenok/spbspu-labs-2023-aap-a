@@ -6,6 +6,7 @@
 
 int main(int argc, char ** argv)
 {
+  long long int fortest = 10;
   if (argc != 4)
   {
     return 1;
@@ -91,20 +92,24 @@ int main(int argc, char ** argv)
     try
     {
       filling(array, rows, colums, inputFile);
+      fortest += 1;
       std::ofstream outputFile(argv[3]);
+      fortest += 1;
       if (!outputFile.is_open())
       {
         //std::cerr << "Can't open output file";
         return 9;
       }
+      fortest += 1;
       outputFile << localMax(array, rows, colums);
+      fortset += 1;
       outputFile.close();
     }
     catch (const std::logic_error & e)
     {
       delete [] array;
       //std::cerr << e.what();
-      return 10;
+      return fortest;
     }
   }
 
