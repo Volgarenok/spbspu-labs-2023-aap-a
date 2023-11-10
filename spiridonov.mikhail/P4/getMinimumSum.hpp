@@ -1,10 +1,10 @@
 #ifndef GETMINIMUMSUM_HPP
 #define GETMINIMUMSUM_HPP
-#include <fstream>
+#include <cstddef>
 
 namespace spiridonov
 {
-  int getMinimumSum(int * matrix, int rows, int cols);
+  size_t getMinimumSum(int * matrix, long long rows, long long cols);
 }
 
 #endif

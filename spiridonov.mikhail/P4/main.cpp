@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  int num = 0;
+  long long num = 0;
   try
   {
     num = std::stoi(argv[1]);
@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  int rows = 0, cols = 0;
+  long long rows = 0, cols = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
 
@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
   }
   try
   {
-    for (int i = 0; i < rows * cols; i++)
+    for (long long i = 0; i < rows * cols; i++)
     {
       input >> matrix[i];
     }

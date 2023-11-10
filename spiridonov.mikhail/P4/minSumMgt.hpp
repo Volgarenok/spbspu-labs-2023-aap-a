@@ -5,7 +5,7 @@
 
 namespace spiridonov
 {
-  void readMatrix(std::ifstream& input, int * matrix, int size);
+  void readMatrix(std::ifstream& input, int * matrix, size_t size);
 }
 
 #endif
