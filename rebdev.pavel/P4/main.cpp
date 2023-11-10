@@ -40,12 +40,13 @@ int main(int argc, char ** argv)
     std::cerr << e.what();
     return 2;
   }
-  if ((rows <= 0) || (colums <= 0))
+  if ((rows == 0) || (colums == 0))
   {
     inputFile.close();
-    //std::cerr << "matrix size can't be less then zero!";
-    return 2;
+    //std::cerr << "matrix size can't be [0][0]!";
+    return ((rows || colums) == 0) ? 0 : 2;
   }
+
   if (rows > std::numeric_limits<long long int>::max()/colums)
   {
     inputFile.close();
