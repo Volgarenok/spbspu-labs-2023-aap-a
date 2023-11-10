@@ -1,8 +1,6 @@
 #include <cstddef>
-#include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <stdexcept>
 #include <string>
 #include "input_matrix.hpp"
 #include "matrix_transform.hpp"
@@ -60,12 +58,14 @@ int main (int argc, char * argv[])
   }
   if (firstArgument == 1)
   {
-    int matrix[rows*cols];
-    ara::inputStatMatrix(input,matrix,rows*cols);
-    for(size_t i = 0; i < rows*cols; ++i)
-    {
-      std::cout << matrix[i] << "\n";
-    }
+    int * matrix[rows*cols];
+    double * smoothed[rows*cols];
+    ara::inputStatMatrix(input,*matrix,rows*cols);
+    // for(size_t i = 0; i < rows*cols; ++i)
+    // {
+    //   std::cout << smoothed[i] << "\n";
+    // }
+    ara::transformToSmoothMatrix(*matrix, *smoothed, rows, cols);
   }
   else
   {
