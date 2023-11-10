@@ -20,7 +20,7 @@ int main(int argc, char ** argv)
   if (!inputFile.is_open())
   {
     //std::cerr << "can't open input file!";
-    return 2;
+    return 11;
   }
   else if (inputFile.peek() == EOF)
   {
