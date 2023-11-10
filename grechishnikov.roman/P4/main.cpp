@@ -1,47 +1,19 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <stdexcept>
+#include <cstddef>
 
-void inputArray(std::istream & in, int * a, size_t pl, size_t max)
-{
-  for (size_t i = 0; i < std::min(pl, max); ++i)
-  {
-    if(!(in >> a[i]))
-    {
-      throw std::logic_error("Cannot read a matrix\n");
-    }
-  }
-}
-
-size_t countInCol(int * a, long long rows, long long col, size_t j)
-{
-  size_t inCol = 1;
-  size_t inColMax = 1;
-  for (long long i = 0; i < rows - 1; ++i)
-  {
-    if (a[i*col + j] == a[(i+1)*col + j])
-    {
-      inCol += 1;
-      inColMax = std::max(inCol, inColMax);
-    }
-    else
-    {
-      inCol = 1;
-    }
-  }
-  return inColMax;
-}
+#include "inputMatrix.hpp"
+#include "countInCol.hpp"
 
 int main(int argc, char ** argv)
 {
+  using namespace grechishnikov;
   if (argc != 4)
   {
     std::cerr << "Wrong number of elements in command line arguments\n";
     return 1;
   }
-
-
   int num = 0;
   try
   {
@@ -88,6 +60,7 @@ int main(int argc, char ** argv)
   }
   catch (std::bad_alloc &)
   {
+    delete [] matr;
     input.close();
     std::cerr << "Cannot allocate memory for matrix\n";
     return 2;
@@ -103,7 +76,7 @@ int main(int argc, char ** argv)
     {
       maxSize = rows * cols;
     }
-    inputArray(input, matr, rows * cols, maxSize);
+    inputMatrix(input, matr, rows * cols, maxSize);
   }
   catch(const std::logic_error &e)
   {
