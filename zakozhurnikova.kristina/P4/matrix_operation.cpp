@@ -1,7 +1,4 @@
-#include <matrix_operation.h>
-#include <>
-#include <>
-
+#include "matrix_operation.h"
 
 void zakozhurnikova::fillMatrix(int **&matrix, int rows, int cols)
 {
@@ -16,7 +13,7 @@ void zakozhurnikova::fillMatrix(int **&matrix, int rows, int cols)
     if (i == rowBegin && j < cols - colEnd - 1)
     {
       ++j;
-    {
+    }
     else if (j == cols - colEnd - 1 && i < rows - rowEnd - 1)
     {
       ++i;
@@ -54,7 +51,7 @@ void zakozhurnikova::substractMatrix(int **&original, int **&substract, int rows
   }
 }
 
-void zakozhurnikova::fillMatrix(int **&matrix, int rows, int cols)
+void zakozhurnikova::fillMatrix(int matrix[], int rows, int cols)
 {
   int k = 1;
   int i = 0;
@@ -63,11 +60,11 @@ void zakozhurnikova::fillMatrix(int **&matrix, int rows, int cols)
 
   while (k <= rows * cols)
   {
-    arr[i*cols + j] = k;
+    matrix[i*cols + j] = k;
     if (i == rowBegin && j < cols - colEnd - 1)
     {
       ++j;
-    {
+    }
     else if (j == cols - colEnd - 1 && i < rows - rowEnd - 1)
     {
       ++i;

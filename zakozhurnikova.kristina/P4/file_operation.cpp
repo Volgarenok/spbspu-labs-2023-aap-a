@@ -1,4 +1,5 @@
 #include "file_operation.h"
+#include <exception>
 
 int zakozhurnikova::rightArguments(int argc, char** argv)
 {

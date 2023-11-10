@@ -71,7 +71,6 @@ int main(int argc, char * argv[])
     }
 
     zakozhurnikova::fillMatrix(matrix, rows, cols);
-    int num = 1;
     for (int i = 0; i < rows; i++)
     {
       for (int j = 0; j < cols; j++)
