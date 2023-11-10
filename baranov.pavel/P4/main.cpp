@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 int main(int argc, char ** argv)
 {
@@ -7,5 +8,19 @@ int main(int argc, char ** argv)
     std::cerr << "Error in command line arguments\n";
     return 1;
   }
-  std::cout << argv[1] << argv[2] << argv[3] << '\n';
+  unsigned char task = 0;
+  try
+  {
+    task = std::stoll(argv[1]);
+  }
+  catch (...)
+  {
+    std::cerr << "Cannot parse a value\n";
+    return 1;
+  }
+  if (task != 1 && task != 2)
+  {
+    std::cerr << "Incorrect task number\n";
+    return 1;
+  }
 }
