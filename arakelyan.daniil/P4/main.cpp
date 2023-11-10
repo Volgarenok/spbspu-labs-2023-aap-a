@@ -1,8 +1,20 @@
+#include <cstddef>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <stdexcept>
 #include <string>
 
+void inputStatMatrix(std::istream & input, int * matrix, size_t el, size_t read)
+{
+  for (size_t i = 0; i < std::min(read,el);i++)
+  {
+    if(!(input >> matrix[i]))
+    {
+      throw std::logic_error("Cannot read matrix");
+    }
+  }
+}
 
 int main (int argc, char * argv[])
 {
@@ -28,36 +40,43 @@ int main (int argc, char * argv[])
     return 1;
   }
 
-  if (firstArgument == 1)
+  //файл ввода
+  std::ifstream input(argv[2]);
+  if (!input.is_open())
   {
-    //файл ввода
-    std::ifstream input(argv[2]);
-    if (!input.is_open())
-    {
-      std::cerr << "Cannot open the input file\n";
-      return 2;
-    }
-
-    int rows = 0;
-    int cols = 0;
-    input >> rows;
-    input >> cols;
-    if (!input)
-    {
-      std::cerr << "Cannot read input file\n";
-      return 2;
-    }
-
-    input.close();
-
-    //файл вывода
-    std::ofstream output(argv[3]);
-    if (!output.is_open())
-    {
-      std::cerr << "Cannot open the input file\n";
-      return 2;
-    }
+    std::cerr << "Cannot open the input file\n";
+    return 2;
   }
 
+  size_t rows = 0;
+  size_t cols = 0;
+  input >> rows;
+  input >> cols;
+  if (!input)
+  {
+    std::cerr << "Cannot read input file\n";
+    return 2;
+  }
+  size_t curSize = rows*cols;
+  
+  //файл вывода
+  std::ofstream output(argv[3]);
+  if (!output.is_open())
+  {
+    std::cerr << "Cannot open the input file\n";
+    return 2;
+  }
+  
+
+  if (firstArgument == 2)
+  {
+    int * matrix = new int[rows*cols];
+    inputStatMatrix(input, matrix, rows*cols, rows*cols);
+    for(int i = 0; i < rows*cols; ++i)
+    {
+      std::cout << matrix[i] << "\n";
+    }
+  }
+  input.close();
   return 0;
 }
