@@ -1,5 +1,4 @@
 #include "getMinimumSum.hpp"
-#include "minSumMgt.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -33,7 +32,7 @@ int main(int argc, char* argv[])
   long long rows = 0, cols = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
-  int* matrix = new int[rows * cols];
+  int* matrix;
 
   if (!input)
   {
