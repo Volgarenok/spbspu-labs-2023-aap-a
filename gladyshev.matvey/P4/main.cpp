@@ -43,7 +43,8 @@ int main(int argc, char * argv[])
   }
   if (rows < 1 or cols < 1)
   {
-    return 0;
+    std::cerr << "Not enough data\n";
+    return 2;
   }
   if (rows != cols)
   {
