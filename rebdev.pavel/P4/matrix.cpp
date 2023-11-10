@@ -1,5 +1,6 @@
 #include <limits>
 #include <iostream>
+#include <fstream>
 #include "matrix.hpp"
 #include "forFile.hpp"
 
@@ -8,7 +9,10 @@ void rebdev::filling(long long int * array, long long int rows,
 {
   for (long long int i = 0; i < (colums * rows); ++i)
   {
-    array[i] = readFromFileLLI(inputFile);
+    if (!(inputFile >> array[i]))
+    {
+      throw std::logic_error("Reading error: can't read from file");
+    }
   }
 }
 

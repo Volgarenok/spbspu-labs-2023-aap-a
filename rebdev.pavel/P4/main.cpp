@@ -6,7 +6,6 @@
 
 int main(int argc, char ** argv)
 {
-  long long int fortest = 10;
   if (argc != 4)
   {
     return 1;
@@ -21,13 +20,13 @@ int main(int argc, char ** argv)
   if (!inputFile.is_open())
   {
     //std::cerr << "can't open input file!";
-    return 11;
+    return 2;
   }
   else if (inputFile.peek() == EOF)
   {
     inputFile.close();
     //std::cerr << "Input file is empty!";
-    return 3;
+    return 2;
   }
 
   long long int rows = 0, colums = 0;
@@ -42,13 +41,13 @@ int main(int argc, char ** argv)
     inputFile >> colums;
     if (!inputFile)
     {
-      return 4;
+      return 2;
     }
   }
   catch (const std::logic_error & e)
   {
    //std::cerr << e.what();
-    return 5;
+    return 2;
   }
   if ((rows == 0) || (colums == 0))
   {
@@ -61,7 +60,7 @@ int main(int argc, char ** argv)
   {
     inputFile.close();
     //std::cerr << "The array is too large!";
-    return 6;
+    return 2;
   }
 
   using namespace rebdev;
@@ -75,7 +74,7 @@ int main(int argc, char ** argv)
       if (!outputFile.is_open())
       {
         //std::cerr << "Can't open output file"
-        return 7;
+        return 2;
       }
       outputFile << localMax(array, rows, colums);
       outputFile.close();
@@ -83,7 +82,7 @@ int main(int argc, char ** argv)
     catch (const std::logic_error & e)
     {
       //std::cerr << e.what();
-      return 8;
+      return 2;
     }
   }
   else
@@ -92,24 +91,20 @@ int main(int argc, char ** argv)
     try
     {
       filling(array, rows, colums, inputFile);
-      fortest += 1;
       std::ofstream outputFile(argv[3]);
-      fortest += 1;
       if (!outputFile.is_open())
       {
         //std::cerr << "Can't open output file";
-        return 9;
+        return 2;
       }
-      fortest += 1;
       outputFile << localMax(array, rows, colums);
-      fortest += 1;
       outputFile.close();
     }
     catch (const std::logic_error & e)
     {
       delete [] array;
       //std::cerr << e.what();
-      return fortest;
+      return 2;
     }
   }
 
