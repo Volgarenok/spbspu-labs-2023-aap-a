@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <string>
 
-void freeMatrix(int** m, size_t rows, size_t cols)
+void freeMatrix(int** m, size_t rows)
 {
   for (size_t i = 0; i < rows; ++i)
   {
@@ -31,7 +31,7 @@ int ** createMatrix(size_t rows, size_t cols)
   }
   catch (const std::bad_alloc&)
   {
-    freeMatrix(rowsptrs, rows, cols);
+    freeMatrix(rowsptrs, rows);
     throw;
   }
 }
@@ -75,11 +75,11 @@ int main(int argc, char * argv[])
       return 2;
     }
   }
-  int** rowsptrs = nullptr;
+  int ** rowsptrs = nullptr;
   try
   {
     rowsptrs = createMatrix(rows, cols);
-    freeMatrix(rowsptrs, rows, cols);
+    freeMatrix(rowsptrs, rows);
     }
   catch (const std::bad_alloc&)
   {
