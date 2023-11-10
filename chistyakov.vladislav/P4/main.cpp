@@ -1,9 +1,8 @@
+#include "countLocalMinimums.cpp"
 #include "inputArray.cpp"
-#include "min.cpp"
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <limits>
 
 void printArray(int * array, int cols, int rows)
 {
@@ -18,39 +17,6 @@ void printArray(int * array, int cols, int rows)
   std::cout << "\n";
 }
 
-size_t countOfLocalMinimums(int * array, size_t rows, size_t cols)
-{
-  if (rows <= 2 || cols <= 2)
-  {
-    return 0;
-  }
-
-  size_t result = 0;
-  for (size_t idx = cols + 1; idx < (rows - 1) * cols; ++idx)
-  {
-    if (idx % cols != 0 && (idx + 1) % cols != 0)
-    {
-      int minRowUp = min(array[idx - cols - 1], array[idx - cols], array[idx - cols + 1]);
-      int minRowDown = min(array[idx + cols - 1], array[idx + cols], array[idx + cols + 1]);
-      if (array[idx] < min(minRowUp, minRowDown, array[idx - 1], array[idx + 1]))
-      {
-        size_t max_size = std::numeric_limits< size_t >::max();
-
-        if (result == max_size)
-        {
-          throw std::logic_error("matrix is too long");
-        }
-        else
-        {
-          ++result;
-          std::cout << idx << " " << array[idx] << "\n";
-        }
-      }
-    }
-  }
-
-  return result;
-}
 
 int main(int argc, char** argv)
 {
@@ -100,7 +66,7 @@ int main(int argc, char** argv)
       }
 
       size_t result = 0;
-      result = countOfLocalMinimums(array, rows, cols);
+      result = countLocalMinimums(array, rows, cols);
 
       std::cout << "CNT-LOC-MIN: " << result << "\n";
       printArray(array, cols, rows);
@@ -134,7 +100,7 @@ int main(int argc, char** argv)
     }
 
     size_t result = 0;
-    result = countOfLocalMinimums(array, rows, cols);
+    result = countLocalMinimums(array, rows, cols);
 
     std::cout << "CNT-LOC-MIN: " << result << "\n";
     printArray(array, cols, rows);
