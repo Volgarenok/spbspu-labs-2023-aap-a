@@ -44,8 +44,8 @@ int main(int argc, char* argv[])
   {
     try
     {
-      int* static_matrix = new int[rows * cols]();
-      matrix = static_matrix;
+      int* dynamic_matrix = new int[rows * cols]();
+      matrix = dynamic_matrix;
     }
     catch (const std::logic_error & e)
     {
@@ -59,7 +59,6 @@ int main(int argc, char* argv[])
     try
     {
       matrix = new int[rows * cols];
-      delete[] matrix;
     }
     catch (const std::logic_error & e)
     {
@@ -67,7 +66,6 @@ int main(int argc, char* argv[])
       return 2;
     }
   }
-
   else
   {
     std::cout << "Invalid value for num: " << num << "\n";
@@ -96,9 +94,16 @@ int main(int argc, char* argv[])
     delete[] matrix;
     return 1;
   }
+  if (rows == 0 || cols == 0)
+  {
+    delete[] matrix;
+    output << 0 << "\n";
+    output.close();
+    return 0;
+  }
 
   output << spiridonov::getMinimumSum(matrix, rows, cols) << "\n";
   output.close();
-
+  delete[] matrix;
   return 0;
 }
