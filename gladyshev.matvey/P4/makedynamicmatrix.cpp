@@ -10,10 +10,16 @@ int ** gladyshev::goDynamicMatrix(std::fstream &input, size_t rows, size_t cols)
       array[i] = new int[cols];
       for (size_t j = 0; j < cols; j++)
       {
-        if (!input)
+        if (!input.eof())
         {
-          std::cout << "Bad matrix\n";
-          exit(1);
+          if (!input)
+          {
+            exit(1);
+          }
+        }
+        else
+        {
+          exit(0);
         }
         input >> array[i][j];
       }
