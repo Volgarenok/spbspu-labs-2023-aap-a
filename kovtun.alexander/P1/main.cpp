@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstddef>
+#include <limits>
 
 #include "sign_change_counter.hpp"
 #include "local_max_counter.hpp"
