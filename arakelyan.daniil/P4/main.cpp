@@ -4,17 +4,9 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include "input_matrix.hpp"
 
-void inputStatMatrix(std::istream & input, int * matrix, size_t el, size_t read)
-{
-  for (size_t i = 0; i < std::min(read,el);i++)
-  {
-    if(!(input >> matrix[i]))
-    {
-      throw std::logic_error("Cannot read matrix");
-    }
-  }
-}
+
 
 int main (int argc, char * argv[])
 {
@@ -66,16 +58,24 @@ int main (int argc, char * argv[])
     std::cerr << "Cannot open the input file\n";
     return 2;
   }
-  
-
-  if (firstArgument == 2)
+  if (firstArgument == 1)
   {
-    int * matrix = new int[rows*cols];
-    inputStatMatrix(input, matrix, rows*cols, rows*cols);
-    for(int i = 0; i < rows*cols; ++i)
+    int matrix[rows*cols];
+    ara::inputStatMatrix(input,matrix,rows*cols);
+    for(size_t i = 0; i < rows*cols; ++i)
     {
       std::cout << matrix[i] << "\n";
     }
+  }
+  else
+  {
+    int * matrix = new int[rows*cols];
+    ara::inputDynMatrix(input, matrix, rows*cols);
+    for(size_t i = 0; i < rows*cols; ++i)
+    {
+      std::cout << matrix[i] << "\n";
+    }
+    delete [] matrix;
   }
   input.close();
   return 0;
