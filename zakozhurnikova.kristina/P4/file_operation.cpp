@@ -1,5 +1,4 @@
 #include "file_operation.h"
-#include <exception>
 
 int zakozhurnikova::rightArguments(int argc, char** argv)
 {
@@ -43,22 +42,36 @@ void zakozhurnikova::freeMatrix(int **&matrix, int rows)
 
 void zakozhurnikova::writeToFile(std::ofstream& out, int **matrix, int rows, int cols)
 {
-  for (int i = 0; i < rows; i++)
+  if (rows == 0 && cols == 0)
   {
-    for (int j = 0; j < cols; j++)
+    out << "0 0";
+  }
+  else
+  {
+    for (int i = 0; i < rows; i++)
     {
-      out << matrix[i][j] << ' ';
+      for (int j = 0; j < cols; j++)
+      {
+        out << matrix[i][j] << ' ';
+      }
     }
   }
 }
 
 void zakozhurnikova::writeToFile(std::ofstream& out, int matrix[], int rows, int cols)
 {
-  for (int i = 0; i < rows; i++)
+ if (rows == 0 && cols == 0)
   {
-    for (int j = 0; j < cols; j++)
+    out << "0 0";
+  }
+  else
+  {
+    for (int i = 0; i < rows; i++)
     {
-     out << matrix[i*cols + j] << ' ';
+      for (int j = 0; j < cols; j++)
+      {
+       out << matrix[i*cols + j] << ' ';
+      }
     }
   }
 }

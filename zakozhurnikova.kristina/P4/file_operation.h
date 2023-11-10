@@ -2,6 +2,7 @@
 #define FILE_OPERATION_H
 #include <fstream>
 #include <cstddef>
+#include <exception>
 
 namespace zakozhurnikova
 {

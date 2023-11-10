@@ -32,11 +32,6 @@ int main(int argc, char * argv[])
     return 2;
   }
   input >> rows >> cols;
-  if(rows == 0 && cols && 0)
-  {
-    std::cerr << "Empty array\n";
-    return 2;
-  }
   const int s = rows * cols;
   if (!input)
   {
