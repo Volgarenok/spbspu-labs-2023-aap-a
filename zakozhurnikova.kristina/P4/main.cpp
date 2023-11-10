@@ -85,7 +85,7 @@ int main(int argc, char * argv[])
     zakozhurnikova::freeMatrix(matrix, rows);
     zakozhurnikova::freeMatrix(origin, rows);
   }
-  
+
   input.close();
   output.close();
   return 0;
