@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-int main(int argc, char * arcv [])
+int main(int argc, char * argv[])
 {
   if (argc != 4)
   {
@@ -10,7 +10,7 @@ int main(int argc, char * arcv [])
   int num = 0;
   try
   {
-    num = stoi(argv[1]);
+    num = std::stoi(argv[1]);
   }
   catch (const std::out_of_range &)
   {
