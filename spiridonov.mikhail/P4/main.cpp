@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
     return 2;
   }
 
-  int* matrix = nullptr;
+  int* matrix = new int[rows * cols]();
 
   if (num == 1)
   {
