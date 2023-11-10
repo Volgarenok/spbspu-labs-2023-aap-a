@@ -2,7 +2,6 @@
 #include <fstream>
 #include <stdexcept>
 #include <cstddef>
-
 #include "inputMatrix.hpp"
 #include "countInCol.hpp"
 
@@ -80,7 +79,6 @@ int main(int argc, char ** argv)
   }
   catch(const std::logic_error &e)
   {
-    delete [] matr;
     input.close();
     std::cerr << e.what();
     return 2;
@@ -90,7 +88,9 @@ int main(int argc, char ** argv)
   std::ofstream output(argv[3]);
   if (rows == 0 || cols == 0)
   {
+    delete [] matr;
     output << 0 << "\n";
+    output.close();
     return 0;
   }
   size_t maxNumCol = 0;
