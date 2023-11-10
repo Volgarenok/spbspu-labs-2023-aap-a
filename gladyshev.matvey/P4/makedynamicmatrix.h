@@ -7,7 +7,7 @@
 
 namespace gladyshev
 {
-  int ** goDynamicMatrix(std::fstream &input, size_t rows, size_t cols);
+  int goDynamicMatrix(std::fstream &input, int ** array, size_t rows, size_t cols);
   void freeMatrix(int ** matrix, size_t rows);
   void freeMatrix(int ** matrix, size_t rows, size_t cols);
 }

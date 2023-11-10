@@ -89,10 +89,10 @@ int main(int argc, char * argv[])
   }
   else
   {
-    int ** matrix = nullptr;
+    int ** matrix = new int *[rows];
     try
     {
-      if (goDynamicMatrix(input, rows, cols) == nullptr)
+      if (goDynamicMatrix(input, matrix, rows, cols) == 4)
       {
         std::cerr << "Lack of data\n";
         return 2;

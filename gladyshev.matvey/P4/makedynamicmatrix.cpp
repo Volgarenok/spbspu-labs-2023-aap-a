@@ -1,8 +1,7 @@
 #include "makedynamicmatrix.h"
 
-int ** gladyshev::goDynamicMatrix(std::fstream &input, size_t rows, size_t cols)
+int gladyshev::goDynamicMatrix(std::fstream &input, int ** array, size_t rows, size_t cols)
 {
-  int ** array = new int *[rows];
   try
   {
     for (size_t i = 0; i < rows; i++)
@@ -14,17 +13,17 @@ int ** gladyshev::goDynamicMatrix(std::fstream &input, size_t rows, size_t cols)
         {
           if (!input)
           {
-            throw std::runtime_error("Error in reading");
+            return 2;
           }
         }
         else
         {
-          return nullptr;
+          return 4;
         }
         input >> array[i][j];
       }
     }
-    return array;
+    return 2;
   }
   catch (const std::bad_alloc &)
   {
