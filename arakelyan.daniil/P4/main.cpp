@@ -55,7 +55,7 @@ int main (int argc, char * argv[])
   std::ofstream output(argv[3]);
   if (!output.is_open())
   {
-    std::cerr << "Cannot open the input file\n";
+    std::cerr << "Cannot open the output file\n";
     return 2;
   }
   if (firstArgument == 1)
