@@ -2,6 +2,7 @@
 #include "minSumMgt.hpp"
 #include <iostream>
 #include <fstream>
+#include <string>
 
 int main(int argc, char* argv[])
 {
@@ -104,7 +105,7 @@ int main(int argc, char* argv[])
     return 0;
   }
 
-  int min_sum = getMinimumSum(matrix, rows, cols);
+  int min_sum = spiridonov::getMinimumSum(matrix, rows, cols);
   output << min_sum << "\n";
   output.close();
   delete[] matrix;

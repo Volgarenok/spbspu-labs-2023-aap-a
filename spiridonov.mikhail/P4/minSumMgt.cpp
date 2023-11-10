@@ -9,6 +9,9 @@ void spiridonov::readMatrix(std::ifstream& input, int* matrix, size_t size)
   }
 }
 
+int min_sum = 0;
+int sum = 0;
+
 size_t spiridonov::getMinimumSum(int * matrix, long long rows, long long cols)
 {
   int min_sum = matrix[cols - 1];
