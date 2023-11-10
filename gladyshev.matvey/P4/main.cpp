@@ -54,13 +54,8 @@ int main(int argc, char * argv[])
   if (ex_num == 1)
   {
     int array[100][100] {};
-    size_t count = 0;
+    size_t count = 1;
     goStaticMatrix(input, array, rows, cols, count);
-    if (count != (rows * cols))
-    {
-      std::cerr << "Lack of data";
-      return 2;
-    }
     try
     {
       if ((rows * cols) > 1)
