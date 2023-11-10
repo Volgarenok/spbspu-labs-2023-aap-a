@@ -2,6 +2,7 @@
 #include <limits>
 
 #include "sign_change_counter.hpp"
+#include "local_max_counter.hpp"
 
 
 int main()
@@ -10,6 +11,7 @@ int main()
   size_t size = 0;
 
   kovtun::SignChangeCounter signChangeCounter;
+  kovtun::LocalMaxCounter localMaxCounter;
 
   do
   {
@@ -31,6 +33,7 @@ int main()
       size++;
 
       signChangeCounter(number);
+      localMaxCounter(number);
     }
   }
   while (number != 0);
@@ -38,6 +41,7 @@ int main()
   try
   {
     std::cout << signChangeCounter() << '\n';
+    std::cout << localMaxCounter() << '\n';
   }
   catch(const std::exception& e)
   {

@@ -15,6 +15,9 @@ namespace kovtun
 
   private:
     size_t counter_;
+    int firstNumber_;
+    int secondNumber_;
+    int thirdNumber_;
   };
 }
 
