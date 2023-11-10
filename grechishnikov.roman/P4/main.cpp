@@ -79,6 +79,7 @@ int main(int argc, char ** argv)
   }
   catch(const std::logic_error &e)
   {
+    delete [] matr;
     input.close();
     std::cerr << e.what();
     return 2;
