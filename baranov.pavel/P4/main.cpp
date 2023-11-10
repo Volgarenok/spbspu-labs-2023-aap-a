@@ -13,6 +13,40 @@ void inputMatrix(std::istream & input, int * matrix, size_t size)
   }
 }
 
+int maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
+{
+  unsigned int side = std::min(rows, columns);
+  int result = 0;
+  int current_sum = 0;
+
+  for (int i = 0; i < (side - 1); ++i)
+  {
+    current_sum = 0;
+    for (int j = 0; j <= i; ++j)
+    {
+      current_sum += matrix[side * (i - j) + j];
+    }
+    if (current_sum > result)
+    {
+      result = current_sum;
+    }
+  }
+
+  for (int i = 1; i < side; ++i)
+  {
+    current_sum = 0;
+    for (int j = 0; j < side - i; j++)
+    {
+      current_sum += matrix[side * i + (side - 1) + j * side - j];
+    }
+    if (current_sum > result)
+    {
+      result = current_sum;
+    }
+  }
+  return result;
+}
+
 int main(int argc, char ** argv)
 {
   if (argc != 4)
@@ -52,6 +86,7 @@ int main(int argc, char ** argv)
       return 2;
     }
 
+    int result = 0;
     if (task == 1)
     {
       int matrix[rows * columns] = {0};
@@ -64,10 +99,7 @@ int main(int argc, char ** argv)
         std::cerr << "Can not read matrix\n";
         return 2;
       }
-      for (unsigned int i = 0; i < rows * columns; ++i)
-      {
-        std::cout << matrix[i] << '\n';
-      }
+      std::cout << maxSumDiagonal(matrix, rows, columns) << '\n';
     }
   }
 }
