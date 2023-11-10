@@ -101,6 +101,7 @@ int main(int argc, char ** argv)
       }
       outputFile << localMax(array, rows, colums);
       outputFile.close();
+      delete [] array;
     }
     catch (const std::logic_error & e)
     {
