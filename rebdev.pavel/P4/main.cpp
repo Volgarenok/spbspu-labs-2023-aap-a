@@ -29,7 +29,7 @@ int main(int argc, char ** argv)
     return 2;
   }
 
-  long int rows = 0, colums = 0;
+  int rows = 0, colums = 0;
   try
   {
     inputFile >> rows;
@@ -88,7 +88,8 @@ int main(int argc, char ** argv)
   }
   else
   {
-    long long int * array = new long long int [rows * colums];
+    unsigned long int num = rows * colums;
+    long long int * array = new long long int[num];
     try
     {
       filling(array, rows, colums, inputFile);
