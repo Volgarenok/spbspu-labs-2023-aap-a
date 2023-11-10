@@ -61,8 +61,8 @@ int main(int argc, char * argv[])
   }
   else
   {
-    int **matrix = nullptr;
-    int **origin = nullptr;
+    int *matrix = nullptr;
+    int *origin = nullptr;
     if (!input)
     {
       std::cerr << "Incorrect input!\n";
@@ -70,8 +70,8 @@ int main(int argc, char * argv[])
     }
     try
     {
-      zakozhurnikova::createMatrix(matrix, rows, cols);
-      zakozhurnikova::createMatrix(origin, rows, cols);
+      zakozhurnikova::createMatrixDin(matrix, rows, cols);
+      zakozhurnikova::createMatrixDin(origin, rows, cols);
     }
     catch (const std::exception &e)
     {
@@ -79,26 +79,26 @@ int main(int argc, char * argv[])
       return 1;
     }
 
-    zakozhurnikova::fillMatrix(matrix, rows, cols);
+    zakozhurnikova::fillMatrixDin(matrix, rows, cols);
     for (int i = 0; i < rows; i++)
     {
       for (int j = 0; j < cols; j++)
       {
-        input >> origin[i][j];
+        input >> origin[i * cols + j];
         if (!input)
         {
           std::cerr << "Incorrect input!\n";
-          zakozhurnikova::freeMatrix(matrix, rows);
-          zakozhurnikova::freeMatrix(origin, rows);
+          zakozhurnikova::freeMatrix(matrix);
+          zakozhurnikova::freeMatrix(origin);
           return 1;
         }
       }
     }
 
-    zakozhurnikova::substractMatrix(origin, matrix, rows, cols);
-    zakozhurnikova::writeToFile(output, origin, rows, cols);
-    zakozhurnikova::freeMatrix(matrix, rows);
-    zakozhurnikova::freeMatrix(origin, rows);
+    zakozhurnikova::substractMatrixDin(origin, matrix, rows, cols);
+    zakozhurnikova::writeToFileDin(output, origin, rows, cols);
+    zakozhurnikova::freeMatrix(matrix);
+    zakozhurnikova::freeMatrix(origin);
   }
 
   input.close();

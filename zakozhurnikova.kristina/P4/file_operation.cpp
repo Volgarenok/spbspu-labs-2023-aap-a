@@ -21,32 +21,23 @@ int zakozhurnikova::rightArguments(int argc, char** argv)
   }
   return option;
 }
-void zakozhurnikova::createMatrix(int **&matrix, int rows, int cols)
+void zakozhurnikova::createMatrixDin(int *&matrix, int rows, int cols)
 {
-  matrix = new int *[rows]
-  { nullptr };
-  for (int i = 0; i < rows; i++)
-  {
-    matrix[i] = new int[cols] {0};
-  }
+  matrix = new int [rows * cols]{ 0 };
 }
 
-void zakozhurnikova::freeMatrix(int **&matrix, int rows)
+void zakozhurnikova::freeMatrix(int *&matrix)
 {
-  for (int i = 0; i < rows; i++)
-  {
-    delete[] matrix[i];
-  }
     delete[] matrix;
 }
 
-void zakozhurnikova::writeToFile(std::ofstream& out, int **matrix, int rows, int cols)
+void zakozhurnikova::writeToFileDin(std::ofstream& out, int *matrix, int rows, int cols)
 {
   for (int i = 0; i < rows; i++)
   {
     for (int j = 0; j < cols; j++)
     {
-      out << matrix[i][j] << ' ';
+      out << matrix[i * cols + j] << ' ';
     }
   }
 }

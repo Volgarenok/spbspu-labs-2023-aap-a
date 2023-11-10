@@ -1,6 +1,6 @@
 #include "matrix_operation.h"
 
-void zakozhurnikova::fillMatrix(int **&matrix, int rows, int cols)
+void zakozhurnikova::fillMatrixDin(int *&matrix, int rows, int cols)
 {
   int k = 1;
   int i = 0;
@@ -9,7 +9,7 @@ void zakozhurnikova::fillMatrix(int **&matrix, int rows, int cols)
 
   while (k <= rows * cols)
   {
-    matrix[i][j] = k;
+    matrix[i * cols + j] = k;
     if (i == rowBegin && j < cols - colEnd - 1)
     {
       ++j;
@@ -40,13 +40,13 @@ void zakozhurnikova::fillMatrix(int **&matrix, int rows, int cols)
   return;
 }
 
-void zakozhurnikova::substractMatrix(int **&original, int **&substract, int rows, int cols)
+void zakozhurnikova::substractMatrixDin(int *&original, int *&substract, int rows, int cols)
 {
   for (int i = 0; i < rows; i++)
   {
     for (int j = 0; j < cols; j++)
     {
-      original[i][j] -= substract[i][j];
+      original[i * cols + j] -= substract[i * cols + j];
     }
   }
 }

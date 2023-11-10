@@ -3,8 +3,8 @@
 
 namespace zakozhurnikova
 {
-void fillMatrix(int **&matrix, int rows, int cols);
-void substractMatrix(int **&original, int **&substract, int rows, int cols);
+void fillMatrixDin(int *&matrix, int rows, int cols);
+void substractMatrixDin(int *&original, int *&substract, int rows, int cols);
 void fillMatrix(int arr[], int rows, int cols);
 void substractMatrix(int original[], int substract[], int rows, int cols);
 }
