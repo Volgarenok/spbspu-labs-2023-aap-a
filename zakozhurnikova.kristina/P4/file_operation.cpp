@@ -58,7 +58,7 @@ void zakozhurnikova::writeToFile(std::ofstream out, int matrix[], int rows, int 
   {
     for (int j = 0; j < cols; j++)
     {
-     out << matrix[i*cols + j] << ' '; 
+     out << matrix[i*cols + j] << ' ';
     }
   }
 }
