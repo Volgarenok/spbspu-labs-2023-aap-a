@@ -19,10 +19,12 @@ int main(int argc, char * argv[])
   }
   int rows = 0;
   int cols = 0;
+  std::ifstream input;
+  std::ofstream output;
   try
   {
-    std::ifstream input(argv[2]);
-    std::ofstream output(argv[3]);
+    input.open(argv[2]);
+    output.open(argv[3]);
   }
   catch (const std::exception& e)
   {
