@@ -26,7 +26,7 @@ int main(int argc, char ** argv)
   {
     inputFile.close();
     //std::cerr << "Input file is empty!";
-    return 2;
+    return 3;
   }
 
   long long int rows = 0, colums = 0;
@@ -41,13 +41,13 @@ int main(int argc, char ** argv)
     inputFile >> colums;
     if (!inputFile)
     {
-      return 2;
+      return 4;
     }
   }
   catch (const std::logic_error & e)
   {
    //std::cerr << e.what();
-    return 2;
+    return 5;
   }
   if ((rows == 0) || (colums == 0))
   {
@@ -60,7 +60,7 @@ int main(int argc, char ** argv)
   {
     inputFile.close();
     //std::cerr << "The array is too large!";
-    return 2;
+    return 6;
   }
 
   using namespace rebdev;
@@ -74,7 +74,7 @@ int main(int argc, char ** argv)
       if (!outputFile.is_open())
       {
         //std::cerr << "Can't open output file"
-        return 2;
+        return 7;
       }
       outputFile << localMax(array, rows, colums);
       outputFile.close();
@@ -82,7 +82,7 @@ int main(int argc, char ** argv)
     catch (const std::logic_error & e)
     {
       //std::cerr << e.what();
-      return 2;
+      return 8;
     }
   }
   else
@@ -95,7 +95,7 @@ int main(int argc, char ** argv)
       if (!outputFile.is_open())
       {
         //std::cerr << "Can't open output file";
-        return 2;
+        return 9;
       }
       outputFile << localMax(array, rows, colums);
       outputFile.close();
@@ -104,7 +104,7 @@ int main(int argc, char ** argv)
     {
       delete [] array;
       //std::cerr << e.what();
-      return 2;
+      return 10;
     }
   }
 
