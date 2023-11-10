@@ -92,7 +92,11 @@ int main(int argc, char * argv[])
     int ** matrix = nullptr;
     try
     {
-      matrix = goDynamicMatrix(input, rows, cols);
+      if (goDynamicMatrix(input, rows, cols) == nullptr)
+      {
+        std::cerr << "Lack of data\n";
+        return 2;
+      }
     }
     catch (const std::runtime_error & e)
     {

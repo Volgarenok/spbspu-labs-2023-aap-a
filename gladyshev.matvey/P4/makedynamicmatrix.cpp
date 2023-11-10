@@ -19,7 +19,7 @@ int ** gladyshev::goDynamicMatrix(std::fstream &input, size_t rows, size_t cols)
         }
         else
         {
-          throw std::runtime_error("Lack of data");
+          return nullptr;
         }
         input >> array[i][j];
       }
