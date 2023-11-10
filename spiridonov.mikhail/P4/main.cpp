@@ -33,14 +33,13 @@ int main(int argc, char* argv[])
   long long rows = 0, cols = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
+  int* matrix = new int[rows * cols];
 
   if (!input)
   {
     std::cout << "Failed to open input file: " << argv[2] << "\n";
     return 2;
   }
-
-  int* matrix = new int[rows * cols]();
 
   if (num == 1)
   {

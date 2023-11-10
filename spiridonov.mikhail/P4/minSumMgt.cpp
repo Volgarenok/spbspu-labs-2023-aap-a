@@ -1,5 +1,6 @@
 #include "getMinimumSum.hpp"
 #include "minSumMgt.hpp"
+#include <limits>
 
 void spiridonov::readMatrix(std::ifstream& input, int* matrix, size_t size)
 {
@@ -9,8 +10,7 @@ void spiridonov::readMatrix(std::ifstream& input, int* matrix, size_t size)
   }
 }
 
-int min_sum = 0;
-int sum = 0;
+int min_sum = std::numeric_limits<int>::max();
 
 size_t spiridonov::getMinimumSum(int * matrix, long long rows, long long cols)
 {
@@ -42,7 +42,7 @@ size_t spiridonov::getMinimumSum(int * matrix, long long rows, long long cols)
 
     if (sum < min_sum)
     {
-      min_sum = std::min(min_sum, sum);
+      min_sum = sum;
     }
   }
   return min_sum;
