@@ -1,7 +1,7 @@
 #ifndef LOCAL_MAX_COUNTER_H
 #define LOCAL_MAX_COUNTER_H
 
-#include <limits>
+#include <cstddef>
 
 
 namespace kovtun

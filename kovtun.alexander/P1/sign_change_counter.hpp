@@ -1,8 +1,7 @@
 #ifndef SIGN_CHANGE_COUNTER_H
 #define SIGN_CHANGE_COUNTER_H
 
-#include <limits>
-#include <stdexcept>
+#include <cstddef>
 
 
 namespace kovtun
