@@ -38,16 +38,14 @@ int main()
   }
   while (number != 0);
 
-  try
+  if (size == 0)
   {
-    std::cout << signChangeCounter() << '\n';
-    std::cout << localMaxCounter() << '\n';
-  }
-  catch(const std::exception& e)
-  {
-    std::cerr << e.what() << '\n';
+    std::cerr << "sequence is too short";
     return 2;
   }
+
+  std::cout << signChangeCounter() << '\n';
+  std::cout << localMaxCounter() << '\n';
 
   return 0;
 }

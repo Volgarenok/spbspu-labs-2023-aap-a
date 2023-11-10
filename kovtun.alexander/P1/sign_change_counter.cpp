@@ -24,10 +24,5 @@ void kovtun::SignChangeCounter::operator()(int number)
 
 size_t kovtun::SignChangeCounter::operator()()
 {
-  if (previousNumber_ == 0)
-  {
-    throw std::length_error("SignChangeCounter: sequence is too short");
-  }
-
   return counter_;
 }
