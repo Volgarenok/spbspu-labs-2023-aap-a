@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <string>
 #include "input_matrix.hpp"
+#include "matrix_transform.hpp"
 
 
 
@@ -70,10 +71,18 @@ int main (int argc, char * argv[])
   else
   {
     int * matrix = new int[rows*cols];
+    double * smoothedMatrix = new double[rows*cols];
     ara::inputDynMatrix(input, matrix, rows*cols);
+    ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
+    std::cout << "defolt\n";
     for(size_t i = 0; i < rows*cols; ++i)
     {
       std::cout << matrix[i] << "\n";
+    }
+    std::cout << "smooth\n";
+    for(size_t i = 0; i < rows*cols; ++i)
+    {
+      std::cout << smoothedMatrix[i] << "\n";
     }
     delete [] matrix;
   }
