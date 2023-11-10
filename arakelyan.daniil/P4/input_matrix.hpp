@@ -1,4 +1,4 @@
-#ifndef INP_MATRIX_HPP 
+#ifndef INP_MATRIX_HPP
 #define INP_MATRIX_HPP
 #include <fstream>
 namespace ara

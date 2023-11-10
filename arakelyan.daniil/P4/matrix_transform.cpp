@@ -1,9 +1,9 @@
 #include "matrix_transform.hpp"
-#include <sys/wait.h>
 
 double ara::transformToSmoothMatrix(int * matrix, double * smooth, size_t rows, size_t cols)
 {
-  for (int i = 0; i < rows*cols; i++) {
+  for (int i = 0; i < rows*cols; i++)
+  {
     double sum = 0.0;
     int count = 0;
     int row = i / cols;

@@ -51,7 +51,7 @@ int main (int argc, char * argv[])
     return 2;
   }
   size_t curSize = rows*cols;
-  
+
   //файл вывода
   std::ofstream output(argv[3]);
   if (!output.is_open())
@@ -83,7 +83,7 @@ int main (int argc, char * argv[])
       }
       output << " |\n";
     }
-   delete [] matrix;
+    delete [] matrix;
   }
   input.close();
   return 0;
