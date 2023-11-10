@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 int main(int argc, char* argv[])
 {
@@ -29,4 +30,12 @@ int main(int argc, char* argv[])
     std::cerr << "First parameter is not a number\n";
     return 1;
   }
+  if (num != 1 && num != 2)
+  {
+    std::cerr << "First parameter is out of range\n";
+    return 1;
+  }
+  size_t rows = 0;
+  size_t cols = 0;
+  
 }
