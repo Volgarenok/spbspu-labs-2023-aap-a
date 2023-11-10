@@ -1,5 +1,5 @@
 #include "countLocalMinimums.hpp"
-#include "min.cpp"
+#include "min.hpp"
 #include <limits>
 #include <stdexcept>
 
