@@ -14,12 +14,12 @@ int ** gladyshev::goDynamicMatrix(std::fstream &input, size_t rows, size_t cols)
         {
           if (!input)
           {
-            exit(1);
+            throw std::bad_alloc("Error in reading");
           }
         }
         else
         {
-          exit(0);
+          throw std::runtime_error("Out of data");
         }
         input >> array[i][j];
       }
