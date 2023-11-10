@@ -132,4 +132,5 @@ int main(int argc, char ** argv)
   }
   output << maxNumCol << "\n";
   output.close();
+  delete [] matr;
 }
