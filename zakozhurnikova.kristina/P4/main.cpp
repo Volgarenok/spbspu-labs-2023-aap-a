@@ -25,20 +25,8 @@ int main(int argc, char * argv[])
     std::cerr << "Cannot read a number\n";
     return 2;
   }
-  if (num == 1)
+  if (option == 1)
   {
-    const size_t mSize = 10000;
-    double matrix[mSize];
-     try
-    {
-      zakozhurnikova::inputMatrix(input, matrix, rows, cols);
-    }
-    catch (const std::range_error& e)
-    {
-      std::cerr << e.what() << "\n";
-      input.close();
-      return 2;
-    }
     int matrix[s]{};
     int original[s]{};
     zakozhurnikova::fillMatrix(matrix, rows, cols);
@@ -62,25 +50,25 @@ int main(int argc, char * argv[])
   }
   else
   {
-    double* matrix = nullptr;
-    matrix = new double[rows * cols];
-    if (!matrix)
+    int **matrix = nullptr;
+    int **origin = nullptr;
+    if (!input)
     {
-      std::cerr << "Failed to create matrix\n";
-      return 2;
+      std::cerr << "Incorrect input!\n";
+      return 1;
     }
     try
     {
-      zakozhurnikova::inputMatrix(input, matrix, rows, cols);
+      createMatrix(matrix, rows, cols);
+      createMatrix(origin, rows, cols);
     }
-    catch (const std::range_error& e)
+    catch (const std::exception &e)
     {
-      std::cerr << e.what() << "\n";
-      input.close();
-      delete[] matrix;
-      return 2;
+      std::cerr << e.what() << '\n';
+      return 1;
     }
-    input.close();
+
+    fillMatrix(matrix, rows, cols);
   }
   return 0;
 }

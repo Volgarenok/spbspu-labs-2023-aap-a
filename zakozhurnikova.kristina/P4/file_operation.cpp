@@ -21,23 +21,21 @@ int zakozhurnikova::rightArguments(int argc, char** argv)
   }
   return option;
 }
-void zakozhurnikova::inputMatrix(std::ifstream& input, double* size, size_t rows, size_t cols)
+void zakozhurnikova::createMatrix(int **&matrix, int rows, int cols)
 {
-  size_t account = 0;
-  for (size_t i = 0; i < rows * cols; ++i)
+  matrix = new int *[rows]
+  { nullptr };
+  for (int i = 0; i < rows; i++)
   {
-    input >> *size;
-    ++size;
-    if (input)
-    {
-      ++account;
-    }
+    matrix[i] = new int[cols] {0};
   }
-  char check_size = '\0';
-  input >> check_size;
-  if (account != rows * cols || input)
+}
+
+void zakozhurnikova::freeMatrix(int **&matrix, int rows)
+{
+  for (int i = 0; i < rows; i++)
   {
-    throw std::range_error("Input data is not desired matrix");
+    delete[] matrix[i];
   }
-  return;
+    delete[] matrix;
 }
