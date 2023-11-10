@@ -38,7 +38,7 @@ long long int rebdev::localMax(long long int * arr, long long int rows, long lon
     numberOfLocalMax += isLocalMax;
   }
 
-  return numberOfLocalMax;
+  return numberOfLocalMax * ((rows > 1) || (colums > 1));
 }
 
 bool rebdev::isNumberOfElementIsCorrect(long long int itemOfNumber, long long int columIndex,
