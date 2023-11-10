@@ -4,6 +4,6 @@
 namespace strelyaev
 {
   void clockwise(int * a, int rows, int columns);
-  void matrixSubtraction(int * original, int * reverse, int n);
+  void matrixSubtraction(int * original, int * clock_matrix, int n);
 }
 #endif
