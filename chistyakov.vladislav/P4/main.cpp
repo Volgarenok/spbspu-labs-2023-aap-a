@@ -47,7 +47,7 @@ int main(int argc, char** argv)
 
       int array[cols * rows];
       int number = 0;
-      for (int i = 0; i < (cols * rows); ++i)
+      for (size_t i = 0; i < (cols * rows); ++i)
       {
         input >> number;
         if (!input)
@@ -81,7 +81,6 @@ int main(int argc, char** argv)
     }
 
     int * array = new int[rows * cols];
-    int number = 0;
     size_t numOfElements = 0;
 
     numOfElements = inputArray(input, array, (rows * cols), (rows * cols));
