@@ -4,17 +4,10 @@
 #include <fstream>
 #include <string>
 
-void printArray(int * array, int cols, int rows)
+void writeAnswerInFile(int answer,char * outputFile)
 {
-  for (int i = 0; i < cols * rows; ++i)
-  {
-    if (i % cols == 0 and i != 0)
-    {
-      std::cout << "\n";
-    }
-    std::cout << array[i] << "\t";
-  }
-  std::cout << "\n";
+  std::ofstream output(outputFile);
+  output << answer;
 }
 
 
@@ -67,9 +60,9 @@ int main(int argc, char** argv)
 
       size_t result = 0;
       result = countLocalMinimums(array, rows, cols);
+      writeAnswerInFile(result, argv[3]);
 
-      std::cout << "CNT-LOC-MIN: " << result << "\n";
-      printArray(array, cols, rows);
+      return 0;
     }
   }
   else if (taskNumber == 2)
@@ -102,9 +95,10 @@ int main(int argc, char** argv)
     size_t result = 0;
     result = countLocalMinimums(array, rows, cols);
 
-    std::cout << "CNT-LOC-MIN: " << result << "\n";
-    printArray(array, cols, rows);
     delete [] array;
+
+    writeAnswerInFile(result, argv[3]);
+    return 0;
   }
   else
   {
