@@ -1,7 +1,7 @@
 #ifndef MAKESTATICMATRIX_H
 #define MAKESTATICMATRIX_H
 
-#include <iostream>
+#include <cstddef>
 #include <fstream>
 #include <stdexcept>
 

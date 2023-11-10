@@ -41,11 +41,6 @@ int main(int argc, char * argv[])
     std::cerr << "Cannot read a number\n";
     return 2;
   }
-  if ((rows == 0 and cols != 0) or (rows != 0 and cols == 0))
-  {
-    std::cerr << "Lack of data\n";
-    return 2;
-  }
   if (rows < 1 or cols < 1)
   {
     return 0;
@@ -59,7 +54,11 @@ int main(int argc, char * argv[])
   if (ex_num == 1)
   {
     int array[100][100] {};
-    goStaticMatrix(input, array, rows, cols);
+    if (goStaticMatrix(input, array, rows, cols) == 4)
+    {
+      std::cerr << "Lack of data\n";
+      return 2;
+    }
     try
     {
       if ((rows * cols) > 1)

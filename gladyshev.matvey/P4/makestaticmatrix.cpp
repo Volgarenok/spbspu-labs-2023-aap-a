@@ -10,17 +10,15 @@ int gladyshev::goStaticMatrix(std::fstream& input, int matrix[100][100], size_t&
       {
         if (!input)
         {
-          std::cerr << "Bad matrix\n";
           return 2;
         }
       }
       else
       {
-        std::cerr << "Lack of data\n";
-        return 2;
+        return 4;
       }
       input >> matrix[i][j];
     }
   }
-  return 2;
+  return 3;
 }
