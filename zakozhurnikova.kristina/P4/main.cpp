@@ -41,7 +41,7 @@ int main(int argc, char * argv[])
     }
     int matrix[s]{};
     int original[s]{};
-    fillMatrix(matrix, rows, cols);
+    zakozhurnikova::fillMatrix(matrix, rows, cols);
 
     for (int i = 0; i < rows; i++)
     {
@@ -50,7 +50,7 @@ int main(int argc, char * argv[])
         input >> original[i*cols + j];
       }
     }
-    substractMatrix(original, matrix, rows, cols);
+    zakozhurnikova::substractMatrix(original, matrix, rows, cols);
     for (int i = 0; i < rows; i++)
     {
       for (int j = 0; j < cols; j++)
