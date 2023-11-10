@@ -40,3 +40,27 @@ void zakozhurnikova::freeMatrix(int **&matrix, int rows)
   }
     delete[] matrix;
 }
+
+void zakozhurnikova::writeToFile(std::ofstream& out, int **matrix, int rows, int cols)
+{
+  for (int i = 0; i < rows; i++)
+  {
+    for (int j = 0; j < cols; j++)
+    {
+      out << matrix[i][j] << ' ';
+    }
+  }
+}
+
+void zakozhurnikova::writeToFile(std::ofstream out, int matrix[], int rows, int cols)
+{
+  for (int i = 0; i < rows; i++)
+  {
+    for (int j = 0; j < cols; j++)
+    {
+     out << matrix[i*cols + j] << ' '; 
+    }
+  }
+}
+
+
