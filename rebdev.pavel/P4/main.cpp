@@ -29,7 +29,7 @@ int main(int argc, char ** argv)
     return 2;
   }
 
-  long long int rows = 0, colums = 0;
+  int rows = 0, colums = 0;
   try
   {
     inputFile >> rows;
@@ -56,7 +56,7 @@ int main(int argc, char ** argv)
     return (((rows || colums) == 0) ? 0 : 2);
   }
 
-  if (rows > std::numeric_limits<long long int>::max()/colums)
+  if (rows > std::numeric_limits<int>::max()/colums)
   {
     inputFile.close();
     //std::cerr << "The array is too large!";
