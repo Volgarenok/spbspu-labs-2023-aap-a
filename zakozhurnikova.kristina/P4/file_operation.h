@@ -13,4 +13,5 @@ namespace zakozhurnikova
   void writeToFile(std::ofstream& out, int matrix[], int rows, int cols);
 }
 
+
 #endif

@@ -61,5 +61,3 @@ void zakozhurnikova::writeToFile(std::ofstream& out, int matrix[], int rows, int
     }
   }
 }
-
-

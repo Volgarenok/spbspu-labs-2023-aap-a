@@ -32,17 +32,17 @@ int main(int argc, char * argv[])
     return 2;
   }
   input >> rows >> cols;
+  if (!input)
+  {
+    std::cerr << "Can not read a number\n";
+    return 2;
+  }
   if (rows == 0 && cols == 0)
   {
     output << "0 0";
     return 0;
   }
   const int s = rows * cols;
-  if (!input)
-  {
-    std::cerr << "Cannot read a number\n";
-    return 2;
-  }
   if (option == 1)
   {
     int matrix[s]{};
@@ -105,4 +105,3 @@ int main(int argc, char * argv[])
   output.close();
   return 0;
 }
-
