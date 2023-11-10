@@ -1,3 +1,5 @@
+#include "file_operation.h"
+#include "matrix_operation.h"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -15,8 +17,8 @@ int main(int argc, char * argv[])
     std::cerr << e.what() << "\n";
     return 1;
   }
-  size_t rows = 0;
-  size_t cols = 0;
+  int rows = 0;
+  int cols = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
   const int s = rows * cols;
@@ -59,8 +61,8 @@ int main(int argc, char * argv[])
     }
     try
     {
-      createMatrix(matrix, rows, cols);
-      createMatrix(origin, rows, cols);
+      zakozhurnikova::createMatrix(matrix, rows, cols);
+      zakozhurnikova::createMatrix(origin, rows, cols);
     }
     catch (const std::exception &e)
     {
@@ -68,8 +70,46 @@ int main(int argc, char * argv[])
       return 1;
     }
 
-    fillMatrix(matrix, rows, cols);
+    zakozhurnikova::fillMatrix(matrix, rows, cols);
+    int num = 1;
+    for (int i = 0; i < rows; i++)
+    {
+      for (int j = 0; j < cols; j++)
+      {
+        input >> origin[i][j];
+        if (!input)
+        {
+          std::cerr << "Incorrect input!\n";
+          zakozhurnikova::freeMatrix(matrix, rows);
+          zakozhurnikova::freeMatrix(origin, rows);
+          return 1;
+        }
+      }
+    }
+
+    for (int i = 0; i < rows; ++i)
+    {
+      for (int j = 0; j < cols; ++j)
+      {
+        std::cout << origin[i][j] << ' ';
+      }
+      std::cout << '\n';
+    }
+    std::cout << '\n';
+    zakozhurnikova::substractMatrix(origin, matrix, rows, cols);
+
+    for (int i = 0; i < rows; ++i)
+    {
+      for (int j = 0; j < cols; ++j)
+      {
+        std::cout << origin[i][j] << ' ';
+      }
+        std::cout << '\n';
+    }
+    zakozhurnikova::freeMatrix(matrix, rows);
+    zakozhurnikova::freeMatrix(origin, rows);
   }
+  input.close();
   return 0;
 }
 

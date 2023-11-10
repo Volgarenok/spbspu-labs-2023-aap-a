@@ -94,3 +94,13 @@ void zakozhurnikova::fillMatrix(int **&matrix, int rows, int cols)
   return;
 }
 
+void zakozhurnikova::substractMatrix(int original[], int substract[], int rows, int cols)
+{
+  for (int i = 0; i < rows; i++)
+  {
+    for (int j = 0; j < cols; j++)
+    {
+      original[i*cols + j] -= substract[i*cols + j];
+    }
+  }
+}
