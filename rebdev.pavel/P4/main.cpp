@@ -44,7 +44,7 @@ int main(int argc, char ** argv)
   {
     inputFile.close();
     //std::cerr << "matrix size can't be [0][0]!";
-    return ((rows || colums) == 0) ? 0 : 2;
+    return (((rows || colums) == 0) ? 0 : 2);
   }
 
   if (rows > std::numeric_limits<long long int>::max()/colums)

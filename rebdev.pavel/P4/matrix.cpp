@@ -1,4 +1,5 @@
 #include <limits>
+#include <iostream>
 #include "matrix.hpp"
 #include "forFile.hpp"
 
@@ -15,53 +16,30 @@ long long int rebdev::localMax(long long int * arr, long long int rows, long lon
 {
   long long int numberOfLocalMax = 0;
   bool isLocalMax = 1;
-  for (long long int i = 0; i < (colums * rows); ++i)
+  for (long long int i = 0; i < (colums * (rows-1)); ++i)
   {
-    isLocalMax = 1;
-    for (long long int rowIndex = -1; rowIndex <= 1; ++rowIndex)
+    if (((i % colums) != 0) && ((i % colums) != (colums - 1)) && (i > (colums-1)))
     {
-      for (long long int columIndex = -1; columIndex <= 1; ++columIndex)
+      isLocalMax = 1;
+      for (long long int rowIndex = -1; rowIndex <= 1; ++rowIndex)
       {
-        //Проверка, является ли номер элемента корректным
-        if(isNumberOfElementIsCorrect(i, columIndex, rowIndex, rows, colums) == 1)
+        for (long long int columIndex = -1; columIndex <= 1; ++columIndex)
         {
-          if (arr[i] <= arr[i + colums * rowIndex + columIndex])
+          if ((rowIndex != 0) && (columIndex != 0))
           {
-            isLocalMax = 0;
-            columIndex = 2;
-            rowIndex = 2;
-            break;
+            if (arr[i] <= arr[i + colums * rowIndex + columIndex])
+            {
+              isLocalMax = 0;
+              columIndex = 2;
+              rowIndex = 2;
+              break;
+            }
           }
         }
       }
-    }
-    numberOfLocalMax += isLocalMax;
-  }
-
-  return numberOfLocalMax * ((rows > 1) || (colums > 1));
-}
-
-bool rebdev::isNumberOfElementIsCorrect(long long int itemOfNumber, long long int columIndex,
-  long long int rowIndex, long long int rows, long long int colums)
-{
-  if ((columIndex == 0) && (rowIndex == 0))
-  {
-    return 0;
-  }
-
-  if ((itemOfNumber + colums * rowIndex + columIndex) >= 0)
-  {
-    if ((itemOfNumber + colums * rowIndex + columIndex) < (colums * rows))
-    {
-      if (!(((itemOfNumber % colums) == 0) && (columIndex == -1)))
-      {
-        if (!(((itemOfNumber % colums) == (colums - 1)) && (columIndex == 1)))
-        {
-          return 1;
-        }
-      }
+      numberOfLocalMax += isLocalMax;
     }
   }
 
-  return 0;
+  return numberOfLocalMax;
 }
