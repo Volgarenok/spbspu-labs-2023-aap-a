@@ -41,11 +41,6 @@ int main(int argc, char * argv[])
     std::cerr << "Cannot read a number\n";
     return 2;
   }
-  if (rows == 0 and cols == 0)
-  {
-    std::cerr << "Lack of data\n";
-    return 2;
-  }
   if (rows < 1 or cols < 1)
   {
     return 0;
