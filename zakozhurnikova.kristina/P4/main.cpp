@@ -41,14 +41,6 @@ int main(int argc, char * argv[])
       }
     }
     zakozhurnikova::substractMatrix(original, matrix, rows, cols);
-    for (int i = 0; i < rows; i++)
-    {
-      for (int j = 0; j < cols; j++)
-      {
-        std::cout << original[i*rows + j] << ' ';
-      }
-      std::cout << '\n';
-    }
   }
   else
   {
@@ -86,25 +78,8 @@ int main(int argc, char * argv[])
       }
     }
 
-    for (int i = 0; i < rows; ++i)
-    {
-      for (int j = 0; j < cols; ++j)
-      {
-        std::cout << origin[i][j] << ' ';
-      }
-      std::cout << '\n';
-    }
-    std::cout << '\n';
     zakozhurnikova::substractMatrix(origin, matrix, rows, cols);
 
-    for (int i = 0; i < rows; ++i)
-    {
-      for (int j = 0; j < cols; ++j)
-      {
-        std::cout << origin[i][j] << ' ';
-      }
-        std::cout << '\n';
-    }
     zakozhurnikova::freeMatrix(matrix, rows);
     zakozhurnikova::freeMatrix(origin, rows);
   }
