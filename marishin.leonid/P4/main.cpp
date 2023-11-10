@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main()
+int main(int argc, char* argv[]))
 {
   size_t rows = 0;
   size_t cols = 0;
