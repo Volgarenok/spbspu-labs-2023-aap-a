@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 {
   if (argc != 4)
   {
-    std::cerr << "Bad input arguments\n";
+    //std::cerr << "Bad input arguments\n";
     return 1;
   }
 
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
   }
   catch (...)
   {
-    std::cerr << "Cannot parse values\n";
+    //std::cerr << "Cannot parse values\n";
     return 1;
   }
 
@@ -41,7 +41,7 @@ int main(int argc, char** argv)
       input >> rows;
       if (!input)
       {
-        std::cerr << "Cannot parse number of column or rows\n";
+        //std::cerr << "Cannot parse number of column or rows\n";
         return 2;
       }
 
@@ -52,7 +52,7 @@ int main(int argc, char** argv)
         input >> number;
         if (!input)
         {
-          std::cerr << "Cannot parse number from file\n";
+          //std::cerr << "Cannot parse number from file\n";
           return 2;
         }
         array[i] = number;
@@ -76,7 +76,7 @@ int main(int argc, char** argv)
 
     if (!input)
     {
-      std::cerr << "Cannot parse number of column or rows\n";
+      //std::cerr << "Cannot parse number of column or rows\n";
       return 2;
     }
 
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
     numOfElements = inputArray(input, array, (rows * cols), (rows * cols));
     if (numOfElements != (rows * cols))
     {
-      std::cerr << "Cannot parse numbers from file\n";
+      //std::cerr << "Cannot parse numbers from file\n";
       delete [] array;
       return 2;
     }
@@ -101,7 +101,7 @@ int main(int argc, char** argv)
   }
   else
   {
-    std::cerr << "Cannot parse values\n";
+    //std::cerr << "Cannot parse values\n";
     return 1;
   }
 }
