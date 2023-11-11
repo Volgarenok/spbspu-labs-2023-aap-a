@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
   {
     const int arraySize = 10000;
     int matrix[arraySize]{};
-    if (arrayCheck(input, matrix, rows, cols, num) == 0)
+    if (arrayCheck(input, matrix, rows, cols, num))
     {
       matrixTransformation(matrix, rows, cols);
       std::ofstream output(argv[3]);
@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
   else if (num == 2)
   {
     int* matrix = new int[rows * cols];
-    if (arrayCheck(input, matrix, rows, cols, num) == 0)
+    if (arrayCheck(input, matrix, rows, cols, num))
     {
       matrixTransformation(matrix, rows, cols);
       std::ofstream output(argv[3]);

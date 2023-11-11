@@ -1,6 +1,6 @@
 #include "arraycheck.hpp"
 
-int marishin::arrayCheck(std::ifstream& input, int* matrix, int rows, int cols, int num)
+bool marishin::arrayCheck(std::istream& input, int* matrix, int rows, int cols, int num)
 {
   if (num == 1)
   {
@@ -8,10 +8,10 @@ int marishin::arrayCheck(std::ifstream& input, int* matrix, int rows, int cols, 
     {
       if (!(input >> matrix[i]))
       {
-        return 1;
+        return false;
       }
     }
-    return 0;
+    return true;
   }
   else
   {
@@ -19,9 +19,9 @@ int marishin::arrayCheck(std::ifstream& input, int* matrix, int rows, int cols, 
     {
       if (!(input >> matrix[i]))
       {
-        return 1;
+        return false;
       }
     }
-    return 0;
+    return true;
   }
 }
