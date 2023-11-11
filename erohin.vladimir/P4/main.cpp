@@ -4,8 +4,8 @@
 
 namespace erohin
 {
-  void circleFill(int (&matrix)[10000], size_t rows, size_t cols);
-  void dynCircleFill(int * matrix, size_t rows, size_t cols);
+  void statCircleFill(int (&matrix)[10000], const size_t & rows, const size_t & cols);
+  void dynCircleFill(int * matrix, const size_t & rows, const size_t & cols);
 }
 
 int main(int argc, char * argv[])
@@ -60,7 +60,7 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid value of matrix element\n";
       return 2;
     }
-    erohin::circleFill(matrix, rows, cols);
+    erohin::statCircleFill(matrix, rows, cols);
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
     for (size_t i = 0; i < rows; ++i)
@@ -114,7 +114,7 @@ int main(int argc, char * argv[])
   }
 }
 
-void erohin::circleFill(int (&matrix)[10000], size_t rows, size_t cols)
+void erohin::statCircleFill(int (&matrix)[10000], const size_t & rows, const size_t & cols)
 {
   size_t dist_edge_rows = 0;
   size_t dist_edge_cols = 0;
@@ -130,7 +130,7 @@ void erohin::circleFill(int (&matrix)[10000], size_t rows, size_t cols)
   return;
 }
 
-void erohin::dynCircleFill(int * matrix, size_t rows, size_t cols)
+void erohin::dynCircleFill(int * matrix, const size_t & rows, const size_t & cols)
 {
   size_t dist_edge_rows = 0;
   size_t dist_edge_cols = 0;
