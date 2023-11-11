@@ -1,5 +1,6 @@
-#ifndef CIRCLE_FILL
-#define CIRCLE_FILL
+#ifndef CIRCLE_FILL_HPP
+#define CIRCLE_FILL_HPP
+
 #include <cstddef>
 namespace erohin
 {

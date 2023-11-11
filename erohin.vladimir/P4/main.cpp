@@ -1,16 +1,11 @@
 #include <iostream>
-#include <string>
+#include <cstdlib>
 #include <fstream>
 #include "circle_fill.hpp"
 
-namespace erohin
-{
-  void statCircleFill(int (&matrix)[10000], const size_t & rows, const size_t & cols);
-  void dynCircleFill(int * matrix, const size_t & rows, const size_t & cols);
-}
-
 int main(int argc, char * argv[])
 {
+  using namespace erohin;
   if (argc != 4)
   {
     std::cerr << "Wrong number of line arguments\n";
@@ -19,7 +14,7 @@ int main(int argc, char * argv[])
   int num = 0;
   try
   {
-    num = std::stoi(argv[1]);
+    num = std::stoll(argv[1]);
   }
   catch (const std::out_of_range &)
   {
@@ -61,7 +56,7 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid value of matrix element\n";
       return 2;
     }
-    erohin::statCircleFill(matrix, rows, cols);
+    statCircleFill(matrix, rows, cols);
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
     for (size_t i = 0; i < rows; ++i)
@@ -99,7 +94,7 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid value of matrix element\n";
       return 2;
     }
-    erohin::dynCircleFill(matrix, rows, cols);
+    dynCircleFill(matrix, rows, cols);
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
     for (size_t i = 0; i < rows; ++i)
