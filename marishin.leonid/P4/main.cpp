@@ -37,5 +37,17 @@ int main(int argc, char* argv[])
   }
   size_t rows = 0;
   size_t cols = 0;
-  
+  std::ifstream inputFile(argv[2]);
+  input >> rows >> cols;
+  if (!input)
+  {
+    std::cerr << "The contents of the file cannot be interpreted\n";
+    return 2;
+  }
+  if (num == 1)
+  {
+    const arraySize = 10000;
+    int matrix = [arraySize];
+    
+  }
 }
