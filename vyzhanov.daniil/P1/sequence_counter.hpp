@@ -5,14 +5,13 @@
 
 namespace vyzhanov
 {
-  struct SequenceCounter
+  struct CountAfterMax
   {
-    SequenceCounter();
+    CountAfterMax();
     void operator()(int num);
     size_t operator()() const;
   private:
-   size_t count;
-   int  maxi_num, after_max;
+   int  maxi_num_, after_max_;
   };
 }
 #endif

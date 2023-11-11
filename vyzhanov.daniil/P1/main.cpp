@@ -1,15 +1,14 @@
-#include <iostream>
 #include "sequence_counter.hpp"
-#include "frist_second_sum.hpp"
+#include "first_second_sum.hpp"
 #include <stdexcept>
+#include <iostream>
 
 int main()
 {
   int num = 0;
   using namespace vyzhanov;
-  using namespace vyzhanov1;
-  SequenceCounter counter;
-  Sum sum;
+  CountAfterMax counter;
+  SumDup sum;
   do
   {
     std::cin >> num;
@@ -34,20 +33,16 @@ int main()
     }
   }
   while (num != 0);
-
-  if (num == 0)
+  try
   {
-    try
-    {
-      counter(num);
-      sum(num);
-    }
-    catch (const std::exception & e)
-    {
-      std::cerr << "Error: " << e.what() << "\n";
-      return 2;
-    }
-    std::cout << counter() << "\n";
-    std::cout << sum() << "\n";
+    counter();
+    sum();
   }
+  catch (const std::exception & e)
+  {
+    std::cerr << "Error: " << e.what() << "\n";
+    return 2;
+  }
+  std::cout << counter() << "\n";
+  std::cout << sum() << "\n";
 }
