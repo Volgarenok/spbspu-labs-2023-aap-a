@@ -71,7 +71,7 @@ int main(int argc, char * argv[])
     }
     output.close();
   }
-  else if (num == 2) //handling ising dynamic array
+  else if (num == 2) //handling using dynamic array
   {
     return 0;
   }
@@ -79,5 +79,16 @@ int main(int argc, char * argv[])
 
 void erohin::circleFill(int (&matrix)[10000], size_t rows, size_t cols)
 {
+  size_t dist_edge_rows = 0;
+  size_t dist_edge_cols = 0;
+  for (size_t i = 0; i < rows; ++i)
+  {
+    dist_edge_rows = std::min(i, rows - i - 1);
+    for (size_t j = 0; j < cols; ++j)
+    {
+      dist_edge_cols = std::min(j, cols - j - 1);
+      matrix[rows * i + j] += std::min(dist_edge_rows, dist_edge_cols);
+    }
+  }
   return;
 }
