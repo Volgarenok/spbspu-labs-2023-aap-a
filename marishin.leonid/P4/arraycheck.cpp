@@ -1,27 +1,27 @@
 #include "arraycheck.hpp"
 
-bool marishin::arrayCheck(std::istream& n, int* matrix, int rows, int cols, int num)
+int marishin::arrayCheck(std::ifstream& input, int* matrix, int rows, int cols, int num)
 {
   if (num == 1)
   {
     for (int i = 0; i < rows * cols; ++i)
     {
-      if (!(n >> matrix[i]))
+      if (!(input >> matrix[i]))
       {
-        return false;
+        return 1;
       }
-      return true;
     }
+    return 0;
   }
   else
   {
     for (int i = 0; i < rows * cols; ++i)
     {
-      if (!(n >> matrix[i]))
+      if (!(input >> matrix[i]))
       {
-        return false;
+        return 1;
       }
-      return true;
     }
+    return 0;
   }
 }

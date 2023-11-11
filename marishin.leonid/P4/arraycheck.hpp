@@ -3,6 +3,6 @@
 #include <fstream>
 namespace marishin
 {
-  bool arrayCheck(std::istream& n, int* matrix, int rows, int cols, int num);
+  int arrayCheck(std::ifstream& input, int* matrix, int rows, int cols, int num);
 }
 #endif
