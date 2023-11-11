@@ -73,6 +73,30 @@ int main(int argc, char * argv[])
   }
   else if (num == 2) //handling using dynamic array
   {
+    int * matrix = nullptr;
+    try
+    {
+      matrix = new int[rows * cols];
+    }
+    catch (const std::bad_alloc &)
+    {
+      delete[] matrix;
+      std::cerr << "Error of allocation memory in free store\n";
+      return 3;
+    }
+    for (size_t i = 0; i < rows; ++i)
+    {
+      for (size_t j = 0; j < cols; ++j)
+      {
+        input >> matrix[rows * i + j];
+      }
+    }
+    input.close();
+    if (!input)
+    {
+      std::cerr << "Invalid value of matrix element\n";
+      return 2;
+    }
     return 0;
   }
 }
