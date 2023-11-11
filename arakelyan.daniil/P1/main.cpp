@@ -1,3 +1,4 @@
+#include <ios>
 #include <iostream>
 #include "counterofnums.hpp"
 
@@ -8,7 +9,7 @@ int main()
   using namespace arakelyan;
   CounterOfNumsThatDevideByThePrev counter;
 
-  while (currentNum != 0)
+  do
   {
     std::cin >> currentNum;
     if (!std::cin)
@@ -16,17 +17,20 @@ int main()
       std::cerr << "Enter num!\n";
       return 1;
     }
-    try
+    if (currentNum != 0)
     {
-      counter(currentNum);
-    }
-    catch (const std::exception & e)
-    {
-      std::cout << "Error: " << e.what() << "\n";
-      return 2;
+      try
+      {
+        counter(currentNum);
+      }
+      catch (const std::exception & e)
+      {
+        std::cout << "Error: " << e.what() << "\n";
+        return 2;
+      }
     }
   }
-
+  while (currentNum != 0);
 
   try {
     std::cout << counter() << "\n";

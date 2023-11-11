@@ -1,4 +1,3 @@
-#include <iostream>
 #include "counterofnums.hpp"
 #include <limits>
 #include <stdexcept>
@@ -16,23 +15,20 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
   currentNum_ = current;
   size_t maxSize = std::numeric_limits< size_t >::max();
 
-  if (currentNum_ != 0)
+  if ((pastNum_ != 0) && (currentNum_ % pastNum_ == 0))
   {
-    if ((pastNum_ != 0) && (currentNum_ % pastNum_ == 0))
-    {
-      ++count_;
-    }
-    pastNum_ = currentNum_;
-    if (count_ >= maxSize)
-    {
-      throw std::logic_error("Sequence is too long!");
-    }
+    ++count_;
+  }
+  pastNum_ = currentNum_;
+  if (count_ >= maxSize)
+  {
+    throw std::logic_error("Sequence is too long!");
   }
 }
 
 size_t arakelyan::CounterOfNumsThatDevideByThePrev::operator()() const
 {
-  if ((length_ == 1 && currentNum_ == 0) || (length_ == 2 && currentNum_ == 0))
+  if ((length_ == 1 && pastNum_ == 0) || (length_ == 0) || (length_ == 1 && count_ == 0))
   {
     throw std::logic_error("Sequence is too short!");
   }
