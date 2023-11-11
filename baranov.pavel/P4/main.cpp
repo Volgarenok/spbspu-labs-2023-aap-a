@@ -24,7 +24,7 @@ int maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
     current_sum = 0;
     for (int j = 0; j <= i; ++j)
     {
-      current_sum += matrix[side * (i - j) + j];
+      current_sum += matrix[i * columns - j * columns + j];
     }
     if (current_sum > result)
     {
@@ -37,7 +37,7 @@ int maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
     current_sum = 0;
     for (int j = 0; j < side - i; j++)
     {
-      current_sum += matrix[side * i + (side - 1) + j * side - j];
+      current_sum += matrix[i * columns + (side - 1) + j * columns - j];
     }
     if (current_sum > result)
     {
