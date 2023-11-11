@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
+#include <stdexcept>
 #include "circle_fill.hpp"
 
 int main(int argc, char * argv[])
@@ -56,7 +57,15 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid value of matrix element\n";
       return 2;
     }
-    statCircleFill(matrix, rows, cols);
+    try
+    {
+      statCircleFill(matrix, rows, cols);
+    }
+    catch (const std::exception e)
+    {
+      std::cerr << e.what() << "\n";
+      return 4;
+    }
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
     for (size_t i = 0; i < rows; ++i)
@@ -94,7 +103,15 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid value of matrix element\n";
       return 2;
     }
-    dynCircleFill(matrix, rows, cols);
+    try
+    {
+      dynCircleFill(matrix, rows, cols);
+    }
+    catch (const std::exception e)
+    {
+      std::cerr << e.what() << "\n";
+      return 4;
+    }
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
     for (size_t i = 0; i < rows; ++i)
