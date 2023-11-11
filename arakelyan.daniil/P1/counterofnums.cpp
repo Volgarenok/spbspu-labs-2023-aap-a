@@ -13,13 +13,14 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
 {
   currentNum_ = current;
   size_t maxSize = std::numeric_limits< size_t >::max();
-  if (length_ == maxSize)
-  {
-    throw std::logic_error("Sequence is too long!");
-  }
+
   length_++;
   if ((pastNum_ != 0) && (current % pastNum_ == 0))
   {
+    if (count_ == maxSize)
+    {
+      throw std::logic_error("Sequence is too long!");
+    }
     ++count_;
   }
 
