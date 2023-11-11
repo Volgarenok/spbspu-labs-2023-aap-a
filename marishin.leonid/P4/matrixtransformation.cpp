@@ -18,14 +18,14 @@ void marishin::matrixTransformation(int* matrix, int rows, int cols)
     leftCol++;
     for (int col = leftCol; col <= rightCol; col++)
     {
-            matrix[topRow * cols + col] -= count;
-            ++count;
+      matrix[topRow * cols + col] -= count;
+      ++count;
     }
     topRow++;
     for (int row = topRow; row <= bottomRow; row++)
     {
-            matrix[row * cols + rightCol] -= count;
-            ++count;
+      matrix[row * cols + rightCol] -= count;
+      ++count;
     }
     rightCol--;
     if (topRow <= bottomRow)
