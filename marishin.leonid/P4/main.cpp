@@ -48,6 +48,15 @@ int main(int argc, char* argv[])
   {
     const arraySize = 10000;
     int matrix = [arraySize];
-    
+    if (arrayCheck(input, matrix, rows, cols))
+    {
+      /...
+      return 0;
+    }
+    else
+    {
+      std::cerr << "The contents of the file cannot be interpreted\n";
+      return 2;
+    }
   }
 }
