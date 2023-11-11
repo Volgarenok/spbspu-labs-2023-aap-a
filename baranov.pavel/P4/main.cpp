@@ -86,7 +86,6 @@ int main(int argc, char ** argv)
       return 2;
     }
 
-    int result = 0;
     if (task == 1)
     {
       int matrix[rows * columns] = {0};
@@ -100,6 +99,22 @@ int main(int argc, char ** argv)
         return 2;
       }
       std::cout << maxSumDiagonal(matrix, rows, columns) << '\n';
+    }
+    else if (task == 2)
+    {
+      int * matrix = new int[rows * columns];
+      try
+      {
+        inputMatrix(input, matrix, rows * columns);
+      }
+      catch (...)
+      {
+        std::cerr << "Can not read matrix\n";
+        delete[] matrix;
+        return 2;
+      }
+      std::cout << maxSumDiagonal(matrix, rows, columns) << '\n';
+      delete[] matrix;
     }
   }
 }
