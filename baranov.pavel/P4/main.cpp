@@ -19,10 +19,10 @@ int maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
   int result = 0;
   int current_sum = 0;
 
-  for (int i = 0; i < (side - 1); ++i)
+  for (unsigned int i = 0; i < (side - 1); ++i)
   {
     current_sum = 0;
-    for (int j = 0; j <= i; ++j)
+    for (unsigned int j = 0; j <= i; ++j)
     {
       current_sum += matrix[i * columns - j * columns + j];
     }
@@ -32,10 +32,10 @@ int maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
     }
   }
 
-  for (int i = 1; i < side; ++i)
+  for (unsigned int i = 1; i < side; ++i)
   {
     current_sum = 0;
-    for (int j = 0; j < side - i; j++)
+    for (unsigned int j = 0; j < side - i; j++)
     {
       current_sum += matrix[i * columns + (side - 1) + j * columns - j];
     }
@@ -77,44 +77,50 @@ int main(int argc, char ** argv)
 
   unsigned int rows = 0;
   unsigned int columns = 0;
+
+  std::fstream input(argv[2]);
+  input >> rows >> columns;
+  if (!input)
   {
-    std::fstream input(argv[2]);
-    input >> rows >> columns;
-    if (!input)
+    std::cerr << "Incorrect parametrs for matrix\n";
+    return 2;
+  }
+
+  int result = 0;
+  if (task == 1)
+  {
+    int matrix[rows * columns] = {0};
+    try
     {
-      std::cerr << "Incorrect parametrs for matrix\n";
+      inputMatrix(input, matrix, rows * columns);
+    }
+    catch (...)
+    {
+      std::cerr << "Can not read matrix\n";
       return 2;
     }
-
-    if (task == 1)
+    result = maxSumDiagonal(matrix, rows, columns);
+  }
+  else if (task == 2)
+  {
+    int * matrix = new int[rows * columns];
+    try
     {
-      int matrix[rows * columns] = {0};
-      try
-      {
-        inputMatrix(input, matrix, rows * columns);
-      }
-      catch (...)
-      {
-        std::cerr << "Can not read matrix\n";
-        return 2;
-      }
-      std::cout << maxSumDiagonal(matrix, rows, columns) << '\n';
+      inputMatrix(input, matrix, rows * columns);
     }
-    else if (task == 2)
+    catch (...)
     {
-      int * matrix = new int[rows * columns];
-      try
-      {
-        inputMatrix(input, matrix, rows * columns);
-      }
-      catch (...)
-      {
-        std::cerr << "Can not read matrix\n";
-        delete[] matrix;
-        return 2;
-      }
-      std::cout << maxSumDiagonal(matrix, rows, columns) << '\n';
+      std::cerr << "Can not read matrix\n";
       delete[] matrix;
+      return 2;
     }
+    result = maxSumDiagonal(matrix, rows, columns);
+    delete[] matrix;
+  }
+
+  {
+    std::ofstream output(argv[3]);
+    output << result;
   }
 }
+
