@@ -14,12 +14,25 @@ int main(int argc, char * argv[])
   }
   catch (const std::out_of_range &)
   {
-    std::cerr << "Number is out of range\n";
-    return 3;
+    std::cerr << "Value of first CLA is too large\n";
+    return 1;
   }
   catch (const std::invalid_argument &)
   {
-    std::cerr << "Cannot parse a value\n";
-    return 3;
+    std::cerr << "First argument is not a number\n";
+    return 1;
+  }
+  if (num > 2)
+  {
+    std::cerr << "Wrong task number\n";
+    return 1;
+  }
+  if (num == 1) //handling using static array
+  {
+    return 0;
+  }
+  else if (num == 2) //handling ising dynamic array
+  {
+    return 0;
   }
 }
