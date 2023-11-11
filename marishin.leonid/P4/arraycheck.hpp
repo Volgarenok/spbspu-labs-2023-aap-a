@@ -1,8 +1,8 @@
-#ifndef ARRAYCHECK_HPP
-#define ARRAYCHECK_HPP
-#include <istream>
+#ifndef ARRAY_CHECK_HPP
+#define ARRAY_CHECK_HPP
+#include <fstream>
 namespace marishin
 {
-  bool arrayCheck(std::istream& n, int* matrix, size_t rows, size_t cols);
+  bool arrayCheck(std::istream& n, int* matrix, int rows, int cols, int num);
 }
 #endif
