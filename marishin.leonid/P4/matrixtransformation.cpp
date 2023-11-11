@@ -42,9 +42,9 @@ void marishin::matrixTransformation(int* matrix, int rows, int cols)
 
 void marishin::matrixEntry(std::ofstream& b, int* matrix, int rows, int cols)
 {
-  b << rows << cols;
+  b << rows << " " << cols;
   for (int i = 0; i < rows * cols; ++i)
   {
-    b << matrix[i];
+    b << " " << matrix[i];
   }
 }
