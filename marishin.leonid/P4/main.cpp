@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "arraycheck.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -47,10 +48,10 @@ int main(int argc, char* argv[])
   if (num == 1)
   {
     const arraySize = 10000;
-    int matrix = [arraySize];
+    int matrix = [arraySize]{};
     if (arrayCheck(input, matrix, rows, cols))
     {
-      /...
+      // ....
       return 0;
     }
     else
