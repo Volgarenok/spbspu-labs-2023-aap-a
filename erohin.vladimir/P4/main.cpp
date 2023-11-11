@@ -59,9 +59,9 @@ int main(int argc, char * argv[])
     }
     try
     {
-      statCircleFill(matrix, rows, cols);
+      circleFill(matrix, rows, cols);
     }
-    catch (const std::exception e)
+    catch (const std::exception & e)
     {
       std::cerr << e.what() << "\n";
       return 4;
@@ -105,9 +105,9 @@ int main(int argc, char * argv[])
     }
     try
     {
-      dynCircleFill(matrix, rows, cols);
+      circleFill(matrix, rows, cols);
     }
-    catch (const std::exception e)
+    catch (const std::exception & e)
     {
       std::cerr << e.what() << "\n";
       return 4;
