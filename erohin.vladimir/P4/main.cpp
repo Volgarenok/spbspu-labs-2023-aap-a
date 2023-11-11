@@ -2,6 +2,11 @@
 #include <string>
 #include <fstream>
 
+namespace erohin
+{
+  void circleFill(int (&matrix)[10000], size_t rows, size_t cols);
+}
+
 int main(int argc, char * argv[])
 {
   if (argc != 4)
@@ -54,10 +59,25 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid value of matrix element\n";
       return 2;
     }
-    return 0;
+    erohin:: circleFill(matrix, rows, cols);
+    std::ofstream output(argv[3]);
+    output << rows << " " << cols;
+    for (size_t i = 0; i < rows; ++i)
+    {
+      for (size_t j = 0; j < cols; ++j)
+      {
+        output << " " << matrix[rows * i + j];
+      }
+    }
+    output.close();
   }
   else if (num == 2) //handling ising dynamic array
   {
     return 0;
   }
+}
+
+void erohin::circleFill(int (&matrix)[10000], size_t rows, size_t cols)
+{
+  return;
 }
