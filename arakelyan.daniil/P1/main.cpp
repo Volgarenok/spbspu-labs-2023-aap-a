@@ -14,7 +14,7 @@ int main()
     std::cin >> currentNum;
     if (!std::cin)
     {
-      std::cerr << "Enter num!\n";
+      std::cerr << "It's not a sequence!\n";
       return 1;
     }
     if (currentNum != 0)
