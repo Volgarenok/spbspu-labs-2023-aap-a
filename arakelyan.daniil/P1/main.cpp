@@ -17,21 +17,21 @@ int main()
       std::cerr << "It's not a sequence!\n";
       return 1;
     }
-
-    if (currentNum != 0)
+    try
     {
-      try
+      if (currentNum != 0)
       {
-        counter(currentNum);
+        counter.counterOfSequence(currentNum);
       }
-      catch (const std::exception & e)
-      {
-        std::cout << "Error: " << e.what() << "\n";
-        return 2;
-      }
+      counter.chekZeroSequence(currentNum);
+    }
+    catch (const std::exception & e)
+    {
+      std::cout << "Error: " << e.what() << "\n";
+      return 2;
     }
   }
   while (currentNum != 0);
 
-  std::cout << "Answer: " << counter() << "\n";
+  std::cout << "Answer: " << counter.get_count() << "\n";
 }

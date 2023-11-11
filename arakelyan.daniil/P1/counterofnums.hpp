@@ -6,13 +6,14 @@ namespace arakelyan
   struct CounterOfNumsThatDevideByThePrev
   {
     CounterOfNumsThatDevideByThePrev();
-    void operator()(int curr);
-    size_t operator()() const;
+    void counterOfSequence(int curr);
+    void chekZeroSequence(size_t curr);
+    size_t get_count() const;
   private:
     size_t count_;
     int pastNum_;
     size_t length_;
-    int currentNum_;
+    size_t currentNum_;
   };
 }
 #endif

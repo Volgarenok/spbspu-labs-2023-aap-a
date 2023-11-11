@@ -9,24 +9,32 @@ arakelyan::CounterOfNumsThatDevideByThePrev::CounterOfNumsThatDevideByThePrev():
   currentNum_(0)
 {}
 
-void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
+void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
 {
-  length_++;
   currentNum_ = current;
   size_t maxSize = std::numeric_limits< size_t >::max();
-
-  if ((pastNum_ != 0) && (currentNum_ % pastNum_ == 0))
-  {
-    ++count_;
-  }
-  pastNum_ = currentNum_;
   if (length_ == maxSize)
   {
     throw std::logic_error("Sequence is too long!");
   }
+  length_++;
+  if ((pastNum_ != 0) && (current % pastNum_ == 0))
+  {
+    ++count_;
+  }
+
+  pastNum_ = current;
 }
 
-size_t arakelyan::CounterOfNumsThatDevideByThePrev::operator()() const
+void arakelyan::CounterOfNumsThatDevideByThePrev::chekZeroSequence(size_t curr)
+{
+  if (((curr != currentNum_) && length_ == 1))
+  {
+    throw std::logic_error("Sequence is toooo short!");
+  }
+}
+
+size_t arakelyan::CounterOfNumsThatDevideByThePrev::get_count() const
 {
   return count_;
 }
