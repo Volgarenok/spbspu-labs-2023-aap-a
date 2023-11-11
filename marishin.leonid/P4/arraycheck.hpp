@@ -3,6 +3,6 @@
 #include <istream>
 namespace marishin
 {
-  bool arrayCheck(std::istream& n, int* matrix, size_t* rows, size_t* cols);
+  bool marishin::arrayCheck(std::istream& n, int* matrix, size_t rows, size_t cols);
 }
 #endif
