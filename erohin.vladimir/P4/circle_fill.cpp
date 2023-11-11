@@ -25,7 +25,7 @@ void erohin::circleFill(int * matrix, const size_t & rows, const size_t & cols)
       {
         throw std::logic_error("Matrix element is too large");
       }
-      else if (matrix[rows * i + j] <  0 && (-erohin::module(matrix[rows * i + j])) > max_size - add)
+      else if (matrix[rows * i + j] < 0 && (-erohin::module(matrix[rows * i + j])) > max_size - add)
       {
         throw std::logic_error("Matrix element is too large");
       }

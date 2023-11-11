@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stdexcept>
 #include "circle_fill.hpp"
+#include "read_print_matrix.hpp"
 
 int main(int argc, char * argv[])
 {
@@ -44,19 +45,16 @@ int main(int argc, char * argv[])
   if (num == 1) //handling using static array
   {
     int matrix[10000] = {0};
-    for (size_t i = 0; i < rows; ++i)
+    try
     {
-      for (size_t j = 0; j < cols; ++j)
-      {
-        input >> matrix[rows * i + j];
-      }
+      readMatrix(input, matrix, rows, cols);
     }
-    input.close();
-    if (!input)
+    catch (const std::exception & e)
     {
-      std::cerr << "Invalid value of matrix element\n";
+      std::cerr << e.what() << "\n";
       return 2;
     }
+    input.close();
     try
     {
       circleFill(matrix, rows, cols);
@@ -68,13 +66,7 @@ int main(int argc, char * argv[])
     }
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
-    for (size_t i = 0; i < rows; ++i)
-    {
-      for (size_t j = 0; j < cols; ++j)
-      {
-        output << " " << matrix[rows * i + j];
-      }
-    }
+    printMatrix(output, matrix, rows, cols);
     output.close();
   }
   else if (num == 2) //handling using dynamic array
@@ -90,19 +82,17 @@ int main(int argc, char * argv[])
       std::cerr << "Error of allocation memory in free store\n";
       return 3;
     }
-    for (size_t i = 0; i < rows; ++i)
+    try
     {
-      for (size_t j = 0; j < cols; ++j)
-      {
-        input >> matrix[rows * i + j];
-      }
+      readMatrix(input, matrix, rows, cols);
     }
-    input.close();
-    if (!input)
+    catch (const std::exception & e)
     {
-      std::cerr << "Invalid value of matrix element\n";
+      delete[] matrix;
+      std::cerr << e.what() << "\n";
       return 2;
     }
+    input.close();
     try
     {
       circleFill(matrix, rows, cols);
@@ -114,13 +104,7 @@ int main(int argc, char * argv[])
     }
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
-    for (size_t i = 0; i < rows; ++i)
-    {
-      for (size_t j = 0; j < cols; ++j)
-      {
-        output << " " << matrix[rows * i + j];
-      }
-    }
+    printMatrix(output, matrix, rows, cols);
     output.close();
     delete[] matrix;
     return 0;
