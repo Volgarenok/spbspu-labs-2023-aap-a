@@ -24,7 +24,6 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::operator()(int current)
   {
     throw std::logic_error("Sequence is too long!");
   }
-  
 }
 
 size_t arakelyan::CounterOfNumsThatDevideByThePrev::operator()() const
