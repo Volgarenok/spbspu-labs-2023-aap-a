@@ -1,5 +1,5 @@
-#ifndef INPUTFILE_HPP
-#define INPUTFILE_HPP
+#ifndef INPUT_FILE_HPP
+#define INPUT_FILE_HPP
 
 #include <fstream>
 
