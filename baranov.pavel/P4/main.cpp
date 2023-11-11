@@ -1,51 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-
-void inputMatrix(std::istream & input, int * matrix, size_t size)
-{
-  for (size_t i = 0; i < size; ++i)
-  {
-    if (!(input >> matrix[i]))
-    {
-      throw std::length_error("Can not read matrix element");
-    }
-  }
-}
-
-int maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
-{
-  unsigned int side = std::min(rows, columns);
-  int result = 0;
-  int current_sum = 0;
-
-  for (unsigned int i = 0; i < (side - 1); ++i)
-  {
-    current_sum = 0;
-    for (unsigned int j = 0; j <= i; ++j)
-    {
-      current_sum += matrix[i * columns - j * columns + j];
-    }
-    if (current_sum > result)
-    {
-      result = current_sum;
-    }
-  }
-
-  for (unsigned int i = 1; i < side; ++i)
-  {
-    current_sum = 0;
-    for (unsigned int j = 0; j < side - i; j++)
-    {
-      current_sum += matrix[i * columns + (side - 1) + j * columns - j];
-    }
-    if (current_sum > result)
-    {
-      result = current_sum;
-    }
-  }
-  return result;
-}
+#include "inputMatrix.hpp"
+#include "maxSumDiagonal.hpp"
 
 int main(int argc, char ** argv)
 {
@@ -77,7 +34,6 @@ int main(int argc, char ** argv)
 
   unsigned int rows = 0;
   unsigned int columns = 0;
-
   std::fstream input(argv[2]);
   input >> rows >> columns;
   if (!input)
