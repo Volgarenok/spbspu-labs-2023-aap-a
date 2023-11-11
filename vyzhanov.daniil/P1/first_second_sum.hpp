@@ -12,7 +12,7 @@ namespace vyzhanov
     size_t operator()() const;
   private:
    size_t count_sum_;
-   int first_, second_, third_;
+   int num1_, num2_, num3_;
   };
 }
 #endif

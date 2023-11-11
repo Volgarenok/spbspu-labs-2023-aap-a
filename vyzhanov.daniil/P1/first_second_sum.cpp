@@ -5,19 +5,18 @@
 
 vyzhanov::SumDup::SumDup():
   count_sum_(0),
-  first_(0),
-  second_(0),
-  third_(0)
+  num1_(0),
+  num2_(0),
+  num3_(0)
 {}
 
 void vyzhanov::SumDup::operator()(int num)
 {
-  third_ = second_;
-  second_ = first_;
-  first_ = num;
+  num3_ = num2_;
+  num2_ = num1_;
+  num1_ = num;
   const size_t max_s = std::numeric_limits< size_t >::max();
-  if ((second_ > 0 && third_ > std::numeric_limits<int>::max() - second_) \
-  || (second_ < 0 && third_ < std::numeric_limits<int>::min() - second_))
+  if ((num2_ > 0 && num3_ > std::numeric_limits<int>::max() - num2_)  || (num2_ < 0 && num3_ < std::numeric_limits<int>::min() - num2_))
   {
     throw std::logic_error("Overflow!");
   }
@@ -27,7 +26,7 @@ void vyzhanov::SumDup::operator()(int num)
   }
   else if (count_sum_ < max_s)
   {
-    if (first_ == second_ + third_)
+    if (num1_ == num2_ + num3_)
     {
       ++count_sum_;
     }
@@ -35,7 +34,7 @@ void vyzhanov::SumDup::operator()(int num)
 }
 size_t vyzhanov::SumDup::operator()() const
 {
-  if (third_ == 0)
+  if (num3_ == 0)
   {
     throw std::logic_error("Sequence is too short!");
   }
