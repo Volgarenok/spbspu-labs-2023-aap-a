@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+
 int main(int argc, char * argv[])
 {
   if (argc != 4)
@@ -27,8 +29,31 @@ int main(int argc, char * argv[])
     std::cerr << "Wrong task number\n";
     return 1;
   }
+  size_t rows = 0;
+  size_t cols = 0;
+  std::ifstream input(argv[2]);
+  input >> rows >> cols;
+  if (!input)
+  {
+    std::cerr << "Cannot read a number of rows and columns\n";
+    return 2;
+  }
   if (num == 1) //handling using static array
   {
+    int matrix[10000] = {0};
+    for (size_t i = 0; i < rows; ++i)
+    {
+      for (size_t j = 0; j < cols; ++j)
+      {
+        input >> matrix[rows * i + j];
+      }
+    }
+    input.close();
+    if (!input)
+    {
+      std::cerr << "Invalid value of matrix element\n";
+      return 2;
+    }
     return 0;
   }
   else if (num == 2) //handling ising dynamic array
