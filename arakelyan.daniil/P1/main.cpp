@@ -1,24 +1,29 @@
+#include <ios>
 #include <iostream>
 #include "counterofnums.hpp"
 
 int main()
 {
-  int currentNum = 1;
+  int currentNum = 0;
 
   using namespace arakelyan;
   CounterOfNumsThatDevideByThePrev counter;
 
-  while (currentNum != 0)
+  do
   {
     std::cin >> currentNum;
     if (!std::cin)
     {
-      std::cerr << "Enter num!\n";
+      std::cerr << "It's not a sequence!\n";
       return 1;
     }
     try
     {
-      counter(currentNum);
+      if (currentNum != 0)
+      {
+        counter.counterOfSequence(currentNum);
+      }
+      counter.chekZeroSequence(currentNum);
     }
     catch (const std::exception & e)
     {
@@ -26,14 +31,7 @@ int main()
       return 2;
     }
   }
+  while (currentNum != 0);
 
-
-  try {
-    std::cout << counter() << "\n";
-  }
-  catch (const std::exception & e)
-  {
-    std::cout << "Error: " << e.what() << "\n";
-    return 2;
-  }
+  std::cout << "Answer: " << counter.get_count() << "\n";
 }
