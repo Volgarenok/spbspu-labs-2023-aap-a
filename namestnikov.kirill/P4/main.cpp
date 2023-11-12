@@ -123,7 +123,7 @@ int main(int argc, char ** argv)
     for (size_t i = 0; i < result; i = i + cols)
     {
       minRow[i]  = matrix[i];
-      for (size_t j = 0; j < cols; ++j)
+      for (int j = 0; j < cols; ++j)
       {
         if (matrix[i + j] < minRow[i])
         {
@@ -131,7 +131,7 @@ int main(int argc, char ** argv)
         }
       }
     }
-    for (size_t j = 0; j < cols; ++j)
+    for (int j = 0; j < cols; ++j)
     {
       maxCol[j] = matrix[j];
       for (size_t i = 0; i < result; i = i + cols)
@@ -145,7 +145,7 @@ int main(int argc, char ** argv)
     size_t count = 0;
     for (size_t i = 0; i < result; i = i + cols)
     {
-      for (size_t j = 0; j < cols; ++j)
+      for (int j = 0; j < cols; ++j)
       {
         if ((matrix[i + j] == minRow[i]) && (matrix[i + j] == maxCol[j]))
         {
