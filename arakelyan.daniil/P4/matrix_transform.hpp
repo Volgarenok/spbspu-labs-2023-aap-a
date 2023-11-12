@@ -3,6 +3,6 @@
 #include <cstddef>
 namespace ara
 {
-  double transformToSmoothMatrix(int * matrix, double * smoothed, size_t rows, size_t cols);
+  double transformToSmoothMatrix(int * matrix, double * smoothed, int rows, int cols);
 }
 #endif

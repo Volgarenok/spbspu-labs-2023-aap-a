@@ -1,13 +1,13 @@
 #include "matrix_transform.hpp"
 
-double ara::transformToSmoothMatrix(int * matrix, double * smooth, size_t rows, size_t cols)
+double ara::transformToSmoothMatrix(int * matrix, double * smooth, int rows, int cols)
 {
-  for (size_t i = 0; i < rows*cols; i++)
+  for (int i = 0; i < rows*cols; i++)
   {
     double sum = 0.0;
     size_t count = 0;
-    size_t row = i / cols;
-    size_t col = i % cols;
+    int row = i / cols;
+    int col = i % cols;
 
     // Перебираем соседние элементы
     for (int x = -1; x <= 1; x++)
@@ -16,8 +16,8 @@ double ara::transformToSmoothMatrix(int * matrix, double * smooth, size_t rows, 
       {
         if (!(x == 0 && y == 0))
         {
-          size_t newRow = row + x;
-          size_t newCol = col + y;
+          int newRow = row + x;
+          int newCol = col + y;
 
           if ((newRow >= 0) && (newCol >= 0))
           {

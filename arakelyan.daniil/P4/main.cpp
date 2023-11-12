@@ -39,8 +39,8 @@ int main (int argc, char * argv[])
     return 2;
   }
 
-  size_t rows = 0;
-  size_t cols = 0;
+  int rows = 0;
+  int cols = 0;
   input >> rows;
   input >> cols;
   if (!input)
