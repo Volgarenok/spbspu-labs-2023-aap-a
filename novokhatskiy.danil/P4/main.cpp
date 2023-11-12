@@ -74,7 +74,6 @@ int main(int argc, char * argv[])
   {
     std::ofstream output(argv[3]);
     output << result << "\n";
-    delete[] matrix;
   }
   return 0;
 }
