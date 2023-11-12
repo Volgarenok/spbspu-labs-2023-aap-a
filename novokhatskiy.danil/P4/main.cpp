@@ -46,10 +46,10 @@ int main(int argc, char * argv[])
     }
     else
     {
-      delete[] matrix;
       std::cerr << "Invalid matrix arguments\n";
       return 2;
     }
+    delete[] matrix;
   }
   if (num == 2)
   {
