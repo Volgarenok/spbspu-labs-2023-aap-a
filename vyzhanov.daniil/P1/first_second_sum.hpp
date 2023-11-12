@@ -11,8 +11,8 @@ namespace vyzhanov
     void operator()(int num);
     size_t operator()() const;
   private:
-   size_t count_sum_;
-   int num1_, num2_, num3_;
+    size_t count_sum_;
+    int num1_, num2_, num3_;
   };
 }
 #endif
