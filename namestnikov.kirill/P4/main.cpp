@@ -57,26 +57,8 @@ int main(int argc, char ** argv)
       }
     }
     std::ofstream output(argv[3]);
-    int * minRow = nullptr;
-    try
-    {
-      minRow = minRowArray(rows * cols, cols, matrix);
-    }
-    catch (const std::exception & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
-    int * maxCol = nullptr;
-    try
-    {
-      maxCol = maxColArray(rows * cols, cols, matrix);
-    }
-    catch (const std::exception & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
+    int * minRow = minRowArray(rows * cols, cols, matrix);
+    int * maxCol = maxColArray(rows * cols, cols, matrix);
     size_t count = 0;
     for (size_t i = 0; i < rows * cols; i = i + cols)
     {
@@ -106,26 +88,8 @@ int main(int argc, char ** argv)
       return 2;
     }
     std::ofstream output(argv[3]);
-    int * minRow = nullptr;
-    try
-    {
-      minRow = minRowArray(rows * cols, cols, matrix);
-    }
-    catch (const std::exception & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
-    int * maxCol = nullptr;
-    try
-    {
-      maxCol = maxColArray(rows * cols, cols, matrix);
-    }
-    catch (const std::exception & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
+    int * minRow = minRowArray(rows * cols, cols, matrix);
+    int * maxCol = maxColArray(rows * cols, cols, matrix);
     size_t count = 0;
     for (size_t i = 0; i < result; i = i + cols)
     {
