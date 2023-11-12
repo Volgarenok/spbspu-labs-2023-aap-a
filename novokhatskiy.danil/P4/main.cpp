@@ -46,6 +46,7 @@ int main(int argc, char * argv[])
     }
     else
     {
+      delete[] matrix;
       std::cerr << "Invalid matrix arguments\n";
       return 2;
     }
@@ -64,7 +65,6 @@ int main(int argc, char * argv[])
       std::cerr << "Incorrect matrix\n";
       return 2;
     }
-    delete[] matrix;
   }
   {
     std::ofstream output(argv[3]);
