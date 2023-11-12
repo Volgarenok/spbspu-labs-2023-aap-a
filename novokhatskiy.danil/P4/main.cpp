@@ -53,12 +53,6 @@ int main(int argc, char * argv[])
   if (num == 2)
   {
     int *matrix = new int[rows * cols];
-    if (!input)
-    {
-      std::cerr << "The file can not be read\n";
-      delete[] matrix;
-      return 2;
-    }
     if (inputfile(input, matrix, rows, cols, num))
     {
       result = searchMax(matrix, rows, cols);
@@ -70,6 +64,7 @@ int main(int argc, char * argv[])
       std::cerr << "Incorrect matrix\n";
       return 2;
     }
+    delete[] matrix;
   }
   {
     std::ofstream output(argv[3]);
