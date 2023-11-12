@@ -1,6 +1,6 @@
 #include "downtrimatrix.hpp"
 
-bool DownTriMatrix(size_t result, int rows, int cols, int * matrix)
+bool piyavkin::DownTriMatrix(size_t result, int rows, int cols, int * matrix)
 {
   if (rows == cols && rows > 1)
   {

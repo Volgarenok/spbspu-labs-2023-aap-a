@@ -1,6 +1,6 @@
 #include "nonzero.hpp"
 
-bool NonZero(size_t result, int * matrix)
+bool piyavkin::NonZero(size_t result, int * matrix)
 {
   for (size_t i = 0; i < result; ++i)
   {

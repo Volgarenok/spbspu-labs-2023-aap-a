@@ -7,6 +7,7 @@
 
 int main(int argc, char * argv[])
 {
+  using namespace piyavkin;
   if (argc != 4)
   {
     std::cerr << "Arguments entered incorrectly\n";
