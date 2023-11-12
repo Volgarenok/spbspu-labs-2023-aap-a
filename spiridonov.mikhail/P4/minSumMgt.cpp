@@ -4,7 +4,7 @@
 
 void spiridonov::readMatrix(std::ifstream& input, int * matrix, size_t rows, size_t cols)
 {
-  for (int i = 0; i < rows * cols; i++)
+  for (unsigned int i = 0; i < rows * cols; i++)
   {
     input >> matrix[i];
   }
