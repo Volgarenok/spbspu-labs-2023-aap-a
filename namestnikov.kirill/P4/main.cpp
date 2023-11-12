@@ -2,74 +2,9 @@
 #include <fstream>
 #include <cstdlib>
 #include <string>
-
-
-size_t inputArray(std::istream & in, int * a, size_t s, size_t toread)
-{
-  for (size_t i = 0; i < std::min(toread, s); ++i)
-  {
-    if (!(in >> a[i]))
-    {
-      return i;
-    }
-  }
-  return std::min(toread, s);
-}
-
-
-int * minRowArray(size_t result, size_t cols, int * matrix)
-{
-  int * minRow = nullptr;
-  try
-  {
-    minRow = new int[result];
-  }
-  catch (const std::bad_alloc &)
-  {
-    delete[] minRow;
-    throw;
-  }
-  for (size_t i = 0; i < result; i = i + cols)
-  {
-    minRow[i]  = matrix[i];
-    for (size_t j = 0; j < cols; ++j)
-    {
-      if (matrix[i + j] < minRow[i])
-      {
-        minRow[i] = matrix[i + j];
-      }
-    }
-  }
-  return minRow;
-}
-
-
-int * maxColArray(size_t result, size_t cols, int * matrix)
-{
-  int * maxCol = nullptr;
-  try
-  {
-    maxCol = new int[result];
-  }
-  catch (const std::bad_alloc &)
-  {
-    delete[] maxCol;
-    throw;
-  }
-  for (size_t j = 0; j < cols; ++j)
-  {
-    maxCol[j] = matrix[j];
-    for (size_t i = 0; i < result; i = i + cols)
-    {
-      if (matrix[j + i] > maxCol[j])
-      {
-        maxCol[j] = matrix[j + i];
-      }
-    }
-  }
-  return maxCol;
-}
-
+#include "min_row_array.hpp"
+#include "max_col_array.hpp"
+#include "input_array.hpp"
 
 int main(int argc, char ** argv)
 {
