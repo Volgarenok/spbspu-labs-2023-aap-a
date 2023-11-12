@@ -62,10 +62,10 @@ int main (int argc, char * argv[])
     double smoothed[10000] = {};
     ara::inputStatMatrix(input, matrix,rows*cols);
     ara::transformToSmoothMatrix(matrix,smoothed,rows,cols);
-    for (size_t i = 0; i < rows; ++i)
+    for (int i = 0; i < rows; ++i)
     {
       output << "| ";
-      for(size_t j = 0; j < cols; ++j)
+      for(int j = 0; j < cols; ++j)
       {
         output << std::fixed << std::setprecision(1) << " " <<
           smoothed[i * cols + j];
@@ -79,10 +79,10 @@ int main (int argc, char * argv[])
     double * smoothedMatrix = new double[rows*cols];
     ara::inputDynMatrix(input, matrix, rows*cols);
     ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-    for (size_t i = 0; i < rows; ++i)
+    for (int i = 0; i < rows; ++i)
     {
       output << "| ";
-      for(size_t j = 0; j < cols; ++j)
+      for(int j = 0; j < cols; ++j)
       {
         output << std::fixed << std::setprecision(1) << " " <<
           smoothedMatrix[i * cols + j];
