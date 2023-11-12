@@ -14,9 +14,9 @@ int main(int argc, char * argv[])
   int num = 0;
   try
   {
-    num = std::stoi(argv[1]);
+    num = std::stoll(argv[1]);
   }
-  catch(const std::out_of_range&))
+  catch(const std::out_of_range&)
   {
     std::cerr << "The value is out of range\n";
     return 1;
