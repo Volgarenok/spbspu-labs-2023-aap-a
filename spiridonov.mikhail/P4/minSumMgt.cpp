@@ -17,11 +17,11 @@ int spiridonov::getMinimumSum(int * matrix, unsigned int rows, unsigned int cols
 {
   int min_sum = matrix[cols - 1];
 
-  for (int i = 1; i < rows; i++)
+  for (unsigned int i = 1; i < rows; i++)
   {
     int sum = matrix[i * cols + cols - 1];
 
-    for (int j = 0; j < cols && i + j < rows; j++)
+    for (unsigned int j = 0; j < cols && i + j < rows; j++)
     {
       sum += matrix[(i + j) * cols + cols - 1 - j];
     }
@@ -32,11 +32,11 @@ int spiridonov::getMinimumSum(int * matrix, unsigned int rows, unsigned int cols
     }
   }
 
-  for (int i = 1; i < cols - 1; i++)
+  for (unsigned int i = 1; i < cols - 1; i++)
   {
     int sum = matrix[i + (cols - 1) * cols];
 
-    for (int j = 0; j < rows && i + j < cols; j++)
+    for (unsigned int j = 0; j < rows && i + j < cols; j++)
     {
       sum += matrix[(rows - 1 - j) * cols + i + j];
     }
