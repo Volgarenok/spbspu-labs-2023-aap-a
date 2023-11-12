@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
   {
     num = std::stoi(argv[1]);
   }
-  catch (const std::exception &)
+  catch (const std::exception & e)
   {
     std::cerr << "Error parsing first argument" << "\n";
     return 1;
@@ -57,9 +57,9 @@ int main(int argc, char* argv[])
     {
       spiridonov::readMatrix(input, matrix, rows, cols);
     }
-    catch (const std::logic_error &)
+    catch (const std::logic_error & e)
     {
-      std::cerr << "Failed to allocate memory for matrix: " << "\n";
+      std::cerr << e.what() << "\n";
       return 2;
     }
     min_sum = spiridonov::getMinimumSum(matrix, rows, cols);
@@ -72,9 +72,9 @@ int main(int argc, char* argv[])
     {
       spiridonov::readMatrix(input, matrix, rows, cols);
     }
-    catch (const std::logic_error &)
+    catch (const std::logic_error & e)
     {
-      std::cerr << "Failed to allocate memory for matrix: " << "\n";
+      std::cerr << "Failed to allocate memory for matrix: " << e.what() << "\n";
       delete[] matrix;
       return 2;
     }
