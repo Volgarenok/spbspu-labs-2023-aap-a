@@ -21,7 +21,7 @@ int main(int argc, char * argv[])
     std::cerr << "Incorrect argument of task number";
     return 1;
   }
-  if (num < 1 && num > 2)
+  if ((num < 1) || (num > 2))
   {
     std::cerr << "Incorret input the first argiment";
     return 1;
