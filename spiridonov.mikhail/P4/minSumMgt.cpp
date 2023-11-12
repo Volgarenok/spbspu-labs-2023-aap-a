@@ -1,25 +1,27 @@
 #include "getMinimumSum.hpp"
+#include "minSumMdg.hpp"
 #include <limits>
 
-void spiridonov::readMatrix(std::ifstream& input, int* matrix, size_t size)
+void spiridonov::readMatrix(std::ifstream& input, int * matrix, size_t rows, size_t cols)
 {
-  for (size_t i = 0; i < size; i++)
+  for (int i = 0; i < rows * cols; i++)
   {
     input >> matrix[i];
   }
 }
 
-int min_sum = std::numeric_limits<int>::max();
+int min_sum = 0;
+int sum = 0;
 
-size_t spiridonov::getMinimumSum(int * matrix, long long rows, long long cols)
+int spiridonov::getMinimumSum(int * matrix, unsigned int rows, unsigned int cols)
 {
   int min_sum = matrix[cols - 1];
 
-  for (long long i = 1; i < rows; i++)
+  for (int i = 1; i < rows; i++)
   {
     int sum = matrix[i * cols + cols - 1];
 
-    for (long long j = 0; j < cols && i + j < rows; j++)
+    for (int j = 0; j < cols && i + j < rows; j++)
     {
       sum += matrix[(i + j) * cols + cols - 1 - j];
     }
@@ -30,11 +32,11 @@ size_t spiridonov::getMinimumSum(int * matrix, long long rows, long long cols)
     }
   }
 
-  for (long long i = 1; i < cols - 1; i++)
+  for (int i = 1; i < cols - 1; i++)
   {
     int sum = matrix[i + (cols - 1) * cols];
 
-    for (long long j = 0; j < rows && i + j < cols; j++)
+    for (int j = 0; j < rows && i + j < cols; j++)
     {
       sum += matrix[(rows - 1 - j) * cols + i + j];
     }
