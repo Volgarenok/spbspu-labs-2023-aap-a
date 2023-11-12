@@ -19,11 +19,14 @@ double ara::transformToSmoothMatrix(int * matrix, double * smooth, size_t rows, 
           size_t newRow = row + x;
           size_t newCol = col + y;
 
-          if ((newRow >= 0) && (newCol >= 0) && ((newRow < rows) && (newCol < cols)))
+          if ((newRow >= 0) && (newCol >= 0))
           {
-            int index = newRow * cols + newCol;
-            sum += matrix[index];
-            count++;
+            if ((newRow < rows) && (newCol < cols))
+            {
+              int index = newRow * cols + newCol;
+              sum += matrix[index];
+              count++;
+            }
           }
         }
       }
