@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "searchMax.hpp"
 #include "inputfile.hpp"
 
@@ -33,34 +34,32 @@ int main(int argc, char * argv[])
     std::ifstream input(argv[2]);
     input >> rows >> cols;
     int matrix[10000];
-    for (int i = 0; i < cols * rows; i++)
+    if (inputfile(input, matrix, rows, cols, num))
     {
-      input >> matrix[i];
+      result = searchMax(matrix, rows, cols);
     }
-    if (!input)
+    else
     {
       std::cerr << "Invalid matrix arguments\n";
       return 2;
     }
-    result = searchMax(matrix, rows, cols);
   }
   if (num == 2)
   {
     std::ifstream input(argv[2]);
     input >> rows >> cols;
     int *matrix = new int[rows * cols];
-    if (!input)
+    if (inputfile(input, matrix, rows, cols, num))
     {
-      std::cerr << "Invalid matrix arguments\n";
+      result = searchMax(matrix, rows, cols);
+      delete[] matrix;
     }
-    if (inputfile(matrix, rows, cols,input) == 5)
+    else
     {
       std::cerr << "Incorrect matrix\n";
       delete[] matrix;
       return 2;
     }
-    result = searchMax(matrix, rows, cols);
-    delete[] matrix;
   }
   {
     std::ofstream output(argv[3]);
