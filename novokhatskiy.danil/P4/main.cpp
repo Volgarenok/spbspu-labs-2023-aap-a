@@ -49,7 +49,6 @@ int main(int argc, char * argv[])
       std::cerr << "Invalid matrix arguments\n";
       return 2;
     }
-    delete[] matrix;
   }
   if (num == 2)
   {
