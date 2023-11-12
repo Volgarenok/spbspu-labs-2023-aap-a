@@ -16,14 +16,14 @@ int main(int argc, char * argv[])
   {
     num = std::stoi(argv[1]);
   }
-  catch(const std::exception &e)
+  catch(const std::out_of_range&))
   {
-    std::cerr << "Incorrect argument of task number";
+    std::cerr << "The value is out of range\n";
     return 1;
   }
   catch(const std::invalid_argument&)
   {
-    srd::cerr << "This argument is not a number\n";
+    std::cerr << "This argument is not a number\n";
     return 1;
   }
   if ((num < 1) || (num > 2))
@@ -34,6 +34,7 @@ int main(int argc, char * argv[])
   int rows = 0;
   int cols = 0;
   int result = 0;
+  std::ifstream input(argv[2]);
   if (!input)
   {
     std::cerr << "The file can not be read\n";
