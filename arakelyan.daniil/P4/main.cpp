@@ -60,7 +60,7 @@ int main (int argc, char * argv[])
     if (!(input >> rows) || !(input >> cols))
     {
       std::cerr << "Cannot read input file\n";
-      return 2;
+      return 0;
     }
     if ((rows * cols == 0) || (rows + cols == 0))
     {
@@ -92,7 +92,7 @@ int main (int argc, char * argv[])
     if (!(input >> rows) || !(input >> cols))
     {
       std::cerr << "Cannot read input file\n";
-      return 2;
+      return 0;
     }
     if ((rows * cols == 0) || (rows + cols == 0))
     {
