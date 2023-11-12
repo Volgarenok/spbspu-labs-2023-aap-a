@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "searchMax.hpp"
 #include "inputfile.hpp"
 
@@ -16,15 +17,10 @@ int main(int argc, char * argv[])
   {
     num = std::stoll(argv[1]);
   }
-  catch(const std::out_of_range&)
+  catch(...)
   {
-    std::cerr << "The value is out of range\n";
-    return 1;
-  }
-  catch(const std::invalid_argument&)
-  {
-    std::cerr << "This argument is not a number\n";
-    return 1;
+    std::cerr << "Can not parse a valut\n";
+    return 2
   }
   if ((num < 1) || (num > 2))
   {
