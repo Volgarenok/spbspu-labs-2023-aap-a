@@ -20,7 +20,7 @@ int main(int argc, char * argv[])
   catch(...)
   {
     std::cerr << "Can not parse a valut\n";
-    return 2;
+    return 2
   }
   if ((num < 1) || (num > 2))
   {
@@ -31,6 +31,7 @@ int main(int argc, char * argv[])
   int cols = 0;
   int result = 0;
   std::ifstream input(argv[2]);
+  input >> rows >> cols;
   if (!input)
   {
     std::cerr << "The file can not be read\n";
@@ -38,8 +39,6 @@ int main(int argc, char * argv[])
   }
   if (num == 1)
   {
-    std::ifstream input(argv[2]);
-    input >> rows >> cols;
     int matrix[10000];
     if (inputfile(input, matrix, rows, cols, num))
     {
@@ -53,8 +52,6 @@ int main(int argc, char * argv[])
   }
   else if (num == 2)
   {
-    std::ifstream input(argv[2]);
-    input >> rows >> cols;
     int *matrix = new int[rows * cols];
     if (inputfile(input, matrix, rows, cols, num))
     {
@@ -63,8 +60,8 @@ int main(int argc, char * argv[])
     }
     else
     {
-      std::cerr << "Incorrect matrix\n";
       delete[] matrix;
+      std::cerr << "Incorrect matrix\n";
       return 2;
     }
   }

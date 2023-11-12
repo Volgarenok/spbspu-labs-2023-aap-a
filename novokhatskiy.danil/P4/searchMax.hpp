@@ -3,6 +3,6 @@
 #include <algorithm>
 namespace novokhatskiy
 {
-  int searchMax(const int matrix[], int rows, int cols);
+  int searchMax(int* matrix, int rows, int cols);
 }
 #endif
