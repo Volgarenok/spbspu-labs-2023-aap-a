@@ -102,8 +102,9 @@ int main(int argc, char* argv[])
     std::cerr << "Error: First number doesn't match\n";
     return 1;
   }
-
-  std::ofstream output(argv[3]);
-  output << count << '\n';
+  {
+    std::ofstream output(argv[3]);
+    output << count << '\n';
+  }
   return 0;
 }
