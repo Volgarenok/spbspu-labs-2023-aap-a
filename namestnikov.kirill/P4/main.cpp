@@ -3,40 +3,6 @@
 #include <cstdlib>
 #include <string>
 
-void freeMatrix(int ** m, size_t rows, size_t cols)
-{
-  if (m == nullptr)
-  {
-    return;
-  }
-  for (size_t i = 0; i < rows; ++i)
-  {
-    delete [] m[i];
-  }
-  delete [] m;
-}
-
-int ** createMatrix(size_t rows, size_t cols)
-{
-  int ** rowsptrs = new int *[rows];
-  for (size_t i = 0; i < rows; ++i)
-  {
-    rowsptrs[i] = nullptr;
-  }
-  try
-  {
-    for (size_t i = 0; i < rows; ++i)
-    {
-      rowsptrs[i] = new int[cols];
-    }
-    return rowsptrs;
-  }
-  catch (const std::bad_alloc &)
-  {
-    freeMatrix(rowsptrs, rows, cols);
-    throw;
-  }
-}
 
 size_t inputArray(std::istream & in, int * a, size_t s, size_t toread)
 {
@@ -90,7 +56,7 @@ int main(int argc, char ** argv)
       return 2;
     }
     int matrix[10000];
-    for (int i = 0; i < rows * cols; ++i)
+    for (size_t i = 0; i < rows * cols; ++i)
     {
       input >> matrix[i];
       if (!input)
@@ -100,12 +66,12 @@ int main(int argc, char ** argv)
       }
     }
     std::ofstream output(argv[3]);
-    int minRow[10000];
-    int maxCol[10000];
-    for (int i = 0; i < rows * cols; i = i + cols)
+    int minRow[rows * cols];
+    int maxCol[rows * cols];
+    for (size_t i = 0; i < rows * cols; i = i + cols)
     {
       minRow[i] = matrix[i];
-      for (int j = 0; j < cols; ++j)
+      for (size_t j = 0; j < cols; ++j)
       {
         if (matrix[i + j] < minRow[i])
         {
@@ -113,10 +79,10 @@ int main(int argc, char ** argv)
         }
       }
     }
-    for (int j = 0; j < cols; ++j)
+    for (size_t j = 0; j < cols; ++j)
     {
       maxCol[j] = matrix[j];
-      for (int i = 0; i < rows * cols; i = i + cols)
+      for (size_t i = 0; i < rows * cols; i = i + cols)
       {
         if (matrix[j + i] > maxCol[j])
         {
@@ -125,11 +91,11 @@ int main(int argc, char ** argv)
       }
     }
     size_t count = 0;
-    for (int i = 0; i < rows * cols; i = i + cols)
+    for (size_t i = 0; i < rows * cols; i = i + cols)
     {
-      for (int j = 0; j < cols; ++j)
+      for (size_t j = 0; j < cols; ++j)
       {
-        if ((matrix[i+j] == minRow[i]) && (matrix[i+j] == maxCol[j]))
+        if ((matrix[i + j] == minRow[i]) && (matrix[i + j] == maxCol[j]))
         {
           ++count;
         }
@@ -143,59 +109,51 @@ int main(int argc, char ** argv)
     int cols = 0;
     std::ifstream input(argv[2]);
     input >> rows >> cols;
+    int * matrix = new int [rows*cols];
+    size_t result = inputArray(input, matrix, rows * cols, rows * cols);
     if (!input)
     {
-      std::cerr << "Can not read\n";
+      std::cerr << "Can not read numbers\n";
+      delete [] matrix;
       return 2;
     }
-    int **matrix = nullptr;
-    try
+    std::ofstream output(argv[3]);
+    int minRow[result];
+    int maxCol[result];
+    for (size_t i = 0; i < result; i = i + cols)
     {
-      matrix = createMatrix(rows, cols);
-      size_t result = inputArray(input, *matrix, rows * cols, rows * cols);
-      int minRow[10000];
-      int maxCol[10000];
-      for (int i = 0; i < rows; ++i)
+      minRow[i]  = matrix[i];
+      for (size_t j = 0; j < cols; ++j)
       {
-        minRow[i] = matrix[i][0];
-        for (int j = 0; j < cols; ++j)
+        if (matrix[i + j] < minRow[i])
         {
-          if (matrix[i][j] < minRow[i])
-          {
-            minRow[i] = matrix[i][j];
-          }
+          minRow[i] = matrix[i + j];
         }
       }
-      for (int j = 0; j < cols; ++j)
-      {
-        maxCol[j] = matrix[0][j];
-        for (int i = 0; i < rows; ++i)
-        {
-          if (matrix[i][j] > maxCol[j])
-          {
-            maxCol[j] = matrix[i][j];
-          }
-        }
-      }
-      size_t count = 0;
-      for (int i = 0; i < rows; ++i)
-      {
-        for (int j = 0; j < cols; ++j)
-        {
-          if ((matrix[i][j] == maxCol[j]) && (matrix[i][j] == minRow[i]))
-          {
-            ++count;
-          }
-        }
-      }
-      std::ofstream output(argv[3]);
-      output << count << "\n";
-      freeMatrix(matrix, rows, cols);
     }
-    catch (const std::bad_alloc &)
+    for (size_t j = 0; j < cols; ++j)
     {
-      std::cerr << "Not enough memory\n";
-      return 4;
+      maxCol[j] = matrix[j];
+      for (size_t i = 0; i < result; i = i + cols)
+      {
+        if (matrix[j + i] > maxCol[j])
+        {
+          maxCol[j] = matrix[j + i];
+        }
+      }
     }
+    size_t count = 0;
+    for (size_t i = 0; i < result; i = i + cols)
+    {
+      for (size_t j = 0; j < cols; ++j)
+      {
+        if ((matrix[i + j] == minRow[i]) && (matrix[i + j] == maxCol[j]))
+        {
+          ++count;
+        }
+      }
+    }
+    output << count << "\n";
+    delete [] matrix;
   }
 }
