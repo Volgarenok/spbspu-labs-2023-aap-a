@@ -1,7 +1,7 @@
 #include "inputfile.hpp"
 
 
-bool novokhatskiy::inputfile(std::istream& input, int* matrix, int rows, int cols, int num))
+bool novokhatskiy::inputfile(std::istream& input, int* matrix, int rows, int cols, int num)
 {
   if (num == 1)
   {
