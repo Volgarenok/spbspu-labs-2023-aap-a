@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <string>
+#include <stdexcept>
 #include "min_row_array.hpp"
 #include "max_col_array.hpp"
 #include "input_array.hpp"
@@ -56,8 +57,26 @@ int main(int argc, char ** argv)
       }
     }
     std::ofstream output(argv[3]);
-    int * minRow = minRowArray(rows * cols, cols, matrix);
-    int * maxCol = maxColArray(rows * cols, cols, matrix);
+    int * minRow = nullptr;
+    try
+    {
+      minRow = minRowArray(rows * cols, cols, matrix);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << e.what() << "\n";
+      return 2;
+    }
+    int * maxCol = nullptr;
+    try
+    {
+      maxCol = maxColArray(rows * cols, cols, matrix);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << e.what() << "\n";
+      return 2;
+    }
     size_t count = 0;
     for (size_t i = 0; i < rows * cols; i = i + cols)
     {
@@ -77,7 +96,17 @@ int main(int argc, char ** argv)
     size_t cols = 0;
     std::ifstream input(argv[2]);
     input >> rows >> cols;
-    int * matrix = new int [rows*cols];
+    int * matrix = nullptr;
+    try
+    {
+      int * matrix = new int [rows*cols];
+    }
+    catch (const std::bad_alloc &)
+    {
+      delete[] matrix;
+      std::cerr << "Memory error\n";
+      return 3;
+    }
     size_t result = inputArray(input, matrix, rows * cols, rows * cols);
     if (!input)
     {
@@ -86,8 +115,26 @@ int main(int argc, char ** argv)
       return 2;
     }
     std::ofstream output(argv[3]);
-    int * minRow = minRowArray(result, cols, matrix);
-    int * maxCol = maxColArray(result, cols, matrix);
+    int * minRow = nullptr;
+    try
+    {
+      minRow = minRowArray(rows * cols, cols, matrix);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << e.what() << "\n";
+      return 2;
+    }
+    int * maxCol = nullptr;
+    try
+    {
+      maxCol = maxColArray(rows * cols, cols, matrix);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << e.what() << "\n";
+      return 2;
+    }
     size_t count = 0;
     for (size_t i = 0; i < result; i = i + cols)
     {
