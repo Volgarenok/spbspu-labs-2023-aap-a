@@ -31,7 +31,7 @@ int main(int argc, char * argv[])
   if (ctrl_parameter == 1)
   {
     // starting input
-    long long int Matrix[10000] = {};
+    int Matrix[10000] = {};
     std::ifstream input(argv[2]);
     input >> rows >> columns;
     if (!input)
@@ -39,16 +39,14 @@ int main(int argc, char * argv[])
       std::cerr << "Number of rows and columns in array must be described as positive integer number\n";
       return 2;
     }
-    size_t count = 0;
-    while (count < rows * columns)
+    for (size_t i = 0; i < rows * columns; ++i)
     {
-      input >> Matrix[count];
+      input >> Matrix[i];
       if (!input)
       {
-        std::cerr << "Element of array must be described as integer\n";
+        std::cerr << "Elements of array must be described as integer\n";
         return 2;
       }
-      ++count;
     }
   }
 
@@ -61,12 +59,15 @@ int main(int argc, char * argv[])
       std::cerr << "Number of rows and columns in array must be described as positive integer number\n";
       return 2;
     }
-    long long int * DynMatrix = new long long int[rows * columns]();
-    size_t count = 0;
-    while (count < rows * columns)
+    int * DynMatrix = new int[rows * columns]();
+    for (size_t i = 0; i < rows * columns; ++i)
     {
-      input >> DynMatrix[count];
-      ++count;
+      input >> DynMatrix[i];
+      if (!input)
+      {
+        std::cerr << "Elements of array must be described as integer\n";
+        return 2;
+      }
     }
     delete[] DynMatrix;
   }
