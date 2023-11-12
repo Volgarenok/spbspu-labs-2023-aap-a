@@ -49,7 +49,7 @@ int main(int argc, char * argv[])
   }
   if (num == 2)
   {
-    int *matrix = new int[rows * cols]:
+    int *matrix = new int[rows * cols];
     if(inputFile(matrix, rows, cols, input) == -1)
     {
       std::cerr << "Incorrect matrix\n";
