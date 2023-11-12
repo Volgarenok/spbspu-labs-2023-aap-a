@@ -59,7 +59,6 @@ int main(int argc, char * argv[])
     result = searchMax(matrix, rows, cols);
     delete[] matrix;
   }
-  
   {
     std::ofstream output(argv[3]);
     output << result << "\n";
