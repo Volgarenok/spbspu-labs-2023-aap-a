@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
-#include "input_matrix.hpp"
+#include "input_output_matrix.hpp"
 #include "matrix_transform.hpp"
 
 
@@ -48,6 +48,12 @@ int main (int argc, char * argv[])
     std::cerr << "Cannot read input file\n";
     return 2;
   }
+  //проверка параметров зад. размер матрицы
+  if ((rows * cols == 0) || (rows + cols == 0))
+  {
+    std::cerr << "Incorrect matrix dimensions\n";
+    return 2;
+  }
 
   //файл вывода
   std::ofstream output(argv[3]);
@@ -56,22 +62,16 @@ int main (int argc, char * argv[])
     std::cerr << "Cannot open the output file\n";
     return 2;
   }
+
+
   if (firstArgument == 1)
   {
     int matrix[10000] = {};
-    double smoothed[10000] = {};
+    double smoothedMatrix[10000] = {};
     ara::inputStatMatrix(input, matrix,rows*cols);
-    ara::transformToSmoothMatrix(matrix,smoothed,rows,cols);
-    for (int i = 0; i < rows; ++i)
-    {
-      output << "| ";
-      for(int j = 0; j < cols; ++j)
-      {
-        output << std::fixed << std::setprecision(1) << " " <<
-          smoothed[i * cols + j];
-      }
-      output << " |\n";
-    }
+    ara::transformToSmoothMatrix(matrix,smoothedMatrix,rows,cols);
+    ara::outputTransformMatrix(output,smoothedMatrix,rows,cols);
+    output.close();
   }
   else
   {
@@ -79,17 +79,19 @@ int main (int argc, char * argv[])
     double * smoothedMatrix = new double[rows*cols];
     ara::inputDynMatrix(input, matrix, rows*cols);
     ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-    for (int i = 0; i < rows; ++i)
-    {
-      output << "| ";
-      for(int j = 0; j < cols; ++j)
-      {
-        output << std::fixed << std::setprecision(1) << " " <<
-          smoothedMatrix[i * cols + j];
-      }
-      output << " |\n";
-    }
+    ara::outputTransformMatrix(output, smoothedMatrix, rows, cols);
+    // for (int i = 0; i < rows; ++i)
+    // {
+    //   output << "| ";
+    //   for(int j = 0; j < cols; ++j)
+    //   {
+    //     output << std::fixed << std::setprecision(1) << " " <<
+    //       smoothedMatrix[i * cols + j];
+    //   }
+    //   output << " |\n";
+    // }
     delete [] matrix;
+    output.close();
   }
   input.close();
   return 0;
