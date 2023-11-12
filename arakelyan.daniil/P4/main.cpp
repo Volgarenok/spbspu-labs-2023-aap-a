@@ -58,14 +58,20 @@ int main (int argc, char * argv[])
   }
   if (firstArgument == 1)
   {
-    int * matrix[rows*cols];
-    double * smoothed[rows*cols];
-    ara::inputStatMatrix(input,*matrix,rows*cols);
-    // for(size_t i = 0; i < rows*cols; ++i)
-    // {
-    //   std::cout << smoothed[i] << "\n";
-    // }
-    ara::transformToSmoothMatrix(*matrix, *smoothed, rows, cols);
+    int matrix[10000] = {};
+    double smoothed[10000] = {};
+    ara::inputStatMatrix(input, matrix,rows*cols);
+    ara::transformToSmoothMatrix(matrix,smoothed,rows,cols);
+    for (size_t i = 0; i < rows; ++i)
+    {
+      output << "| ";
+      for(size_t j = 0; j < cols; ++j)
+      {
+        output << std::fixed << std::setprecision(1) << " " <<
+          smoothed[i * cols + j];
+      }
+      output << " |\n";
+    }
   }
   else
   {
@@ -78,7 +84,8 @@ int main (int argc, char * argv[])
       output << "| ";
       for(size_t j = 0; j < cols; ++j)
       {
-        output << std::fixed << std::setprecision(1) << " " << smoothedMatrix[i * cols + j];
+        output << std::fixed << std::setprecision(1) << " " <<
+          smoothedMatrix[i * cols + j];
       }
       output << " |\n";
     }
