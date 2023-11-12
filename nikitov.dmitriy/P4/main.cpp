@@ -27,6 +27,11 @@ int main(int argc, char* argv[])
     std::cerr << "Error: First argument is not a number\n";
     return 1;
   }
+  catch (...)
+  {
+    std::cerr << "Error: First argument is incorrect\n";
+    return 1;
+  }
 
   size_t rows = 0, cols = 0;
   size_t count = 0;
@@ -40,7 +45,7 @@ int main(int argc, char* argv[])
     if (!input)
     {
       std::cerr << "Error: Wrong rows or cols input\n";
-      return 1;
+      return 2;
     }
 
     int matrix[10000];
@@ -72,7 +77,7 @@ int main(int argc, char* argv[])
     if (!input)
     {
       std::cerr << "Error: Wrong rows or cols input\n";
-      return 1;
+      return 2;
     }
     int * matrix = new int [rows*cols];
     size_t status = inputArray(input, matrix, rows, cols);
