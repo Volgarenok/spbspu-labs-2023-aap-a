@@ -20,7 +20,7 @@ int main(int argc, char * argv[])
   catch(...)
   {
     std::cerr << "Can not parse a valut\n";
-    return 2
+    return 2;
   }
   if ((num < 1) || (num > 2))
   {
