@@ -16,6 +16,61 @@ size_t inputArray(std::istream & in, int * a, size_t s, size_t toread)
   return std::min(toread, s);
 }
 
+
+int * minRowArray(size_t result, size_t rows, size_t cols, int * matrix)
+{
+  int * minRow = nullptr;
+  try
+  {
+    minRow = new int[result];
+  }
+  catch (const std::bad_alloc &)
+  {
+    delete[] minRow;
+    throw;
+  }
+  for (size_t i = 0; i < result; i = i + cols)
+  {
+    minRow[i]  = matrix[i];
+    for (size_t j = 0; j < cols; ++j)
+    {
+      if (matrix[i + j] < minRow[i])
+      {
+        minRow[i] = matrix[i + j];
+      }
+    }
+  }
+  return minRow;
+}
+
+
+int * maxColArray(size_t result, size_t rows, size_t cols, int * matrix)
+{
+  int * maxCol = nullptr;
+  try
+  {
+    maxCol = new int[result];
+  }
+  catch (const std::bad_alloc &)
+  {
+    delete[] maxCol;
+    throw;
+  }
+  for (size_t j = 0; j < cols; ++j)
+  {
+    maxCol[j] = matrix[j];
+    for (size_t i = 0; i < rows * cols; i = i + cols)
+    {
+      if (matrix[j + i] > maxCol[j])
+      {
+        maxCol[j] = matrix[j + i];
+      }
+    }
+  }
+  return maxCol;
+}
+
+
 int main(int argc, char ** argv)
 {
   if (argc != 4)
@@ -66,30 +121,8 @@ int main(int argc, char ** argv)
       }
     }
     std::ofstream output(argv[3]);
-    int minRow[rows * cols];
-    int maxCol[rows * cols];
-    for (size_t i = 0; i < rows * cols; i = i + cols)
-    {
-      minRow[i] = matrix[i];
-      for (size_t j = 0; j < cols; ++j)
-      {
-        if (matrix[i + j] < minRow[i])
-        {
-          minRow[i] = matrix[i + j];
-        }
-      }
-    }
-    for (size_t j = 0; j < cols; ++j)
-    {
-      maxCol[j] = matrix[j];
-      for (size_t i = 0; i < rows * cols; i = i + cols)
-      {
-        if (matrix[j + i] > maxCol[j])
-        {
-          maxCol[j] = matrix[j + i];
-        }
-      }
-    }
+    int * minRow = minRowArray(rows * cols, rows, cols, matrix);
+    int * maxCol = maxColArray(rows * cols, rows, cols, matrix);
     size_t count = 0;
     for (size_t i = 0; i < rows * cols; i = i + cols)
     {
@@ -105,8 +138,8 @@ int main(int argc, char ** argv)
   }
   else if (num == 2)
   {
-    int rows = 0;
-    int cols = 0;
+    size_t rows = 0;
+    size_t cols = 0;
     std::ifstream input(argv[2]);
     input >> rows >> cols;
     int * matrix = new int [rows*cols];
@@ -118,34 +151,12 @@ int main(int argc, char ** argv)
       return 2;
     }
     std::ofstream output(argv[3]);
-    int minRow[result];
-    int maxCol[result];
-    for (size_t i = 0; i < result; i = i + cols)
-    {
-      minRow[i]  = matrix[i];
-      for (int j = 0; j < cols; ++j)
-      {
-        if (matrix[i + j] < minRow[i])
-        {
-          minRow[i] = matrix[i + j];
-        }
-      }
-    }
-    for (int j = 0; j < cols; ++j)
-    {
-      maxCol[j] = matrix[j];
-      for (size_t i = 0; i < result; i = i + cols)
-      {
-        if (matrix[j + i] > maxCol[j])
-        {
-          maxCol[j] = matrix[j + i];
-        }
-      }
-    }
+    int * minRow = minRowArray(result, rows, cols, matrix);
+    int * maxCol = maxColArray(result, rows, cols, matrix);
     size_t count = 0;
     for (size_t i = 0; i < result; i = i + cols)
     {
-      for (int j = 0; j < cols; ++j)
+      for (size_t j = 0; j < cols; ++j)
       {
         if ((matrix[i + j] == minRow[i]) && (matrix[i + j] == maxCol[j]))
         {
