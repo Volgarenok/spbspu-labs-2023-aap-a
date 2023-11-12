@@ -1,4 +1,4 @@
-#include "matrix_transform.hpp"
+#include "matrix_operations.hpp"
 
 double ara::transformToSmoothMatrix(int * matrix, double * smooth, int rows, int cols)
 {
