@@ -1,10 +1,9 @@
 #include "searchMax.hpp"
 
-int novokhatskiy::searchMax(int* matrix, int rows, int cols)
+int novokhatskiy::searchMax(int matrix[], int rows, int cols)
 {
   int max = 0;
-  int generalLength = std::min(rows,cols);
-  int size = generalLength * generalLength;
+  int size = std::min(rows,cols);
   for (int i = 0; i < size - 1; i++)
   {
     int sum = 0;
