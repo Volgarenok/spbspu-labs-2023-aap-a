@@ -17,7 +17,7 @@ size_t inputArray(std::istream & in, int * a, size_t s, size_t toread)
 }
 
 
-int * minRowArray(size_t result, size_t rows, size_t cols, int * matrix)
+int * minRowArray(size_t result, size_t cols, int * matrix)
 {
   int * minRow = nullptr;
   try
@@ -44,7 +44,7 @@ int * minRowArray(size_t result, size_t rows, size_t cols, int * matrix)
 }
 
 
-int * maxColArray(size_t result, size_t rows, size_t cols, int * matrix)
+int * maxColArray(size_t result, size_t cols, int * matrix)
 {
   int * maxCol = nullptr;
   try
@@ -59,7 +59,7 @@ int * maxColArray(size_t result, size_t rows, size_t cols, int * matrix)
   for (size_t j = 0; j < cols; ++j)
   {
     maxCol[j] = matrix[j];
-    for (size_t i = 0; i < rows * cols; i = i + cols)
+    for (size_t i = 0; i < result; i = i + cols)
     {
       if (matrix[j + i] > maxCol[j])
       {
@@ -121,8 +121,8 @@ int main(int argc, char ** argv)
       }
     }
     std::ofstream output(argv[3]);
-    int * minRow = minRowArray(rows * cols, rows, cols, matrix);
-    int * maxCol = maxColArray(rows * cols, rows, cols, matrix);
+    int * minRow = minRowArray(rows * cols, cols, matrix);
+    int * maxCol = maxColArray(rows * cols, cols, matrix);
     size_t count = 0;
     for (size_t i = 0; i < rows * cols; i = i + cols)
     {
@@ -151,8 +151,8 @@ int main(int argc, char ** argv)
       return 2;
     }
     std::ofstream output(argv[3]);
-    int * minRow = minRowArray(result, rows, cols, matrix);
-    int * maxCol = maxColArray(result, rows, cols, matrix);
+    int * minRow = minRowArray(result, cols, matrix);
+    int * maxCol = maxColArray(result, cols, matrix);
     size_t count = 0;
     for (size_t i = 0; i < result; i = i + cols)
     {
