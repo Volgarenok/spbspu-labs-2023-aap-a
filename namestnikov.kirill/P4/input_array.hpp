@@ -3,5 +3,8 @@
 #include <cstddef>
 #include <iostream>
 #include <fstream>
-size_t inputArray(std::istream & in, int * a, size_t s, size_t toread);
+namespace namestnikov
+{
+  size_t inputArray(std::istream & in, int * a, size_t s, size_t toread);
+}
 #endif
