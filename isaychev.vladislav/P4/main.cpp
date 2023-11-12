@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#include <fstream>
+#include "fillMatrix.hpp"
 
 int main(int argc, char * argv[])
 {
@@ -39,14 +39,14 @@ int main(int argc, char * argv[])
       std::cerr << "Number of rows and columns in array must be described as positive integer number\n";
       return 2;
     }
-    for (size_t i = 0; i < rows * columns; ++i)
+    try
     {
-      input >> Matrix[i];
-      if (!input)
-      {
-        std::cerr << "Elements of array must be described as integer\n";
-        return 2;
-      }
+      fillMatrix(input, Matrix, rows, columns);
+    }
+    catch (const std::invalid_argument &e)
+    {
+      std::cerr << e.what() << "\n";
+      return 2;
     }
   }
 
@@ -60,14 +60,13 @@ int main(int argc, char * argv[])
       return 2;
     }
     int * DynMatrix = new int[rows * columns]();
-    for (size_t i = 0; i < rows * columns; ++i)
+    try
     {
-      input >> DynMatrix[i];
-      if (!input)
-      {
-        std::cerr << "Elements of array must be described as integer\n";
-        return 2;
-      }
+      fillMatrix(input, DynMatrix, rows, columns);
+    }
+    catch(const std::invalid_argument &e)
+    {
+      std::cerr << e.what() << "\n";
     }
     delete[] DynMatrix;
   }
