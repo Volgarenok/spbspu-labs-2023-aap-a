@@ -37,17 +37,17 @@ int main(int argc, char* argv[])
   input >> rows >> cols;
   int min_sum = 0;
 
+  if (!input)
+  {
+    std::cout << "Failed to open input file: " << argv[2] << "\n";
+    return 2;
+  }
+
   if (rows == 0 || cols == 0)
   {
     output << 0 << "\n";
     output.close();
     return 0;
-  }
-
-  if (!input)
-  {
-    std::cout << "Failed to open input file: " << argv[2] << "\n";
-    return 2;
   }
 
   if (num == 1)
