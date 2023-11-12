@@ -1,6 +1,7 @@
 #ifndef INP_MATRIX_HPP
 #define INP_MATRIX_HPP
 #include <fstream>
+#include <iomanip>
 namespace ara
 {
   void inputDynMatrix(std::ifstream & input, int * matrix, size_t el);
