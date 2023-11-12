@@ -39,11 +39,6 @@ int main(int argc, char * argv[])
   }
   if (num == 1)
   {
-    if(!input)
-    {
-      std::cerr << "The file can not be read\n";
-      return 2;
-    }
     int matrix[10000];
     if (inputfile(input, matrix, rows, cols, num))
     {
@@ -55,14 +50,14 @@ int main(int argc, char * argv[])
       return 2;
     }
   }
-  else if (num == 2)
+  if (num == 2)
   {
     int *matrix = new int[rows * cols];
-    if(!input)
+    if (!input)
     {
       std::cerr << "The file can not be read\n";
-      return 2;
       delete[] matrix;
+      return 2;
     }
     if (inputfile(input, matrix, rows, cols, num))
     {
@@ -75,11 +70,11 @@ int main(int argc, char * argv[])
       std::cerr << "Incorrect matrix\n";
       return 2;
     }
-    delete[] matrix;
   }
   {
     std::ofstream output(argv[3]);
     output << result << "\n";
+    delete[] matrix;
   }
   return 0;
 }
