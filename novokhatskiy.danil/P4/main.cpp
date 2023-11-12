@@ -39,32 +39,38 @@ int main(int argc, char * argv[])
   }
   if (num == 1)
   {
-    int matrix[10000];
-    if (inputfile(input, matrix, rows, cols, num))
+    if ((rows != 0) && (cols != 0))
     {
-      result = searchMax(matrix, rows, cols);
-    }
-    else
-    {
-      std::cerr << "Invalid matrix arguments\n";
-      return 2;
+      int matrix[10000];
+      if (inputfile(input, matrix, rows, cols, num))
+      {
+        result = searchMax(matrix, rows, cols);
+      }
+      else
+      {
+        std::cerr << "Invalid matrix arguments\n";
+        return 2;
+      }
     }
   }
-  if (num == 2)
+  else if (num == 2)
   {
-    int *matrix = new int[rows * cols];
-    if (inputfile(input, matrix, rows, cols, num))
+    if ((rows != 0) && (cols != 0))
     {
-      result = searchMax(matrix, rows, cols);
-      delete[] matrix;
+      int *matrix = new int[rows * cols];
+      if (inputfile(input, matrix, rows, cols, num))
+      {
+        result = searchMax(matrix, rows, cols);
+        delete[] matrix;
+      }
+      else
+      {
+        delete[] matrix;
+        std::cerr << "Incorrect matrix\n";
+        return 2;
+      }
     }
-    else
-    {
-      delete[] matrix;
-      std::cerr << "Incorrect matrix\n";
-      return 2;
-    }
-  }
+   }
   {
     std::ofstream output(argv[3]);
     output << result << "\n";
