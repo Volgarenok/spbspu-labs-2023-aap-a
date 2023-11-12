@@ -21,6 +21,11 @@ int main(int argc, char * argv[])
     std::cerr << "Incorrect argument of task number";
     return 1;
   }
+  catch(const std::invalid_argument&)
+  {
+    srd::cerr << "This argument is not a number\n";
+    return 1;
+  }
   if ((num < 1) || (num > 2))
   {
     std::cerr << "Incorret input the first argiment";
@@ -29,6 +34,11 @@ int main(int argc, char * argv[])
   int rows = 0;
   int cols = 0;
   int result = 0;
+  if (!input)
+  {
+    std::cerr << "The file can not be read\n";
+    return 2;
+  }
   if (num == 1)
   {
     std::ifstream input(argv[2]);
@@ -44,7 +54,7 @@ int main(int argc, char * argv[])
       return 2;
     }
   }
-  if (num == 2)
+  else if (num == 2)
   {
     std::ifstream input(argv[2]);
     input >> rows >> cols;
