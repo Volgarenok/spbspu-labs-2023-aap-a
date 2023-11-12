@@ -5,7 +5,6 @@
 
 namespace novokhatskiy
 {
-  void sInputFile(std::fstream& input, int* matrix, int e);
-  void dInputFile(std::fstream& input, int* matrix, int e);
+  int inputFile(int matrix[], int rows, int cols, std::ifstream& input);
 }
 #endif

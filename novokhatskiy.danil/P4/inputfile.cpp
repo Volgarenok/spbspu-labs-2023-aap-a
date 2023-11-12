@@ -1,24 +1,13 @@
 #include "inputfile.hpp"
 
-void novokhatskiy::sInputFile(std::istream& input, int* matrix, int e)
+int novokhatskiy::inputFile(int matrix[], int rows, int cols, std::ifstream& input)
 {
-  for(int i = 0; i < e; i++)
+  for (int i = 0; i < rows * cols; i++)
   {
     if(!(input >> matrix[i]))
     {
-      throw(std::logic_error("Imposible to create matrix\n"));
+      return -1;
     }
   }
-}
-
-void novokhatskiy::dInputFile(std::ifstream& input, int* matrix, int e)
-{
-  for (int i = 0; i < e; i++)
-  {
-    if(!(input >> matrix[i]))
-    {
-      delete[] matrix;
-      throw (std::logic_error("Imposible to create matrix\n"));
-    }
-  }
+  return 0;
 }
