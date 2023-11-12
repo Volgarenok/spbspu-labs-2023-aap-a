@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include "circle_fill.hpp"
 #include "read_print_matrix.hpp"
+#include "max_main_diagonal.hpp"
 
 int main(int argc, char * argv[])
 {
