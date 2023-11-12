@@ -39,6 +39,11 @@ int main(int argc, char * argv[])
   }
   if (num == 1)
   {
+    if(!input)
+    {
+      std::cerr << "The file can not be read\n";
+      return 2;
+    }
     int matrix[10000];
     if (inputfile(input, matrix, rows, cols, num))
     {
@@ -53,6 +58,12 @@ int main(int argc, char * argv[])
   else if (num == 2)
   {
     int *matrix = new int[rows * cols];
+    if(!input)
+    {
+      std::cerr << "The file can not be read\n";
+      return 2;
+      delete[] matrix;
+    }
     if (inputfile(input, matrix, rows, cols, num))
     {
       result = searchMax(matrix, rows, cols);
