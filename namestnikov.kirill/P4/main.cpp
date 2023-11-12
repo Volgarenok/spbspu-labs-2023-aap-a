@@ -96,17 +96,8 @@ int main(int argc, char ** argv)
     size_t cols = 0;
     std::ifstream input(argv[2]);
     input >> rows >> cols;
-    int * matrix = nullptr;
-    try
-    {
-      int * matrix = new int [rows*cols];
-    }
-    catch (const std::bad_alloc &)
-    {
-      delete[] matrix;
-      std::cerr << "Memory error\n";
-      return 3;
-    }
+    int * matrix = new int [rows*cols];
+
     size_t result = inputArray(input, matrix, rows * cols, rows * cols);
     if (!input)
     {
@@ -147,9 +138,6 @@ int main(int argc, char ** argv)
       }
     }
     output << count << "\n";
-    if (matrix != nullptr)
-    {
-      delete [] matrix;
-    }
+    delete [] matrix;
   }
 }
