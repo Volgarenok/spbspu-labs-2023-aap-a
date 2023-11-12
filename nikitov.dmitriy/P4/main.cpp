@@ -83,13 +83,16 @@ int main(int argc, char* argv[])
       return 2;
     }
     size_t position = 0;
-    for (size_t i = 1; i != rows - 1; ++i)
+    if (rows != 0 && cols != 0)
     {
-      position = cols * i + 1;
-      for (size_t j = 1; j != cols - 1; ++j)
+      for (size_t i = 1; i != rows - 1; ++i)
       {
-        countLocalMin(position, matrix, cols, count);
-        ++position;
+        position = cols * i + 1;
+        for (size_t j = 1; j != cols - 1; ++j)
+        {
+          countLocalMin(position, matrix, cols, count);
+          ++position;
+        }
       }
     }
     delete [] matrix;
