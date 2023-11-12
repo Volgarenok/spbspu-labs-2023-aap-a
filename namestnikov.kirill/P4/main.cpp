@@ -71,6 +71,8 @@ int main(int argc, char ** argv)
       }
     }
     output << count << "\n";
+    delete [] minRow;
+    delete [] maxCol;
   }
   else if (num == 2)
   {
@@ -103,5 +105,7 @@ int main(int argc, char ** argv)
     }
     output << count << "\n";
     delete [] matrix;
+    delete [] minRow;
+    delete [] maxCol;
   }
 }
