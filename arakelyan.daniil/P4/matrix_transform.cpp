@@ -2,7 +2,7 @@
 
 double ara::transformToSmoothMatrix(int * matrix, double * smooth, size_t rows, size_t cols)
 {
-  for (int i = 0; i < rows*cols; i++)
+  for (size_t i = 0; i < rows*cols; i++)
   {
     double sum = 0.0;
     size_t count = 0;
