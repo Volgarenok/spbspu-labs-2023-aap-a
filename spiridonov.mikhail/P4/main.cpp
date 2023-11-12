@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
   {
     num = std::stoi(argv[1]);
   }
-  catch (const std::out_of_range &)
+  catch (const std::exception &)
   {
     std::cerr << "Error parsing first argument" << "\n";
     return 1;
