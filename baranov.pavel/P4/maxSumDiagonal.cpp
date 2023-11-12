@@ -1,7 +1,7 @@
 #include <algorithm>
 #include "maxSumDiagonal.hpp"
 
-int maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
+int baranov::maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
 {
   unsigned int side = std::min(rows, columns);
   int result = 0;

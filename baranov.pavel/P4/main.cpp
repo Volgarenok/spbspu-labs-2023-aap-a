@@ -48,21 +48,21 @@ int main(int argc, char ** argv)
     int matrix[rows * columns] = {0};
     try
     {
-      inputMatrix(input, matrix, rows * columns);
+      baranov::inputMatrix(input, matrix, rows * columns);
     }
     catch (...)
     {
       std::cerr << "Can not read matrix\n";
       return 2;
     }
-    result = maxSumDiagonal(matrix, rows, columns);
+    result = baranov::maxSumDiagonal(matrix, rows, columns);
   }
   else if (task == 2)
   {
     int * matrix = new int[rows * columns];
     try
     {
-      inputMatrix(input, matrix, rows * columns);
+      baranov::inputMatrix(input, matrix, rows * columns);
     }
     catch (...)
     {
@@ -70,10 +70,9 @@ int main(int argc, char ** argv)
       delete[] matrix;
       return 2;
     }
-    result = maxSumDiagonal(matrix, rows, columns);
+    result = baranov::maxSumDiagonal(matrix, rows, columns);
     delete[] matrix;
   }
-
   {
     std::ofstream output(argv[3]);
     output << result;
