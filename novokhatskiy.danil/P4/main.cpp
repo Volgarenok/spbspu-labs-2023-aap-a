@@ -40,24 +40,30 @@ int main(int argc, char * argv[])
   if (num == 1)
   {
     int matrix[10000];
-    if(inputFile(matrix, rows, cols, input) == -1)
+    if (inputfile(input, matrix, rows, cols, num))
     {
-      std::cerr << "Incorrect matrix\n";
+      result = searchMax(matrix, rows, cols);
+    }
+    else
+    {
+      std::cerr << "Invalid matrix arguments\n";
       return 2;
     }
-    result = searchMax(matrix, rows, cols);
   }
   if (num == 2)
   {
     int *matrix = new int[rows * cols];
-    if(inputFile(matrix, rows, cols, input) == -1)
+    if (inputfile(input, matrix, rows, cols, num))
     {
-      std::cerr << "Incorrect matrix\n";
+      result = searchMax(matrix, rows, cols);
       delete[] matrix;
+    }
+    else
+    {
+      delete[] matrix;
+      std::cerr << "Incorrect matrix\n";
       return 2;
     }
-    result = searchMax(matrix, rows, cols);
-    delete[] matrix;
   }
   {
     std::ofstream output(argv[3]);

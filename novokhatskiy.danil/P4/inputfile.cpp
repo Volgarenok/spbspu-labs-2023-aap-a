@@ -1,13 +1,28 @@
 #include "inputfile.hpp"
 
-int novokhatskiy::inputFile(int matrix[], int rows, int cols, std::ifstream& input)
+
+bool novokhatskiy::inputfile(std::istream& input, int* matrix, int rows, int cols, int num)
 {
-  for (int i = 0; i < rows * cols; i++)
+  if (num == 1)
   {
-    if(!(input >> matrix[i]))
+    for (int i =  0; i < rows * cols; ++i)
     {
-      return -1;
+      if (!(input >> matrix[i]))
+      {
+        return false;
+      }
     }
+    return true;
   }
-  return 0;
+  else
+  {
+    for (int i = 0; i < rows * cols; ++i)
+    {
+      if(!(input >> matrix[i]))
+      {
+        return false;
+      }
+    }
+    return true;
+  }
 }
