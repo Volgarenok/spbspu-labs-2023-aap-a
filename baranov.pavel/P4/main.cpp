@@ -41,6 +41,12 @@ int main(int argc, char ** argv)
     std::cerr << "Incorrect parametrs for matrix\n";
     return 2;
   }
+  else if (rows == 0 || columns == 0 || rows == 1 || columns == 1)
+  {
+    std::ofstream output(argv[3]);
+    output << 0;
+    return 0;
+  }
 
   int result = 0;
   if (task == 1)
@@ -48,7 +54,7 @@ int main(int argc, char ** argv)
     int matrix[rows * columns] = {0};
     try
     {
-      baranov::inputMatrix(input, matrix, rows * columns);
+      baranov::inputMatrix(input, matrix, rows, columns);
     }
     catch (...)
     {
@@ -59,10 +65,10 @@ int main(int argc, char ** argv)
   }
   else if (task == 2)
   {
-    int * matrix = new int[rows * columns];
+    int * matrix = new int[rows * columns]{0};
     try
     {
-      baranov::inputMatrix(input, matrix, rows * columns);
+      baranov::inputMatrix(input, matrix, rows, columns);
     }
     catch (...)
     {

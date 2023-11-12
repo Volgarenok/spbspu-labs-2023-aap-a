@@ -2,9 +2,9 @@
 #include <stdexcept>
 #include "inputMatrix.hpp"
 
-void baranov::inputMatrix(std::istream & input, int * matrix, size_t size)
+void baranov::inputMatrix(std::istream & input, int * matrix, size_t rows, size_t columns)
 {
-  for (size_t i = 0; i < size; ++i)
+  for (size_t i = 0; i < rows * columns; ++i)
   {
     if (!(input >> matrix[i]))
     {
