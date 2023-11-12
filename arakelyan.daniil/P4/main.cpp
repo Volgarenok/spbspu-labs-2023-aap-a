@@ -23,7 +23,9 @@ int main (int argc, char * argv[])
   try
   {
     firstArgument = std::stoll(argv[1]);
-  } catch (const std::invalid_argument & e) {
+  }
+  catch (const std::invalid_argument & e)
+  {
     std::cerr << "Invalid first argument\n";
     return 1;
   }
@@ -120,7 +122,7 @@ int main (int argc, char * argv[])
       delete [] smoothedMatrix;
       return 2;
     }
-    try 
+    try
     {
       ara::inputDynMatrix(input, matrix, rows*cols);
       ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
