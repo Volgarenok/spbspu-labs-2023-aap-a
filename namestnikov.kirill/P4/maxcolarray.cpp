@@ -10,7 +10,10 @@ int * maxColArray(size_t result, size_t cols, int * matrix)
   }
   catch (const std::bad_alloc &)
   {
-    delete[] maxCol;
+    if (maxCol != nullptr)
+    {
+      delete[] maxCol;
+    }
     throw;
   }
   for (size_t j = 0; j < cols; ++j)

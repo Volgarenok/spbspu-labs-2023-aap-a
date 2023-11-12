@@ -100,6 +100,9 @@ int main(int argc, char ** argv)
       }
     }
     output << count << "\n";
-    delete [] matrix;
+    if (matrix != nullptr)
+    {
+      delete [] matrix;
+    }
   }
 }

@@ -10,7 +10,10 @@ int * minRowArray(size_t result, size_t cols, int * matrix)
   }
   catch (const std::bad_alloc &)
   {
-    delete[] minRow;
+    if (minRow != nullptr)
+    {
+      delete[] minRow;
+    }
     throw;
   }
   for (size_t i = 0; i < result; i = i + cols)
