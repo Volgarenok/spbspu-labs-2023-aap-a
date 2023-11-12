@@ -56,9 +56,8 @@ int main (int argc, char * argv[])
   {
     int rows = 0;
     int cols = 0;
-    input >> rows;
-    input >> cols;
-    if (!input)
+
+    if (!(input >> rows) || !(input >> cols))
     {
       std::cerr << "Cannot read input file\n";
       return 2;
@@ -73,9 +72,9 @@ int main (int argc, char * argv[])
     double smoothedMatrix[10000] = {};
     try
     {
-      ara::inputStatMatrix(input, matrix,rows*cols);
-      ara::transformToSmoothMatrix(matrix,smoothedMatrix,rows,cols);
-      ara::outputTransformMatrix(output,smoothedMatrix,rows,cols);
+      ara::inputStatMatrix(input, matrix, rows*cols);
+      ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows,cols);
+      ara::outputTransformMatrix(output, smoothedMatrix, rows, cols);
     }
     catch (const std::logic_error & e)
     {
@@ -89,9 +88,8 @@ int main (int argc, char * argv[])
   {
     int rows = 0;
     int cols = 0;
-    input >> rows;
-    input >> cols;
-    if (!input)
+
+    if (!(input >> rows) || !(input >> cols))
     {
       std::cerr << "Cannot read input file\n";
       return 2;
@@ -137,9 +135,6 @@ int main (int argc, char * argv[])
       output.close();
       return 2;
     }
-    // ara::inputDynMatrix(input, matrix, rows*cols);
-    // ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-    // ara::outputTransformMatrix(output, smoothedMatrix, rows, cols);
     delete [] matrix;
     delete [] smoothedMatrix;
     output.close();
