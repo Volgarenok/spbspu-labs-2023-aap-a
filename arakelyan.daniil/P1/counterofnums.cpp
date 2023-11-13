@@ -20,11 +20,6 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
   length_++;
   if ((length_ >= 2) && (current % pastNum_ == 0))
   {
-
-    if (count_ == maxSize)
-    {
-      throw std::overflow_error("Counter is out of the range!");
-    }
     ++count_;
   }
 
