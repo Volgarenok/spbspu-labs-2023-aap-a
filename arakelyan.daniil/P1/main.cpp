@@ -19,11 +19,14 @@ int main()
     }
     try
     {
-      if (currentNum != 0)
+      if (currentNum == 0)
+      {
+        counter.chekZeroSequence(currentNum);
+      }
+      else
       {
         counter.counterOfSequence(currentNum);
       }
-      counter.chekZeroSequence(currentNum);
     }
     catch (const std::exception & e)
     {
