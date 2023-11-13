@@ -36,6 +36,8 @@ int main(int argc, char * argv[])
   }
   size_t rows = 0;
   size_t cols = 0;
+  bool isExist = true;
+  long long maxSumDiagonal = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
   if (!input)
@@ -58,6 +60,15 @@ int main(int argc, char * argv[])
     input.close();
     try
     {
+      maxSumDiagonal = maxMainDiagonal(matrix, rows, cols);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << e.what() << "\n";
+      isExist = false;
+    }
+    try
+    {
       circleFill(matrix, rows, cols);
     }
     catch (const std::exception & e)
@@ -68,6 +79,11 @@ int main(int argc, char * argv[])
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
     printMatrix(output, matrix, rows, cols);
+    output << "\n";
+    if (isExist)
+    {
+      output << maxSumDiagonal;
+    }
     output.close();
   }
   else if (num == 2) //handling using dynamic array
@@ -96,6 +112,15 @@ int main(int argc, char * argv[])
     input.close();
     try
     {
+      maxSumDiagonal = maxMainDiagonal(matrix, rows, cols);
+    }
+    catch (const std::exception & e)
+    {
+      std::cerr << e.what() << "\n";
+      isExist = false;
+    }
+    try
+    {
       circleFill(matrix, rows, cols);
     }
     catch (const std::exception & e)
@@ -106,6 +131,11 @@ int main(int argc, char * argv[])
     std::ofstream output(argv[3]);
     output << rows << " " << cols;
     printMatrix(output, matrix, rows, cols);
+    output << "\n";
+    if (isExist)
+    {
+      output << maxSumDiagonal;
+    }
     output.close();
     delete[] matrix;
     return 0;

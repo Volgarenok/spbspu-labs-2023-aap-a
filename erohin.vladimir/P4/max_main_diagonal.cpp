@@ -6,7 +6,7 @@ bool erohin::isOutSum(const long long & sum, const long long & a)
 {
   long long max_size = std::numeric_limits< long long >::min();
   long long min_size = std::numeric_limits< long long >::max();
-  if(a > 0)
+  if (a > 0)
   {
     return (sum > max_size - a);
   }
@@ -27,7 +27,7 @@ long long erohin::maxMainDiagonal(int * matrix, const size_t & rows, const size_
   for (size_t i = 1; i < rows; ++i)
   {
     sum = 0;
-    for (size_t j = 0; j < rows - i - 1; ++j)
+    for (size_t j = 0; j < std::min(rows - i, cols); ++j)
     {
       if (isOutSum(sum, matrix[rows * (i + j) + j]))
       {
@@ -37,23 +37,23 @@ long long erohin::maxMainDiagonal(int * matrix, const size_t & rows, const size_
     }
     if (sum > max_sum)
     {
-      sum = max_sum;
+      max_sum = sum;
     }
   }
   for (size_t j = 1; j < cols; ++j)
   {
     sum = 0;
-    for (size_t i = 0; i < rows - j - 1; ++i)
+    for (size_t i = 0; i < std::min(cols - j, rows); ++i)
     {
-      if (isOutSum(sum, matrix[rows * (i + j) + j]))
+      if (isOutSum(sum, matrix[rows * i + (j + i)]))
       {
         throw std::range_error("Sum is out of range");
       }
-      sum += matrix[rows * (j + i) + i];
+      sum += matrix[rows * i + (j + i)];
     }
     if (sum > max_sum)
     {
-      sum = max_sum;
+      max_sum = sum;
     }
   }
   return max_sum;
