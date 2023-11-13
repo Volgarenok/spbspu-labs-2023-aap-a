@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cstdlib>
 #include "fillMatrix.hpp"
+#include "searchLines.hpp"
 
 int main(int argc, char * argv[])
 {
@@ -48,6 +48,8 @@ int main(int argc, char * argv[])
       std::cerr << e.what() << "\n";
       return 2;
     }
+    std::ofstream output(argv[3]);
+    output << searchLines(Matrix, rows, columns) << "\n";
   }
 
   else if (ctrl_parameter == 2)
@@ -68,6 +70,8 @@ int main(int argc, char * argv[])
     {
       std::cerr << e.what() << "\n";
     }
+    std::ofstream output(argv[3]);
+    output << searchLines(DynMatrix, rows, columns) << "\n";
     delete[] DynMatrix;
   }
 }
