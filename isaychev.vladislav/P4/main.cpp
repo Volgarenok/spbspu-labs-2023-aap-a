@@ -75,20 +75,23 @@ int main(int argc, char * argv[])
       output << rows << "\n";
       return 0;
     }
-    int * DynMatrix = new int[rows * columns]();
-    try
+    else
     {
-      fillMatrix(input, DynMatrix, rows, columns);
+      int * DynMatrix = new int[rows * columns]();
+      try
+      {
+        fillMatrix(input, DynMatrix, rows, columns);
+      }
+      catch(const std::invalid_argument &e)
+      {
+        std::cerr << e.what() << "\n";
+        return 2;
+      }
+      {
+        std::ofstream output(argv[3]);
+        output << searchLines(DynMatrix, rows, columns) << "\n";
+      }
+      delete[] DynMatrix;
     }
-    catch(const std::invalid_argument &e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
-    {
-      std::ofstream output(argv[3]);
-      output << searchLines(DynMatrix, rows, columns) << "\n";
-    }
-    delete[] DynMatrix;
   }
 }
