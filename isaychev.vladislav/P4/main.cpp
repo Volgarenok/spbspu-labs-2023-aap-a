@@ -83,6 +83,7 @@ int main(int argc, char * argv[])
     catch(const std::invalid_argument &e)
     {
       std::cerr << e.what() << "\n";
+      return 2;
     }
     {
       std::ofstream output(argv[3]);
