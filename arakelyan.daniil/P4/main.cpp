@@ -62,11 +62,11 @@ int main (int argc, char * argv[])
       std::cerr << "Cannot read input file\n";
       return 2;
     }
-    // if ((rows * cols == 0) || (rows + cols == 0))
-    // {
-    //   std::cerr << "Incorrect matrix dimensions\n";
-    //   return 2;
-    // }
+    if ((rows * cols == 0) || (rows + cols == 0))
+    {
+      std::cerr << "Incorrect matrix dimensions\n";
+      return 2;
+    }
 
     int matrix[10000] = {};
     double smoothedMatrix[10000] = {};
@@ -94,11 +94,11 @@ int main (int argc, char * argv[])
       std::cerr << "Cannot read input file\n";
       return 2;
     }
-    // if ((rows * cols == 0) || (rows + cols == 0))
-    // {
-    //   std::cerr << "Incorrect matrix dimensions\n";
-    //   return 2;
-    // }
+    if ((rows * cols == 0) || (rows + cols == 0))
+    {
+      std::cerr << "Incorrect matrix dimensions\n";
+      return 2;
+    }
 
     int * matrix = new int[rows*cols];
     if (!matrix)
