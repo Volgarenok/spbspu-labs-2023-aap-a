@@ -36,5 +36,5 @@ int main()
   }
   while (currentNum != 0);
 
-  std::cout << "Answer: " << counter.get_count() << "\n";
+  std::cout << "Answer: " << counter.getCount() << "\n";
 }

@@ -26,15 +26,15 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
   pastNum_ = current;
 }
 
-void arakelyan::CounterOfNumsThatDevideByThePrev::chekZeroSequence(size_t curr)
+void arakelyan::CounterOfNumsThatDevideByThePrev::chekZeroSequence(int curr)
 {
   if (((curr != currentNum_) && length_ == 1) || ((curr == currentNum_) && length_ == 0))
   {
-    throw std::logic_error("Sequence is to short!");
+    throw std::logic_error("Sequence is too short!");
   }
 }
 
-size_t arakelyan::CounterOfNumsThatDevideByThePrev::get_count() const
+size_t arakelyan::CounterOfNumsThatDevideByThePrev::getCount() const
 {
   return count_;
 }
