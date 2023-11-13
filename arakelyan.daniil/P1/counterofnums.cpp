@@ -13,13 +13,17 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
 {
   currentNum_ = current;
   size_t maxSize = std::numeric_limits< size_t >::max();
-
-  length_++;
-  if ((pastNum_ != 0) && (current % pastNum_ == 0))
+  if (length_ == maxSize)
   {
+    throw std::overflow_error("Sequence is too long!");
+  }
+  length_++;
+  if ((length_ >= 2) && (current % pastNum_ == 0))
+  {
+
     if (count_ == maxSize)
     {
-      throw std::logic_error("Sequence is too long!");
+      throw std::overflow_error("Counter is out of the range!");
     }
     ++count_;
   }
@@ -29,9 +33,9 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
 
 void arakelyan::CounterOfNumsThatDevideByThePrev::chekZeroSequence(size_t curr)
 {
-  if (((curr != currentNum_) && length_ == 1))
+  if (((curr != currentNum_) && length_ == 1) || ((curr == currentNum_) && length_ == 0))
   {
-    throw std::logic_error("Sequence is toooo short!");
+    throw std::logic_error("Sequence is to short!");
   }
 }
 
