@@ -39,6 +39,12 @@ int main(int argc, char * argv[])
       std::cerr << "Number of rows and columns in array must be described as positive integer number\n";
       return 2;
     }
+    if (columns == 0 && rows == 0)
+    {
+      std::ofstream output(argv[3]);
+      output << rows << "\n";
+      return 0;
+    }
     try
     {
       fillMatrix(input, Matrix, rows, columns);
@@ -48,8 +54,10 @@ int main(int argc, char * argv[])
       std::cerr << e.what() << "\n";
       return 2;
     }
-    std::ofstream output(argv[3]);
-    output << searchLines(Matrix, rows, columns) << "\n";
+    {
+      std::ofstream output(argv[3]);
+      output << searchLines(Matrix, rows, columns) << "\n";
+    }
   }
 
   else if (ctrl_parameter == 2)
@@ -61,6 +69,12 @@ int main(int argc, char * argv[])
       std::cerr << "Number of rows and columns in array must be described as positive integer number\n";
       return 2;
     }
+    if (columns == 0 && rows == 0)
+    {
+      std::ofstream output(argv[3]);
+      output << rows << "\n";
+      return 0;
+    }
     int * DynMatrix = new int[rows * columns]();
     try
     {
@@ -70,8 +84,10 @@ int main(int argc, char * argv[])
     {
       std::cerr << e.what() << "\n";
     }
-    std::ofstream output(argv[3]);
-    output << searchLines(DynMatrix, rows, columns) << "\n";
+    {
+      std::ofstream output(argv[3]);
+      output << searchLines(DynMatrix, rows, columns) << "\n";
+    }
     delete[] DynMatrix;
   }
 }
