@@ -13,7 +13,7 @@ namespace arakelyan
     size_t count_;
     int pastNum_;
     size_t length_;
-    int currentNum_;
+    size_t currentNum_;
   };
 }
 #endif
