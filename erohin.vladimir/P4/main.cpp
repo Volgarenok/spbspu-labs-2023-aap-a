@@ -58,13 +58,12 @@ int main(int argc, char * argv[])
       return 2;
     }
     input.close();
-    try
+    try //calculating diagonal with max sum
     {
       maxSumDiagonal = maxMainDiagonal(matrix, rows, cols);
     }
     catch (const std::exception & e)
     {
-      std::cerr << e.what() << "\n";
       isExist = false;
     }
     try
@@ -110,13 +109,12 @@ int main(int argc, char * argv[])
       return 2;
     }
     input.close();
-    try
+    try //calculating diagonal with max sum
     {
       maxSumDiagonal = maxMainDiagonal(matrix, rows, cols);
     }
     catch (const std::exception & e)
     {
-      std::cerr << e.what() << "\n";
       isExist = false;
     }
     try
