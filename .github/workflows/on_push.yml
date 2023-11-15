@@ -1,0 +1,71 @@
+name: Lab testing on push
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  branch:
+    runs-on: ubuntu-latest
+    container:
+      image: volgarenok/cxx-test:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Branch
+        working-directory: ${{ github.workspace }}
+        run: $TEST_DIR/validate-branch.sh
+        shell: bash
+  content:
+    runs-on: ubuntu-latest
+    container:
+      image: volgarenok/cxx-test:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Content
+        working-directory: ${{ github.workspace }}
+        run: $TEST_DIR/validate-files.sh
+        shell: bash
+  author:
+    runs-on: ubuntu-latest
+    container:
+      image: volgarenok/cxx-test:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Author
+        working-directory: ${{ github.workspace }}
+        run: $TEST_DIR/validate-student.sh
+        shell: bash
+  build:
+    needs: [content, author, branch]
+    runs-on: ubuntu-latest
+    container:
+      image: volgarenok/cxx-test:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        working-directory: ${{ github.workspace }}
+        run: $TEST_DIR/build.sh
+        shell: bash
+      - name: Build results
+        uses: actions/upload-artifact@v3
+        with:
+          name: labs
+          path: ${{ github.workspace }}/out
+  acceptance:
+    needs: [build]
+    runs-on: ubuntu-latest
+    container:
+      image: volgarenok/cxx-test:latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Acceptance
+        working-directory: ${{ github.workspace }}
+        run: |
+          if test -d out ; then find out -type f -exec touch {} + ; fi
+          $TEST_DIR/acceptance-tests.sh
+        shell: bash
+      - name: Build results
+        uses: actions/upload-artifact@v3
+        with:
+          name: labs
+          path: ${{ github.workspace }}/out/*/*/acceptance.*
