@@ -58,7 +58,6 @@ int main(int argc, char * argv[])
       output << isaychev::searchLines(Matrix, rows, columns) << "\n";
     }
   }
-
   else if (ctrl_parameter == 2)
   {
     std::ifstream input(argv[2]);
