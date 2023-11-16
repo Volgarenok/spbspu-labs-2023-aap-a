@@ -1,5 +1,5 @@
 #include <iostream>
-#include "countmax.hpp"
+#include "cntmax.hpp"
 #include "incseq.hpp"
 
 int main()
@@ -7,7 +7,7 @@ int main()
   using namespace skopchenko;
 
   IncSeq countIncSeq;
-  CountMax countCountMax;
+  CntMax countCntMax;
   int current = 0;
 
   do
@@ -22,7 +22,7 @@ int main()
     {
       try
       {
-        countCountMax(current);
+        countCntMax(current);
         countIncSeq(current);
       }
       catch (const std::exception & e)
@@ -37,7 +37,7 @@ int main()
   try
   {
     size_t incSeq = countIncSeq();
-    size_t cntMax = countCountMax();
+    size_t cntMax = countCntMax();
     std::cout << "[INC-SEQ]:" << incSeq << "\n";
     std::cout << "[CNT-MAX]:" << cntMax << "\n";
   }
