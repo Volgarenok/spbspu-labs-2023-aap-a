@@ -11,14 +11,12 @@
 
 int main (int argc, char * argv[])
 {
-  //проверка кол-ва аргументов передаваем. при вызове программы
   if (argc != 4)
   {
     std::cerr << "Must be 3 arguments: task; name of input file; name of output file\n";
     return 1;
   }
 
-  //проверка первого аргумента
   int firstArgument = 0;
   try
   {
@@ -35,7 +33,6 @@ int main (int argc, char * argv[])
     return 1;
   }
 
-  //файл ввода
   std::ifstream input(argv[2]);
   if (!input.is_open())
   {
@@ -43,7 +40,6 @@ int main (int argc, char * argv[])
     return 2;
   }
 
-  //файл вывода
   std::ofstream output(argv[3]);
   if (!output.is_open())
   {
@@ -94,11 +90,11 @@ int main (int argc, char * argv[])
       std::cerr << "Cannot read input file\n";
       return 2;
     }
-    if ((rows * cols == 0) || (rows + cols == 0))
-    {
-      std::cerr << "Incorrect matrix dimensions\n";
-      return 2;
-    }
+    // if ((rows * cols == 0) || (rows + cols == 0))
+    // {
+    //   std::cerr << "Incorrect matrix dimensions\n";
+    //   return 2;
+    // }
 
     int * matrix = new int[rows*cols];
     if (!matrix)
