@@ -75,7 +75,7 @@ int main(int argc, char * argv[])
     {
       std::ofstream output(argv[3]);
       output << rows << "\n";
-ff      return 0;
+      return 0;
     }
     else
     {
