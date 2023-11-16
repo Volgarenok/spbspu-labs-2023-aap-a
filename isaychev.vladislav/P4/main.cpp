@@ -2,8 +2,6 @@
 #include "fillMatrix.hpp"
 #include "searchLines.hpp"
 
-using namespace isaychev;
-
 int main(int argc, char * argv[])
 {
   if (argc < 4)
@@ -32,7 +30,6 @@ int main(int argc, char * argv[])
   size_t columns = 0;
   if (ctrl_parameter == 1)
   {
-    // starting input
     int Matrix[10000] = {};
     std::ifstream input(argv[2]);
     input >> rows >> columns;
@@ -49,7 +46,7 @@ int main(int argc, char * argv[])
     }
     try
     {
-      fillMatrix(input, Matrix, rows, columns);
+      isaychev::fillMatrix(input, Matrix, rows, columns);
     }
     catch (const std::invalid_argument &e)
     {
@@ -58,7 +55,7 @@ int main(int argc, char * argv[])
     }
     {
       std::ofstream output(argv[3]);
-      output << searchLines(Matrix, rows, columns) << "\n";
+      output << isaychev::searchLines(Matrix, rows, columns) << "\n";
     }
   }
 
@@ -82,7 +79,7 @@ int main(int argc, char * argv[])
       int * DynMatrix = new int[rows * columns]();
       try
       {
-        fillMatrix(input, DynMatrix, rows, columns);
+        isaychev::fillMatrix(input, DynMatrix, rows, columns);
       }
       catch(const std::invalid_argument &e)
       {
@@ -92,7 +89,7 @@ int main(int argc, char * argv[])
       }
       {
         std::ofstream output(argv[3]);
-        output << searchLines(DynMatrix, rows, columns) << "\n";
+        output << isaychev::searchLines(DynMatrix, rows, columns) << "\n";
       }
       delete[] DynMatrix;
     }
