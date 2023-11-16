@@ -8,8 +8,7 @@ void ara::inputDynMatrix(std::ifstream & input, int * matrix, size_t el)
   {
     if(!(input >> matrix[i]))
     {
-      delete [] matrix;
-      throw std::logic_error("Cannot read matrix");
+      throw std::logic_error("Cannot read matrix, not enough data");
     }
   }
 }
