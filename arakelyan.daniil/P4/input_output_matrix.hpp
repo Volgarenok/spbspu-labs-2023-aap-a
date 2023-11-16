@@ -2,7 +2,7 @@
 #define INP_MATRIX_HPP
 #include <fstream>
 #include <iomanip>
-namespace ara
+namespace arakelyan
 {
   void inputDynMatrix(std::ifstream & input, int * matrix, size_t el);
   void inputStatMatrix(std::ifstream & input, int * matrix, size_t el);

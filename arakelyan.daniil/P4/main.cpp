@@ -73,9 +73,9 @@ int main (int argc, char * argv[])
     double smoothedMatrix[10000] = {};
     try
     {
-      ara::inputStatMatrix(input, matrix, rows*cols);
-      ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows,cols);
-      ara::outputTransformMatrix(output, smoothedMatrix, rows, cols);
+      arakelyan::inputStatMatrix(input, matrix, rows*cols);
+      arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows,cols);
+      arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
     }
     catch (const std::logic_error & e)
     {
@@ -128,9 +128,9 @@ int main (int argc, char * argv[])
     }
     try
     {
-      ara::inputDynMatrix(input, matrix, rows*cols);
-      ara::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-      ara::outputTransformMatrix(output, smoothedMatrix, rows, cols);
+      arakelyan::inputDynMatrix(input, matrix, rows*cols);
+      arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
+      arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
     }
     catch (const std::logic_error & e)
     {
