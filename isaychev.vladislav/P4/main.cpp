@@ -85,6 +85,7 @@ int main(int argc, char * argv[])
       catch(const std::invalid_argument &e)
       {
         std::cerr << e.what() << "\n";
+        delete[] DynMatrix;
         return 2;
       }
       {
