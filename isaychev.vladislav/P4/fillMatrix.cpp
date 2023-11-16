@@ -1,5 +1,7 @@
 #include "fillMatrix.hpp"
 
+using namespace isaychev;
+
 void fillMatrix(std::ifstream &input, int * matrix, size_t rs, size_t cs)
 {
   for (size_t i = 0; i < rs * cs; ++i)

@@ -3,6 +3,9 @@
 
 #include <cstdlib>
 
-size_t searchLines(int * matrix, size_t rs, size_t cs);
+namespace isaychev
+{
+  size_t searchLines(int * matrix, size_t rs, size_t cs);
+}
 
 #endif

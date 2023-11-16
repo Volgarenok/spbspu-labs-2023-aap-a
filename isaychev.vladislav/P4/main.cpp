@@ -2,6 +2,8 @@
 #include "fillMatrix.hpp"
 #include "searchLines.hpp"
 
+using namespace isaychev;
+
 int main(int argc, char * argv[])
 {
   if (argc < 4)
@@ -73,7 +75,7 @@ int main(int argc, char * argv[])
     {
       std::ofstream output(argv[3]);
       output << rows << "\n";
-      return 0;
+ff      return 0;
     }
     else
     {
