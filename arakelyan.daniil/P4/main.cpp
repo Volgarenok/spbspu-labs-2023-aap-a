@@ -87,9 +87,12 @@ int main (int argc, char * argv[])
 
     if (!(input >> rows) || !(input >> cols))
     {
-      std::cout << "File is empty\n";
-      input.close();
-      output.close();
+      std::cerr << "Cannot read input file\n";
+      return 2;
+    }
+    if (rows == 0 && cols == 0)
+    {
+      std::cout << "Rows: 0; Cols: 0\n";
       return 0;
     }
     if ((rows * cols == 0) || (rows + cols == 0))
