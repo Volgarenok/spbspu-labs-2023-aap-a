@@ -6,8 +6,7 @@ size_t isaychev::searchLines(int * matrix, size_t rs, size_t cs)
   if (cs != 1)
   {
     size_t countEq = 0;
-    const size_t one = 1;
-    for (size_t i = 0; i < rs*cs-one; ++i)
+    for (size_t i = 0; i < rs*cs-1; ++i)
     {
       int currElement = matrix[i];
       int nextElement = matrix[i+1];
@@ -15,14 +14,14 @@ size_t isaychev::searchLines(int * matrix, size_t rs, size_t cs)
       {
         ++countEq;
       }
-      if (((i + one) % (cs - one)) == 0)
+      if (((i + 1) % (cs - 1)) == 0)
       {
         if(countEq == 0)
         {
           ++lineCount;
         }
         countEq = 0;
-        i += 2;
+        ++i;
       }
     }
   }
