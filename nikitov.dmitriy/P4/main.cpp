@@ -74,7 +74,17 @@ int main(int argc, char* argv[])
       std::cerr << "Error: Wrong rows or cols input\n";
       return 2;
     }
-    int * matrix = new int [rows*cols];
+
+    try
+    {
+      int * matrix = new int [rows*cols];
+    }
+    catch(const std::bad_alloc&)
+    {
+      std::cerr << "Error: not enough memory\n";
+      return 3;
+    }
+
     size_t status = inputArray(input, matrix, rows, cols);
     if (status != 0)
     {
