@@ -1,14 +1,13 @@
 #include <iostream>
-#include "sequence_counter.hpp"
-#include "ismax.hpp"
+#include "submax_checker.hpp"
+#include "even_nums_counter.hpp"
 
 int main()
 {
-  int number = 0;
-  int actual_max = 0;
-  int pre_max = 0;
+  long long int number = 0;
   using namespace nikitov;
-  SequenceCounter counter;
+  SubmaxChecker subChecker;
+  EvenNumsCounter evenCounter;
 
   do
   {
@@ -22,23 +21,27 @@ int main()
     {
       try
       {
-        counter(number);
+        subChecker(number);
+        evenCounter(number);
       }
-      catch (const std::exception & e)
+      catch (const std::exception& e)
       {
         std::cerr << "Error: " << e.what() << '\n';
         return 2;
       }
-      isMax(number, actual_max, pre_max);
     }
   }
   while (number != 0);
 
-  if (counter() == 0 || counter() == 1)
+  try
   {
-    std::cerr << "Error: This sequence is too short\n";
+    std::cout << subChecker() << '\n';
+    std::cout << evenCounter() << '\n';
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << "Error: " << e.what() << '\n';
     return 2;
   }
-  std::cout << pre_max << '\n';
   return 0;
 }
