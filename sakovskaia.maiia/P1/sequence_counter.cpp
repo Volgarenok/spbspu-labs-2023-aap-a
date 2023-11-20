@@ -12,7 +12,7 @@ void sakovskaia::SequenceSignsCounter::operator()(int number_)
   size_t max_size = std::numeric_limits< size_t >::max();
   if ((number_ > 0 && lastNumber < 0) || (number_ < 0 && lastNumber > 0))
   {
-    if (count_ == max_size)
+    if (count_ > max_size)
     {
       throw std::logic_error("Sequence is too long");
     }
