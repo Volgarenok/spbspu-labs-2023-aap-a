@@ -14,7 +14,7 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
   {
     throw std::overflow_error("Sequence is too long!");
   }
-  if ((current % pastNum_ == 0) && (pastNum_ != 0))
+  if ((pastNum_ != 0) && (current % pastNum_ == 0))
   {
     ++count_;
   }
