@@ -1,5 +1,6 @@
 #include "sequence_counter.hpp"
 #include "first_second_sum.hpp"
+#include "more_less_check.hpp"
 #include <stdexcept>
 #include <iostream>
 
@@ -9,6 +10,7 @@ int main()
   using namespace vyzhanov;
   CountAfterMax counter;
   SumDup sum;
+  MoreAndLess moreless;
   do
   {
     std::cin >> num;
@@ -24,6 +26,7 @@ int main()
       {
         counter(num);
         sum(num);
+        moreless(num);
       }
       catch (const std::exception & e)
       {
@@ -45,4 +48,5 @@ int main()
   }
   std::cout << counter() << "\n";
   std::cout << sum() << "\n";
+  std::cout << moreless() << "\n";
 }
