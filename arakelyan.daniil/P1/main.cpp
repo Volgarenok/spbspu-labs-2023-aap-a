@@ -1,4 +1,3 @@
-#include <ios>
 #include <iostream>
 #include "counterofnums.hpp"
 
@@ -23,15 +22,24 @@ int main()
       {
         counter.counterOfSequence(currentNum);
       }
-      counter.chekZeroSequence(currentNum);
     }
     catch (const std::exception & e)
     {
-      std::cout << "Error: " << e.what() << "\n";
+      std::cerr << "Error: " << e.what() << "\n";
       return 2;
     }
   }
   while (currentNum != 0);
 
-  std::cout << "Answer: " << counter.get_count() << "\n";
+  size_t answ = 0;
+  try
+  {
+    answ = counter.getCount();
+  }
+  catch (const std::exception & e)
+  {
+    std::cerr << "Error: " << e.what() << "\n";
+    return 2;
+  }
+  std::cout << "Answer: " << answ << "\n";
 }
