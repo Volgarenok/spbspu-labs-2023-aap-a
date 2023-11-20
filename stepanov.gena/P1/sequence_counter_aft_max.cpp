@@ -15,7 +15,7 @@ void stepanov::SequenceCounterAftMax::counter(int current_number)
   const size_t max_size_ = std::numeric_limits< size_t >::max();
   if (count_ == max_size_)
   {
-    throw std::logic_error("Sequence is too long");
+    throw std::logic_error("Sequence is too long\n");
   }
   if (current_number > maxElement_)
   {

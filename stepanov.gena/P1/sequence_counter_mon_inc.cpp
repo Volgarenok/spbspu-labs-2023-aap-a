@@ -13,7 +13,7 @@ void stepanov::SequenceCounterMonInc::counter(size_t current_number)
   const size_t max_size_ = std::numeric_limits< size_t >::max();
   if (current_count_ == max_size_)
   {
-    throw std::logic_error("Sequence is too long");
+    throw std::logic_error("Sequence is too long\n");
   }
   if (last_number_ <= current_number)
   {
