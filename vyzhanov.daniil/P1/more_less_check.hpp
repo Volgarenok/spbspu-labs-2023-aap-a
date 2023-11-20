@@ -11,8 +11,8 @@ namespace vyzhanov
     void operator()(int num);
     size_t operator()() const;
   private:
-    int next_num, prev_num, now_num;
-    size_t count;
+    int next_num_, prev_num_, now_num_;
+    size_t count_;
   };
 }
 #endif
