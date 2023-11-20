@@ -18,7 +18,9 @@ int main()
     {
       try
       {
-        spec(num);
+        spec.Counter(num);
+        spec.Sum(num);
+        spec.MoreLess(num);
       }
       catch (const std::exception & e)
       {
@@ -30,12 +32,16 @@ int main()
   while (num != 0);
   try
   {
-    spec();
+    spec.Counter();
+    spec.Sum();
+    spec.MoreLess();
   }
   catch (const std::exception & e)
   {
     std::cerr << "Error: " << e.what() << "\n";
     return 2;
   }
-  std::cout << spec() << "\n";
+  std::cout << spec.Counter() << "\n";
+  std::cout << spec.Sum() << "\n";
+  std::cout << spec.MoreLess() << "\n";
 }

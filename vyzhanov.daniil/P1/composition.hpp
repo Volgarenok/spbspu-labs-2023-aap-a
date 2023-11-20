@@ -15,14 +15,29 @@ namespace vyzhanov
     vyzhanov::SumDup sum;
     vyzhanov::MoreAndLess moreless;
 
-    void operator()(int num)
+    void Counter(int num)
     {
-      return counter(num), sum(num), moreless(num);
+      return counter(num);
     }
-
-    size_t operator()()
+    void Sum(int num)
     {
-      return counter(), sum(), moreless();
+      return sum(num);
+    }
+    void MoreLess(int num)
+    {
+      return moreless(num);
+    }
+    size_t Counter()
+    {
+      return counter();
+    }
+    size_t Sum()
+    {
+      return sum();
+    }
+    size_t MoreLess()
+    {
+      return moreless();
     }
   };
 }
