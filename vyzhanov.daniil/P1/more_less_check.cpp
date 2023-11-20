@@ -22,7 +22,7 @@ void vyzhanov::MoreAndLess::operator()(int num)
   }
   else if (count_ < max_s)
   {
-    else if ((prev_num_ > now_num_) && (next_num_ < now_num_))
+    if ((prev_num_ > now_num_) && (next_num_ < now_num_))
     {
       ++count_;
     }
