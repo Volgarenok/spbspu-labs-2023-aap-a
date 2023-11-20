@@ -1,29 +1,10 @@
-#include "sequence_counter.hpp"
-#include "first_second_sum.hpp"
-#include "more_less_check.hpp"
+#include "composition.hpp"
 #include <stdexcept>
 #include <iostream>
 
-struct SequenceSpec
-{
-  vyzhanov::CountAfterMax counter;
-  vyzhanov::SumDup sum;
-  vyzhanov::MoreAndLess moreless;
-
-  void operator()(int num)
-  {
-    return counter(num), sum(num), moreless(num);
-  }
-
-  size_t operator()()
-  {
-    return counter(), sum(), moreless();
-  }
-};
-
 int main()
 {
-  SequenceSpec spec;
+  vyzhanov::SequenceSpec spec;
   int num = 0;
   do
   {
