@@ -10,7 +10,7 @@ arakelyan::CounterOfNumsThatDevideByThePrev::CounterOfNumsThatDevideByThePrev():
 void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
 {
   size_t maxSize = std::numeric_limits< size_t >::max();
-  if (count_ == maxSize)
+  if (count_ >= maxSize)
   {
     throw std::overflow_error("Sequence is too long!");
   }
