@@ -40,5 +40,4 @@ int main()
     std::cerr << "Error: " << e.what() << "\n";
     return 2;
   }
-  // std::cout << "Answer: " << counter.getCount() << "\n";
 }

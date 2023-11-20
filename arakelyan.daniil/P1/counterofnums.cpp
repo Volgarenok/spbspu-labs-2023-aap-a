@@ -26,11 +26,12 @@ void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
 
 size_t arakelyan::CounterOfNumsThatDevideByThePrev::getCount() const
 {
-  if ((pastNum_ == 0) || (count_ == 0))
+  if (pastNum_ == 0)
   {
     throw std::logic_error("Sequence is too short!");
   }
-  else {
+  else
+  {
     return count_;
   }
 }
