@@ -1,31 +1,44 @@
 #include <iostream>
 #include <stdexcept>
-#include "sequence_counter.hpp"
+#include "sequence_counter_mon_inc.hpp"
+#include "sequence_counter_aft_max.hpp"
 
 int main()
 {
-  int number = 0;
+  int current_number = 0;
+  size_t isFirst = 0;
   using namespace stepanov;
-  SequenceCounter counter;
+  SequenceCounterMonInc count;
+  SequenceCounterAftMax count_aft;
   do
   {
-    std::cin >> number;
+    ++isFirst;
+    std::cin >> current_number;
+    if (current_number == 0 && isFirst == 1)
+    {
+      std::cout << "The amount of AFT-MAX cannot be certain\n";
+      return 2;
+    }
     if (!std::cin)
     {
-      std::cerr <<"Is not a sequence\n";
+      std::cerr << "Is not a sequence\n";
       return 1;
-    } else if (number != 0) {
+    }
+    else if (current_number != 0)
+    {
       try
       {
-        counter(number);
+        count.counter(current_number);
+        count_aft.counter(current_number);
       }
-      catch (const std::exception & e)
+      catch (const std::exception& e)
       {
-        std::cerr << "Error:" << e.what() << "\n";
+        std::cerr << "Error: " << e.what() << "\n";
         return 2;
       }
     }
   }
-  while (number != 0);
-  std::cout << counter() << "\n";
+  while (current_number != 0);
+  std::cout << "[MON-INC]" << "=" << count.get_result() << "\n";
+  std::cout << "[AFT-MAX]" << "=" << count_aft.get_result() << "\n";
 }
