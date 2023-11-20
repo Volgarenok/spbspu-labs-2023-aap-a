@@ -4,13 +4,27 @@
 #include <stdexcept>
 #include <iostream>
 
+struct SequenceSpec
+{
+  vyzhanov::CountAfterMax counter;
+  vyzhanov::SumDup sum;
+  vyzhanov::MoreAndLess moreless;
+
+  void operator()(int num)
+  {
+    return counter(num), sum(num), moreless(num);
+  }
+
+  size_t operator()()
+  {
+    return counter(), sum(), moreless();
+  }
+};
+
 int main()
 {
+  SequenceSpec spec;
   int num = 0;
-  using namespace vyzhanov;
-  CountAfterMax counter;
-  SumDup sum;
-  MoreAndLess moreless;
   do
   {
     std::cin >> num;
@@ -19,14 +33,11 @@ int main()
       std::cerr << "Is not a sequance\n";
       return 1;
     }
-
     else if (num != 0)
     {
       try
       {
-        counter(num);
-        sum(num);
-        moreless(num);
+        spec(num);
       }
       catch (const std::exception & e)
       {
@@ -38,15 +49,12 @@ int main()
   while (num != 0);
   try
   {
-    counter();
-    sum();
+    spec();
   }
   catch (const std::exception & e)
   {
     std::cerr << "Error: " << e.what() << "\n";
     return 2;
   }
-  std::cout << counter() << "\n";
-  std::cout << sum() << "\n";
-  std::cout << moreless() << "\n";
+  std::cout << spec() << "\n";
 }
