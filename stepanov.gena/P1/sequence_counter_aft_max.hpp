@@ -11,7 +11,7 @@ namespace stepanov
     void counter(int);
     size_t get_result() const;
 
-private:
+  private:
     int maxElement_;
     size_t countAfterMax_;
     const size_t max_size_;
