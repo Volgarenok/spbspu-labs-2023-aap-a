@@ -7,12 +7,12 @@ namespace arakelyan
   {
     CounterOfNumsThatDevideByThePrev();
     void counterOfSequence(int curr);
-    void chekZeroSequence(int curr);
+    // void chekZeroSequence(int curr);
     size_t getCount() const;
   private:
     size_t count_;
     int pastNum_;
-    size_t length_;
+    // size_t length_;
     int currentNum_;
   };
 }

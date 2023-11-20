@@ -18,11 +18,11 @@ int main()
     }
     try
     {
-      if (currentNum == 0)
-      {
-        counter.chekZeroSequence(currentNum);
-      }
-      else
+      // if (currentNum == 0)
+      // {
+      //   counter.chekZeroSequence(currentNum);
+      // }
+      if (currentNum != 0)
       {
         counter.counterOfSequence(currentNum);
       }
@@ -35,5 +35,14 @@ int main()
   }
   while (currentNum != 0);
 
-  std::cout << "Answer: " << counter.getCount() << "\n";
+  try
+  {
+    std::cout << counter.getCount() << "\n";
+  }
+  catch (const std::exception & e)
+  {
+    std::cerr << "Error: " << e.what() << "\n";
+    return 2;
+  }
+  // std::cout << "Answer: " << counter.getCount() << "\n";
 }
