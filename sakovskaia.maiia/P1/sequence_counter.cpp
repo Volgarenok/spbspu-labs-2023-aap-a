@@ -16,10 +16,6 @@ void sakovskaia::SequenceSignsCounter::operator()(int number_)
     {
       throw std::logic_error("Sequence is too long");
     }
-    if (count_ == 1 && lastNumber == 0)
-    {
-      throw std::logic_error("Sequence is too short");
-    }
     ++count_;
   }
   lastNumber = number_;
@@ -27,6 +23,10 @@ void sakovskaia::SequenceSignsCounter::operator()(int number_)
 
 size_t sakovskaia::SequenceSignsCounter::operator()() const
 {
+  if (count_ == 0 && lastNumber == 0)
+  {
+    throw std::logic_error("Sequence is too short");
+  }
   return count_;
 }
 
