@@ -18,10 +18,6 @@ int main()
     }
     try
     {
-      // if (currentNum == 0)
-      // {
-      //   counter.chekZeroSequence(currentNum);
-      // }
       if (currentNum != 0)
       {
         counter.counterOfSequence(currentNum);
