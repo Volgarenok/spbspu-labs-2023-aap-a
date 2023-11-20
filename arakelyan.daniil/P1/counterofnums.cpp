@@ -4,13 +4,11 @@
 
 arakelyan::CounterOfNumsThatDevideByThePrev::CounterOfNumsThatDevideByThePrev():
   count_(0),
-  pastNum_(0),
-  currentNum_(0)
+  pastNum_(0)
 {}
 
 void arakelyan::CounterOfNumsThatDevideByThePrev::counterOfSequence(int current)
 {
-  currentNum_ = current;
   size_t maxSize = std::numeric_limits< size_t >::max();
   if (count_ == maxSize)
   {

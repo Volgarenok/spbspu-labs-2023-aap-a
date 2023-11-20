@@ -31,13 +31,15 @@ int main()
   }
   while (currentNum != 0);
 
+  size_t answ = 0;
   try
   {
-    std::cout << counter.getCount() << "\n";
+    answ = counter.getCount();
   }
   catch (const std::exception & e)
   {
     std::cerr << "Error: " << e.what() << "\n";
     return 2;
   }
+  std::cout << "Answer: " << answ << "\n";
 }
