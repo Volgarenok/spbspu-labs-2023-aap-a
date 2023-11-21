@@ -1,10 +1,10 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 #include <fstream>
+#include <stddef.h>
 namespace strelyaev
 {
-  void sMatrixInput(std::fstream & in, int * a, int e);
-  void dMatrixInput(std::fstream & in, int * a, int e);
-  void printMatrix(std::fstream & out, int * a, int e);
+  void inputMatrix(std::fstream & in, int * a, size_t e);
+  void printMatrix(std::fstream & out, int * a, size_t e);
 }
 #endif

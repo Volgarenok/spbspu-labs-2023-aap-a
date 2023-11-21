@@ -14,7 +14,7 @@ int main(int argc, char * argv[])
   }
   std::fstream output(argv[3]);
   std::fstream input(argv[2]);
-  int rows = 0, columns = 0;
+  size_t rows = 0, columns = 0;
   input >> rows >> columns;
   if (!input)
   {
@@ -38,17 +38,37 @@ int main(int argc, char * argv[])
     std::cerr << "1st argument must be 1-2 number" << "\n";
     return 1;
   }
-
-  if (n == 1)
+    try 
+    {
+      if (n == 1)
+      {
+        int matrix[rows * columns] = {};
+        int clock_matrix[rows*columns];    
+      }
+      else
+      {
+        int * matrix = new int [rows*columns];
+        int * clock_matrix = new int [rows*columns];
+        inputMatrix(input, matrix, rows*columns);
+        makeClockwise(clock_matrix, rows, columns);
+        subtractMatrix(matrix, clock_matrix, rows*columns);
+        printMatrix(output, matrix, columns*rows);
+        delete [] matrix;
+        delete [] clock_matrix;
+      }
+    }
+    catch (const std::logic_error & e)
+    {
+      std::cerr << e.what();
+      return 2;
+    }
+  /*if (n == 1)
   {
     try
     {
       int matrix[rows * columns] = {};
       int clock_matrix[rows*columns];
-      sMatrixInput(input, matrix, rows*columns);
-      clockwise(clock_matrix, rows, columns);
-      matrixSubtraction(matrix, clock_matrix, rows*columns);
-      printMatrix(output, matrix, columns*rows);
+
     }
     catch (const std::logic_error & e)
     {
@@ -60,11 +80,11 @@ int main(int argc, char * argv[])
   {
     try
     {
-      int * matrix = new int[rows*columns];
+      int * matrix = new int [rows*columns];
       int clock_matrix[rows*columns];
-      dMatrixInput(input, matrix, rows*columns);
-      clockwise(clock_matrix, rows, columns);
-      matrixSubtraction(matrix, clock_matrix, rows*columns);
+      inputMatrix(input, matrix, rows*columns);
+      makeClockwise(clock_matrix, rows, columns);
+      subtractMatrix(matrix, clock_matrix, rows*columns);
       printMatrix(output, matrix, columns*rows);
       delete [] matrix;
     }
@@ -73,5 +93,5 @@ int main(int argc, char * argv[])
       std::cerr << e.what() << "\n";
       return 2;
     }
-  }
+  }*/
 }

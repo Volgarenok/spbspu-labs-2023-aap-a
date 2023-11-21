@@ -1,9 +1,9 @@
 #ifndef CLOCK_MATRIX_H
 #define CLOCK_MATRIX_H
-#include <algorithm>
+#include <stddef.h>
 namespace strelyaev
 {
-  void clockwise(int * a, int rows, int columns);
-  void matrixSubtraction(int * original, int * clock_matrix, int n);
+  void makeClockwise(int * a, size_t rows, size_t columns);
+  void subtractMatrix(int * original, int * clock_matrix, size_t n);
 }
 #endif
