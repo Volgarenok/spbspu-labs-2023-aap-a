@@ -9,7 +9,6 @@ double arakelyan::transformToSmoothMatrix(int * matrix, double * smooth, int row
     int row = i / cols;
     int col = i % cols;
 
-    // Перебираем соседние элементы
     for (int x = -1; x <= 1; x++)
     {
       for (int y = -1; y <= 1; y++)
