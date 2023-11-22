@@ -27,7 +27,7 @@ int main(int argc, char * argv[])
     std::cerr << "Cannot parse a value\n";
     return 1;
   }
-  if (ex_num != 2 and ex_num != 1)
+  if (ex_num != 2 && ex_num != 1)
   {
     std::cerr << "No such number of task\n";
     return 1;
@@ -40,7 +40,7 @@ int main(int argc, char * argv[])
     std::cerr << "Cannot read a number\n";
     return 2;
   }
-  if (rows < 1 or cols < 1)
+  if (rows < 1 || cols < 1)
   {
     return 0;
   }
