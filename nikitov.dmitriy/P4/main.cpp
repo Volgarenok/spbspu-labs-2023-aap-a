@@ -46,11 +46,12 @@ int main(int argc, char* argv[])
     int matrix[10000] = {};
 
     size_t status = inputArray(input, matrix, rows, cols);
-    if (status != 0)
+    if (status != rows * cols)
     {
       std::cerr << "Error: Wrong element at position: " << status << '\n';
       return 2;
     }
+
     startCounter(matrix, rows, cols, count);
   }
   else if (type == 2)
@@ -67,7 +68,7 @@ int main(int argc, char* argv[])
     }
 
     size_t status = inputArray(input, matrix, rows, cols);
-    if (status != 0)
+    if (status != rows * cols)
     {
         delete [] matrix;
         std::cerr << "Error: Wrong element at position: " << status << '\n';

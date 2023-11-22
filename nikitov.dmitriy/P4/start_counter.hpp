@@ -4,7 +4,7 @@
 #include <cstddef>
 namespace nikitov
 {
-  void startCounter(int matrix[], size_t rows, size_t cols, size_t& count);
+  void startCounter(const int matrix[], size_t rows, size_t cols, size_t& count);
 }
 #endif
 
