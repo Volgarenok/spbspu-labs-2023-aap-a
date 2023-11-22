@@ -51,7 +51,7 @@ int main(int argc, char * argv[])
       subtractMatrix(matrix, clock_matrix, rows*columns);
       printMatrix(output, matrix, columns*rows);
     }
-    catch (const std::logic_error & e)
+    catch (const std::logic_error& e)
     {
       std::cerr << e.what() << "\n";
       return 2;
@@ -59,23 +59,23 @@ int main(int argc, char * argv[])
   }
   if (n == 2)
   {
-      int * matrix = new int [rows*columns];
-      int * clock_matrix = new int [rows*columns];
+    int * matrix = new int [rows*columns];
+    int * clock_matrix = new int [rows*columns];
     try
     {
       inputMatrix(input, matrix, rows*columns);
       makeClockwise(clock_matrix, rows, columns);
       subtractMatrix(matrix, clock_matrix, rows*columns);
       printMatrix(output, matrix, columns*rows);
-      delete [] matrix;
-      delete [] clock_matrix;
     }
     catch(const std::logic_error& e)
     {
-      std::cerr << e.what() << "\n";
       delete [] matrix;
       delete [] clock_matrix;
+      std::cerr << e.what() << "\n";
       return 2;
     }
+    delete [] matrix;
+    delete [] clock_matrix;
   }
 }
