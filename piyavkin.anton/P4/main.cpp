@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <fstream>
 #include "nonzero.hpp"
-#include "downtrimatrix.hpp"
+#include "lowertriangularmatrix.hpp"
 #include "inputarray.hpp"
 
 int main(int argc, char * argv[])
@@ -30,12 +30,12 @@ int main(int argc, char * argv[])
   int num = std::stoll(argv[1]);
   if (num == 1)
   {
-    int rows = 0;
-    int cols = 0;
+    size_t rows = 0;
+    size_t cols = 0;
     std::ifstream input(argv[2]);
     input >> rows >> cols;
-    int matrix[10000];
-    for (int i = 0; i < rows * cols; ++i)
+    int matrix[10000]{};
+    for (size_t i = 0; i < rows * cols; ++i)
     {
       input >> matrix[i];
     }
@@ -45,12 +45,12 @@ int main(int argc, char * argv[])
       return 2;
     }
     std::ofstream output(argv[3]);
-    output << DownTriMatrix(rows * cols, rows, cols, matrix) * NonZero(rows * cols, matrix) << "\n";
+    output << (LowerTriangularMatrix(rows * cols, rows, cols, matrix) && NonZero(rows * cols, matrix)) << "\n";
   }
   if (num == 2)
   {
-    int rows = 0;
-    int cols = 0;
+    size_t rows = 0;
+    size_t cols = 0;
     std::ifstream input(argv[2]);
     input >> rows >> cols;
     int * matrix = new int [rows*cols];
@@ -62,7 +62,7 @@ int main(int argc, char * argv[])
       return 2;
     }
     std::ofstream output(argv[3]);
-    output << DownTriMatrix(result, rows, cols, matrix) * NonZero(result, matrix) << "\n";
+    output << (LowerTriangularMatrix(result, rows, cols, matrix) && NonZero(result, matrix)) << "\n";
     delete [] matrix;
   }
 }

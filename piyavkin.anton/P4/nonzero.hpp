@@ -3,6 +3,6 @@
 #include <cstddef>
 namespace piyavkin
 {
-  bool NonZero(size_t result, int * matrix);
+  bool NonZero(size_t result, const int * matrix);
 }
 #endif
