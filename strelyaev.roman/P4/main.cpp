@@ -3,6 +3,7 @@
 #include <exception>
 #include "matrix.h"
 #include "clock_matrix.h"
+#include <cstddef>
 
 int main(int argc, char * argv[])
 {
@@ -38,37 +39,17 @@ int main(int argc, char * argv[])
     std::cerr << "1st argument must be 1-2 number" << "\n";
     return 1;
   }
-    try 
-    {
-      if (n == 1)
-      {
-        int matrix[rows * columns] = {};
-        int clock_matrix[rows*columns];    
-      }
-      else
-      {
-        int * matrix = new int [rows*columns];
-        int * clock_matrix = new int [rows*columns];
-        inputMatrix(input, matrix, rows*columns);
-        makeClockwise(clock_matrix, rows, columns);
-        subtractMatrix(matrix, clock_matrix, rows*columns);
-        printMatrix(output, matrix, columns*rows);
-        delete [] matrix;
-        delete [] clock_matrix;
-      }
-    }
-    catch (const std::logic_error & e)
-    {
-      std::cerr << e.what();
-      return 2;
-    }
-  /*if (n == 1)
+
+  if (n == 1)
   {
+      int matrix[10000];
+      int clock_matrix[rows*columns];
     try
     {
-      int matrix[rows * columns] = {};
-      int clock_matrix[rows*columns];
-
+      inputMatrix(input, matrix, rows*columns);
+      makeClockwise(clock_matrix, rows, columns);
+      subtractMatrix(matrix, clock_matrix, rows*columns);
+      printMatrix(output, matrix, columns*rows);
     }
     catch (const std::logic_error & e)
     {
@@ -76,22 +57,25 @@ int main(int argc, char * argv[])
       return 2;
     }
   }
-  else if (n == 2)
+  if (n == 2)
   {
+      int * matrix = new int [rows*columns];
+      int * clock_matrix = new int [rows*columns];
     try
     {
-      int * matrix = new int [rows*columns];
-      int clock_matrix[rows*columns];
       inputMatrix(input, matrix, rows*columns);
       makeClockwise(clock_matrix, rows, columns);
       subtractMatrix(matrix, clock_matrix, rows*columns);
       printMatrix(output, matrix, columns*rows);
       delete [] matrix;
+      delete [] clock_matrix;
     }
     catch(const std::logic_error& e)
     {
       std::cerr << e.what() << "\n";
+      delete [] matrix;
+      delete [] clock_matrix;
       return 2;
     }
-  }*/
+  }
 }
