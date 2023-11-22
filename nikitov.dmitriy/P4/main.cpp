@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstring>
 #include "input_array.hpp"
 #include "count_local_min.hpp"
 #include "start_counter.hpp"
@@ -11,6 +11,11 @@ int main(int argc, char* argv[])
   {
     std::cerr << "Error: Wrong command line input\n";
     return 1;
+  }
+
+  if (strlen(argv[1]) != 1)
+  {
+    std::cerr << "Error: Wrong first argument\n";
   }
 
   int type = 0;
