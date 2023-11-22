@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <exception>
-#include "matrix.h"
-#include "clock_matrix.h"
 #include <cstddef>
+#include "matrix.h"
+#include "clockwise.h"
 
 int main(int argc, char * argv[])
 {
