@@ -1,7 +1,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 #include <fstream>
-#include <stddef.h>
+#include <cstddef>
 namespace strelyaev
 {
   void inputMatrix(std::fstream & in, int * a, size_t e);

@@ -1,6 +1,6 @@
 #include "clock_matrix.h"
 #include <algorithm>
-#include <cstddef>
+
 void strelyaev::makeClockwise(int * a, size_t rows, size_t columns)
 {
   int num = 1;

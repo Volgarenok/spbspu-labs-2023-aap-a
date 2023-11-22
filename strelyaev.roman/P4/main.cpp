@@ -1,10 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include <exception>
 #include <cstddef>
+#include <exception>
 #include "matrix.h"
 #include "clock_matrix.h"
-
 int main(int argc, char * argv[])
 {
   using namespace strelyaev;

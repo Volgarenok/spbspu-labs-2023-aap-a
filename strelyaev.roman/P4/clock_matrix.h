@@ -1,6 +1,6 @@
 #ifndef CLOCK_MATRIX_H
 #define CLOCK_MATRIX_H
-#include <stddef.h>
+#include <cstddef>
 namespace strelyaev
 {
   void makeClockwise(int * a, size_t rows, size_t columns);
