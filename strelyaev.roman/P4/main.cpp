@@ -40,6 +40,11 @@ int main(int argc, char * argv[])
     return 1;
   }
 
+  if (rows == 0 || columns == 0)
+  {
+    return 0;
+  }
+
   if (n == 1)
   {
       int matrix[10000];
