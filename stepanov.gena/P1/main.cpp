@@ -16,12 +16,12 @@ int main()
     std::cin >> current_number;
     if (current_number == 0 && isFirst == 1)
     {
-      std::cout << "The amount of AFT-MAX cannot be certain\n";
+      std::cout <<"The amount of AFT-MAX cannot be certain\n";
       return 2;
     }
     if (!std::cin)
     {
-      std::cerr << "Is not a sequence\n";
+      std::cerr <<"Is not a sequence\n";
       return 1;
     }
     else if (current_number != 0)
@@ -33,7 +33,7 @@ int main()
       }
       catch (const std::exception& e)
       {
-        std::cerr << "Error: " << e.what() << "\n";
+        std::cerr << "Error:" << e.what() << "\n";
         return 2;
       }
     }
