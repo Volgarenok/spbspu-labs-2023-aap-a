@@ -1,9 +1,8 @@
 #include <iostream>
 
-#include "makedynamicmatrix.h"
-#include "matrixcheck.h"
+#include "matrixchecktri.h"
 #include "zeromatrix.h"
-#include "makestaticmatrix.h"
+#include "makematrix.h"
 
 int main(int argc, char * argv[])
 {
@@ -50,90 +49,57 @@ int main(int argc, char * argv[])
     std::cerr << "Matrix is not a square\n";
     return 1;
   }
+  if (rows == 1 && cols == 1)
+  {
+    std::cout << "So small matrix\n";
+    return 1;
+  }
   std::fstream output(argv[3], std::ios::out);
   if (ex_num == 1)
   {
-    int array[100][100] {};
-    if (goStaticMatrix(input, array, rows, cols) == 4)
+    int matrix[10000] {};
+    if (makeMatrix(input, matrix, rows, cols) == 4)
     {
       std::cerr << "Lack of data\n";
       return 2;
     }
-    try
+    if (isUpperTriangular(matrix, rows, cols) && !isZeroMatrix(matrix, rows, cols))
     {
-      if ((rows * cols) > 1)
-      {
-        if (isUpperTriangular(array, rows) and !isZeroMatrix(array, rows))
-        {
-          output << "True\n";
-        }
-        else if (isZeroMatrix(array, rows))
-        {
-          std::cout << "Zero matrix\n";
-        }
-        else if (!isZeroMatrix(array, rows))
-        {
-          output << "False\n";
-        }
-      }
-      else
-      {
-        std::cout << "So small matrix\n";
-      }
+      output << "True\n";
     }
-    catch (const std::logic_error & e)
+    else
     {
-      std::cerr << e.what() << "\n";
-      return 2;
+      output << "False\n";
     }
   }
   else
   {
-    int ** matrix = new int *[rows];
+    int * matrix = nullptr;
     try
     {
-      if (goDynamicMatrix(input, matrix, rows, cols) == 4)
+      matrix = new int [rows * cols];
+      if (makeMatrix(input, matrix, rows, cols) == 4)
       {
         std::cerr << "Lack of data\n";
-        freeMatrix(matrix, rows, cols);
+        delete[] matrix;
         return 2;
       }
     }
     catch (const std::bad_alloc & e)
     {
       std::cerr << e.what() << "\n";
-      freeMatrix(matrix, rows, cols);
+      delete[] matrix;
       return 2;
     }
-    try
+    if (isUpperTriangular(matrix, rows, cols) && !isZeroMatrix(matrix, rows, cols))
     {
-      if ((rows * cols) > 1)
-      {
-        if (isUpperTriangular(matrix, rows, cols) and !isZeroMatrix(matrix, rows, cols))
-        {
-          output << "True\n";
-        }
-        else if (isZeroMatrix(matrix, rows, cols))
-        {
-          std::cout << "Zero matrix\n";
-        }
-        else if (!isZeroMatrix(matrix, rows, cols))
-        {
-          output << "False\n";
-        }
-      }
-      else
-      {
-        std::cout << "So small matrix\n";
-      }
+      output << "True\n";
     }
-    catch (const std::logic_error & e)
+    else
     {
-      std::cerr << e.what() << "\n";
-      freeMatrix(matrix, rows, cols);
-      return 2;
+      output << "False\n";
     }
-    freeMatrix(matrix, rows, cols);
+    delete[] matrix;
   }
   return 0;
 }
