@@ -63,7 +63,7 @@ int main (int argc, char * argv[])
       std::cout << "Rows: 0; Cols: 0\n";
       return 0;
     }
-    if ((rows * cols == 0) || (rows + cols == 0))
+    if (rows * cols == 0)
     {
       std::cerr << "Incorrect matrix dimensions\n";
       return 2;
@@ -100,10 +100,10 @@ int main (int argc, char * argv[])
       std::cout << "Rows: 0; Cols: 0\n";
       return 0;
     }
-    if ((rows * cols == 0) || (rows + cols == 0))
+    if (rows * cols == 0)
     {
       std::cerr << "Incorrect matrix dimensions\n";
-      return 0;
+      return 2;
     }
 
     int * matrix = new int[rows*cols];
