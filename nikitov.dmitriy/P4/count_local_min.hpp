@@ -4,6 +4,6 @@
 #include <cstddef>
 namespace nikitov
 {
-  void countLocalMin(size_t i, int matrix[10000], size_t cols, size_t& count);
+  void countLocalMin(size_t i, int matrix[], size_t cols, size_t& count);
 }
 #endif
