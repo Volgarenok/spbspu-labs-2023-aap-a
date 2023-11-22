@@ -2,7 +2,7 @@
 
 void strelyaev::inputMatrix(std::fstream & in, int * a, size_t e)
 {
-  for (int i = 0; i < e; i++)
+  for (size_t i = 0; i < e; i++)
   {
     if (!(in >> a[i]))
     {
@@ -13,7 +13,7 @@ void strelyaev::inputMatrix(std::fstream & in, int * a, size_t e)
 
 void strelyaev::printMatrix(std::fstream & out, const int * a, size_t e)
 {
-  for (int i = 0; i < e; i++)
+  for (size_t i = 0; i < e; i++)
   {
     out << a[i] << " ";
   }
