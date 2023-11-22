@@ -3,7 +3,7 @@
 #include <exception>
 #include <cstddef>
 #include "matrix.h"
-#include "clockwise.h"
+#include "clock_matrix.h"
 
 int main(int argc, char * argv[])
 {

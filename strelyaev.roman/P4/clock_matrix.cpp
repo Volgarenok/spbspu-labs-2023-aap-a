@@ -2,6 +2,7 @@
 #include <algorithm>
 void strelyaev::makeClockwise(int * a, size_t rows, size_t columns)
 {
+  int num = 1;
   for (int delta = 0; delta < std::max(rows - 2, size_t(1)); delta++)
   {
     for (int i = ((rows - 1)*columns - delta * (columns - 1)); i > (delta * (columns + 1)); i -= columns)
@@ -24,7 +25,7 @@ void strelyaev::makeClockwise(int * a, size_t rows, size_t columns)
   }
 }
 
-void strelyaev::subtractMatrix(int * original, int * clock_matrix, size_t n)
+void strelyaev::subtractMatrix(int * original, int * clock_matrix, const size_t n)
 {
   for (int i = 0; i < n; i++)
   {
