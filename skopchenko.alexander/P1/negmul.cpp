@@ -4,8 +4,7 @@
 #include <cmath>
 
 skopchenko::NegMul::NegMul():
-  prevNum_(0),
-  count_(1),
+  count_(0),
   maximum_(0),
   maxresult_(0),
   result_(1)
@@ -13,52 +12,43 @@ skopchenko::NegMul::NegMul():
 
 void skopchenko::NegMul::operator()(int current)
 {
-  if (current < 0 && prevNum_ < 0)
+  if (current < 0)
   {
-    size_t max_count = std::numeric_limits< size_t >::max();
-    if (count_ == max_count)
+    size_t max_count = std::numeric_limits<size_t>::max();
+    if (count_ > 0)
     {
-      throw std::logic_error("maximum sequence length exceeded");
-    }
-    else
-    {
-      count_++;
-      int max_multiply = std::numeric_limits< int >::max();
-      int min_multiply = std::numeric_limits< int >::min();
-      if (max_multiply / result_ > current || min_multiply / result_ > current)
+      if (count_ == max_count)
       {
-        result_ = result_ * current;
+        throw std::logic_error("maximum sequence length exceeded");
       }
       else
       {
-        throw std::logic_error("maximum multiplication size exceeded");
-      }
-      if (maximum_ < count_)
-      {
-        maximum_ = count_;
-        maxresult_ = result_;
+        count_++;
+        double max_multiply = (std::numeric_limits< int >::max()) / result_;
+        if (abs(max_multiply) > abs(current))
+        {
+          result_ = result_ * current;
+        }
+        else
+        {
+          throw std::logic_error("maximum multiplication reached");
+        }
       }
     }
-  }
-  else if (current < 0)
-  {
-    result_ = result_ * current;
-    count_ = 1;
-    if (maximum_ < count_)
+    else
     {
-      maximum_ = count_;
-      maxresult_ = result_;
+      count_ = 1;
+      result_ = current;
     }
   }
-  else
+  if (maximum_ < count_)
   {
-    count_ = 0;
-    result_ = 1;
+    maximum_ = count_;
+    maxresult_ = result_;
   }
-  prevNum_ = current;
 }
 
-size_t skopchenko::NegMul::operator()() const
+int skopchenko::NegMul::operator()() const
 {
   return maxresult_;
 }
