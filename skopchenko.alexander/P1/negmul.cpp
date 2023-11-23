@@ -41,6 +41,11 @@ void skopchenko::NegMul::operator()(int current)
       result_ = current;
     }
   }
+  else
+  {
+    result_ = 1;
+    count_ = 0;
+  }
   if (maximum_ < count_)
   {
     maximum_ = count_;

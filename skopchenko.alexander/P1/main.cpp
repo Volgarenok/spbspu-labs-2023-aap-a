@@ -42,6 +42,11 @@ int main()
     size_t incSeq = countIncSeq();
     size_t cntMax = countCntMax();
     int negMul = resulNegMul();
+    if (negMul == 0)
+    {
+      std::cerr << "not enough arguments for additional task" << "\n";
+      return 2;
+    }
     std::cout << "[INC-SEQ]:" << incSeq << "\n";
     std::cout << "[CNT-MAX]:" << cntMax << "\n";
     std::cout << "[ADDITIONAL:]" << negMul << "\n";
