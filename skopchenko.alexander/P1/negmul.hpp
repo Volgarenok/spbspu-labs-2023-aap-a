@@ -6,16 +6,16 @@
 namespace skopchenko
 {
 
-  struct Negmul
+  struct NegMul
   {
   public:
-    Negmul();
+    NegMul();
     void operator()(int current);
-    size_t operator()() const;
+    int operator()() const;
 
   private:
-    int prevNum_;
     int result_;
+    int maxresult_;
     size_t count_;
     size_t maximum_;
   };
