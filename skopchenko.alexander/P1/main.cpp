@@ -41,7 +41,7 @@ int main()
   {
     size_t incSeq = countIncSeq();
     size_t cntMax = countCntMax();
-    size_t negMul = resulNegMul();
+    int negMul = resulNegMul();
     std::cout << "[INC-SEQ]:" << incSeq << "\n";
     std::cout << "[CNT-MAX]:" << cntMax << "\n";
     std::cout << "[ADDITIONAL:]" << negMul << "\n";
