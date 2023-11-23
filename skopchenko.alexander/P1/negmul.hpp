@@ -14,10 +14,10 @@ namespace skopchenko
     int operator()() const;
 
   private:
-    int result_;
-    int maxresult_;
     size_t count_;
     size_t maximum_;
+    int result_;
+    int maxResult_;
   };
 
 }

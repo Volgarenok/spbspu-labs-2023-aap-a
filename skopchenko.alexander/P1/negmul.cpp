@@ -6,8 +6,8 @@
 skopchenko::NegMul::NegMul():
   count_(0),
   maximum_(0),
-  maxresult_(0),
-  result_(1)
+  result_(0),
+  maxResult_(1)
 {}
 
 void skopchenko::NegMul::operator()(int current)
@@ -49,11 +49,11 @@ void skopchenko::NegMul::operator()(int current)
   if (maximum_ < count_)
   {
     maximum_ = count_;
-    maxresult_ = result_;
+    maxResult_ = result_;
   }
 }
 
 int skopchenko::NegMul::operator()() const
 {
-  return maxresult_;
+  return maxResult_;
 }
