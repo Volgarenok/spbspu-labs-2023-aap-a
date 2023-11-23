@@ -12,7 +12,13 @@ int main(int argc, char * argv[])
     std::cerr << "Error in command line arguments\n";
     return 1;
   }
-  unsigned short int ex_num = 0;
+  char * endOfParsing = nullptr;
+  unsigned short int ex_num = std::strtoll(argv[1], &endOfParsing, 10);
+  if (*endOfParsing != '\0')
+  {
+    std::cerr << "Cannot parse a value\n";
+    return 1;
+  }
   try
   {
     ex_num = std::stoll(argv[1]);
