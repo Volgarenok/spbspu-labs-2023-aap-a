@@ -1,21 +1,20 @@
 #include "makematrix.h"
 
-int gladyshev::makeMatrix(std::fstream& input, int * matrix, size_t cols, size_t rows)
+void gladyshev::makeMatrix(std::fstream& input, int * matrix, size_t cols, size_t rows)
 {
   for (size_t i = 0; i < rows * cols; ++i)
   {
+    input >> matrix[i];
     if (!input.eof())
     {
       if (!input)
       {
-        return 2;
+        throw std::runtime_error("Bad input");
       }
     }
     else
     {
-      return 4;
+      throw std::runtime_error("Lack of data");
     }
-    input >> matrix[i];
   }
-  return 3;
 }

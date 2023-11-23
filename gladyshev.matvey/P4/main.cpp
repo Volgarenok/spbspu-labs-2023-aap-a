@@ -58,9 +58,13 @@ int main(int argc, char * argv[])
   if (ex_num == 1)
   {
     int matrix[10000] {};
-    if (makeMatrix(input, matrix, rows, cols) == 4)
+    try
     {
-      std::cerr << "Lack of data\n";
+      makeMatrix(input, matrix, rows, cols);
+    }
+    catch (const std::runtime_error & e)
+    {
+      std::cerr << "Error: " << e.what() << "\n";
       return 2;
     }
     if (isUpperTriangular(matrix, rows, cols) && !isZeroMatrix(matrix, rows, cols))
@@ -78,16 +82,11 @@ int main(int argc, char * argv[])
     try
     {
       matrix = new int [rows * cols];
-      if (makeMatrix(input, matrix, rows, cols) == 4)
-      {
-        std::cerr << "Lack of data\n";
-        delete[] matrix;
-        return 2;
-      }
+      makeMatrix(input, matrix, rows, cols);
     }
-    catch (const std::bad_alloc & e)
+    catch (const std::runtime_error & e)
     {
-      std::cerr << e.what() << "\n";
+      std::cerr << "Error: " << e.what() << "\n";
       delete[] matrix;
       return 2;
     }
