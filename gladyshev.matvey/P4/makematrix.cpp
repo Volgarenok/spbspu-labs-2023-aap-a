@@ -5,16 +5,9 @@ void gladyshev::makeMatrix(std::fstream& input, int * matrix, size_t cols, size_
   for (size_t i = 0; i < rows * cols; ++i)
   {
     input >> matrix[i];
-    if (!input.eof())
+    if (!input)
     {
-      if (!input)
-      {
-        throw std::runtime_error("Bad input");
-      }
-    }
-    else
-    {
-      throw std::runtime_error("Lack of data");
+      throw std::runtime_error("Bad input");
     }
   }
 }
