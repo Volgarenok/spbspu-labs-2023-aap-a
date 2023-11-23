@@ -1,22 +1,22 @@
 #include "matrix_operations.hpp"
 
-double arakelyan::transformToSmoothMatrix(int * matrix, double * smooth, int rows, int cols)
+double arakelyan::transformToSmoothMatrix(int * matrix, double * smooth, size_t rows, size_t cols)
 {
-  for (int i = 0; i < rows*cols; i++)
+  for (size_t i = 0; i < rows*cols; i++)
   {
     double sum = 0.0;
     size_t count = 0;
-    int row = i / cols;
-    int col = i % cols;
+    size_t row = i / cols;
+    size_t col = i % cols;
 
-    for (int x = -1; x <= 1; x++)
+    for (size_t x = -1; x <= 1; x++)
     {
-      for (int y = -1; y <= 1; y++)
+      for (size_t y = -1; y <= 1; y++)
       {
         if (!(x == 0 && y == 0))
         {
-          int newRow = row + x;
-          int newCol = col + y;
+          size_t newRow = row + x;
+          size_t newCol = col + y;
 
           if ((newRow >= 0) && (newCol >= 0))
           {

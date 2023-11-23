@@ -3,6 +3,6 @@
 #include <cstddef>
 namespace arakelyan
 {
-  double transformToSmoothMatrix(int * matrix, double * smoothed, int rows, int cols);
+  double transformToSmoothMatrix(int * matrix, double * smoothed, size_t rows, size_t cols);
 }
 #endif

@@ -5,6 +5,6 @@
 namespace arakelyan
 {
   void inputMatrix(std::ifstream & input, int * matrix, size_t el);
-  std::ofstream & outputTransformMatrix(std::ofstream & output, double * smoothed, int rows, int cols);
+  std::ofstream & outputTransformMatrix(std::ofstream & output, double * smoothed, size_t rows, size_t cols);
 }
 #endif

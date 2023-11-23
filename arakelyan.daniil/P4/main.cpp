@@ -50,8 +50,8 @@ int main (int argc, char * argv[])
 
   if (firstArgument == 1)
   {
-    int rows = 0;
-    int cols = 0;
+    size_t rows = 0;
+    size_t cols = 0;
 
     if (!(input >> rows) || !(input >> cols))
     {
@@ -85,8 +85,8 @@ int main (int argc, char * argv[])
   }
   else if (firstArgument == 2)
   {
-    int rows = 0;
-    int cols = 0;
+    size_t rows = 0;
+    size_t cols = 0;
 
     if (!(input >> rows) || !(input >> cols))
     {
