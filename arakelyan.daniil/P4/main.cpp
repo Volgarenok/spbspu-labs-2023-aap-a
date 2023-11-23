@@ -75,6 +75,10 @@ int main (int argc, char * argv[])
     {
       arakelyan::inputMatrix(input, matrix, rows*cols);
       arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows,cols);
+      for (size_t i = 0; i < rows * cols; i++)
+      {
+        std::cout << smoothedMatrix[i];
+      }
       arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
     }
     catch (const std::logic_error & e)

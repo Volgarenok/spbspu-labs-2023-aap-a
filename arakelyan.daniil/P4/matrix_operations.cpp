@@ -18,14 +18,11 @@ double arakelyan::transformToSmoothMatrix(int * matrix, double * smooth, size_t 
           size_t newRow = row + x;
           size_t newCol = col + y;
 
-          if ((newRow >= 0) && (newCol >= 0))
+          if ((newRow < rows) && (newCol < cols))
           {
-            if ((newRow < rows) && (newCol < cols))
-            {
-              int index = newRow * cols + newCol;
-              sum += matrix[index];
-              count++;
-            }
+            size_t index = newRow * cols + newCol;
+            sum += matrix[index];
+            count++;
           }
         }
       }
