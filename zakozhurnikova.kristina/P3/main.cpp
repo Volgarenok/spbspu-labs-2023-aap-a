@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cstddef>
+
 int main()
 {
   size_t size = 20;
