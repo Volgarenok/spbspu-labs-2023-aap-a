@@ -75,10 +75,6 @@ int main (int argc, char * argv[])
     {
       arakelyan::inputMatrix(input, matrix, rows*cols);
       arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows,cols);
-      for (size_t i = 0; i < rows * cols; i++)
-      {
-        std::cout << smoothedMatrix[i];
-      }
       arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
     }
     catch (const std::logic_error & e)
@@ -111,7 +107,7 @@ int main (int argc, char * argv[])
     int * matrix = new int[rows*cols];
     if (!matrix)
     {
-      std::cerr << "Can't create matrix\n";
+      std::cerr << "Can't create matrix 1\n";
       delete [] matrix;
       return 2;
     }
@@ -119,7 +115,7 @@ int main (int argc, char * argv[])
     double * smoothedMatrix = new double[rows*cols];
     if (!smoothedMatrix)
     {
-      std::cerr << "Can't create matrix\n";
+      std::cerr << "Can't create matrix 2\n";
       delete [] matrix;
       delete [] smoothedMatrix;
       return 2;
