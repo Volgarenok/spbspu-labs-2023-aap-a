@@ -1,21 +1,24 @@
-#ifndef NEGMUL.HPP
-#define NEGMUL.HPP
+#ifndef NEGMUL
+#define NEGMUL
+
+#include <cstddef>
 
 namespace skopchenko
 {
 
-  Struct NegMul
+  struct Negmul
   {
-    public:
-      NegMul();
-      void operator()(int current);
-      size_t operator()() const;
+  public:
+    Negmul();
+    void operator()(int current);
+    size_t operator()() const;
 
-    private:
-      size_t count_;
-      int prev_;
-      bool seqCheck;
+  private:
+    int prevNum_;
+    int result_;
+    size_t count_;
   };
+
 }
 
 #endif
