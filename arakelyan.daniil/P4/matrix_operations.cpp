@@ -9,9 +9,9 @@ double arakelyan::transformToSmoothMatrix(int * matrix, double * smooth, size_t 
     size_t row = i / cols;
     size_t col = i % cols;
 
-    for (size_t x = -1; x <= 1; x++)
+    for (int x = -1; x <= 1; x++)
     {
-      for (size_t y = -1; y <= 1; y++)
+      for (int y = -1; y <= 1; y++)
       {
         if (!(x == 0 && y == 0))
         {
