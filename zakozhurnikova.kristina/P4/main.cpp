@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <string>
 
-int main(int argc, char * argv[])
+int main(int argc, const char * argv[])
 {
   int option = 0;
   try
@@ -42,66 +42,53 @@ int main(int argc, char * argv[])
     output << "0 0";
     return 0;
   }
-  const int s = rows * cols;
+  const size_t s = rows * cols;
   if (option == 1)
   {
     int matrix[s]{};
     int original[s]{};
-    zakozhurnikova::fillMatrix(matrix, rows, cols);
-
-    for (int i = 0; i < rows; i++)
-    {
-      for (int j = 0; j < cols; j++)
-      {
-        input >> original[i*cols + j];
-      }
-    }
-    zakozhurnikova::substractMatrix(original, matrix, rows, cols);
-    zakozhurnikova::writeToFile(output, original, rows, cols);
   }
   else
   {
-    int *matrix = nullptr;
-    int *origin = nullptr;
-    if (!input)
-    {
-      std::cerr << "Incorrect input!\n";
-      return 1;
-    }
+    int* matrix = nullptr;
+    int* original = nullptr;
     try
     {
-      zakozhurnikova::createMatrixDin(matrix, rows, cols);
-      zakozhurnikova::createMatrixDin(origin, rows, cols);
+      matrix = new int [rows * cols]{ 0 };
+      original = new int [rows * cols]{ 0 };
     }
     catch (const std::exception &e)
     {
+      delete[] matrix;
+      delete[] original;
       std::cerr << e.what() << '\n';
       return 1;
     }
-
-    zakozhurnikova::fillMatrixDin(matrix, rows, cols);
-    for (int i = 0; i < rows; i++)
+  }
+  zakozhurnikova::fillMatrix(matrix, rows, cols);
+  for (size_t i = 0; i < rows; i++)
+  {
+    for (size_t j = 0; j < cols; j++)
     {
-      for (int j = 0; j < cols; j++)
+      input >> original[i * cols + j];
+      if (!input)
       {
-        input >> origin[i * cols + j];
-        if (!input)
+        std::cerr << "Incorrect input!\n";
+        if (option == 2)
         {
-          std::cerr << "Incorrect input!\n";
-          zakozhurnikova::freeMatrix(matrix);
-          zakozhurnikova::freeMatrix(origin);
-          return 1;
+          delete[] matrix;
+          delete[] original;
         }
+        return 1;
       }
     }
-
-    zakozhurnikova::substractMatrixDin(origin, matrix, rows, cols);
-    zakozhurnikova::writeToFileDin(output, origin, rows, cols);
-    zakozhurnikova::freeMatrix(matrix);
-    zakozhurnikova::freeMatrix(origin);
   }
-
-  input.close();
-  output.close();
+  zakozhurnikova::substractMatrix(original, matrix, rows, cols);
+  zakozhurnikova::writeToFile(output, original, rows, cols);
+  if (option == 2)
+  {
+    delete[] matrix;
+    delete[] original;
+  }
   return 0;
 }

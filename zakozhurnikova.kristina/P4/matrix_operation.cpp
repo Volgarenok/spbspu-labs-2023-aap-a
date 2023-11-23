@@ -1,10 +1,10 @@
 #include "matrix_operation.h"
 
-void zakozhurnikova::fillMatrixDin(int *&matrix, int rows, int cols)
+void zakozhurnikova::fillMatrix(int *matrix, size_t rows, size_t cols)
 {
   int k = 1;
-  int i = 0;
-  int j = 0;
+  size_t i = 0;
+  size_t j = 0;
   int rowBegin = 0, rowEnd = 0, colBegin = 0, colEnd = 0;
 
   while (k <= rows * cols)
@@ -40,64 +40,14 @@ void zakozhurnikova::fillMatrixDin(int *&matrix, int rows, int cols)
   return;
 }
 
-void zakozhurnikova::substractMatrixDin(int *&original, int *&substract, int rows, int cols)
+void zakozhurnikova::substractMatrix(int *original,const int *substract, size_t rows, size_t cols)
 {
-  for (int i = 0; i < rows; i++)
+  for (size_t i = 0; i < rows; i++)
   {
-    for (int j = 0; j < cols; j++)
+    for (size_t j = 0; j < cols; j++)
     {
       original[i * cols + j] -= substract[i * cols + j];
     }
   }
 }
 
-void zakozhurnikova::fillMatrix(int matrix[], int rows, int cols)
-{
-  int k = 1;
-  int i = 0;
-  int j = 0;
-  int rowBegin = 0, rowEnd = 0, colBegin = 0, colEnd = 0;
-
-  while (k <= rows * cols)
-  {
-    matrix[i*cols + j] = k;
-    if (i == rowBegin && j < cols - colEnd - 1)
-    {
-      ++j;
-    }
-    else if (j == cols - colEnd - 1 && i < rows - rowEnd - 1)
-    {
-      ++i;
-    }
-    else if (i == rows - rowEnd - 1 && j > colBegin)
-    {
-     --j;
-    }
-    else
-    {
-     --i;
-    }
-
-    if ((i == rowBegin + 1) && (j == colBegin) && (colBegin != cols - colEnd - 1))
-    {
-      ++rowBegin;
-      ++rowEnd;
-      ++colBegin;
-      ++colEnd;
-    }
-    ++k;
-  }
-
-  return;
-}
-
-void zakozhurnikova::substractMatrix(int original[], int substract[], int rows, int cols)
-{
-  for (int i = 0; i < rows; i++)
-  {
-    for (int j = 0; j < cols; j++)
-    {
-      original[i*cols + j] -= substract[i*cols + j];
-    }
-  }
-}

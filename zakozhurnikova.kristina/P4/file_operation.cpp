@@ -1,6 +1,6 @@
 #include "file_operation.h"
 
-int zakozhurnikova::rightArguments(int argc, char** argv)
+int zakozhurnikova::rightArguments(int argc, const char** argv)
 {
   if (argc != 4)
   {
@@ -21,34 +21,14 @@ int zakozhurnikova::rightArguments(int argc, char** argv)
   }
   return option;
 }
-void zakozhurnikova::createMatrixDin(int *&matrix, int rows, int cols)
-{
-  matrix = new int [rows * cols]{ 0 };
-}
 
-void zakozhurnikova::freeMatrix(int *&matrix)
-{
-    delete[] matrix;
-}
-
-void zakozhurnikova::writeToFileDin(std::ofstream& out, int *matrix, int rows, int cols)
+void zakozhurnikova::writeToFile(std::ofstream& out, int *matrix, int rows, int cols)
 {
   for (int i = 0; i < rows; i++)
   {
     for (int j = 0; j < cols; j++)
     {
       out << matrix[i * cols + j] << ' ';
-    }
-  }
-}
-
-void zakozhurnikova::writeToFile(std::ofstream& out, int matrix[], int rows, int cols)
-{
-  for (int i = 0; i < rows; i++)
-  {
-    for (int j = 0; j < cols; j++)
-    {
-     out << matrix[i*cols + j] << ' ';
     }
   }
 }
