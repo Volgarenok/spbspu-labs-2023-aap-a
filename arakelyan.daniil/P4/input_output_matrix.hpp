@@ -4,8 +4,7 @@
 #include <iomanip>
 namespace arakelyan
 {
-  void inputDynMatrix(std::ifstream & input, int * matrix, size_t el);
-  void inputStatMatrix(std::ifstream & input, int * matrix, size_t el);
+  void inputMatrix(std::ifstream & input, int * matrix, size_t el);
   std::ofstream & outputTransformMatrix(std::ofstream & output, double * smoothed, int rows, int cols);
 }
 #endif

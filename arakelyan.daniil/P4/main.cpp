@@ -73,7 +73,7 @@ int main (int argc, char * argv[])
     double smoothedMatrix[10000] = {};
     try
     {
-      arakelyan::inputStatMatrix(input, matrix, rows*cols);
+      arakelyan::inputMatrix(input, matrix, rows*cols);
       arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows,cols);
       arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
     }
@@ -82,8 +82,6 @@ int main (int argc, char * argv[])
       std::cerr << "Error: " << e.what();
       return 2;
     }
-    input.close();
-    output.close();
   }
   else if (firstArgument == 2)
   {
@@ -110,8 +108,6 @@ int main (int argc, char * argv[])
     if (!matrix)
     {
       std::cerr << "Can't create matrix\n";
-      input.close();
-      output.close();
       delete [] matrix;
       return 2;
     }
@@ -120,15 +116,13 @@ int main (int argc, char * argv[])
     if (!smoothedMatrix)
     {
       std::cerr << "Can't create matrix\n";
-      input.close();
-      output.close();
       delete [] matrix;
       delete [] smoothedMatrix;
       return 2;
     }
     try
     {
-      arakelyan::inputDynMatrix(input, matrix, rows*cols);
+      arakelyan::inputMatrix(input, matrix, rows*cols);
       arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
       arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
     }
@@ -137,13 +131,10 @@ int main (int argc, char * argv[])
       std::cerr << "Error: " << e.what() << "\n";
       delete [] matrix;
       delete [] smoothedMatrix;
-      input.close();
-      output.close();
       return 2;
     }
     delete [] matrix;
     delete [] smoothedMatrix;
-    output.close();
   }
 
   return 0;
