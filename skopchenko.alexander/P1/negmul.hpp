@@ -17,6 +17,7 @@ namespace skopchenko
     int prevNum_;
     int result_;
     size_t count_;
+    size_t maximum_;
   };
 
 }
