@@ -49,7 +49,7 @@ int main()
     }
     std::cout << "[INC-SEQ]:" << incSeq << "\n";
     std::cout << "[CNT-MAX]:" << cntMax << "\n";
-    std::cout << "[ADDITIONAL:]" << negMul << "\n";
+    std::cout << "[ADDITIONAL]:" << negMul << "\n";
   }
   catch (const std::exception & e)
   {
