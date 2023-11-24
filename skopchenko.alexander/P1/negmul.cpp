@@ -7,7 +7,7 @@ skopchenko::NegMul::NegMul():
   count_(0),
   maximum_(0),
   result_(0),
-  maxResult_(1)
+  maxResult_(0)
 {}
 
 void skopchenko::NegMul::operator()(int current)
