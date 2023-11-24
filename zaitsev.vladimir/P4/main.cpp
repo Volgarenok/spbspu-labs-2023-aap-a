@@ -30,23 +30,26 @@ int main(int argc, char** argv)
     return 2;
   }
 
+  size_t rows = 0;
+  size_t cols = 0;
+  input >> rows >> cols;
+  if (!input)
+  {
+    std::cerr << "Matrix can't be read\n";
+    return 2;
+  }
+  if (rows * cols == 0 && rows + cols > 0)
+  {
+    std::cerr << "Dimensions of the matrix are set incorrectly\n";
+    return 2;
+  }
+
+
   if (task_nmb == 1)
   {
     const size_t capacity = 10000;
-    double matrix[capacity];
-    size_t rows = 0;
-    size_t cols = 0;
-    input >> rows >> cols;
-    if (!input)
-    {
-      std::cerr << "Matrix can't be read\n";
-      return 2;
-    }
-    if (rows * cols == 0 && rows + cols > 0)
-    {
-      std::cerr << "Dimensions of the matrix are set incorrectly\n";
-      return 2;
-    }
+    int matrix[capacity];
+
     try
     {
       zaitsev::readMatrix(input, matrix, rows, cols);
@@ -57,29 +60,14 @@ int main(int argc, char** argv)
       input.close();
       return 2;
     }
-    input.close();
     double smoothed_matrix[capacity];
     zaitsev::smoothMatrix(matrix, smoothed_matrix, rows, cols);
     zaitsev::writeMatrix(output, smoothed_matrix, rows, cols);
-    output.close();
   }
   else
   {
-    size_t rows = 0;
-    size_t cols = 0;
-    input >> rows >> cols;
-    if (!input)
-    {
-      std::cerr << "Matrix can't be read\n";
-      return 2;
-    }
-    if (rows * cols == 0 && rows + cols > 0)
-    {
-      std::cerr << "Dimensions of the matrix are set incorrectly\n";
-      return 2;
-    }
-    double* matrix = nullptr;
-    matrix = new double[rows * cols];
+    int* matrix = nullptr;
+    matrix = new int[rows * cols];
     if (!matrix)
     {
       std::cerr << "Failed to create matrix\n";
@@ -92,25 +80,22 @@ int main(int argc, char** argv)
     catch (const std::range_error& e)
     {
       std::cerr << e.what() << "\n";
-      input.close();
       delete[] matrix;
       return 2;
     }
-    input.close();
     double* smoothed_matrix = nullptr;
     smoothed_matrix = new double[rows * cols];
     if (!smoothed_matrix)
     {
       std::cerr << "Failed to create matrix\n";
-      input.close();
       delete[] matrix;
       return 2;
     }
     zaitsev::smoothMatrix(matrix, smoothed_matrix, rows, cols);
     zaitsev::writeMatrix(output, smoothed_matrix, rows, cols);
-    output.close();
     delete[] matrix;
     delete[] smoothed_matrix;
   }
+
   return 0;
 }

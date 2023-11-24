@@ -5,8 +5,8 @@
 
 namespace zaitsev
 {
-  long checkArguments(int argc, char** argv);
-  void readMatrix(std::ifstream& input, double* destination, size_t rows, size_t cols);
-  std::ofstream& writeMatrix(std::ofstream& output, const double* destination, size_t rows, size_t cols);
+  long checkArguments(const int argc, const char* const* argv);
+  void readMatrix(std::istream& input, int* destination, size_t rows, size_t cols);
+  std::ostream& writeMatrix(std::ostream& output, const double* destination, size_t rows, size_t cols);
 }
 #endif

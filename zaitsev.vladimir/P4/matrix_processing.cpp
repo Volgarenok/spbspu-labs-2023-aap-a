@@ -1,6 +1,6 @@
 #include "matrix_processing.h"
 
-double zaitsev::smoothMatrixElement(const double* matrix, size_t n_rows, size_t n_cols, size_t row_pos, size_t col_pos)
+double zaitsev::smoothMatrixElement(const int* matrix, size_t n_rows, size_t n_cols, size_t row_pos, size_t col_pos)
 {
   double res = 0;
   bool is_row_bound = (row_pos == 0 || row_pos == n_rows - 1);
@@ -23,7 +23,7 @@ double zaitsev::smoothMatrixElement(const double* matrix, size_t n_rows, size_t 
   return res;
 }
 
-void zaitsev::smoothMatrix(const double* matrix, double* smoothed_matrix, size_t rows, size_t cols)
+void zaitsev::smoothMatrix(const int* matrix, double* smoothed_matrix, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows; ++i)
   {

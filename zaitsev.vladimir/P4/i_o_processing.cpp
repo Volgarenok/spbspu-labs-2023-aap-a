@@ -1,6 +1,6 @@
 #include "i_o_processing.h"
 
-long zaitsev::checkArguments(int argc, char** argv)
+long zaitsev::checkArguments(const int argc, const char* const* argv)
 {
   if (argc > 4)
   {
@@ -11,8 +11,8 @@ long zaitsev::checkArguments(int argc, char** argv)
     throw std::out_of_range("Not enough arguments");
   }
 
-  char* ptr = nullptr;
-  long task_nmb = std::strtol(argv[1], &ptr, 10);
+  char* ptr = nullptr;  
+  long task_nmb = std::strtol(argv[1], std::addressof(ptr), 10);
 
   if (task_nmb == 0 && ptr == argv[1])
   {
@@ -26,7 +26,7 @@ long zaitsev::checkArguments(int argc, char** argv)
   return task_nmb;
 }
 
-void zaitsev::readMatrix(std::ifstream& input, double* destination, size_t rows, size_t cols)
+void zaitsev::readMatrix(std::istream& input, int* destination, size_t rows, size_t cols)
 {
   size_t counter = 0;
   for (size_t i = 0; i < rows * cols; ++i)
@@ -47,7 +47,7 @@ void zaitsev::readMatrix(std::ifstream& input, double* destination, size_t rows,
   return;
 }
 
-std::ofstream& zaitsev::writeMatrix(std::ofstream& output, const double* destination, size_t rows, size_t cols)
+std::ostream& zaitsev::writeMatrix(std::ostream& output, const double* destination, size_t rows, size_t cols)
 {
   output << rows << " " << cols;
   for (size_t i = 0; i < rows * cols; ++i)
