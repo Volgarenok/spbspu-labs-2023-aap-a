@@ -47,28 +47,28 @@ int main (int argc, char * argv[])
     return 2;
   }
 
+  size_t rows = 0;
+  size_t cols = 0;
+
+  if (!(input >> rows) || !(input >> cols))
+  {
+    std::cerr << "Cannot read input file\n";
+    return 2;
+  }
+  if (rows == 0 && cols == 0)
+  {
+    std::cout << "Rows: 0; Cols: 0\n";
+    return 0;
+  }
+  if (rows * cols == 0)
+  {
+    std::cerr << "Incorrect matrix dimensions\n";
+    return 2;
+  }
+
 
   if (firstArgument == 1)
   {
-    size_t rows = 0;
-    size_t cols = 0;
-
-    if (!(input >> rows) || !(input >> cols))
-    {
-      std::cerr << "Cannot read input file\n";
-      return 2;
-    }
-    if (rows == 0 && cols == 0)
-    {
-      std::cout << "Rows: 0; Cols: 0\n";
-      return 0;
-    }
-    if (rows * cols == 0)
-    {
-      std::cerr << "Incorrect matrix dimensions\n";
-      return 2;
-    }
-
     int matrix[10000] = {};
     double smoothedMatrix[10000] = {};
     try
@@ -79,31 +79,12 @@ int main (int argc, char * argv[])
     }
     catch (const std::logic_error & e)
     {
-      std::cerr << "Error: " << e.what();
+      std::cerr << "Error: " << e.what() << "\n";
       return 2;
     }
   }
   else if (firstArgument == 2)
   {
-    size_t rows = 0;
-    size_t cols = 0;
-
-    if (!(input >> rows) || !(input >> cols))
-    {
-      std::cerr << "Cannot read input file\n";
-      return 2;
-    }
-    if (rows == 0 && cols == 0)
-    {
-      std::cout << "Rows: 0; Cols: 0\n";
-      return 0;
-    }
-    if (rows * cols == 0)
-    {
-      std::cerr << "Incorrect matrix dimensions\n";
-      return 2;
-    }
-
     int * matrix = new int[rows*cols];
     if (!matrix)
     {
