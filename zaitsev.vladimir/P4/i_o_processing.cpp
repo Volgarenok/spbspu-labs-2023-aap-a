@@ -49,11 +49,11 @@ void zaitsev::readMatrix(std::ifstream& input, double* destination, size_t rows,
 
 std::ofstream& zaitsev::writeMatrix(std::ofstream& output, const double* destination, size_t rows, size_t cols)
 {
-  output << rows << " " << cols << " ";
+  output << rows << " " << cols;
   for (size_t i = 0; i < rows * cols; ++i)
   {
     output.precision(1);
-    output << std::fixed << *destination << " ";
+    output << " " << std::fixed << *destination ;
     ++destination;
   }
   output << '\n';

@@ -29,7 +29,7 @@ void zaitsev::smoothMatrix(const double* matrix, double* smoothed_matrix, size_t
   {
     for (size_t j = 0; j < cols; ++j)
     {
-      smoothed_matrix[i * cols + j] = zaitsev::smoothMatrixElement(matrix, rows, cols, i, j);
+      smoothed_matrix[i * cols + j] = smoothMatrixElement(matrix, rows, cols, i, j);
     }
   }
   return;

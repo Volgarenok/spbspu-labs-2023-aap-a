@@ -42,7 +42,7 @@ int main(int argc, char** argv)
       std::cerr << "Matrix can't be read\n";
       return 2;
     }
-    if (rows*cols==0&&rows+cols>0)
+    if (rows * cols == 0 && rows + cols > 0)
     {
       std::cerr << "Dimensions of the matrix are set incorrectly\n";
       return 2;
