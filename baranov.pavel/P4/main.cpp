@@ -51,7 +51,7 @@ int main(int argc, char ** argv)
   long long int result = 0;
   if (task == 1)
   {
-    int matrix[rows * columns] = {0};
+    int matrix[10000] = {0};
     try
     {
       baranov::inputMatrix(input, matrix, rows, columns);
