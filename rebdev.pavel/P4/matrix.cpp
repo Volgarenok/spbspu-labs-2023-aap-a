@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include "matrix.hpp"
-#include "forFile.hpp"
+#include "readFromFile.hpp"
 
 void rebdev::filling(long long int * array, long long int rows,
   long long int colums, std::ifstream & inputFile)

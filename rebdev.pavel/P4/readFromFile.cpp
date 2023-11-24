@@ -1,7 +1,8 @@
+#include "readFromFile.hpp"
 #include <stdexcept>
 #include <fstream>
 
-long long int readFromFileLLI (std::ifstream & inputFile)
+long long int rebdev::readFromFileLLI (std::ifstream & inputFile)
 {
   long long int num = 0;
   inputFile >> num;
@@ -10,9 +11,8 @@ long long int readFromFileLLI (std::ifstream & inputFile)
   {
     throw std::logic_error("Reading error: can't read from file");
   }
-  else if (inputFile.peek() == EOF)
+  else if (!inputFile.is_open())
   {
-    inputFile.close();
     throw std::logic_error("Reading error: file is end\n");
   }
 

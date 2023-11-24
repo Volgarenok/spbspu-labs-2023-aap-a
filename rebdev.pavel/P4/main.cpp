@@ -2,7 +2,7 @@
 #include <limits>
 #include <iostream>
 #include "matrix.hpp"
-#include "forFile.hpp"
+#include "readFromFile.hpp"
 
 int main(int argc, char ** argv)
 {
@@ -19,13 +19,11 @@ int main(int argc, char ** argv)
   std::ifstream inputFile(argv[2]);
   if (!inputFile.is_open())
   {
-    //std::cerr << "can't open input file!";
     return 2;
   }
   else if (inputFile.peek() == EOF)
   {
     inputFile.close();
-    //std::cerr << "Input file is empty!";
     return 2;
   }
 
@@ -47,20 +45,17 @@ int main(int argc, char ** argv)
   }
   catch (const std::logic_error & e)
   {
-   //std::cerr << e.what();
     return 2;
   }
   if ((rows == 0) || (colums == 0))
   {
     inputFile.close();
-    //std::cerr << "matrix size can't be [0][0]!";
     return (((rows || colums) == 0) ? 0 : 2);
   }
 
   if (rows > std::numeric_limits<long int>::max()/colums)
   {
     inputFile.close();
-    //std::cerr << "The array is too large!";
     return 2;
   }
 
@@ -74,7 +69,6 @@ int main(int argc, char ** argv)
       std::ofstream outputFile(argv[3]);
       if (!outputFile.is_open())
       {
-        //std::cerr << "Can't open output file"
         return 2;
       }
       outputFile << localMax(array, rows, colums);
@@ -82,7 +76,6 @@ int main(int argc, char ** argv)
     }
     catch (const std::logic_error & e)
     {
-      //std::cerr << e.what();
       return 2;
     }
   }
@@ -96,7 +89,6 @@ int main(int argc, char ** argv)
       std::ofstream outputFile(argv[3]);
       if (!outputFile.is_open())
       {
-        //std::cerr << "Can't open output file";
         return 2;
       }
       outputFile << localMax(array, rows, colums);
@@ -106,7 +98,6 @@ int main(int argc, char ** argv)
     catch (const std::logic_error & e)
     {
       delete [] array;
-      //std::cerr << e.what();
       return 2;
     }
   }
