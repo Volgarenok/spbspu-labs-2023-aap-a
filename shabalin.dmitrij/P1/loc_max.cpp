@@ -3,41 +3,41 @@
 #include <stdexcept>
 
 shabalin::LocMax::LocMax():
-  m_firstNumber(0),
-  m_secondNumber(0),
+  firstNumber_(0),
+  secondNumber_(0),
   count_(0)
 {}
 
 void shabalin::LocMax::operator()(long long Number)
 {
-  if (m_firstNumber == 0)
+  if (firstNumber_ == 0)
   {
-    m_firstNumber = Number;
-    if (m_firstNumber == 0)
+    firstNumber_ = Number;
+    if (firstNumber_ == 0)
     {
-      throw std::logic_error("is not sequence");
+      throw std::logic_error("Is not a sequence");
     }
   }
-  else if (m_secondNumber == 0)
+  else if (secondNumber_ == 0)
   {
-    m_secondNumber = Number;
+    secondNumber_ = Number;
   }
 
   size_t max_size = std::numeric_limits< size_t >::max();
 
-  if (count_ == max_size)
+  if (secondNumber_ > Number && secondNumber_ > firstNumber_)
   {
-    throw std::logic_error("Sequence is too long");
+    if (count_ == max_size)
+    {
+      throw std::logic_error("Sequence is too long");
+    }
+    ++count_;   
   }
-  else if (m_secondNumber > Number && m_secondNumber > m_firstNumber)
-  {
-    ++count_;
-  }
-  m_firstNumber = m_secondNumber;
-  m_secondNumber = Number;
+  firstNumber_ = secondNumber_;
+  secondNumber_ = Number;
 }
 
 size_t shabalin::LocMax::operator()() const
 {
   return count_;
-};
+}
