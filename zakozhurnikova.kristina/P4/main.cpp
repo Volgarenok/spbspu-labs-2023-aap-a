@@ -61,17 +61,17 @@ int main(int argc, const char * argv[])
   }
   else
   {
-    *matrixPtr = new int[s];
-    *originalPtr = new int[s];
     try
     {
-      matrix = new int [rows * cols]{ 0 };
-      original = new int [rows * cols]{ 0 };
+      *matrixPtr = new int [rows * cols]{0};
+      *originalPtr = new int [rows * cols]{0};
     }
     catch (const std::exception &e)
     {
-      delete[] matrix;
-      delete[] original;
+      delete[] *matrixPtr;
+      delete[] *originalPtr;
+      matrixPtr = nullptr;
+      originalPtr = nullptr;
       std::cerr << e.what() << '\n';
       return 1;
     }
@@ -85,21 +85,19 @@ int main(int argc, const char * argv[])
       if (!input)
       {
         std::cerr << "Incorrect input!\n";
-        if (option == 2)
-        {
-          delete[] matrix;
-          delete[] original;
-        }
+        delete[] matrix;
+        delete[] original;
+        matrixPtr = nullptr;
+        originalPtr = nullptr;
         return 1;
       }
     }
   }
   zakozhurnikova::substractMatrix(original, matrix, rows, cols);
   zakozhurnikova::writeToFile(output, original, rows, cols);
-  if (option == 2)
-  {
-    delete[] matrix;
-    delete[] original;
-  }
+  delete[] matrix;
+  delete[] original;
+  matrixPtr = nullptr;
+  originalPtr = nullptr;
   return 0;
 }
