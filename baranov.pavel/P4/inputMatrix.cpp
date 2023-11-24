@@ -1,6 +1,6 @@
+#include "inputMatrix.hpp"
 #include <iostream>
 #include <stdexcept>
-#include "inputMatrix.hpp"
 
 void baranov::inputMatrix(std::istream & input, int * matrix, size_t rows, size_t columns)
 {

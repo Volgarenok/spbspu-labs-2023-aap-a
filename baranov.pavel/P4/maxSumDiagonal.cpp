@@ -1,10 +1,10 @@
 #include <algorithm>
 #include "maxSumDiagonal.hpp"
 
-int baranov::maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns)
+long long int baranov::maxSumDiagonal(const int * matrix, size_t rows, size_t columns)
 {
   unsigned int side = std::min(rows, columns);
-  int result = 0;
+  long long int result = 0;
   int current_sum = 0;
 
   for (unsigned int i = 0; i < (side - 1); ++i)

@@ -1,7 +1,8 @@
 #ifndef MAX_SUM_DIAGONAL_HPP
 #define MAX_SUM_DIAGONAL_HPP
+#include <cstddef>
 namespace baranov
 {
-  int maxSumDiagonal(int * matrix, unsigned int rows, unsigned int columns);
+  long long int maxSumDiagonal(const int * matrix, size_t rows, size_t columns);
 }
 #endif

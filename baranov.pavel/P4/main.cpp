@@ -32,8 +32,8 @@ int main(int argc, char ** argv)
     return 1;
   }
 
-  unsigned int rows = 0;
-  unsigned int columns = 0;
+  size_t rows = 0;
+  size_t columns = 0;
   std::fstream input(argv[2]);
   input >> rows >> columns;
   if (!input)
@@ -48,7 +48,7 @@ int main(int argc, char ** argv)
     return 0;
   }
 
-  int result = 0;
+  long long int result = 0;
   if (task == 1)
   {
     int matrix[rows * columns] = {0};
