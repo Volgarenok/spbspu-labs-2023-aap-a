@@ -2,10 +2,10 @@
 
 void zakozhurnikova::fillMatrix(int *matrix, size_t rows, size_t cols)
 {
-  int k = 1;
+  size_t k = 1;
   size_t i = 0;
   size_t j = 0;
-  int rowBegin = 0, rowEnd = 0, colBegin = 0, colEnd = 0;
+  size_t rowBegin = 0, rowEnd = 0, colBegin = 0, colEnd = 0;
 
   while (k <= rows * cols)
   {

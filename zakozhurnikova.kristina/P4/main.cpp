@@ -17,8 +17,8 @@ int main(int argc, const char * argv[])
     std::cerr << e.what() << "\n";
     return 1;
   }
-  int rows = 0;
-  int cols = 0;
+  size_t rows = 0;
+  size_t cols = 0;
   std::ifstream input;
   std::ofstream output;
   try
