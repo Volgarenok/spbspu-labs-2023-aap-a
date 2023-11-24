@@ -17,16 +17,14 @@ int main (int argc, char * argv[])
     return 1;
   }
 
-  int firstArgument = 0;
-  try
+  char * endOfParsing = nullptr;
+  int firstArgument = std::strtoll(argv[1],&endOfParsing,0);
+  if (*endOfParsing != '\0')
   {
-    firstArgument = std::stoll(argv[1]);
-  }
-  catch (const std::invalid_argument & e)
-  {
-    std::cerr << "Invalid first argument\n";
+    std::cerr << "Invalid first value.\n";
     return 1;
   }
+
   if ((firstArgument < 1) || (firstArgument > 2))
   {
     std::cerr << "Number of tusk must be 1 or 2\n";
