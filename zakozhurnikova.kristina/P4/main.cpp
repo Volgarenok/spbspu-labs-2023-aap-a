@@ -43,7 +43,7 @@ int main(int argc, const char * argv[])
     return 0;
   }
   const size_t s = rows * cols;
-  int *matrix = nulptr;
+  int *matrix = nullptr;
   int *original = nullptr;
   int **matrixPtr = &matrix;
   int **originalPtr = &original;
@@ -56,7 +56,7 @@ int main(int argc, const char * argv[])
       matrix[i] = 0;
       original[i] = 0;
     }
-    *matrixPtr = static_cast<int *>(matrix>;
+    *matrixPtr = static_cast<int *>(matrix);
     *originalPtr = static_cast<int *>(original);
   }
   else

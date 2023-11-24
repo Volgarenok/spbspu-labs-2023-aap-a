@@ -35,7 +35,7 @@ int zakozhurnikova::rightArguments(int argc, const char** argv)
   return option;
 }
 
-void zakozhurnikova::writeToFile(std::ofstream& out, int *matrix, int rows, int cols)
+void zakozhurnikova::writeToFile(std::ofstream& out, int *matrix, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows * cols - 1; i++)
   {
