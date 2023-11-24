@@ -11,7 +11,7 @@ long zaitsev::checkArguments(const int argc, const char* const* argv)
     throw std::out_of_range("Not enough arguments");
   }
 
-  char* ptr = nullptr;  
+  char* ptr = nullptr;
   long task_nmb = std::strtol(argv[1], std::addressof(ptr), 10);
 
   if (task_nmb == 0 && ptr == argv[1])
