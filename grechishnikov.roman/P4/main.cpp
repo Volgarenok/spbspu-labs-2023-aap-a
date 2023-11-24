@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <cstddef>
 #include "inputMatrix.hpp"
-#include "countInCol.hpp"
+#include "countIn.hpp"
 
 int main(int argc, char ** argv)
 {
@@ -29,82 +29,70 @@ int main(int argc, char ** argv)
     return 1;
   }
 
-
-  long long rows = 0, cols = 0;
+  size_t rows = 0, cols = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
   if (!input)
   {
-    input.close();
     std::cerr << "Cannot read a size of matrix\n";
     return 2;
   }
-  if (rows < 0 || cols < 0)
+
+  size_t maxNumCol = 0;
+  if (num == 1)
   {
-    input.close();
-    std::cerr << "Wrong matrix size\n";
-    return 2;
-  }
-  int * matr = {};
-  try
-  {
-    if (num == 1)
+    size_t maxSize = rows * cols;
+    if (maxSize > 10000)
     {
-      matr = new int [10000];
+      std::cerr << "Matrix is too big\n0";
+      return 2;
     }
-    if (num == 2)
+    int matr[10000] = {0};
+    try
     {
-      matr = new int [rows*cols];
+      inputMatrix(input, matr, maxSize);
     }
+    catch (const std::logic_error &e)
+    {
+      std::cerr << e.what() << "\n";
+      return 2;
+    }
+    maxNumCol = countInMatr(matr, rows, cols);
   }
-  catch (std::bad_alloc &)
+  if (num == 2)
   {
+    size_t maxSize = rows * cols;
+    int * matr = nullptr;
+    try
+    {
+      matr = new int [maxSize];
+      for (size_t i = 0; i < maxSize; ++i)
+      {
+        matr[i] = 0;
+      }
+      inputMatrix(input, matr, maxSize);
+    }
+    catch (const std::bad_alloc &e)
+    {
+      delete [] matr;
+      std::cerr << "Cannot allocate memory for matrix\n";
+      return 2;
+    }
+    catch (const std::logic_error &e)
+    {
+      delete [] matr;
+      std::cerr << e.what() << "\n";
+      return 2;
+    }
+    maxNumCol = countInMatr(matr, rows, cols);
     delete [] matr;
-    input.close();
-    std::cerr << "Cannot allocate memory for matrix\n";
-    return 2;
   }
-  try
-  {
-    size_t maxSize = 0;
-    if (num == 1)
-    {
-      maxSize = 10000;
-    }
-    if (num == 2)
-    {
-      maxSize = rows * cols;
-    }
-    inputMatrix(input, matr, rows * cols, maxSize);
-  }
-  catch(const std::logic_error &e)
-  {
-    delete [] matr;
-    input.close();
-    std::cerr << e.what();
-    return 2;
-  }
-  input.close();
 
   std::ofstream output(argv[3]);
   if (rows == 0 || cols == 0)
   {
-    delete [] matr;
     output << 0 << "\n";
-    output.close();
     return 0;
   }
-  size_t maxNumCol = 0;
-  size_t maxPodr = 0;
-  for (long long i = 0; i < cols; ++i)
-  {
-    if (maxPodr < countInCol(matr, rows, cols, i))
-    {
-      maxPodr = countInCol(matr, rows, cols, i);
-      maxNumCol = i + 1;
-    }
-  }
   output << maxNumCol << "\n";
-  output.close();
-  delete [] matr;
 }
