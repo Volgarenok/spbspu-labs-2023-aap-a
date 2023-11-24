@@ -31,7 +31,7 @@ void shabalin::LocMax::operator()(long long Number)
     {
       throw std::logic_error("Sequence is too long");
     }
-    ++count_;   
+    ++count_;
   }
   firstNumber_ = secondNumber_;
   secondNumber_ = Number;
