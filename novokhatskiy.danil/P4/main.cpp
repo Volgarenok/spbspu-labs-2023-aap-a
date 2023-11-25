@@ -61,10 +61,10 @@ int main(int argc, char * argv[])
     }
     else if (num == 2)
     {
-      int *matrix = nullptr;
+      int* matrix = nullptr;
       try
       {
-        matrix = new int[rows * cols];
+        matrix = new int [rows * cols];
       }
       catch (const std::bad_alloc&)
       {
@@ -74,9 +74,9 @@ int main(int argc, char * argv[])
       size_t check = inputArr(input, matrix, rows, cols);
       if (check != rows * cols)
       {
+        delete[] matrix;
         std::cerr << "Incorrect matrix\n";
         return 2;
-        delete[] matrix;
       }
       else
       {
