@@ -1,6 +1,6 @@
 #include "credentials.hpp"
 #include <iostream>
-void serter::outCredentials()
+void serter::outCredentials(const Credentials & cr)
 {
-    std::cout << "serter.tugce";
+    std::cout << cr.second << "." << cr.first;
 }
