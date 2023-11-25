@@ -30,7 +30,7 @@ int main(int argc, char * argv[])
   size_t columns = 0;
   if (ctrl_parameter == 1)
   {
-    int Matrix[10000] = {};
+    int matrixStat[10000] = {};
     std::ifstream input(argv[2]);
     input >> rows >> columns;
     if (!input)
@@ -46,17 +46,15 @@ int main(int argc, char * argv[])
     }
     try
     {
-      isaychev::fillMatrix(input, Matrix, rows, columns);
+      isaychev::fillMatrix(input, matrixStat, rows, columns);
     }
     catch (const std::invalid_argument &e)
     {
       std::cerr << e.what() << "\n";
       return 2;
     }
-    {
-      std::ofstream output(argv[3]);
-      output << isaychev::searchLines(Matrix, rows, columns) << "\n";
-    }
+    std::ofstream output(argv[3]);
+    output << isaychev::searchLines(matrixStat, rows, columns) << "\n";
   }
   else if (ctrl_parameter == 2)
   {
@@ -75,22 +73,20 @@ int main(int argc, char * argv[])
     }
     else
     {
-      int * DynMatrix = new int[rows * columns]();
+      int * dynMatrix = new int[rows * columns]();
       try
       {
-        isaychev::fillMatrix(input, DynMatrix, rows, columns);
+        isaychev::fillMatrix(input, dynMatrix, rows, columns);
       }
       catch(const std::invalid_argument &e)
       {
         std::cerr << e.what() << "\n";
-        delete[] DynMatrix;
+        delete[] dynMatrix;
         return 2;
       }
-      {
-        std::ofstream output(argv[3]);
-        output << isaychev::searchLines(DynMatrix, rows, columns) << "\n";
-      }
-      delete[] DynMatrix;
+      std::ofstream output(argv[3]);
+      output << isaychev::searchLines(dynMatrix, rows, columns) << "\n";
+      delete[] dynMatrix;
     }
   }
 }

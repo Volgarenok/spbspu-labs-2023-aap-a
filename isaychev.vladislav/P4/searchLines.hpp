@@ -5,7 +5,7 @@
 
 namespace isaychev
 {
-  size_t searchLines(int * matrix, size_t rs, size_t cs);
+  size_t searchLines(const int * matrix, size_t rs, size_t cs);
 }
 
 #endif
