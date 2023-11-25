@@ -2,7 +2,7 @@
 #include <fstream>
 #include <cstring>
 #include "input_array.hpp"
-#include "start_counter.hpp"
+#include "count_local_min.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
       return 2;
     }
 
-    startCounter(matrix, rows, cols, count);
+    countLocalMin(matrix, rows, cols, count);
   }
   else if (type == 2)
   {
@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
         return 2;
     }
 
-    startCounter(matrix, rows, cols, count);
+    countLocalMin(matrix, rows, cols, count);
     delete [] matrix;
   }
   else
