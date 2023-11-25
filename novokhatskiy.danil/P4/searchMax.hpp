@@ -1,8 +1,9 @@
 #ifndef SEARCH_MAX_HPP
 #define SEARCH_MAX_HPP
-#include <algorithm>
+#include <cstddef>
+#include <iostream>
 namespace novokhatskiy
 {
-  int searchMax(int matrix[], int rows, int cols);
+  int searchMax(int matrix[], size_t rows, size_t cols);
 }
 #endif
