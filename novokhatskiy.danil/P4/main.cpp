@@ -63,6 +63,15 @@ int main(int argc, char * argv[])
     {
       int *matrix = new int[rows * cols];
       size_t check = inputArr(input, matrix, rows, cols);
+      try
+      {
+        matrix;
+      }
+      catch (const std::bad_alloc&)
+      {
+        std::cerr << "Not enough memory!\n";
+        return 3;
+      }
       if (check != rows * cols)
       {
         std::cerr << "Incorrect matrix\n";
