@@ -62,7 +62,6 @@ int main(int argc, char * argv[])
     else if (num == 2)
     {
       int *matrix = nullptr;
-      size_t check = inputArr(input, matrix, rows, cols);
       try
       {
         matrix = new int[rows * cols];
@@ -72,6 +71,7 @@ int main(int argc, char * argv[])
         std::cerr << "Not enough memory!\n";
         return 3;
       }
+      size_t check = inputArr(input, matrix, rows, cols);
       if (check != rows * cols)
       {
         std::cerr << "Incorrect matrix\n";
