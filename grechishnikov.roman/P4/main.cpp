@@ -2,6 +2,7 @@
 #include <fstream>
 #include <stdexcept>
 #include <cstddef>
+#include <cstring>
 #include "inputMatrix.hpp"
 #include "countIn.hpp"
 
@@ -11,6 +12,11 @@ int main(int argc, char ** argv)
   if (argc != 4)
   {
     std::cerr << "Wrong number of elements in command line arguments\n";
+    return 1;
+  }
+  if (std::strlen(argv[1]) != 1)
+  {
+    std::cerr << "Wrong numder of task input\n";
     return 1;
   }
   int num = 0;
