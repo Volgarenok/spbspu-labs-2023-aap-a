@@ -1,7 +1,9 @@
 #include <iostream>
+#include "credentials.hpp"
 
 int main()
 {
-   std::cout <<"serter.tugce\n";
-
+   using namespace serter; 
+   outCredentials();
+   std::cout << "\n";
 }
