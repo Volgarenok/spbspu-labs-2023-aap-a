@@ -60,6 +60,7 @@ int main(int argc, char** argv)
       catch (const std::range_error& e)
       {
         std::cerr << e.what() << "\n";
+        delete[] smoothed_matrix;
         return 2;
       }
       zaitsev::smoothMatrix(matrix, smoothed_matrix, rows, cols);
@@ -74,6 +75,7 @@ int main(int argc, char** argv)
       catch (const std::range_error& e)
       {
         std::cerr << e.what() << "\n";
+        delete[] smoothed_matrix;
         delete[] matrix;
         return 2;
       }
