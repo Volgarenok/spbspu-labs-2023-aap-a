@@ -1,5 +1,5 @@
 #include "start_counter.hpp"
-#include "count_local_min.hpp"
+#include "is_min.hpp"
 
 void nikitov::startCounter(const int matrix[], size_t rows, size_t cols, size_t& count)
 {
@@ -11,7 +11,10 @@ void nikitov::startCounter(const int matrix[], size_t rows, size_t cols, size_t&
       position = cols * i + 1;
       for (size_t j = 1; j != cols - 1; ++j)
       {
-        countLocalMin(position, matrix, cols, count);
+        if (isMin(position, matrix, cols))
+        {
+          ++count;
+        }
         ++position;
       }
     }

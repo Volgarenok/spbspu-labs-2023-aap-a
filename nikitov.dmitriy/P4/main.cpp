@@ -2,7 +2,6 @@
 #include <fstream>
 #include <cstring>
 #include "input_array.hpp"
-#include "count_local_min.hpp"
 #include "start_counter.hpp"
 
 int main(int argc, char* argv[])
