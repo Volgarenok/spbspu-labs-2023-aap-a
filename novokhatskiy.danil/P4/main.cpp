@@ -61,11 +61,11 @@ int main(int argc, char * argv[])
     }
     else if (num == 2)
     {
-      int *matrix = new int[rows * cols];
+      int *matrix = nullptr;
       size_t check = inputArr(input, matrix, rows, cols);
       try
       {
-        matrix;
+        matrix = new int[rows * cols];
       }
       catch (const std::bad_alloc&)
       {
