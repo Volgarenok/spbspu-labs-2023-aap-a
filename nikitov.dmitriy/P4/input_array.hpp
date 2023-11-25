@@ -5,6 +5,6 @@
 #include <cstddef>
 namespace nikitov
 {
-  size_t inputArray(std::istream & input, int matrix[], size_t rows, size_t cols);
+  size_t inputArray(std::istream& input, int matrix[], size_t rows, size_t cols);
 }
 #endif
