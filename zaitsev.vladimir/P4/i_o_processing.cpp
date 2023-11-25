@@ -26,7 +26,7 @@ long zaitsev::checkArguments(const int argc, const char* const* argv)
   return task_nmb;
 }
 
-void zaitsev::readMatrix(std::istream& input, int* destination, size_t rows, size_t cols)
+std::istream& zaitsev::readMatrix(std::istream& input, int* destination, size_t rows, size_t cols)
 {
   size_t counter = 0;
   for (size_t i = 0; i < rows * cols; ++i)
@@ -38,13 +38,11 @@ void zaitsev::readMatrix(std::istream& input, int* destination, size_t rows, siz
       ++counter;
     }
   }
-  char check_size = '\0';
-  input >> check_size;
-  if (counter != rows * cols || input)
+  if (counter != rows * cols)
   {
     throw std::range_error("Input data is not desired matrix");
   }
-  return;
+  return input;
 }
 
 std::ostream& zaitsev::writeMatrix(std::ostream& output, const double* destination, size_t rows, size_t cols)
