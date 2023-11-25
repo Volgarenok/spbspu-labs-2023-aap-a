@@ -12,15 +12,12 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  if (strlen(argv[1]) != 1)
-  {
-    std::cerr << "Error: Wrong first argument\n";
-  }
-
   int type = 0;
+  char* endOfParsing = nullptr;
+
   try
   {
-    type = std::stoll(argv[1]);
+    type = std::strtoll(argv[1], &endOfParsing, 10);
   }
   catch (const std::out_of_range &)
   {
@@ -30,6 +27,12 @@ int main(int argc, char* argv[])
   catch (const std::invalid_argument &)
   {
     std::cerr << "Error: First argument is not a number\n";
+    return 1;
+  }
+
+  if (*endOfParsing != '\0')
+  {
+    std::cerr << "Error: Wrong first argument\n";
     return 1;
   }
 
