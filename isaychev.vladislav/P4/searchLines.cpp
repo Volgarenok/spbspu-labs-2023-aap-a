@@ -1,12 +1,13 @@
 #include "searchLines.hpp"
 
-size_t isaychev::searchLines(const int * matrix, size_t rs, size_t cs)
+isaychev::ulli_t isaychev::searchLines(const int * matrix, isaychev::ulli_t rs, isaychev::ulli_t cs)
 {
-  size_t lineCount = 0;
+  isaychev::ulli_t lineCount = 0;
+  ulli_t lineCheck = cs;
   if (cs != 1)
   {
-    size_t countEq = 0;
-    for (size_t i = 0; i < rs * cs - 1; ++i)
+    isaychev::ulli_t countEq = 0;
+    for (isaychev::ulli_t i = 0; i < rs * cs - 1; ++i)
     {
       int currElement = matrix[i];
       int nextElement = matrix[i+1];
@@ -14,13 +15,14 @@ size_t isaychev::searchLines(const int * matrix, size_t rs, size_t cs)
       {
         ++countEq;
       }
-      if (((i + 1) % (cs - 1)) == 0)
+      if (((i + 1) % (lineCheck - 1)) == 0)
       {
         if (countEq == 0)
         {
           ++lineCount;
         }
         countEq = 0;
+        lineCheck += cs;
         ++i;
       }
     }

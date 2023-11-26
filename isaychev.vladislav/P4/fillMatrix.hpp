@@ -1,12 +1,12 @@
 #ifndef FILLMATRIX_HPP
 #define FILLMATRIX_HPP
 
-#include <stdexcept>
-#include <fstream>
+#include <iostream>
 
 namespace isaychev
 {
-  void fillMatrix(std::ifstream &input, int * matrix, size_t rs, size_t cs);
+  using ulli_t = unsigned long long int;
+  void fillMatrix(std::istream &input, int * matrix, ulli_t rs, ulli_t cs);
 }
 
 #endif
