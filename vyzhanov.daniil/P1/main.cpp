@@ -1,6 +1,6 @@
-#include "composition.hpp"
 #include <stdexcept>
 #include <iostream>
+#include "composition.hpp"
 
 int main()
 {
