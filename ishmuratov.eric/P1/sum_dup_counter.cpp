@@ -34,5 +34,3 @@ size_t ishmuratov::SumDupCounter::operator()() const
   }
   return sum_count_;
 }
-
-
