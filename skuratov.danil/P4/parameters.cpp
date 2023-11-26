@@ -9,7 +9,7 @@ namespace skuratov
 {
   Parameters readParameters(int argc, char* argv[])
   {
-    Parameters parameters; 
+    Parameters parameters;
     if (argc > 4) 
     {
       throw std::invalid_argument("Too many arguments");

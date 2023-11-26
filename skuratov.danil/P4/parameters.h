@@ -2,7 +2,7 @@
 #define PARAMETERS_H
 
 #include <string>
-  
+
 namespace skuratov
 {
   struct Parameters
