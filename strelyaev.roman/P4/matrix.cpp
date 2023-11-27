@@ -1,6 +1,6 @@
 #include "matrix.h"
-
-void strelyaev::inputMatrix(std::fstream & in, int * a, size_t e)
+#include <iostream>
+void strelyaev::inputMatrix(std::istream & in, int * a, size_t e)
 {
   for (size_t i = 0; i < e; i++)
   {
@@ -11,7 +11,7 @@ void strelyaev::inputMatrix(std::fstream & in, int * a, size_t e)
   }
 }
 
-void strelyaev::printMatrix(std::fstream & out, const int * a, size_t e)
+void strelyaev::printMatrix(std::ostream & out, int * a, size_t e)
 {
   for (size_t i = 0; i < e; i++)
   {

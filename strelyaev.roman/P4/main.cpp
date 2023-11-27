@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cstring>
 #include <cstddef>
 #include <exception>
 #include "matrix.h"
@@ -33,7 +34,7 @@ int main(int argc, char * argv[])
     return 1;
   }
 
-  if ((n < 1) || (n > 2) || (position < sizeof(argv[1])))
+  if ((n < 1) || (n > 2) || (position < (std::strlen(argv[1]))))
   {
     std::cerr << "1st argument must be 1-2 number" << "\n";
     return 1;
@@ -43,43 +44,52 @@ int main(int argc, char * argv[])
   {
     return 0;
   }
-
+  int * matrix = nullptr;
+  int * clock_matrix = nullptr;
+  int temp_matrix[10000];
+  int temp_clock[columns*rows];
   if (n == 1)
   {
-      int matrix[10000];
-      int clock_matrix[rows*columns];
-    try
-    {
-      inputMatrix(input, matrix, rows*columns);
-      makeClockwise(clock_matrix, rows, columns);
-      subtractMatrix(matrix, clock_matrix, rows*columns);
-      printMatrix(output, matrix, columns*rows);
-    }
-    catch (const std::logic_error& e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
+    matrix = temp_matrix;
+    clock_matrix = temp_clock;
   }
   if (n == 2)
   {
-    int * matrix = new int [10000];
-    int * clock_matrix = new int [rows*columns];
-    try
+    try 
     {
-      inputMatrix(input, matrix, rows*columns);
-      makeClockwise(clock_matrix, rows, columns);
-      subtractMatrix(matrix, clock_matrix, rows*columns);
-      printMatrix(output, matrix, columns*rows);
+    matrix = new int [10000];
+    clock_matrix = new int [rows*columns];
     }
-    catch(const std::logic_error& e)
+    catch(...)
     {
       delete [] matrix;
       delete [] clock_matrix;
-      std::cerr << e.what() << "\n";
       return 2;
+    } 
+  }
+
+  try 
+  {
+  inputMatrix(input, matrix, rows*columns);
+  makeClockwise(clock_matrix, rows, columns);
+  subtractMatrix(matrix, clock_matrix, rows*columns);
+  printMatrix(output, matrix, columns*rows);
+  }
+  catch (const std::logic_error& e)
+  {
+    std::cerr << e.what() << "\n";
+    if (n == 2)
+    {
+      delete [] matrix;
+      delete [] clock_matrix;
     }
+    return 2;
+  }
+
+  if (n == 2)
+  {
     delete [] matrix;
     delete [] clock_matrix;
   }
+
 }
