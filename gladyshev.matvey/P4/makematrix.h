@@ -6,7 +6,7 @@
 
 namespace gladyshev
 {
- void makeMatrix(std::fstream& input, int * matrix, size_t cols, size_t rows);
+ void makeMatrix(std::istream& input, int * matrix, size_t cols, size_t rows);
 }
 
 #endif

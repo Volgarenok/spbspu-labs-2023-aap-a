@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 #include "matrixchecktri.h"
 #include "zeromatrix.h"
@@ -12,9 +13,9 @@ int main(int argc, char * argv[])
     std::cerr << "Error in command line arguments\n";
     return 1;
   }
-  char * endOfParsing = nullptr;
-  unsigned short int ex_num = std::strtoll(argv[1], &endOfParsing, 10);
-  if (*endOfParsing != '\0')
+  char * check_num = nullptr;
+  unsigned short int ex_num= std::strtoll(argv[1], std::addressof(check_num), 10);
+  if (*check_num != '\0')
   {
     std::cerr << "Cannot parse a value\n";
     return 1;
@@ -61,9 +62,12 @@ int main(int argc, char * argv[])
     return 1;
   }
   std::fstream output(argv[3], std::ios::out);
+  int staticmatrix[10000] {};
+  int * dynamicmatrix = nullptr;
+  int * matrix = nullptr;
   if (ex_num == 1)
   {
-    int matrix[10000] {};
+    matrix = staticmatrix;
     try
     {
       makeMatrix(input, matrix, rows, cols);
@@ -73,18 +77,10 @@ int main(int argc, char * argv[])
       std::cerr << "Error: " << e.what() << "\n";
       return 2;
     }
-    if (isUpperTriangular(matrix, rows, cols) && !isZeroMatrix(matrix, rows, cols))
-    {
-      output << "True\n";
-    }
-    else
-    {
-      output << "False\n";
-    }
   }
   else
   {
-    int * matrix = nullptr;
+    matrix = dynamicmatrix;
     try
     {
       matrix = new int [rows * cols];
@@ -96,14 +92,17 @@ int main(int argc, char * argv[])
       delete[] matrix;
       return 2;
     }
-    if (isUpperTriangular(matrix, rows, cols) && !isZeroMatrix(matrix, rows, cols))
-    {
-      output << "True\n";
-    }
-    else
-    {
-      output << "False\n";
-    }
+  }
+  if (isUpperTriangular(matrix, rows, cols) && !isZeroMatrix(matrix, rows, cols))
+  {
+    output << std::boolalpha << true << "\n";
+  }
+  else
+  {
+    output << std::boolalpha << false << "\n";
+  }
+  if (ex_num == 2)
+  {
     delete[] matrix;
   }
   return 0;

@@ -5,7 +5,7 @@
 
 namespace gladyshev
 {
-  bool isUpperTriangular(int * matrix, size_t rows, size_t cols);
+  bool isUpperTriangular(const int * matrix, size_t rows, size_t cols);
 }
 
 #endif

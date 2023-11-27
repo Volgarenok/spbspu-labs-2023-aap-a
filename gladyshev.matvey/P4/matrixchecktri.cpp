@@ -1,6 +1,6 @@
 #include "matrixchecktri.h"
 
-bool gladyshev::isUpperTriangular(int * matrix, size_t rows, size_t cols)
+bool gladyshev::isUpperTriangular(const int * matrix, size_t rows, size_t cols)
 {
   bool flag = true;
   for (size_t i = 1; i < rows; ++i)
