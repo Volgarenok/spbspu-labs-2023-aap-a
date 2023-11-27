@@ -18,7 +18,7 @@ void vyzhanov::MoreAndLess::operator()(int num)
   const size_t max_s = std::numeric_limits< size_t >::max();
   if (count_ == max_s)
   {
-    throw  std::logic_error("Sequence is too long!");
+    throw std::logic_error("Sequence is too long!");
   }
   else if (count_ < max_s)
   {

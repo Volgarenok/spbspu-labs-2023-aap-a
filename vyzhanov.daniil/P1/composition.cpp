@@ -1,6 +1,5 @@
 #include "composition.hpp"
 
-
 void vyzhanov::SequenceSpec::operator()(int num)
 {
   count(num);

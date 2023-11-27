@@ -16,7 +16,8 @@ void vyzhanov::SumDup::operator()(int num)
   num2_ = num1_;
   num1_ = num;
   const size_t max_s = std::numeric_limits< size_t >::max();
-  if ((num2_ > 0 && num3_ > std::numeric_limits<int>::max() - num2_)  || (num2_ < 0 && num3_ < std::numeric_limits<int>::min() - num2_))
+  if ((num2_ > 0 && num3_ > std::numeric_limits< int >::max() - num2_)\
+  || (num2_ < 0 && num3_ < std::numeric_limits< int >::min() - num2_))
   {
     throw std::logic_error("Overflow!");
   }

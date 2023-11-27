@@ -7,16 +7,16 @@
 
 namespace vyzhanov
 {
-  class SequenceSpec
+  struct SequenceSpec
   {
-    CountAfterMax count;
-    SumDup sum;
-    MoreAndLess moreless;
-    public:
-      void operator()(int num);
-      size_t counter() const;
-      size_t sum1() const;
-      size_t moreLess() const;
+    void operator()(int num);
+    size_t counter() const;
+    size_t sum1() const;
+    size_t moreLess() const;
+    private:
+      CountAfterMax count;
+      SumDup sum;
+      MoreAndLess moreless;
    };
 }
 #endif
