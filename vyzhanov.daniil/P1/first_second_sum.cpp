@@ -21,11 +21,11 @@ void vyzhanov::SumDup::operator()(int num)
   {
     throw std::logic_error("Overflow!");
   }
-  if (count_sum_ == max_s)
+  if (count_sum_ > max_s)
   {
     throw std::logic_error("Sequence is too long!");
   }
-  else if (count_sum_ < max_s)
+  else if (count_sum_ <+ max_s)
   {
     if (num1_ == num2_ + num3_)
     {

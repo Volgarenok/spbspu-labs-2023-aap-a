@@ -1,4 +1,4 @@
-#include "more_less_check.hpp"
+\#include "more_less_check.hpp"
 #include <iostream>
 #include <limits>
 #include <stdexcept>
@@ -16,11 +16,11 @@ void vyzhanov::MoreAndLess::operator()(int num)
   now_num_ = next_num_;
   next_num_ = num;
   const size_t max_s = std::numeric_limits< size_t >::max();
-  if (count_ == max_s)
+  if (count_ > max_s)
   {
     throw std::logic_error("Sequence is too long!");
   }
-  else if (count_ < max_s)
+  else if (count_ <= max_s)
   {
     if ((prev_num_ > now_num_) && (next_num_ < now_num_))
     {
