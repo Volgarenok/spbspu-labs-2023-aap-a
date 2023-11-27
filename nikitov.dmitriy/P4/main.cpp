@@ -77,9 +77,9 @@ int main(int argc, char* argv[])
     size_t status = inputArray(input, matrix, rows, cols);
     if (status != rows * cols)
     {
-        delete [] matrix;
-        std::cerr << "Error: Wrong element at position: " << status << '\n';
-        return 2;
+      delete [] matrix;
+      std::cerr << "Error: Wrong element at position: " << status << '\n';
+      return 2;
     }
 
     countLocalMin(matrix, rows, cols, count);
