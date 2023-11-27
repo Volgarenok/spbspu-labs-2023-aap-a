@@ -12,7 +12,7 @@ size_t marishin::checkingArray(std::istream& input, int* matrix, const size_t ro
   return rows * cols;
 }
 
-int marishin::processingMatrix(std::istream& input, int* matrix, const size_t rows, const size_t cols, int num, const char* outputFilename)
+void marishin::processingMatrix(std::istream& input, int* matrix, const size_t rows, const size_t cols, int num, const char* outputFilename)
 {
   if (checkingArray(input, matrix, rows, cols) == rows * cols)
   {
@@ -23,7 +23,6 @@ int marishin::processingMatrix(std::istream& input, int* matrix, const size_t ro
     {
       delete[] matrix;
     }
-    return 0;
   }
   else
   {
@@ -31,7 +30,6 @@ int marishin::processingMatrix(std::istream& input, int* matrix, const size_t ro
     {
       delete[] matrix;
     }
-    std::cerr << "The contents of the file cannot be interpreted\n";
-    return 2;
+    throw std::logic_error("The contents of the file cannot be interpreted");
   }
 }

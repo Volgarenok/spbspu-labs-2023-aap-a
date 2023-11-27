@@ -8,6 +8,6 @@
 namespace marishin
 {
   size_t checkingArray(std::istream& input, int* matrix, const size_t rows, const size_t cols);
-  int processingMatrix(std::istream& input, int* matrix, const size_t rows, const size_t cols, int num, const char* outputFilename);
+  void processingMatrix(std::istream& input, int* matrix, const size_t rows, const size_t cols, int num, const char* outputFilename);
 }
 #endif
