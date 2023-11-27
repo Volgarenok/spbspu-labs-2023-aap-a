@@ -9,7 +9,7 @@ int main(int argc, char** argv)
   long task_nmb = 0;
   try
   {
-    zaitsev::checkArguments(argc, argv);
+    task_nmb = zaitsev::checkArguments(argc, argv);
   }
   catch (const std::out_of_range& e)
   {
