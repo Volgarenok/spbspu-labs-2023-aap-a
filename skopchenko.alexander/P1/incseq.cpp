@@ -14,17 +14,17 @@ void skopchenko::IncSeq::operator()(int current)
     prevNum_ = current;
   }
   else if (current > prevNum_)
+  {
+    size_t max_count = std::numeric_limits< size_t >::max();
+    if (count_ == max_count)
     {
-      size_t max_count = std::numeric_limits< size_t >::max();
-      if (count_ == max_count)
-      {
-        throw std::logic_error("maximum sequence lenght exceeded");
-      }
-      else
-      {
-        count_++;
-      }
+      throw std::logic_error("maximum sequence lenght exceeded");
     }
+    else
+    {
+      count_++;
+    }
+  }
   prevNum_ = current;
 }
 

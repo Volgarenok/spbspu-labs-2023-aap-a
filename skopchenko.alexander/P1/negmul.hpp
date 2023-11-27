@@ -1,5 +1,5 @@
-#ifndef NEGMUL
-#define NEGMUL
+#ifndef NEGMUL_HPP
+#define NEGMUL_HPP
 
 #include <cstddef>
 

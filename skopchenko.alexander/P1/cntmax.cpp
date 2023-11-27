@@ -21,7 +21,7 @@ void skopchenko::CntMax::operator()(int current)
 
     if (count_ == max_count)
     {
-      std::logic_error("max sequence lengh");
+      throw std::logic_error("max sequence lengh");
     }
     else
     {

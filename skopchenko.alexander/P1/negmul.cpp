@@ -24,7 +24,8 @@ void skopchenko::NegMul::operator()(int current)
       else
       {
         count_++;
-        double max_multiply = (std::numeric_limits< int >::max()) / result_;
+        int max_int = std::numeric_limits< int >::max();
+        double max_multiply = max_int / result_;
         if (abs(max_multiply) > abs(current))
         {
           result_ = result_ * current;
