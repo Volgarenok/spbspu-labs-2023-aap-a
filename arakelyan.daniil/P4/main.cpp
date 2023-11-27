@@ -84,20 +84,19 @@ int main (int argc, char * argv[])
     matrix = new int[rows * cols];
     if (!matrix)
     {
-      std::cerr << "Can't create inp matrix\n";
+      std::cerr << "Can't create input matrix\n";
       delete [] matrix;
       return 2;
     }
     smoothedMatrix = new double[rows*cols];
     if (!smoothedMatrix)
     {
-      std::cerr << "Can't create matrix 2\n";
+      std::cerr << "Can't create matrix smoothed matrix\n";
       delete [] matrix;
       delete [] smoothedMatrix;
       return 2;
     }
   }
-
 
   try
   {
@@ -120,57 +119,6 @@ int main (int argc, char * argv[])
     delete [] matrix;
     delete [] smoothedMatrix;
   }
-
-  // if (firstArgument == 1)
-  // {
-  //   int matrix[10000] = {};
-  //   double smoothedMatrix[10000] = {};
-  //   try
-  //   {
-  //     arakelyan::inputMatrix(input, matrix, rows*cols);
-  //     arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-  //     arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
-  //   }
-  //   catch (const std::logic_error & e)
-  //   {
-  //     std::cerr << "Error: " << e.what() << "\n";
-  //     return 2;
-  //   }
-  // }
-  // else if (firstArgument == 2)
-  // {
-  //   int * matrix = new int[rows*cols];
-  //   if (!matrix)
-  //   {
-  //     std::cerr << "Can't create matrix 1\n";
-  //     delete [] matrix;
-  //     return 2;
-  //   }
-  //
-  //   double * smoothedMatrix = new double[rows*cols];
-  //   if (!smoothedMatrix)
-  //   {
-  //     std::cerr << "Can't create matrix 2\n";
-  //     delete [] matrix;
-  //     delete [] smoothedMatrix;
-  //     return 2;
-  //   }
-  //   try
-  //   {
-  //     arakelyan::inputMatrix(input, matrix, rows*cols);
-  //     arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-  //     arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
-  //   }
-  //   catch (const std::logic_error & e)
-  //   {
-  //     std::cerr << "Error: " << e.what() << "\n";
-  //     delete [] matrix;
-  //     delete [] smoothedMatrix;
-  //     return 2;
-  //   }
-  //   delete [] matrix;
-  //   delete [] smoothedMatrix;
-  // }
 
   return 0;
 }
