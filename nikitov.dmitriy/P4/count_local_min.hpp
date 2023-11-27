@@ -4,7 +4,7 @@
 #include <cstddef>
 namespace nikitov
 {
-  void countLocalMin(const int matrix[], size_t rows, size_t cols, size_t& count);
+  size_t countLocalMin(const int matrix[], size_t rows, size_t cols);
 }
 #endif
 

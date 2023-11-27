@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
       return 2;
     }
 
-    countLocalMin(matrix, rows, cols, count);
+    count = countLocalMin(matrix, rows, cols);
   }
   else if (type == 2)
   {
@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
       return 2;
     }
 
-    countLocalMin(matrix, rows, cols, count);
+    count = countLocalMin(matrix, rows, cols);
     delete [] matrix;
   }
   else
