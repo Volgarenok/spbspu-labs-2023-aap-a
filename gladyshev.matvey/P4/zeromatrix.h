@@ -5,7 +5,7 @@
 
 namespace gladyshev
 {
-  bool isZeroMatrix(int * matrix, size_t rows, size_t cols);
+  bool isZeroMatrix(const int * matrix, size_t rows, size_t cols);
 }
 
 #endif
