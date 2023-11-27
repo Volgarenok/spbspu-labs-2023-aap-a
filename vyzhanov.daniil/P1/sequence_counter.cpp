@@ -11,7 +11,7 @@ vyzhanov::CountAfterMax::CountAfterMax():
 void vyzhanov::CountAfterMax::operator()(int num)
 {
   const size_t max_s = std::numeric_limits< size_t >::max();
-  if (after_max_ > max_s)
+  if (after_max_ == max_s && num <= maxi_num_)
   {
     throw std::logic_error("Sequence is too long!");
   }
