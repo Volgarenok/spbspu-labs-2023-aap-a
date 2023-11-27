@@ -66,6 +66,14 @@ int main (int argc, char * argv[])
   }
 
 
+  int matrix[10000] = {};
+  double smoothedMatrix[10000] = {};
+
+
+  int * matrixForTaskTwo = nullptr;
+  double * smoothedMatrixForTaskTwo = nullptr; 
+
+
   if (firstArgument == 1)
   {
     int matrix[10000] = {};
@@ -115,6 +123,12 @@ int main (int argc, char * argv[])
     }
     delete [] matrix;
     delete [] smoothedMatrix;
+  }
+
+  try {
+    arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
+  } catch (declaration) {
+  
   }
 
   return 0;

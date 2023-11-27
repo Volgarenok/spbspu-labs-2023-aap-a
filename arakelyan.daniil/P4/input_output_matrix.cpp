@@ -12,7 +12,7 @@ void arakelyan::inputMatrix(std::ifstream & input, int * matrix, size_t el)
     }
   }
 }
-std::ofstream & arakelyan::outputTransformMatrix(std::ofstream &output, double * smoothed, size_t rows, size_t cols)
+std::ofstream & arakelyan::outputTransformMatrix(std::ofstream & output, double * smoothed, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows; ++i)
   {
