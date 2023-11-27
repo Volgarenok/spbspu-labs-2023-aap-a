@@ -32,6 +32,9 @@ int main(int argc, char** argv)
 
   size_t rows = 0;
   size_t cols = 0;
+  constexpr size_t capacity = 10000;
+  int static_matrix[capacity] = {};
+  int* matrix = nullptr;
   double* smoothed_matrix = nullptr;
   input >> rows >> cols;
   if (!input)
@@ -50,39 +53,14 @@ int main(int argc, char** argv)
     smoothed_matrix = new double[rows * cols];
     if (task_nmb == 1)
     {
-      const size_t capacity = 10000;
-      int matrix[capacity] = {};
-
-      try
-      {
-        zaitsev::readMatrix(input, matrix, rows, cols);
-      }
-      catch (const std::range_error& e)
-      {
-        std::cerr << e.what() << "\n";
-        delete[] smoothed_matrix;
-        return 2;
-      }
-      zaitsev::smoothMatrix(matrix, smoothed_matrix, rows, cols);
+      matrix = static_matrix;
     }
     else
     {
-      int* matrix = new int[rows * cols];
-      try
-      {
-        zaitsev::readMatrix(input, matrix, rows, cols);
-      }
-      catch (const std::range_error& e)
-      {
-        std::cerr << e.what() << "\n";
-        delete[] smoothed_matrix;
-        delete[] matrix;
-        return 2;
-      }
-
-      zaitsev::smoothMatrix(matrix, smoothed_matrix, rows, cols);
-      delete[] matrix;
+      matrix = new int[rows * cols];
     }
+    zaitsev::readMatrix(input, matrix, rows, cols);
+    zaitsev::smoothMatrix(matrix, smoothed_matrix, rows, cols);
   }
   catch (const std::bad_alloc&)
   {
@@ -90,8 +68,22 @@ int main(int argc, char** argv)
     delete[] smoothed_matrix;
     return 2;
   }
+  catch (const std::range_error& e)
+  {
+    std::cerr << e.what() << "\n";
+    delete[] smoothed_matrix;
+    if (task_nmb == 2)
+    {
+      delete[] matrix;
+    }
+    return 2;
+  }
 
   zaitsev::writeMatrix(output, smoothed_matrix, rows, cols) << "\n";
   delete[] smoothed_matrix;
+  if (task_nmb == 2)
+  {
+    delete[] matrix;
+  }
   return 0;
 }

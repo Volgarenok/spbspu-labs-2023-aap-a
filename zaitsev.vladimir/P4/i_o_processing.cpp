@@ -1,6 +1,6 @@
 #include "i_o_processing.h"
 
-long zaitsev::checkArguments(const int argc, const char* const* argv)
+long zaitsev::checkArguments(int argc, const char* const* argv)
 {
   if (argc > 4)
   {
@@ -17,7 +17,6 @@ long zaitsev::checkArguments(const int argc, const char* const* argv)
   if (task_nmb == 0 && ptr == argv[1])
   {
     throw std::out_of_range("First parameter is not a number");
-    return 1;
   }
   if (task_nmb > 2 || task_nmb < 1)
   {
