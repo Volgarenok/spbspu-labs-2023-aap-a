@@ -55,7 +55,7 @@ int main(int argc, char * argv[])
   }
   if (n == 2)
   {
-    try 
+    try
     {
     matrix = new int [10000];
     clock_matrix = new int [rows*columns];
@@ -65,10 +65,10 @@ int main(int argc, char * argv[])
       delete [] matrix;
       delete [] clock_matrix;
       return 2;
-    } 
+    }
   }
 
-  try 
+  try
   {
   inputMatrix(input, matrix, rows*columns);
   makeClockwise(clock_matrix, rows, columns);
@@ -91,5 +91,4 @@ int main(int argc, char * argv[])
     delete [] matrix;
     delete [] clock_matrix;
   }
-
 }
