@@ -1,9 +1,11 @@
 #ifndef MATRIX_TRANSFORMATION_HPP
 #define MATRIX_TRANSFORMATION_HPP
-#include <fstream>
+
+#include <iostream>
+
 namespace marishin
 {
-  void matrixTransformation(int* matrix, int rows, int cols);
-  void matrixEntry(std::ofstream& b, int* matrix, int rows, int cols);
+  void transformMatrix(int* matrix, const size_t rows, const size_t cols);
+  void inputMatrix(std::ostream& b, int* matrix, const size_t rows, const size_t cols);
 }
 #endif

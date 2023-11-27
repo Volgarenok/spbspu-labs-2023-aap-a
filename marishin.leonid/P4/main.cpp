@@ -17,7 +17,8 @@ int main(int argc, char* argv[])
     std::cerr << "Too many arguments\n";
     return 1;
   }
-  int num = 0;
+  char* end = nullptr;
+  int num = std::strtoll(argv[1], std::addressof(end), 10);
   try
   {
     num = std::stoll(argv[1]);
@@ -37,8 +38,8 @@ int main(int argc, char* argv[])
     std::cerr << "First parameter is out of range\n";
     return 1;
   }
-  int rows = 0;
-  int cols = 0;
+  size_t rows = 0;
+  size_t cols = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
   if (!input)
@@ -46,37 +47,33 @@ int main(int argc, char* argv[])
     std::cerr << "The contents of the file cannot be interpreted\n";
     return 2;
   }
+  int* matrix = nullptr;
   if (num == 1)
   {
-    const int arraySize = 10000;
+    const size_t arraySize = 10000;
     int matrix[arraySize]{};
-    if (arrayCheck(input, matrix, rows, cols, num))
-    {
-      matrixTransformation(matrix, rows, cols);
-      std::ofstream output(argv[3]);
-      matrixEntry(output, matrix, rows, cols);
-    }
-    else
-    {
-      std::cerr << "The contents of the file cannot be interpreted\n";
-      return 2;
-    }
   }
   else if (num == 2)
   {
     int* matrix = new int[rows * cols];
-    if (arrayCheck(input, matrix, rows, cols, num))
+  }
+  if (checkingArray(input, matrix, rows, cols) == rows * cols)
+  {
+    transformMatrix(matrix, rows, cols);
+    std::ofstream output(argv[3]);
+    inputMatrix(output, matrix, rows, cols);
+    if (num == 2)
     {
-      matrixTransformation(matrix, rows, cols);
-      std::ofstream output(argv[3]);
-      matrixEntry(output, matrix, rows, cols);
       delete[] matrix;
     }
-    else
+  }
+  else
+  {
+    if (num == 2)
     {
       delete[] matrix;
-      std::cerr << "The contents of the file cannot be interpreted\n";
-      return 2;
     }
+    std::cerr << "The contents of the file cannot be interpreted\n";
+    return 2;
   }
 }

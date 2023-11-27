@@ -1,12 +1,12 @@
 #include "matrixtransformation.hpp"
 
-void marishin::matrixTransformation(int* matrix, int rows, int cols)
+void marishin::transformMatrix(int* matrix, const size_t rows, const size_t cols)
 {
   int topRow = 0;
   int bottomRow = rows - 1;
   int leftCol = 0;
   int rightCol = cols - 1;
-  int count = 1;
+  size_t count = 1;
 
   while (topRow <= bottomRow && leftCol <= rightCol)
   {
@@ -40,10 +40,10 @@ void marishin::matrixTransformation(int* matrix, int rows, int cols)
   }
 }
 
-void marishin::matrixEntry(std::ofstream& b, int* matrix, int rows, int cols)
+void marishin::inputMatrix(std::ostream& b, int* matrix, const size_t rows, const size_t cols)
 {
   b << rows << " " << cols;
-  for (int i = 0; i < rows * cols; ++i)
+  for (size_t i = 0; i < rows * cols; ++i)
   {
     b << " " << matrix[i];
   }

@@ -1,8 +1,10 @@
 #ifndef ARRAY_CHECK_HPP
 #define ARRAY_CHECK_HPP
-#include <fstream>
+
+#include <iostream>
+
 namespace marishin
 {
-  bool arrayCheck(std::istream& input, int* matrix, int rows, int cols, int num);
+  size_t checkingArray(std::istream& input, int* matrix, const size_t rows, const size_t cols);
 }
 #endif
