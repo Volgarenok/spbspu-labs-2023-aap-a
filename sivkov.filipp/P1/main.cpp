@@ -7,7 +7,7 @@ int main()
   int num = 1;
 
   using namespace sivkov;
-  CountIfDivideWithoutRemaining counter;
+  SequenceCounter counter;
 
   do
   {
