@@ -47,21 +47,25 @@ int main(int argc, char * argv[])
     return 2;
   }
   int * matrix = nullptr;
+  int * dynamic_matrix =  nullptr;
+  int static_matrix[10000] = {0};
   if (num == 1)
   {
-    matrix[10000] = {0};
+    matrix = static_matrix;
   }
   else if (num == 2)
   {
+
     try
     {
-      matrix = new int[rows * cols];
+      dynamic_matrix = new int[rows * cols];
     }
     catch (const std::bad_alloc &)
     {
       std::cerr << "Error of allocation memory in free store\n";
       return 3;
     }
+    matrix = dynamic_matrix;
   }
   readMatrix(input, matrix, rows, cols);
   if (!input)
