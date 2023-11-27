@@ -1,8 +1,7 @@
 #include "read_print_matrix.hpp"
 #include <fstream>
-#include <stdexcept>
 
-void erohin::readMatrix(std::ifstream & input, int * matrix, const size_t & rows, const size_t & cols)
+void erohin::readMatrix(std::istream & input, int * matrix, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows; ++i)
   {
@@ -11,14 +10,9 @@ void erohin::readMatrix(std::ifstream & input, int * matrix, const size_t & rows
       input >> matrix[rows * i + j];
     }
   }
-  if (!input)
-  {
-    throw std::invalid_argument("Invalid value of matrix element");
-  }
-  return;
 }
 
-void erohin::printMatrix(std::ofstream & output, int * matrix, const size_t & rows, const size_t & cols)
+void erohin::printMatrix(std::ostream & output, const int * matrix, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows; ++i)
   {
@@ -27,5 +21,4 @@ void erohin::printMatrix(std::ofstream & output, int * matrix, const size_t & ro
       output << " " << matrix[rows * i + j];
     }
   }
-  return;
 }

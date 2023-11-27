@@ -1,59 +1,32 @@
 #include "max_main_diagonal.hpp"
 #include <limits>
-#include <stdexcept>
-
-bool erohin::isOutSum(const long long & sum, const long long & a)
-{
-  long long max_size = std::numeric_limits< long long >::min();
-  long long min_size = std::numeric_limits< long long >::max();
-  if (a > 0)
-  {
-    return (sum > max_size - a);
-  }
-  else
-  {
-    return (sum > min_size + std::abs(a));
-  }
-}
 
 long long erohin::maxMainDiagonal(int * matrix, const size_t & rows, const size_t & cols)
 {
-  if (rows < 2 && cols < 2)
-  {
-    throw std::logic_error("Impossible to find diagonal parallel to main");
-  }
-  long long sum = 0;
+  long long cur_sum = 0;
   long long max_sum = std::numeric_limits< long long >::min();
-  for (size_t i = 1; i < rows; ++i)
+  size_t cur_row = 0;
+  size_t cur_col = 0;
+  for (size_t i = 0; i < rows + cols - 2; ++i)
   {
-    sum = 0;
-    for (size_t j = 0; j < std::min(rows - i, cols); ++j)
+    cur_sum = 0;
+    if (i < rows - 1)
     {
-      if (isOutSum(sum, matrix[rows * (i + j) + j]))
-      {
-        throw std::range_error("Sum is out of range");
-      }
-      sum += matrix[rows * (i + j) + j];
+      cur_row = i + 1;
+      cur_col = 0;
     }
-    if (sum > max_sum)
+    else
     {
-      max_sum = sum;
+      cur_row = 0;
+      cur_col = i + 2 - rows;
     }
-  }
-  for (size_t j = 1; j < cols; ++j)
-  {
-    sum = 0;
-    for (size_t i = 0; i < std::min(cols - j, rows); ++i)
+    while (cur_row < rows && cur_col < cols)
     {
-      if (isOutSum(sum, matrix[rows * i + (j + i)]))
-      {
-        throw std::range_error("Sum is out of range");
-      }
-      sum += matrix[rows * i + (j + i)];
+      cur_sum += matrix[(cur_row++) * rows + (cur_col++)];
     }
-    if (sum > max_sum)
+    if (cur_sum > max_sum)
     {
-      max_sum = sum;
+      max_sum = cur_sum;
     }
   }
   return max_sum;

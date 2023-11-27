@@ -4,6 +4,6 @@
 #include <cstddef>
 namespace erohin
 {
-  void circleFill(int * matrix, const size_t & rows, const size_t & cols);
+  void circleFill(int * matrix, size_t rows, size_t cols);
 }
 #endif

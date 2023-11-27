@@ -15,6 +15,11 @@ int main(int argc, char * argv[])
     return 1;
   }
   int num = 0;
+  if(!isNumeric(argv[1]))
+  {
+    std::cerr << "Value of first CLA is not a number\n";
+    return 1;
+  }
   try
   {
     num = std::stoll(argv[1]);
@@ -22,11 +27,6 @@ int main(int argc, char * argv[])
   catch (const std::out_of_range &)
   {
     std::cerr << "Value of first CLA is too large\n";
-    return 1;
-  }
-  catch (const std::invalid_argument &)
-  {
-    std::cerr << "First argument is not a number\n";
     return 1;
   }
   if (num > 2)
@@ -45,97 +45,63 @@ int main(int argc, char * argv[])
     std::cerr << "Cannot read a number of rows and columns\n";
     return 2;
   }
-  if (num == 1) //handling using static array
+  int * matrix = nullptr;
+  if (num == 1)
   {
     int matrix[10000] = {0};
-    try
-    {
-      readMatrix(input, matrix, rows, cols);
-    }
-    catch (const std::exception & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
-    input.close();
-    try //calculating diagonal with max sum
-    {
-      maxSumDiagonal = maxMainDiagonal(matrix, rows, cols);
-    }
-    catch (const std::exception & e)
-    {
-      isExist = false;
-    }
-    try
-    {
-      circleFill(matrix, rows, cols);
-    }
-    catch (const std::exception & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 4;
-    }
-    std::ofstream output(argv[3]);
-    output << rows << " " << cols;
-    printMatrix(output, matrix, rows, cols);
-    output << "\n";
-    if (isExist)
-    {
-      output << maxSumDiagonal;
-    }
-    output.close();
   }
-  else if (num == 2) //handling using dynamic array
+  else if (num == 2)
   {
-    int * matrix = nullptr;
     try
     {
       matrix = new int[rows * cols];
     }
     catch (const std::bad_alloc &)
     {
-      delete[] matrix;
       std::cerr << "Error of allocation memory in free store\n";
       return 3;
     }
-    try
-    {
-      readMatrix(input, matrix, rows, cols);
-    }
-    catch (const std::exception & e)
+  }
+  readMatrix(input, matrix, rows, cols);
+  if (!input)
+  {
+    std::cerr << "Invalid value of matrix element\n";
+    if (num == 2)
     {
       delete[] matrix;
-      std::cerr << e.what() << "\n";
-      return 2;
     }
-    input.close();
-    try //calculating diagonal with max sum
-    {
-      maxSumDiagonal = maxMainDiagonal(matrix, rows, cols);
-    }
-    catch (const std::exception & e)
-    {
-      isExist = false;
-    }
-    try
-    {
-      circleFill(matrix, rows, cols);
-    }
-    catch (const std::exception & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 4;
-    }
-    std::ofstream output(argv[3]);
-    output << rows << " " << cols;
-    printMatrix(output, matrix, rows, cols);
-    output << "\n";
-    if (isExist)
-    {
-      output << maxSumDiagonal;
-    }
-    output.close();
-    delete[] matrix;
-    return 0;
+    return 2;
   }
+  input.close();
+  if (rows < 2 && cols < 2)
+  {
+    isExist = false;
+  }
+  else
+  {
+    maxSumDiagonal = maxMainDiagonal(matrix, rows, cols);
+  }
+  try
+  {
+    circleFill(matrix, rows, cols);
+  }
+  catch (const std::exception & e)
+  {
+    std::cerr << e.what() << "\n";
+    return 4;
+  }
+  std::ofstream output(argv[3]);
+  output << rows << " " << cols;
+  printMatrix(output, matrix, rows, cols);
+  output << "\n";
+  if (isExist)
+  {
+    output << maxSumDiagonal;
+  }
+  output.close();
+  if (num == 2)
+  {
+    delete[] matrix;
+  }
+  return 0;
 }

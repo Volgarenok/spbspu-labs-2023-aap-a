@@ -3,7 +3,7 @@
 #include <limits>
 #include <stdexcept>
 
-void erohin::circleFill(int * matrix, const size_t & rows, const size_t & cols)
+void erohin::circleFill(int * matrix, size_t rows, size_t cols)
 {
   size_t dist_edge_rows = 0;
   size_t dist_edge_cols = 0;
