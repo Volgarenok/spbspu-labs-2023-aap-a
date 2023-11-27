@@ -18,7 +18,7 @@ std::ofstream & arakelyan::outputTransformMatrix(std::ofstream &output, double *
   {
     for (size_t j = 0; j < cols; ++j)
     {
-      output << " " << smoothed[i * cols + j];
+      output << smoothed[i * cols + j] << " ";
     }
   }
   return output;
