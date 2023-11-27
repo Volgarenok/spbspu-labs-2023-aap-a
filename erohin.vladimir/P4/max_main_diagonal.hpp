@@ -4,6 +4,6 @@
 #include <cstddef>
 namespace erohin
 {
-  long long maxMainDiagonal(int * matrix, const size_t & rows, const size_t & cols);
+  long long findMaxMainDiagonal(int * matrix, const size_t & rows, const size_t & cols);
 }
 #endif

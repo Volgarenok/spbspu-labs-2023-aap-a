@@ -84,7 +84,7 @@ int main(int argc, char * argv[])
   }
   else
   {
-    maxSumDiagonal = maxMainDiagonal(matrix, rows, cols);
+    maxSumDiagonal = findMaxMainDiagonal(matrix, rows, cols);
   }
   try
   {
