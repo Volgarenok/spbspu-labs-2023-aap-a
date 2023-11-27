@@ -23,6 +23,7 @@ int marishin::processingMatrix(std::istream& input, int* matrix, const size_t ro
     {
       delete[] matrix;
     }
+    return 0;
   }
   else
   {
