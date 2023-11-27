@@ -71,7 +71,7 @@ int main (int argc, char * argv[])
 
 
   int * matrix = nullptr;
-  double * smoothedMatrix = nullptr; 
+  double * smoothedMatrix = nullptr;
 
 
   if (firstArgument == 1)
