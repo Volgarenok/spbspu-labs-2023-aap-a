@@ -3,15 +3,9 @@
 #include <cstddef>
 namespace sivkov
 {
-<<<<<<< Updated upstream
-  struct SequenceCounter
-  {
-    SequenceCounter();
-=======
   struct CountIfDivideWithoutRemaining
   {
     CountIfDivideWithoutRemaining();
->>>>>>> Stashed changes
   public:
     void operator()(int num);
     size_t operator()() const;
