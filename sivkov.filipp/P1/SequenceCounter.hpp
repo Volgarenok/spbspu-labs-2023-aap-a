@@ -3,15 +3,12 @@
 #include <cstddef>
 namespace sivkov
 {
-<<<<<<< Updated upstream
-  struct SequenceCounter
-  {
-    SequenceCounter();
-=======
   struct CountIfDivideWithoutRemaining
   {
     CountIfDivideWithoutRemaining();
->>>>>>> Stashed changes
+  struct CountIfDivideWithoutRemaining
+  {
+    CountIfDivideWithoutRemaining();
   public:
     void operator()(int num);
     size_t operator()() const;
