@@ -21,11 +21,11 @@ int main(int argc, char * argv[])
     std::cerr << "Unable to read input file" << "\n";
     return 2;
   }
-
+  size_t position = 0;
   int n = 0;
   try
   {
-    n = std::stoll(argv[1]);
+    n = std::stoll(argv[1], &position);
   }
   catch(const std::invalid_argument & e)
   {
@@ -33,7 +33,7 @@ int main(int argc, char * argv[])
     return 1;
   }
 
-  if ((n < 1) || (n > 2))
+  if ((n < 1) || (n > 2) || (position < sizeof(argv[1])))
   {
     std::cerr << "1st argument must be 1-2 number" << "\n";
     return 1;
@@ -63,7 +63,7 @@ int main(int argc, char * argv[])
   }
   if (n == 2)
   {
-    int * matrix = new int [rows*columns];
+    int * matrix = new int [10000];
     int * clock_matrix = new int [rows*columns];
     try
     {

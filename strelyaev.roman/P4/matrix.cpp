@@ -6,7 +6,7 @@ void strelyaev::inputMatrix(std::fstream & in, int * a, size_t e)
   {
     if (!(in >> a[i]))
     {
-      throw (std::logic_error("Unable to create matrix"));
+      throw std::logic_error("Unable to create matrix");
     }
   }
 }
