@@ -27,35 +27,3 @@ size_t sivkov::CountIfDivideWithoutRemaining::operator()() const
 {
   return k_;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-  if (num_ != 0)
-  {
-    if ((num_old_ != 0) && (num_old_ % num_ == 0))
-    {
-      ++k_;
-    }
-    num_old_ = num;
-    if (k_ == max_size)
-    {
-      throw std::logic_error("Sequence is to long...");
-    }
-  }
-}
-size_t sivkov::CountIfDivideWithoutRemaining::operator()() const
-{
-  return k_;
-}
-*/
