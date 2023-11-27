@@ -1,7 +1,7 @@
 #ifndef INPUT_ARRAY_HPP
 #define INPUT_ARRAY_HPP
 
-#include <fstream>
+#include <iostream>
 #include <cstddef>
 namespace nikitov
 {

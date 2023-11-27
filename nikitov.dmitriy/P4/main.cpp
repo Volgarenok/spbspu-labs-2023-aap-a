@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 
   try
   {
-    type = std::strtoll(argv[1], &endOfParsing, 10);
+    type = std::strtoll(argv[1], std::addressof(endOfParsing), 10);
   }
   catch (const std::out_of_range &)
   {
