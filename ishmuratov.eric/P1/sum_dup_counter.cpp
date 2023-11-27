@@ -15,6 +15,12 @@ void ishmuratov::SumDupCounter::operator()(long long int num)
   first_num_ = second_num_;
   second_num_ = cur_num_;
   cur_num_ = num;
+  long long int max_sum = std::numeric_limits< long long int >::max();
+  long long int min_sum = std::numeric_limits< long long int >::min();
+  if ((second_num_ > 0 && first_num_ > max_sum - second_num_) || (second_num_ < 0 && first_num_ < min_sum - second_num_))
+  {
+    throw std::logic_error("Sum overflow!");
+  }
   if (cur_num_ == (first_num_ + second_num_))
   {
     size_t max_size = std::numeric_limits< size_t >::max();
