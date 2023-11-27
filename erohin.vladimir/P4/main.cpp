@@ -5,6 +5,7 @@
 #include "circle_fill.hpp"
 #include "read_print_matrix.hpp"
 #include "max_main_diagonal.hpp"
+#include "is_numeric.hpp"
 
 int main(int argc, char * argv[])
 {
@@ -15,7 +16,7 @@ int main(int argc, char * argv[])
     return 1;
   }
   int num = 0;
-  if(!isNumeric(argv[1]))
+  if (!isNumeric(argv[1]))
   {
     std::cerr << "Value of first CLA is not a number\n";
     return 1;
@@ -48,7 +49,7 @@ int main(int argc, char * argv[])
   int * matrix = nullptr;
   if (num == 1)
   {
-    int matrix[10000] = {0};
+    matrix[10000] = {0};
   }
   else if (num == 2)
   {
