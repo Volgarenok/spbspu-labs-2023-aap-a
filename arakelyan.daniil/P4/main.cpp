@@ -1,6 +1,7 @@
 #include <cstddef>
 #include <iomanip>
 #include <iostream>
+#include <memory>
 #include <stdexcept>
 #include <string>
 #include "input_output_matrix.hpp"
@@ -18,7 +19,7 @@ int main (int argc, char * argv[])
   }
 
   char * endOfParsing = nullptr;
-  int firstArgument = std::strtoll(argv[1],&endOfParsing,0);
+  int firstArgument = std::strtoll(argv[1], std::addressof(endOfParsing), 10);
   if (*endOfParsing != '\0')
   {
     std::cerr << "Invalid first value.\n";

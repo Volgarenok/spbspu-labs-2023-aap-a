@@ -1,6 +1,6 @@
 #include "matrix_operations.hpp"
 
-double arakelyan::transformToSmoothMatrix(int * matrix, double * smooth, size_t rows, size_t cols)
+void arakelyan::transformToSmoothMatrix(int * matrix, double * smooth, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows*cols; i++)
   {
@@ -30,5 +30,4 @@ double arakelyan::transformToSmoothMatrix(int * matrix, double * smooth, size_t 
 
     smooth[i] = sum / count;
   }
-  return *smooth;
 }
