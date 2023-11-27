@@ -11,9 +11,36 @@ sivkov::CountIfDivideWithoutRemaining::CountIfDivideWithoutRemaining():
 
 void sivkov::CountIfDivideWithoutRemaining::operator()(int num)
 {
-  num_ = num;
   size_t max_size = std::numeric_limits< size_t >::max();
+  num_ = num;
+  if ((num_old_ != 0) && (num_old_ % num_ == 0))
+  {
+    if (k_ == max_size)
+    {
+      throw std::logic_error("sequence is too long");
+    }
+    ++k_;
+  }
+  num_old_ = num;
+}
+size_t sivkov::CountIfDivideWithoutRemaining::operator()() const
+{
+  return k_;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*
   if (num_ != 0)
   {
     if ((num_old_ != 0) && (num_old_ % num_ == 0))
@@ -31,3 +58,4 @@ size_t sivkov::CountIfDivideWithoutRemaining::operator()() const
 {
   return k_;
 }
+*/
