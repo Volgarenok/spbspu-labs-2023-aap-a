@@ -17,6 +17,11 @@ int main(int argc, char* argv[])
   }
   char* end = nullptr;
   int num = std::strtoll(argv[1], std::addressof(end), 10);
+  if (*end != '\0')
+  {
+    std::cerr << "Incorrect value\n";
+    return 1;
+  }
   try
   {
     num = std::stoll(argv[1]);
