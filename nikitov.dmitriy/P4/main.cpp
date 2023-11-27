@@ -48,22 +48,15 @@ int main(int argc, char* argv[])
     std::cerr << "Error: Wrong rows or cols input\n";
     return 2;
   }
+
+  int* matrix = nullptr;
   if (type == 1)
   {
-    int matrix[10000] = {};
-
-    size_t status = inputArray(input, matrix, rows, cols);
-    if (status != rows * cols)
-    {
-      std::cerr << "Error: Wrong element at position: " << status << '\n';
-      return 2;
-    }
-
-    count = countLocalMin(matrix, rows, cols);
+     int array[10000] = {};
+     matrix = array;
   }
   else if (type == 2)
   {
-    int* matrix = nullptr;
     try
     {
       matrix = new int [rows * cols];
@@ -73,22 +66,29 @@ int main(int argc, char* argv[])
       std::cerr << "Error: not enough memory\n";
       return 3;
     }
-
-    size_t status = inputArray(input, matrix, rows, cols);
-    if (status != rows * cols)
-    {
-      delete [] matrix;
-      std::cerr << "Error: Wrong element at position: " << status << '\n';
-      return 2;
-    }
-
-    count = countLocalMin(matrix, rows, cols);
-    delete [] matrix;
   }
   else
   {
     std::cerr << "Error: First number doesn't match\n";
     return 1;
+  }
+
+  size_t status = inputArray(input, matrix, rows, cols);
+  if (status != rows * cols)
+  {
+    std::cerr << "Error: Wrong element at position: " << status << '\n';
+    if (type == 2)
+    {
+      delete [] matrix;
+    }
+    return 2;
+  }
+
+  count = countLocalMin(matrix, rows, cols);
+
+  if (type == 2)
+  {
+    delete [] matrix;
   }
 
   std::ofstream output(argv[3]);
