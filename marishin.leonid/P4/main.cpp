@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
   if (num == 1)
   {
     const size_t arraySize = 10000;
-    int matrix[arraySize]{};
+    int* matrix[arraySize]{};
   }
   else if (num == 2)
   {
