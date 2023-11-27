@@ -8,11 +8,11 @@ shabalin::LocMax::LocMax():
   count_(0)
 {}
 
-void shabalin::LocMax::operator()(long long Number)
+void shabalin::LocMax::operator()(long long number)
 {
   if (firstNumber_ == 0)
   {
-    firstNumber_ = Number;
+    firstNumber_ = number;
     if (firstNumber_ == 0)
     {
       throw std::logic_error("Is not a sequence");
@@ -20,12 +20,12 @@ void shabalin::LocMax::operator()(long long Number)
   }
   else if (secondNumber_ == 0)
   {
-    secondNumber_ = Number;
+    secondNumber_ = number;
   }
 
   size_t max_size = std::numeric_limits< size_t >::max();
 
-  if (secondNumber_ > Number && secondNumber_ > firstNumber_)
+  if (secondNumber_ > number && secondNumber_ > firstNumber_)
   {
     if (count_ == max_size)
     {
@@ -34,7 +34,7 @@ void shabalin::LocMax::operator()(long long Number)
     ++count_;
   }
   firstNumber_ = secondNumber_;
-  secondNumber_ = Number;
+  secondNumber_ = number;
 }
 
 size_t shabalin::LocMax::operator()() const

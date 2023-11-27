@@ -4,7 +4,7 @@
 
 int main()
 {
-  long long Number = 0;
+  long long number = 0;
 
   using namespace shabalin;
 
@@ -12,17 +12,17 @@ int main()
 
   do
   {
-    std::cin >> Number;
+    std::cin >> number;
     if (!std::cin)
     {
       std::cerr << "is not sequence" << "\n";
       return 1;
     }
-    if (Number != 0)
+    if (number != 0)
     {
       try
       {
-        counter(Number);
+        counter(number);
       }
       catch (const std::exception & e)
       {
@@ -31,6 +31,6 @@ int main()
       }
     }
   }
-  while (Number != 0);
+  while (number != 0);
   std::cout << counter() << "\n";
 }

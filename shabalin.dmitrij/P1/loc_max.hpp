@@ -7,7 +7,7 @@ namespace shabalin
   {
   public:
     LocMax();
-    void operator()(long long Number);
+    void operator()(long long number);
     size_t operator()() const;
   private:
     long long firstNumber_;
