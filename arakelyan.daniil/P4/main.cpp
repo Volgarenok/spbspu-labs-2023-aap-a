@@ -66,41 +66,29 @@ int main (int argc, char * argv[])
   }
 
 
-  int matrix[10000] = {};
-  double smoothedMatrix[10000] = {};
+  int stabMatrix[10000] = {};
+  double stabSmoothedMatrix[10000] = {};
 
 
-  int * matrixForTaskTwo = nullptr;
-  double * smoothedMatrixForTaskTwo = nullptr; 
+  int * matrix = nullptr;
+  double * smoothedMatrix = nullptr; 
 
 
   if (firstArgument == 1)
   {
-    int matrix[10000] = {};
-    double smoothedMatrix[10000] = {};
-    try
-    {
-      arakelyan::inputMatrix(input, matrix, rows*cols);
-      arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows,cols);
-      arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
-    }
-    catch (const std::logic_error & e)
-    {
-      std::cerr << "Error: " << e.what() << "\n";
-      return 2;
-    }
+    matrix = stabMatrix;
+    smoothedMatrix = stabSmoothedMatrix;
   }
-  else if (firstArgument == 2)
+  else
   {
-    int * matrix = new int[rows*cols];
+    matrix = new int[rows * cols];
     if (!matrix)
     {
-      std::cerr << "Can't create matrix 1\n";
+      std::cerr << "Can't create inp matrix\n";
       delete [] matrix;
       return 2;
     }
-
-    double * smoothedMatrix = new double[rows*cols];
+    smoothedMatrix = new double[rows*cols];
     if (!smoothedMatrix)
     {
       std::cerr << "Can't create matrix 2\n";
@@ -108,28 +96,81 @@ int main (int argc, char * argv[])
       delete [] smoothedMatrix;
       return 2;
     }
-    try
+  }
+
+
+  try
+  {
+    arakelyan::inputMatrix(input, matrix, rows*cols);
+    arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
+    arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
+  }
+  catch (const std::logic_error & e)
+  {
+    std::cerr << "Error: " << e.what() << "\n";
+    if (firstArgument == 2)
     {
-      arakelyan::inputMatrix(input, matrix, rows*cols);
-      arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-      arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
-    }
-    catch (const std::logic_error & e)
-    {
-      std::cerr << "Error: " << e.what() << "\n";
       delete [] matrix;
       delete [] smoothedMatrix;
-      return 2;
     }
+    return 2;
+  }
+  if (firstArgument == 2)
+  {
     delete [] matrix;
     delete [] smoothedMatrix;
   }
 
-  try {
-    arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
-  } catch (declaration) {
-  
-  }
+  // if (firstArgument == 1)
+  // {
+  //   int matrix[10000] = {};
+  //   double smoothedMatrix[10000] = {};
+  //   try
+  //   {
+  //     arakelyan::inputMatrix(input, matrix, rows*cols);
+  //     arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
+  //     arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
+  //   }
+  //   catch (const std::logic_error & e)
+  //   {
+  //     std::cerr << "Error: " << e.what() << "\n";
+  //     return 2;
+  //   }
+  // }
+  // else if (firstArgument == 2)
+  // {
+  //   int * matrix = new int[rows*cols];
+  //   if (!matrix)
+  //   {
+  //     std::cerr << "Can't create matrix 1\n";
+  //     delete [] matrix;
+  //     return 2;
+  //   }
+  //
+  //   double * smoothedMatrix = new double[rows*cols];
+  //   if (!smoothedMatrix)
+  //   {
+  //     std::cerr << "Can't create matrix 2\n";
+  //     delete [] matrix;
+  //     delete [] smoothedMatrix;
+  //     return 2;
+  //   }
+  //   try
+  //   {
+  //     arakelyan::inputMatrix(input, matrix, rows*cols);
+  //     arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
+  //     arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
+  //   }
+  //   catch (const std::logic_error & e)
+  //   {
+  //     std::cerr << "Error: " << e.what() << "\n";
+  //     delete [] matrix;
+  //     delete [] smoothedMatrix;
+  //     return 2;
+  //   }
+  //   delete [] matrix;
+  //   delete [] smoothedMatrix;
+  // }
 
   return 0;
 }
