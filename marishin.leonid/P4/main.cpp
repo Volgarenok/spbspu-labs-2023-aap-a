@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-#include <fstream>
 #include "arraycheck.hpp"
 #include "matrixtransformation.hpp"
 
@@ -47,33 +45,15 @@ int main(int argc, char* argv[])
     std::cerr << "The contents of the file cannot be interpreted\n";
     return 2;
   }
-  int* matrix = nullptr;
   if (num == 1)
   {
-    const size_t arraySize = 10000;
-    int* matrix[arraySize]{};
+    const int arraySize = 10000;
+    int matrix[arraySize]{};
+    processingMatrix(input, matrix, rows, cols, num, argv[3]);
   }
   else if (num == 2)
   {
     int* matrix = new int[rows * cols];
-  }
-  if (checkingArray(input, matrix, rows, cols) == rows * cols)
-  {
-    transformMatrix(matrix, rows, cols);
-    std::ofstream output(argv[3]);
-    inputMatrix(output, matrix, rows, cols);
-    if (num == 2)
-    {
-      delete[] matrix;
-    }
-  }
-  else
-  {
-    if (num == 2)
-    {
-      delete[] matrix;
-    }
-    std::cerr << "The contents of the file cannot be interpreted\n";
-    return 2;
+    processingMatrix(input, matrix, rows, cols, num, argv[3]);
   }
 }
