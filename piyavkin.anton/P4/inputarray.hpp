@@ -3,6 +3,6 @@
 #include <iostream>
 namespace piyavkin
 {
-  size_t InputArray(std::istream & in, int * a, size_t s, size_t toread);
+  size_t inputArray(std::istream & in, int * a, size_t s, size_t toread);
 }
 #endif

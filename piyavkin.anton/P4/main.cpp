@@ -56,7 +56,7 @@ int main(int argc, char * argv[])
       return 3;
     }
   }
-  size_t result = InputArray(input, matrix, rows * cols, rows * cols);
+  size_t result = inputArray(input, matrix, rows * cols, rows * cols);
   if (!input)
   {
     if (num == 2)
@@ -67,7 +67,7 @@ int main(int argc, char * argv[])
     return 2;
   }
   std::ofstream output(argv[3]);
-  output << (LowerTriangularMatrix(result, rows, cols, matrix) && NonZero(rows * cols, matrix)) << "\n";
+  output << (lowerTriangularMatrix(result, rows, cols, matrix) && nonZero(rows * cols, matrix)) << "\n";
   if (num == 2)
   {
     delete [] matrix;
