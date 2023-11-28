@@ -15,11 +15,6 @@ int main(int argc, char * argv[])
   }
   int num = 0;
   char* endOfParsing = nullptr;
-  if (std::strlen(argv[1]) != 1)
-  {
-    std::cerr << "The first argument is wrong\n";
-    return 3;
-  }
   try
   {
     num = std::strtoll(argv[1], std::addressof(endOfParsing), 10);
@@ -28,6 +23,11 @@ int main(int argc, char * argv[])
   {
     std::cerr << "Can not parse a value\n";
     return 2;
+  }
+  if (*endOfPasrsing != "\0")
+  {
+    std::cerr << "The first argument is incorrect\n";
+    return 1;
   }
   if ((num < 1) || (num > 2))
   {
