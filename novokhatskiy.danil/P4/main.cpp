@@ -24,7 +24,7 @@ int main(int argc, char * argv[])
     std::cerr << "Can not parse a value\n";
     return 2;
   }
-  if (*endOfPasrsing != "\0")
+  if (*endOfParsing != "\0")
   {
     std::cerr << "The first argument is incorrect\n";
     return 1;
