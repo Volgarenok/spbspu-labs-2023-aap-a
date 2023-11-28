@@ -21,11 +21,10 @@ int main(int argc, char * argv[])
     std::cerr << "Unable to read input file" << "\n";
     return 2;
   }
-  size_t position = 0;
   int n = 0;
   try
   {
-    n = std::stoll(argv[1], &position);
+    n = std::stoll(argv[1]);
   }
   catch(const std::invalid_argument & e)
   {
