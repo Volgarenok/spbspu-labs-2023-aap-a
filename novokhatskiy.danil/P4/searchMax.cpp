@@ -1,4 +1,5 @@
 #include "searchMax.hpp"
+#include <algorithm>
 
 int novokhatskiy::searchMax(int matrix[], size_t rows, size_t cols)
 {

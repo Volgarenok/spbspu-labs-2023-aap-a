@@ -14,18 +14,19 @@ int main(int argc, char * argv[])
     return 1;
   }
   int num = 0;
-  if (strlen(argv[1]) != 1)
+  char* endOfParsing = nullptr;
+  if (std::strlen(argv[1]) != 1)
   {
     std::cerr << "The first argument is wrong\n";
     return 3;
   }
   try
   {
-    num = std::stoll(argv[1]);
+    num = std::strtoll(argv[1], std::addressof(endOfParsing), 10);
   }
   catch (...)
   {
-    std::cerr << "Can not parse a valut\n";
+    std::cerr << "Can not parse a value\n";
     return 2;
   }
   if ((num < 1) || (num > 2))
@@ -36,6 +37,7 @@ int main(int argc, char * argv[])
   size_t rows = 0;
   size_t cols = 0;
   int result = 0;
+  int* matrix = nullptr;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
   if (!input)
@@ -44,46 +46,36 @@ int main(int argc, char * argv[])
     return 2;
   }
   if ((rows != 0) && (cols != 0))
-  {
-    if (num == 1)
+  {   
+    size_t check = inputArr(input, matrix, rows, cols);
+    if (check != rows * cols)
     {
-      int matrix[10000] = {};
-      size_t check = inputArr(input, matrix, rows, cols);
-      if (check != rows * cols)
+      std::cerr << "Invalid matrix\n";
+      return 2;
+    }
+    else
+    { 
+      if (num == 1)
       {
-        std::cerr << "Invalid matrix\n";
-        return 2;
-      }
-      else
-      {
+        int matrix[10000] = {};
         result = searchMax(matrix, rows, cols);
       }
-    }
-    else if (num == 2)
-    {
-      int* matrix = nullptr;
-      try
+      else if (num == 2)
       {
-        matrix = new int [rows * cols];
-      }
-      catch (const std::bad_alloc&)
-      {
-        std::cerr << "Not enough memory!\n";
-        return 3;
-      }
-      size_t check = inputArr(input, matrix, rows, cols);
-      if (check != rows * cols)
-      {
-        delete[] matrix;
-        std::cerr << "Incorrect matrix\n";
-        return 2;
-      }
-      else
-      {
+        try
+        {
+          matrix = new int [rows * cols];
+        }
+        catch (const std::bad_alloc&)
+        {
+          std::cerr << "Not enough memory!\n";
+          return 3;
+        }      
         result = searchMax(matrix, rows, cols);
         delete[] matrix;
-      }
-    }
+        
+      }      
+    }      
   }
 
   std::ofstream output(argv[3]);
