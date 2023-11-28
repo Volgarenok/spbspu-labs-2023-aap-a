@@ -33,7 +33,7 @@ int main(int argc, char * argv[])
   }
 
   int i = 0;
-  for (i; argv[1][i] != '\0'; i++);
+  for (i = 0; argv[1][i] != '\0'; i++);
   if ((i != 1))
   {
     std::cerr << "1st argument must be 1-2 number" << "\n";
