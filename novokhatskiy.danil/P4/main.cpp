@@ -46,7 +46,7 @@ int main(int argc, char * argv[])
     return 2;
   }
   if ((rows != 0) && (cols != 0))
-  {   
+  {
     size_t check = inputArr(input, matrix, rows, cols);
     if (check != rows * cols)
     {
@@ -54,7 +54,7 @@ int main(int argc, char * argv[])
       return 2;
     }
     else
-    { 
+    {
       if (num == 1)
       {
         int matrix[10000] = {};
@@ -70,12 +70,11 @@ int main(int argc, char * argv[])
         {
           std::cerr << "Not enough memory!\n";
           return 3;
-        }      
+        }
         result = searchMax(matrix, rows, cols);
         delete[] matrix;
-        
-      }      
-    }      
+      }
+    }
   }
 
   std::ofstream output(argv[3]);
