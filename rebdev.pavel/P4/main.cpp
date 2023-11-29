@@ -55,14 +55,9 @@ int main(int argc, char ** argv)
   }
 
   using namespace rebdev;
-  long long int * array = nullptr;
-  if (arrayMode == 1)
-  {
-    long long int arr2[rows * colums];
-    array = arr2;
-    arr2 = nullptr;
-  }
-  else
+  long long int * array[rows * colums];
+
+  if (arrayMode == 2)
   {
     unsigned long int num = rows * colums;
     array = new long long int[num];
