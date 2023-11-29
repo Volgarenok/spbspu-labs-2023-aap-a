@@ -24,6 +24,11 @@ int main(int argc, char * argv[])
     std::cerr << "Can not parse a value\n";
     return 2;
   }
+  if (*endOfParsing != '\0')
+  {
+    std::cerr << "The first argument is incorrect\n";
+    return 1;
+  }
   if ((num < 1) || (num > 2))
   {
     std::cerr << "Incorrect input the first argument\n";
