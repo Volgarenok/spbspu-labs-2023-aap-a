@@ -55,15 +55,15 @@ int main(int argc, char ** argv)
   }
 
   using namespace rebdev;
-  long long int array = nullptr;
+  long long int * array = nullptr;
   if (arrayMode == 1)
   {
-    long long int array[rows * colums];
+    array[rows * colums];
   }
   else
   {
     unsigned long int num = rows * colums;
-    long long int * array = new long long int[num];
+    array = new long long int[num];
   }
 
   try
