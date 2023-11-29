@@ -37,7 +37,6 @@ int main(int argc, char * argv[])
   size_t rows = 0;
   size_t cols = 0;
   int result = 0;
-  int* matrix = nullptr;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
   if (!input)
@@ -45,10 +44,10 @@ int main(int argc, char * argv[])
     std::cerr << "The file can not be read\n";
     return 2;
   }
-
+  int* matrix = nullptr;
   if (num == 1)
   {
-    int arr[10000]{};
+    int arr[10000] = {};
     matrix = arr;
   }
   else if (num == 2)
