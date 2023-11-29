@@ -1,33 +1,33 @@
 #include <limits>
 #include <iostream>
 #include <fstream>
+#include <stddef.h>
 #include "matrix.hpp"
 #include "readFromFile.hpp"
 
-void rebdev::filling(long long int * array, long long int rows,
-  long long int colums, std::ifstream & inputFile)
+void rebdev::filling(long long int * array, size_t rows, size_t colums, std::ifstream & inputFile)
 {
-  for (long long int i = 0; i < (colums * rows); ++i)
+  for (size_t i = 0; i < (colums * rows); ++i)
   {
     if (!(inputFile >> array[i]))
     {
-      throw std::logic_error("Reading error: can't read from file");
+      throw i;
     }
   }
 }
 
-long long int rebdev::localMax(long long int * arr, long long int rows, long long int colums)
+size_t rebdev::findNumberOfLocalMax(long long int * arr, size_t rows, size_t colums)
 {
-  long long int numberOfLocalMax = 0;
+  size_t numberOfLocalMax = 0;
   bool isLocalMax = 1;
-  for (long long int i = 0; i < (colums * (rows-1)); ++i)
+  for (size_t i = 0; i < (colums * (rows-1)); ++i)
   {
     if (((i % colums) != 0) && ((i % colums) != (colums - 1)) && (i > (colums-1)))
     {
       isLocalMax = 1;
-      for (long long int rowIndex = -1; rowIndex <= 1; ++rowIndex)
+      for (int rowIndex = -1; rowIndex <= 1; ++rowIndex)
       {
-        for (long long int columIndex = -1; columIndex <= 1; ++columIndex)
+        for (int columIndex = -1; columIndex <= 1; ++columIndex)
         {
           if ((rowIndex != 0) && (columIndex != 0))
           {

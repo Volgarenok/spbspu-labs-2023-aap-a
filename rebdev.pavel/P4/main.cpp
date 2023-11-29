@@ -21,17 +21,12 @@ int main(int argc, char ** argv)
   {
     return 2;
   }
-  else if (inputFile.peek() == EOF)
-  {
-    inputFile.close();
-    return 2;
-  }
 
   int rows = 0, colums = 0;
   try
   {
     inputFile >> rows;
-    if ((rows == 0) && (inputFile.peek() == EOF || (inputFile.peek() == 10)))
+    if (rows == 0)
     {
       return 0;
     }
@@ -53,53 +48,48 @@ int main(int argc, char ** argv)
     return (((rows || colums) == 0) ? 0 : 2);
   }
 
-  if (rows > std::numeric_limits<long int>::max()/colums)
+  if (rows > (std::numeric_limits<long int>::max() / colums))
   {
     inputFile.close();
     return 2;
   }
 
   using namespace rebdev;
+  long long int array = nullptr;
   if (arrayMode == 1)
   {
     long long int array[rows * colums];
-    try
-    {
-      filling(array, rows, colums, inputFile);
-      std::ofstream outputFile(argv[3]);
-      if (!outputFile.is_open())
-      {
-        return 2;
-      }
-      outputFile << localMax(array, rows, colums);
-      outputFile.close();
-    }
-    catch (const std::logic_error & e)
-    {
-      return 2;
-    }
   }
   else
   {
     unsigned long int num = rows * colums;
     long long int * array = new long long int[num];
-    try
+  }
+
+  try
+  {
+    filling(array, rows, colums, inputFile);
+    std::ofstream outputFile(argv[3]);
+    if (!outputFile.is_open())
     {
-      filling(array, rows, colums, inputFile);
-      std::ofstream outputFile(argv[3]);
-      if (!outputFile.is_open())
-      {
-        return 2;
-      }
-      outputFile << localMax(array, rows, colums);
-      outputFile.close();
-      delete [] array;
-    }
-    catch (const std::logic_error & e)
-    {
-      delete [] array;
       return 2;
     }
+    outputFile << findNumberOfLocalMax(array, rows, colums);
+    outputFile.close();
+    if (arrayMode != 1)
+    {
+      delete [] array;
+    }
+  }
+  catch (const std::logic_error & e)
+  {
+    delete [] array;
+    return 2;
+  }
+  catch (const size_t & i)
+  {
+    std::cerr << i << "elements is writing\n";
+    return 2;
   }
 
   inputFile.close();
