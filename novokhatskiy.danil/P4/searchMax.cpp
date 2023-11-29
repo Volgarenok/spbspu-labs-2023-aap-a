@@ -30,7 +30,7 @@ int novokhatskiy::searchMax(int matrix[], size_t rows, size_t cols)
       {
         max = sum;
       }
-    }    
+    }
   }
   return max;
 }
