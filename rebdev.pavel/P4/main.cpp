@@ -58,7 +58,9 @@ int main(int argc, char ** argv)
   long long int * array = nullptr;
   if (arrayMode == 1)
   {
-    array[rows * colums];
+    long long int arr2[rows * colums];
+    array = arr2;
+    arr2 = nullptr;
   }
   else
   {
