@@ -45,36 +45,38 @@ int main(int argc, char * argv[])
     std::cerr << "The file can not be read\n";
     return 2;
   }
-  if ((rows != 0) && (cols != 0))
+
+  if (num == 1)
   {
-    size_t check = inputArr(input, matrix, rows, cols);
-    if (check != rows * cols)
+    int arr[10000]{};
+    matrix = arr;
+  }
+  else if (num == 2)
+  {
+    try
     {
-      std::cerr << "Invalid matrix\n";
-      return 2;
+      matrix = new int [rows * cols];
     }
-    else
+    catch (const std::bad_alloc&)
     {
-      if (num == 1)
-      {
-        int matrix[10000] = {};
-        result = searchMax(matrix, rows, cols);
-      }
-      else if (num == 2)
-      {
-        try
-        {
-          matrix = new int [rows * cols];
-        }
-        catch (const std::bad_alloc&)
-        {
-          std::cerr << "Not enough memory!\n";
-          return 3;
-        }
-        result = searchMax(matrix, rows, cols);
-        delete[] matrix;
-      }
+      std::cerr << "Not enough memory!\n";
+      return 3;
     }
+  }
+  size_t check = inputArr(input, matrix, rows, cols);
+  if (check != rows * cols)
+  {
+    std::cerr << "Invalid matrix\n";
+    if (num == 2)
+    {
+      delete[] matrix;
+    }
+    return 2;
+  }
+  result = searchMax(matrix, rows, cols);
+  if (num == 2)
+  {
+    delete[] matrix;
   }
 
   std::ofstream output(argv[3]);
