@@ -28,6 +28,7 @@ int main(int argc, char ** argv)
     inputFile >> rows;
     if (rows == 0)
     {
+      std::cerr << "File is empty!\n";
       return 2;
     }
 
