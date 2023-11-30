@@ -28,7 +28,7 @@ int main(int argc, char ** argv)
     inputFile >> rows;
     if (rows == 0)
     {
-      return 0;
+      return 2;
     }
 
     inputFile >> colums;
