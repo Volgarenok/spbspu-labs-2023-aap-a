@@ -14,7 +14,7 @@ void skopchenko::NegMul::operator()(int current)
 {
   if (current < 0)
   {
-    size_t max_count = std::numeric_limits<size_t>::max();
+    size_t max_count = std::numeric_limits< size_t >::max();
     if (count_ > 0)
     {
       if (count_ == max_count)
@@ -26,7 +26,7 @@ void skopchenko::NegMul::operator()(int current)
         count_++;
         int max_int = std::numeric_limits< int >::max();
         double max_multiply = max_int / result_;
-        if (abs(max_multiply) > abs(current))
+        if (std::abs(max_multiply) > std::abs(current))
         {
           result_ = result_ * current;
         }
