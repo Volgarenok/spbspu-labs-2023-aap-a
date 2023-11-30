@@ -9,7 +9,7 @@ int main(int argc, char * argv[])
   using namespace strelyaev;
   if (argc != 4)
   {
-    std::cerr << "Must be 3 arguments: task, input_file, output_file" << "\n";
+    std::cerr << "Must be 3 arguments: task, input_file, output_file\n";
     return 1;
   }
   std::fstream output(argv[3]);
@@ -18,36 +18,41 @@ int main(int argc, char * argv[])
   input >> rows >> columns;
   if (!input)
   {
-    std::cerr << "Unable to read input file" << "\n";
+    std::cerr << "Unable to read input file\n";
     return 2;
   }
   int n = 0;
+  char * parsing_position = nullptr;
   try
   {
-    n = std::stoll(argv[1]);
+    n = std::strtoll(argv[1], std::addressof(parsing_position), 10);
   }
   catch(const std::invalid_argument & e)
   {
-    std::cerr << "Unable to parse 1st argument" << "\n";
+    std::cerr << "Unable to parse 1st argument\n";
     return 1;
   }
-
-  int i = 0;
-  for (i = 0; argv[1][i] != '\0'; i++);
-  if ((i != 1))
+  if (*parsing_position != '\0')
   {
-    std::cerr << "1st argument must be 1-2 number" << "\n";
+    std::cerr << "Invalid first argument\n";
     return 1;
   }
 
-  if (rows == 0 || columns == 0)
+  if ((n < 1) || (n > 2))
+  {
+    std::cerr << "First argument out of range\n";
+    return 1;
+  }
+
+  if ((rows == 0) || (columns == 0))
   {
     return 0;
   }
+
   int * matrix = nullptr;
   int * clock_matrix = nullptr;
-  int temp_matrix[10000];
-  int temp_clock[columns*rows];
+  int temp_matrix[10000] = {};
+  int temp_clock[10000] = {};
   if (n == 1)
   {
     matrix = temp_matrix;
@@ -57,8 +62,8 @@ int main(int argc, char * argv[])
   {
     try
     {
-    matrix = new int [10000];
-    clock_matrix = new int [rows*columns];
+      matrix = new int [rows * columns];
+      clock_matrix = new int [rows * columns];
     }
     catch(...)
     {
@@ -70,22 +75,18 @@ int main(int argc, char * argv[])
 
   try
   {
-  inputMatrix(input, matrix, rows*columns);
-  makeClockwise(clock_matrix, rows, columns);
-  subtractMatrix(matrix, clock_matrix, rows*columns);
-  printMatrix(output, matrix, columns*rows);
+    inputMatrix(input, matrix, rows * columns);
+    makeClockwise(clock_matrix, rows, columns);
+    subtractMatrix(matrix, clock_matrix, rows * columns);
+    printMatrix(output, matrix, columns * rows);
   }
   catch (const std::logic_error& e)
   {
     std::cerr << e.what() << "\n";
-    if (n == 2)
-    {
-      delete [] matrix;
-      delete [] clock_matrix;
-    }
+    delete [] matrix;
+    delete [] clock_matrix;
     return 2;
   }
-
   if (n == 2)
   {
     delete [] matrix;

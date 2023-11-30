@@ -1,12 +1,12 @@
 #include "clock_matrix.h"
 #include <algorithm>
 
-void strelyaev::makeClockwise(int * a, size_t rows, size_t columns)
+void strelyaev::makeClockwise(int * const a, size_t rows, size_t columns)
 {
   int num = 1;
   for (size_t delta = 0; delta < std::max(rows - 2, size_t(1)); delta++)
   {
-    for (size_t i = ((rows - 1)*columns - delta * (columns - 1)); i > (delta * (columns + 1)); i -= columns)
+    for (size_t i = ((rows - 1) * columns - delta * (columns - 1)); i > (delta * (columns + 1)); i -= columns)
     {
       a[i] = num++;
     }
@@ -26,7 +26,7 @@ void strelyaev::makeClockwise(int * a, size_t rows, size_t columns)
   }
 }
 
-void strelyaev::subtractMatrix(int * original, int * clock_matrix, const size_t n)
+void strelyaev::subtractMatrix(int * const original, const int * const clock_matrix, const size_t n)
 {
   for (size_t i = 0; i < n; i++)
   {
