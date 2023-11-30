@@ -83,8 +83,11 @@ int main(int argc, char * argv[])
   catch (const std::logic_error& e)
   {
     std::cerr << e.what() << "\n";
-    delete [] matrix;
-    delete [] clock_matrix;
+    if (n == 2)
+    {
+      delete [] matrix;
+      delete [] clock_matrix;
+    }
     return 2;
   }
   if (n == 2)
