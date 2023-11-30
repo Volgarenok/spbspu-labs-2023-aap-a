@@ -88,7 +88,7 @@ int main (int argc, char * argv[])
       delete [] matrix;
       return 2;
     }
-    smoothedMatrix = new double[rows*cols];
+    smoothedMatrix = new double[rows * cols];
     if (!smoothedMatrix)
     {
       std::cerr << "Can't create matrix smoothed matrix\n";
@@ -100,7 +100,7 @@ int main (int argc, char * argv[])
 
   try
   {
-    arakelyan::inputMatrix(input, matrix, rows*cols);
+    arakelyan::inputMatrix(input, matrix, rows * cols);
     arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
     arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
   }
