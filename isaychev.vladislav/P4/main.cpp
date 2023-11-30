@@ -1,6 +1,7 @@
 #include <stdexcept>
 #include <fstream>
 #include <cstdlib>
+#include <string>
 #include "fillMatrix.hpp"
 #include "searchLines.hpp"
 
@@ -16,16 +17,21 @@ int main(int argc, char * argv[])
     std::cerr << "Too many arguments\n";
     return 1;
   }
+  size_t lengthOfArr = 0;
+  while (argv[1][lengthOfArr] != '\0')
+  {
+    lengthOfArr++;
+  }
   char * endPtr = nullptr;
   long long int ctrl_parameter = std::strtoll(argv[1], &endPtr, 10);
-  if ((ctrl_parameter > 2 || ctrl_parameter < 1) && endPtr != argv[1])
-  {
-    std::cerr << "First parameter is out of range\n";
-    return 1;
-  }
-  else if ((ctrl_parameter > 2 || ctrl_parameter < 1) && endPtr == argv[1])
+  if ( endPtr == argv[1] || (endPtr != argv[1] && (endPtr - argv[1] < lengthOfArr)))
   {
     std::cerr << "First parameter is not a number\n";
+    return 1;
+  }
+  else if ((ctrl_parameter > 2 || ctrl_parameter < 1) && endPtr != argv[1])
+  {
+    std::cerr << "First parameter is out of range\n";
     return 1;
   }
   size_t rows = 0;
