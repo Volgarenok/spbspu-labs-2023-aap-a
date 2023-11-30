@@ -51,7 +51,7 @@ int main (int argc, char * argv[])
 
   if (!(input >> rows) || !(input >> cols))
   {
-    std::cerr << "Cannot read input file\n";
+    std::cerr << "Cannot read rows and columns of matrix\n";
     return 2;
   }
   if (rows == 0 && cols == 0)
