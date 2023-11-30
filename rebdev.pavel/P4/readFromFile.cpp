@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <fstream>
 
-long long int rebdev::readFromFileLLI (std::ifstream & inputFile)
+long long int rebdev::readFromFileLLI(std::ifstream & inputFile)
 {
   long long int num = 0;
   inputFile >> num;

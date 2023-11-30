@@ -5,7 +5,7 @@
 #include "matrix.hpp"
 #include "readFromFile.hpp"
 
-void rebdev::filling(long long int * array, size_t rows, size_t colums, std::ifstream & inputFile)
+void rebdev::fillingTheMatrix(long long int * array, size_t rows, size_t colums, std::ifstream & inputFile)
 {
   for (size_t i = 0; i < (colums * rows); ++i)
   {

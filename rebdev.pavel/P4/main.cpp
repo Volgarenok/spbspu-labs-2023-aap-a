@@ -54,24 +54,30 @@ int main(int argc, char ** argv)
     return 2;
   }
 
-  using namespace rebdev;
-  long long int * array[rows * colums];
+  //using namespace rebdev;
+  long long int arr2 [rows * colums];
+  long long int * array = nullptr;
 
-  if (arrayMode == 2)
+  if (arrayMode == 1)
   {
-    unsigned long int num = rows * colums;
-    array = new long long int[num];
+    array = arr2;
+  }
+  else
+  {
+    array = new long long int[rows * colums];
   }
 
   try
   {
-    filling(array, rows, colums, inputFile);
+    rebdev::fillingTheMatrix(array, rows, colums, inputFile);
     std::ofstream outputFile(argv[3]);
+
     if (!outputFile.is_open())
     {
       return 2;
     }
-    outputFile << findNumberOfLocalMax(array, rows, colums);
+
+    outputFile << rebdev::findNumberOfLocalMax(array, rows, colums);
     outputFile.close();
     if (arrayMode != 1)
     {

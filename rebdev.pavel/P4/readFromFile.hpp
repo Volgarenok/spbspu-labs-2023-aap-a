@@ -3,6 +3,6 @@
 #include <fstream>
 namespace rebdev
 {
-  long long int readFromFileLLI (std::ifstream & inputFile);
+  long long int readFromFileLLI(std::ifstream & inputFile);
 }
 #endif
