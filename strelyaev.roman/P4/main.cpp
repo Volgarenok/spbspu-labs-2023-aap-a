@@ -27,7 +27,7 @@ int main(int argc, char * argv[])
   {
     n = std::strtoll(argv[1], std::addressof(parsing_position), 10);
   }
-  catch(const std::invalid_argument & e)
+  catch (const std::invalid_argument & e)
   {
     std::cerr << "Unable to parse 1st argument\n";
     return 1;
@@ -65,7 +65,7 @@ int main(int argc, char * argv[])
       matrix = new int [rows * columns];
       clock_matrix = new int [rows * columns];
     }
-    catch(...)
+    catch (...)
     {
       delete [] matrix;
       delete [] clock_matrix;
