@@ -59,7 +59,7 @@ int main(int argc, char * argv[])
   {
     if (num == 2)
     {
-      delete matrix;
+      delete [] matrix;
     }
     std::cerr << "Can not read number\n";
     return 2;
