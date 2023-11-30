@@ -26,7 +26,8 @@ int main(int argc, char ** argv)
   try
   {
     inputFile >> rows;
-    if (rows == 0)
+
+    if (inputFile.eof())
     {
       std::cerr << "File is empty!\n";
       return 2;
