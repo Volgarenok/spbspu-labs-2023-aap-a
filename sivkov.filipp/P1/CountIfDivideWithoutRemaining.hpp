@@ -1,12 +1,11 @@
-#ifndef SEQUENCECOUNTER_HPP
-#define SEQUENCECOUNTER_HPP
+#ifndef COUNTIFDIVIDEWITHOUTREMAINING_HPP
+#define COUNTIFDIVIDEWITHOUTREMAINING_HPP
 #include <cstddef>
 namespace sivkov
 {
   struct CountIfDivideWithoutRemaining
   {
     CountIfDivideWithoutRemaining();
-  public:
     void operator()(int num);
     size_t operator()() const;
   private:

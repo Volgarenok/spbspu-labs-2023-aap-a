@@ -1,4 +1,4 @@
-#include "SequenceCounter.hpp"
+#include "CountIfDivideWithoutRemaining.hpp"
 #include <iostream>
 #include <limits>
 #include <stdexcept>

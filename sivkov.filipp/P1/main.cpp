@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "SequenceCounter.hpp"
+#include "CountIfDivideWithoutRemaining.hpp"
 
 int main()
 {
@@ -15,10 +15,10 @@ int main()
 
     if (!std::cin)
     {
-      std::cerr <<"is not a seq...\n";
+      std::cerr << "is not a seq...\n";
       return 1;
     }
-    else if (num !=0)
+    else if (num != 0)
     {
 
       try
