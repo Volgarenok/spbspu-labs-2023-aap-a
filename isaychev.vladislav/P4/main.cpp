@@ -17,7 +17,7 @@ int main(int argc, char * argv[])
     std::cerr << "Too many arguments\n";
     return 1;
   }
-  size_t lengthOfArr = 0;
+  long int lengthOfArr = 0;
   while (argv[1][lengthOfArr] != '\0')
   {
     lengthOfArr++;
