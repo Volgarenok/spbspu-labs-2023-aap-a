@@ -10,6 +10,7 @@ int main(int argc, char ** argv)
   {
     return 1;
   }
+
   int arrayMode = std::stoi(argv[1]);
   if ((arrayMode != 1) && (arrayMode != 2))
   {
@@ -56,8 +57,7 @@ int main(int argc, char ** argv)
     return 2;
   }
 
-  //using namespace rebdev;
-  long long int arr2 [rows * colums];
+  long long int arr2[rows * colums];
   long long int * array = nullptr;
 
   if (arrayMode == 1)
@@ -93,7 +93,11 @@ int main(int argc, char ** argv)
   }
   catch (const size_t & i)
   {
-    std::cerr << i << "elements is writing\n";
+    std::cerr << i << " elements is writing\n";
+    if (arrayMode != 1)
+    {
+      delete [] array;
+    }
     return 2;
   }
 
