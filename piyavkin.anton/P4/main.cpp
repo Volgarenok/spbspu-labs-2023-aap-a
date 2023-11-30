@@ -25,8 +25,7 @@ int main(int argc, char * argv[])
     }
     if (num != 1 && num != 2)
     {
-      std::cerr << "The first parameter is incorrectly specified\n";
-      return 3;
+      throw std::exception();
     }
   }
   catch (...)
@@ -59,17 +58,11 @@ int main(int argc, char * argv[])
   size_t result = inputArray(input, matrix, rows * cols, rows * cols);
   if (!input)
   {
-    if (num == 2)
-    {
-      delete [] matrix;
-    }
+    delete [] matrix;
     std::cerr << "Can not read number\n";
     return 2;
   }
   std::ofstream output(argv[3]);
   output << (lowerTriangularMatrix(result, rows, cols, matrix) && nonZero(rows * cols, matrix)) << "\n";
-  if (num == 2)
-  {
-    delete [] matrix;
-  }
+  delete [] matrix;
 }
