@@ -1,5 +1,5 @@
 #include "countIn.hpp"
-
+#include <iostream>
 size_t countInCol(const int * a, size_t rows, size_t cols, size_t j)
 {
   size_t inCol = 1;
