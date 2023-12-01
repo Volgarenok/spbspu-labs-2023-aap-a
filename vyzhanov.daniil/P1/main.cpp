@@ -30,16 +30,13 @@ int main()
   while (num != 0);
   try
   {
-    spec.counter();
-    spec.sum1();
-    spec.moreLess();
+    std::cout << spec.moreLess() << "\n";
+    std::cout << spec.counter() << "\n";
+    std::cout << spec.sum1() << "\n";
   }
   catch (const std::exception & e)
   {
     std::cerr << "Error: " << e.what() << "\n";
     return 2;
   }
-  std::cout << spec.counter() << "\n";
-  std::cout << spec.sum1() << "\n";
-  std::cout << spec.moreLess() << "\n";
 }
