@@ -5,9 +5,9 @@
 
 namespace vyzhanov
 {
-  struct SumDup
+  struct First_Second_Sum
   {
-    SumDup();
+    First_Second_Sum();
     void operator()(int num);
     size_t operator()() const;
   private:

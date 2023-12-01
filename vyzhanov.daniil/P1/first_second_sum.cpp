@@ -3,37 +3,37 @@
 #include <limits>
 #include <stdexcept>
 
-vyzhanov::SumDup::SumDup():
+vyzhanov::First_Second_Sum::First_Second_Sum():
   count_sum_(0),
   num1_(0),
   num2_(0),
   num3_(0)
 {}
 
-void vyzhanov::SumDup::operator()(int num)
+void vyzhanov::First_Second_Sum::operator()(int num)
 {
   num3_ = num2_;
   num2_ = num1_;
   num1_ = num;
   const size_t max_s = std::numeric_limits< size_t >::max();
-  if ((num2_ > 0 && num3_ > std::numeric_limits< int >::max() - num2_)||
-     (num2_ < 0 && num3_ < std::numeric_limits< int >::min() - num2_))
+  const int max_int = std::numeric_limits< int >::max();
+  const int min_int = std::numeric_limits< int >::min();
+
+  if ((num2_ > 0 && num3_ > max_int - num2_) || (num2_ < 0 && num3_ < min_int - num2_))
   {
     throw std::logic_error("Overflow!");
   }
-  if (count_sum_ > max_s && num1_ == num2_ + num3_)
+
+  if (num1_ == num2_ + num3_)
   {
-    throw std::logic_error("Sequence is too long!");
-  }
-  else if (count_sum_ <+ max_s)
-  {
-    if (num1_ == num2_ + num3_)
+    if (count_sum_ == max_s)
     {
-      ++count_sum_;
+      throw std::logic_error("Sequence is too long!");
     }
+    count_sum_++;
   }
 }
-size_t vyzhanov::SumDup::operator()() const
+size_t vyzhanov::First_Second_Sum::operator()() const
 {
   if (num3_ == 0)
   {

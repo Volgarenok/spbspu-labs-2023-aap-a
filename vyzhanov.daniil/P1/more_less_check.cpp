@@ -16,18 +16,17 @@ void vyzhanov::MoreAndLess::operator()(int num)
   now_num_ = next_num_;
   next_num_ = num;
   const size_t max_s = std::numeric_limits< size_t >::max();
-  if (count_ > max_s && prev_num_ > now_num_ && next_num_ < now_num_)
+
+  if ((prev_num_ > now_num_) && (next_num_ < now_num_))
   {
-    throw std::logic_error("Sequence is too long!");
-  }
-  else if (count_ <= max_s)
-  {
-    if ((prev_num_ > now_num_) && (next_num_ < now_num_))
+    if (count_ == max_s)
     {
-      ++count_;
+      throw std::logic_error("Sequence is too long!");
     }
+    count_++;
   }
 }
+
 size_t vyzhanov::MoreAndLess::operator()() const
 {
   return count_;

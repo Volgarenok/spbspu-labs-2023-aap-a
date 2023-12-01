@@ -6,6 +6,7 @@ void vyzhanov::SequenceSpec::operator()(int num)
   sum(num);
   moreless(num);
 }
+
 size_t vyzhanov::SequenceSpec::counter() const
 {
   return count();
