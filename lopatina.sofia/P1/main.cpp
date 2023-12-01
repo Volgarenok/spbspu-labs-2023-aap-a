@@ -1,54 +1,49 @@
 #include <iostream>
-#include <stdexcept>
-#include "loc_max_counter.hpp"
 
 int main()
 {
-  int number_1 = 0, number_2 = 0, number_3 = 1, flag = 0;
-  using namespace lopatina;
-  Loc_Max_Counter counter;
+  int number = 0, number_1 = 0, number_2 = 0, number_3 = 0, counter = 0, flag = 0;
 
-  std::cin >> number_1;
+  std::cin >> number;
   if (!std::cin) {
     std::cerr << "Is not a sequence\n";
     return 1;
-  } else if (number_1 == 0) {
-    std::cerr << "Sequence is too short\n";
-    return 2;
   }
 
-  std::cin >> number_2;
-  if (!std::cin) {
-    std::cerr << "Is not a sequence\n";
-    return 1;
-  } else if (number_2 == 0) {
-    std::cerr << "Sequence is too short\n";
-    return 2;
-  }
+  if (number != 0) {
+    while (number != 0) {
 
-  while (number_3 != 0) {
-    std::cin >> number_3;
+      if (number_1 == 0) {
+        number_1 = number;
+      } else if (number_2 == 0) {
+        number_2 = number;
+      } else {
+        number_3 = number;
+        flag = 1;
+      }
 
-    if (!std::cin) {
-      std::cerr << "Is not a sequence\n";
-      return 1;
-    } else if (number_3 == 0 && flag == 0) {
+      if (number_2 >= number_1 && number_2 >= number_3 && number_3 != 0 && flag == 1) {
+        counter += 1;
+      }
+      if (flag == 1) {
+        number_1 = number_2;
+        number_2 = number_3;
+      }
+
+      std::cin >> number;
+      if (!std::cin) {
+        std::cerr << "Is not a sequence\n";
+        return 1;
+      }
+    }
+    if (number_3 == 0) {
       std::cerr << "Sequence is too short\n";
       return 2;
+    } else {
+      std::cout << counter;
     }
-    flag = 1;
-
-    if (number_2 >= number_1 && number_2 >= number_3 && number_3 != 0) {
-      try {
-        counter(number_3);
-      }
-      catch (const std::exception & e) {
-        std::cerr << "Error: " << e.what() << "\n";
-        return 2;
-      }
-    }
-    number_1 = number_2;
-    number_2 = number_3;
+  } else {
+    std::cerr << "Sequence is too short\n";
+    return 2;
   }
-  std::cout << counter() << "\n";
 }
