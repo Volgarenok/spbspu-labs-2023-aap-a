@@ -1,8 +1,7 @@
 #ifndef IMPUT_MATRIX_HPP
 #define IMPUT_MATRIX_HPP
 
-#include <fstream>
-#include <stdexcept>
+#include <istream>
 
 namespace grechishnikov
 {

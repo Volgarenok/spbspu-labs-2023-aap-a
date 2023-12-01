@@ -1,4 +1,5 @@
 #include "inputMatrix.hpp"
+#include <stdexcept>
 
 void grechishnikov::inputMatrix(std::istream &in, int * a, size_t max)
 {

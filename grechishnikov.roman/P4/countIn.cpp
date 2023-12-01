@@ -1,6 +1,6 @@
 #include "countIn.hpp"
 
-size_t grechishnikov::countInCol(int * a, size_t rows, size_t cols, size_t j)
+size_t countInCol(const int * a, size_t rows, size_t cols, size_t j)
 {
   size_t inCol = 1;
   size_t inColMax = 1;
@@ -22,8 +22,12 @@ size_t grechishnikov::countInCol(int * a, size_t rows, size_t cols, size_t j)
   return inColMax;
 }
 
-size_t grechishnikov::countInMatr(int * a, size_t rows, size_t cols)
+size_t grechishnikov::countInMatr(const int * a, size_t rows, size_t cols)
 {
+  if (rows == 0 || cols == 0)
+  {
+   return 0;
+  }
   size_t maxNumCol = 0;
   size_t maxPodr = 0;
   for (size_t i = 0; i < cols; ++i)
