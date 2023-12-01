@@ -87,28 +87,9 @@ int main(int argc, char ** argv)
     std::cerr << e.what() << "\n";
     return 2;
   }
-
-  std::cout << "poi_b: " << pMatr << "\n";
-  std::cout << "bef_ofstream: ";
-  for (size_t j = 0; j < rows*cols; ++j)
-  {
-    std::cout << pMatr[j] << " ";
-  }
-  std::cout << "\n";
-  std::cout << "\n";
-  std::ofstream output(argv[3]);
-
-  std::cout << "poi_p: " << pMatr << "\n";
-  std::cout << "posle_ofstream: ";
-  for (size_t j = 0; j < rows*cols; ++j)
-  {
-    std::cout << pMatr[j] << " ";
-  }
-  std::cout << "\n";
-
-
   int maxMatrCol = countInMatr(pMatr, rows, cols);
 
+  std::ofstream output(argv[3]);
   output << maxMatrCol << "\n";
 
   if (num == 2)
