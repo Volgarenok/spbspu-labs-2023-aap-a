@@ -9,13 +9,12 @@ namespace stepanov
   {
     SequenceCounterMonInc();
     void counter(size_t);
-    size_t get_result() const;
+    size_t getResult() const;
 
   private:
     size_t last_number_;
     size_t current_count_;
     size_t max_count_;
-    const size_t max_size_;
   };
 }
 

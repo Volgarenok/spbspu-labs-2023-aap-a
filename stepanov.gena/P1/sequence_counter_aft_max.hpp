@@ -9,13 +9,13 @@ namespace stepanov
   {
     SequenceCounterAftMax();
     void counter(int);
-    size_t get_result() const;
+    size_t getResult() const;
 
   private:
     int maxElement_;
     size_t countAfterMax_;
-    const size_t max_size_;
     size_t count_;
+    size_t isFirst_;
   };
 }
 #endif
