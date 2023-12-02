@@ -71,6 +71,15 @@ int main(int argc, char ** argv)
     }
   }
   size_t result = inputArray(input, matrix, rows * cols, rows * cols);
+  if (result != rows * cols)
+  {
+    std::cerr << "Can not read all args\n";
+    if (num == 2)
+    {
+      delete [] matrix;
+    }
+    return 2;
+  }
   int * minRow = nullptr;
   int * maxCol = nullptr;
   try
