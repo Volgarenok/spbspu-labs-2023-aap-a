@@ -74,6 +74,9 @@ int main(int argc, char * argv[])
   nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
   std::ofstream output(argv[3]);
   output << nonZeroDiags << "\n";
-  delete[] matrix;
+  if (num == 2)
+  {
+    delete[] matrix;
+  }
   return 0;
 }
