@@ -43,57 +43,59 @@ int main(int argc, char ** argv)
     std::cerr << "First number is not correct\n";
     return 1;
   }
+  size_t rows = 0, cols = 0;
+  size_t count = 0;
+  std::ifstream input(argv[2]);
+  input >> rows >> cols;
+  if (!input)
+  {
+    std::cerr << "Can not read a number\n";
+    return 2;
+  }
+  int array[10000] = {};
+  int * matrix = nullptr;
   if (num == 1)
   {
-    size_t rows = 0;
-    size_t cols = 0;
-    std::ifstream input(argv[2]);
-    input >> rows >> cols;
-    if (!input)
-    {
-      std::cerr << "Can not read a number\n";
-      return 2;
-    }
-    int matrix[10000] = {};
-    for (size_t i = 0; i < rows * cols; ++i)
-    {
-      input >> matrix[i];
-      if (!input)
-      {
-        std::cerr << "Can not read a number\n";
-        return 2;
-      }
-    }
-    std::ofstream output(argv[3]);
-    int * minRow = minRowArray(rows * cols, cols, matrix);
-    int * maxCol = maxColArray(rows * cols, cols, matrix);
-    size_t count = getResult(matrix, maxCol, minRow, rows * cols, cols);
-    output << count << "\n";
-    delete [] minRow;
-    delete [] maxCol;
+    matrix = array;
   }
   else if (num == 2)
   {
-    size_t rows = 0;
-    size_t cols = 0;
-    std::ifstream input(argv[2]);
-    input >> rows >> cols;
-    int * matrix = new int [rows * cols];
-
-    size_t result = inputArray(input, matrix, rows * cols, rows * cols);
-    if (!input)
+    try
     {
-      std::cerr << "Can not read numbers\n";
-      delete [] matrix;
-      return 2;
+      matrix = new int [rows * cols];
     }
-    std::ofstream output(argv[3]);
-    int * minRow = minRowArray(rows * cols, cols, matrix);
-    int * maxCol = maxColArray(rows * cols, cols, matrix);
-    size_t count = getResult(matrix, maxCol, minRow, result, cols);
-    output << count << "\n";
-    delete [] matrix;
+    catch (const std::bad_alloc &)
+    {
+      std::cerr << "Not enough memory\n";
+      return 3;
+    }
+  }
+  size_t result = inputArray(input, matrix, rows * cols, rows * cols);
+  int * minRow = nullptr;
+  int * maxCol = nullptr;
+  try
+  {
+    minRow = minRowArray(result, cols, matrix);
+    maxCol = maxColArray(result, cols, matrix);
+  }
+  catch (...)
+  {
     delete [] minRow;
     delete [] maxCol;
+    if (num == 2)
+    {
+      delete [] matrix;
+    }
+    std::cerr << "Not enough memory\n";
+    return 3;
   }
+  count = getResult(matrix, maxCol, minRow, result, cols);
+  if (num == 2)
+  {
+    delete [] matrix;
+  }
+  delete [] maxCol;
+  delete [] minRow;
+  std::ofstream output(argv[3]);
+  output << count << "\n";
 }
