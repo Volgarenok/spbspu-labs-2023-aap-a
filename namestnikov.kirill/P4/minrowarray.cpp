@@ -10,10 +10,7 @@ int * namestnikov::minRowArray(size_t result, size_t cols, int * matrix)
   }
   catch (const std::bad_alloc &)
   {
-    if (minRow != nullptr)
-    {
-      delete[] minRow;
-    }
+    delete[] minRow;
     throw;
   }
   for (size_t i = 0; i < result; i = i + cols)
