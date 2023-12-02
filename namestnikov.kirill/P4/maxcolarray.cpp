@@ -1,5 +1,4 @@
 #include "max_col_array.hpp"
-#include <iostream>
 
 int * namestnikov::maxColArray(size_t result, size_t cols, int * matrix)
 {

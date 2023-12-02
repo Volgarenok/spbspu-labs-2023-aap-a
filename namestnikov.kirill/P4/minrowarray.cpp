@@ -1,5 +1,4 @@
 #include "min_row_array.hpp"
-#include <iostream>
 
 int * namestnikov::minRowArray(size_t result, size_t cols, int * matrix)
 {
