@@ -75,7 +75,17 @@ int main(int argc, char ** argv)
 
   try
   {
-    rebdev::fillingTheMatrix(array, rows, colums, inputFile);
+    size_t fillIsOk = rebdev::fillTheMatrix(array, rows, colums, inputFile);
+    if (fillIsOk < (colums * rows))
+    {
+      std::cerr << fillIsOk << " elements is writing\n";
+      if (arrayMode != 1)
+      {
+        delete [] array;
+      }
+      return 2;
+    }
+    
     std::ofstream outputFile(argv[3]);
 
     if (!outputFile.is_open())
@@ -93,15 +103,6 @@ int main(int argc, char ** argv)
   catch (const std::logic_error & e)
   {
     delete [] array;
-    return 2;
-  }
-  catch (const size_t & i)
-  {
-    std::cerr << i << " elements is writing\n";
-    if (arrayMode != 1)
-    {
-      delete [] array;
-    }
     return 2;
   }
 

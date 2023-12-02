@@ -11,9 +11,9 @@ long long int rebdev::readFromFileLLI(std::ifstream & inputFile)
   {
     throw std::logic_error("Reading error: can't read from file");
   }
-  else if (!inputFile.is_open())
+  else if (inputFile.eof())
   {
-    throw std::logic_error("Reading error: file is end\n");
+    throw std::logic_error("Reading error: file is end");
   }
 
   return num;
