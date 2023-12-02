@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
-#include "nonzero.hpp"
+#include "checknonzero.hpp"
 #include "lowertriangularmatrix.hpp"
 #include "inputarray.hpp"
 
@@ -65,7 +65,7 @@ int main(int argc, char * argv[])
     return 2;
   }
   std::ofstream output(argv[3]);
-  output << (lowerTriangularMatrix(result, rows, cols, matrix) && nonZero(rows * cols, matrix)) << "\n";
+  output << (lowerTriangularMatrix(result, rows, cols, matrix) && checkNonZero(rows * cols, matrix)) << "\n";
   if (num == 2)
   {
     delete [] matrix;
