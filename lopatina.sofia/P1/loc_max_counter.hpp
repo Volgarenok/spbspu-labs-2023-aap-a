@@ -9,6 +9,10 @@ namespace lopatina
     void operator()(int);
     size_t operator()() const;
   private:
+    int number_1;
+    int number_2;
+    int number_3;
+    unsigned int flag;
     size_t count_;
   };
 }
