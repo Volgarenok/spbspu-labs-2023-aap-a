@@ -1,6 +1,6 @@
 #include "max_col_array.hpp"
 #include <new>
-int * namestnikov::maxColArray(size_t result, size_t cols, int * matrix)
+int * namestnikov::getMaxColArray(size_t result, size_t cols, int * matrix)
 {
   int * maxCol = nullptr;
   try

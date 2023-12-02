@@ -75,8 +75,8 @@ int main(int argc, char ** argv)
   int * maxCol = nullptr;
   try
   {
-    minRow = minRowArray(result, cols, matrix);
-    maxCol = maxColArray(result, cols, matrix);
+    minRow = getMinRowArray(result, cols, matrix);
+    maxCol = getMaxColArray(result, cols, matrix);
   }
   catch (...)
   {

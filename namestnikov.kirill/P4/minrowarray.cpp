@@ -1,7 +1,7 @@
 #include "min_row_array.hpp"
 #include <new>
 
-int * namestnikov::minRowArray(size_t result, size_t cols, int * matrix)
+int * namestnikov::getMinRowArray(size_t result, size_t cols, int * matrix)
 {
   int * minRow = nullptr;
   try

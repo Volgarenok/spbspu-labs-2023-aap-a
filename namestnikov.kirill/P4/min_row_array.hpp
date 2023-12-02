@@ -3,6 +3,6 @@
 #include <cstddef>
 namespace namestnikov
 {
-  int * minRowArray(size_t result, size_t cols, int * matrix);
+  int * getMinRowArray(size_t result, size_t cols, int * matrix);
 }
 #endif

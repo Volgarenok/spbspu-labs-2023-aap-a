@@ -3,6 +3,6 @@
 #include <cstddef>
 namespace namestnikov
 {
-  int * maxColArray(size_t result, size_t cols, int * matrix);
+  int * getMaxColArray(size_t result, size_t cols, int * matrix);
 }
 #endif
