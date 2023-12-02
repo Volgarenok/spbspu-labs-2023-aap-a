@@ -2,9 +2,9 @@
 
 #include <algorithm>
 
-int zhalilov::countNonZeroDiags(const int matrix[], int rows, int cols)
+size_t zhalilov::countNonZeroDiags(const int matrix[], int rows, int cols)
 {
-  int count = 0;
+  size_t count = 0;
   int sqrLength = std::min(rows, cols);
   int lineLength = sqrLength * sqrLength;
   bool isUpperZero = false;
@@ -29,7 +29,7 @@ int zhalilov::countNonZeroDiags(const int matrix[], int rows, int cols)
         break;
       }
     }
-    count+= !isLowerZero + !isUpperZero;
+    count += !isLowerZero + !isUpperZero;
     isUpperZero = false;
     isLowerZero = false;
   }

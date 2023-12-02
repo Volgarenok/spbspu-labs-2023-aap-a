@@ -11,11 +11,16 @@ int main(int argc, char * argv[])
     std::cerr << "Incorrect number of arguments\n";
     return 1;
   }
-
   int num = 0;
   try
   {
-    num = std::stoi(argv[1]);
+    size_t pos = 0;
+    num = std::stoi(argv[1], &pos);
+    int length = sizeof(argv[1])/sizeof(char);
+    if (length != pos)
+    {
+      throw std::invalid_argument("Incorrect arg of task number");
+    }
   }
   catch (const std::exception &e)
   {
@@ -39,33 +44,37 @@ int main(int argc, char * argv[])
   }
 
   using namespace zhalilov;
-  int nonZeroDiags = 0;
+  size_t nonZeroDiags = 0;
+  int *matrix = nullptr;
+  int statMatrix[10000];
+  for (int i = 0; i < 10000; i++)
+  {
+    statMatrix[i] = 0;
+  }
   if (num == 1)
   {
-    int matrix[10000];
-    if (inputMatrix(matrix, rows, cols, input) == -1)
-    {
-      std::cerr << "Invalid matrix source\n";
-      return 2;
-    }
-    nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
+    matrix = statMatrix;
   }
   if (num == 2)
   {
-    int *matrix = new int[rows * cols];
-    if (inputMatrix(matrix, rows, cols, input) == -1)
+    matrix = new int[rows * cols];
+    for (int i = 0; i < rows * cols; i++)
     {
-      std::cerr << "Invalid matrix source\n";
-      delete[] matrix;
-      return 2;
+      matrix[i] = 0;
     }
-    nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
-    delete[] matrix;
   }
-
+  if (!inputMatrix(matrix, rows, cols, input))
   {
-    std::ofstream output(argv[3]);
-    output << nonZeroDiags << "\n";
+    std::cerr << "Invalid matrix source\n";
+    if (num == 2)
+    {
+      delete[] matrix;
+    }
+    return 2;
   }
+  nonZeroDiags = countNonZeroDiags(matrix, rows, cols);
+  std::ofstream output(argv[3]);
+  output << nonZeroDiags << "\n";
+  delete[] matrix;
   return 0;
 }

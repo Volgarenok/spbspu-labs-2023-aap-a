@@ -1,13 +1,15 @@
 #include "inputMatrix.hpp"
 
-int zhalilov::inputMatrix(int matrix[], int rows, int cols, std::ifstream &input)
+#include <iostream>
+
+std::istream &zhalilov::inputMatrix(int matrix[], int rows, int cols, std::istream &input)
 {
   for (int i = 0; i < rows * cols; i++)
   {
     if (!(input >> matrix[i]))
     {
-      return -1;
+      return input;
     }
   }
-  return 0;
+  return input;
 }
