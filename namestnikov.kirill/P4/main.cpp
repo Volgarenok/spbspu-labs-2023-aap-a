@@ -16,9 +16,10 @@ int main(int argc, char ** argv)
     return 1;
   }
   int num = 0;
+  char * endOfParsing = nullptr;
   try
   {
-    num = std::stoll(argv[1]);
+    num = std::strtoll(argv[1], std::addressof(endOfParsing), 10);
     if ((num != 1) && (num != 2))
     {
       std::cerr << "Wrong number in command line\n";
@@ -36,6 +37,11 @@ int main(int argc, char ** argv)
     std::cerr << "Cannot parse a value\n";
     return 3;
   }
+  if (*endOfParsing != '\0')
+  {
+    std::cerr << "First number is not correct\n";
+    return 1;
+  }
   if (num == 1)
   {
     size_t rows = 0;
@@ -47,7 +53,7 @@ int main(int argc, char ** argv)
       std::cerr << "Can not read a number\n";
       return 2;
     }
-    int matrix[10000];
+    int matrix[10000] = {};
     for (size_t i = 0; i < rows * cols; ++i)
     {
       input >> matrix[i];
