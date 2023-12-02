@@ -15,7 +15,7 @@ int main(int argc, char ** argv)
 
   int arrayMode = std::stoi(argv[1]);
 
-  if (((arrayMode != 1) && (arrayMode != 2)) || (argv[1][2] != 0))
+  if (((arrayMode != 1) && (arrayMode != 2)) || (argv[1][1] != 0))
   {
     return 1;
   }
