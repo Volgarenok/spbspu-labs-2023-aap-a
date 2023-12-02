@@ -5,7 +5,6 @@
 
 #include "matrix.hpp"
 #include "readFromFile.hpp"
-#include "sizeOfTypes.hpp"
 
 int main(int argc, char ** argv)
 {
@@ -16,7 +15,7 @@ int main(int argc, char ** argv)
 
   int arrayMode = std::stoi(argv[1]);
 
-  if ((arrayMode != 1) && (arrayMode != 2) && (rebdev::findIntSize(arrayMode) == rebdev::findCharPointerSize(argv[1])))
+  if (((arrayMode != 1) && (arrayMode != 2)) || (argv[1][2] != 0))
   {
     return 1;
   }
