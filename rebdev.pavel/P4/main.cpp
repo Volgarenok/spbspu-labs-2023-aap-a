@@ -50,13 +50,11 @@ int main(int argc, char ** argv)
   }
   if ((rows == 0) || (colums == 0))
   {
-    inputFile.close();
     return (((rows || colums) == 0) ? 0 : 2);
   }
 
   if (rows > (std::numeric_limits<size_t>::max() / colums))
   {
-    inputFile.close();
     return 2;
   }
 
@@ -105,6 +103,5 @@ int main(int argc, char ** argv)
     return 2;
   }
 
-  inputFile.close();
   return 0;
 }
