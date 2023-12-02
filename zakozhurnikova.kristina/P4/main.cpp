@@ -43,40 +43,20 @@ int main(int argc, const char * argv[])
     return 0;
   }
   const size_t s = rows * cols;
+  int staticMatrix[10000] = {};
   int *matrix = nullptr;
   int *original = nullptr;
-  int **matrixPtr = &matrix;
-  int **originalPtr = &original;
-  if (option == 1)
+
+  try
   {
-    int matrix[s];
-    int original[s];
-    for (size_t i = 0; i < s; i++)
-    {
-      matrix[i] = 0;
-      original[i] = 0;
-    }
-    *matrixPtr = static_cast<int *>(matrix);
-    *originalPtr = static_cast<int *>(original);
+    original = new int[s];
   }
-  else
+  catch (const std::bad_alloc &e)
   {
-    try
-    {
-      *matrixPtr = new int [rows * cols]{0};
-      *originalPtr = new int [rows * cols]{0};
-    }
-    catch (const std::exception &e)
-    {
-      delete[] *matrixPtr;
-      delete[] *originalPtr;
-      matrixPtr = nullptr;
-      originalPtr = nullptr;
-      std::cerr << e.what() << '\n';
-      return 1;
-    }
+    std::cout << e.what() << '\n';
+    return 1;
   }
-  zakozhurnikova::fillMatrix(matrix, rows, cols);
+
   for (size_t i = 0; i < rows; i++)
   {
     for (size_t j = 0; j < cols; j++)
@@ -85,19 +65,35 @@ int main(int argc, const char * argv[])
       if (!input)
       {
         std::cerr << "Incorrect input!\n";
-        delete[] matrix;
         delete[] original;
-        matrixPtr = nullptr;
-        originalPtr = nullptr;
         return 1;
       }
     }
   }
-  zakozhurnikova::substractMatrix(original, matrix, rows, cols);
+
+  if (option == 1)
+  {
+    zakozhurnikova::fillMatrix(staticMatrix, rows, cols);
+    zakozhurnikova::substractMatrix(original, staticMatrix, rows, cols);
+  }
+  if (option == 2)
+  {
+    try
+    {
+      matrix = new int[rows * cols]{0};
+    }
+    catch (const std::bad_alloc &e)
+    {
+      delete[] original;
+      std::cerr << e.what() << '\n';
+      return 1;
+    }
+    zakozhurnikova::fillMatrix(matrix, rows, cols);
+    zakozhurnikova::substractMatrix(original, matrix, rows, cols);
+    delete[] matrix;
+  }
+
   zakozhurnikova::writeToFile(output, original, rows, cols);
-  delete[] matrix;
   delete[] original;
-  matrixPtr = nullptr;
-  originalPtr = nullptr;
   return 0;
 }
