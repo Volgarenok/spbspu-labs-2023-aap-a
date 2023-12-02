@@ -6,7 +6,7 @@
 
 namespace chistyakov
 {
-  size_t inputArray(std::ifstream & input, int * array, size_t size, size_t sizeToRead);
+  size_t inputArray(std::istream & input, int * array, size_t size, size_t sizeToRead);
 }
 
 #endif
