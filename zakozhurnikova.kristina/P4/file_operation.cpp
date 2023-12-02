@@ -1,36 +1,25 @@
 #include "file_operation.h"
 
-int zakozhurnikova::rightArgument(const char *arg)
-{
-  while (*arg)
-  {
-    if (!isdigit(*arg))
-    {
-      return 0;
-    }
-    arg++;
-  }
-  return -1;
-}
-
-int zakozhurnikova::rightArguments(int argc, const char** argv)
+int zakozhurnikova::checkArguments(int argc, const char **const argv)
 {
   if (argc != 4)
   {
     throw std::invalid_argument("Error in command line arguments\n");
-    return 1;
+  }
+  const char *arg = argv[1];
+  while (*arg)
+  {
+    if (!std::isdigit(*arg))
+    {
+      throw std::invalid_argument("");
+    }
+    arg++;
   }
   char* ptr = nullptr;
-  int option = std::strtol(argv[1], &ptr, 10);
-  if (!rightArgument(argv[1]))
-  {
-    throw std::invalid_argument("First parameter is not a number");
-    return 1;
-  }
+  int option = std::strtol(argv[1], std::addressof(ptr), 10);
   if (option != 2 && option != 1)
   {
     throw std::invalid_argument("First parameter is not 1 and 2");
-    return 1;
   }
   return option;
 }

@@ -10,7 +10,7 @@ int main(int argc, const char * argv[])
   int option = 0;
   try
   {
-    zakozhurnikova::rightArguments(argc, argv);
+    zakozhurnikova::checkArguments(argc, argv);
   }
   catch (const std::invalid_argument& e)
   {

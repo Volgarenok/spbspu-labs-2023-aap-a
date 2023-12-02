@@ -7,9 +7,7 @@
 
 namespace zakozhurnikova
 {
-  int rightArgument(const char *arg);
-  int rightArguments(int argc, const char **argv);
+  int checkArguments(int argc, const char **const argv);
   void writeToFile(std::ofstream& out, int *matrix, size_t rows, size_t cols);
 }
-
 #endif
