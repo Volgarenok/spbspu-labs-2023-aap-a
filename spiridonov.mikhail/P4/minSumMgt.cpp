@@ -5,11 +5,11 @@ size_t spiridonov::getMinimumSum(const int * matrix, size_t rows, size_t cols)
 {
   int min_sum = matrix[cols - 1];
 
-  for (unsigned int i = 1; i < rows; i++)
+  for (size_t i = 1; i < rows; i++)
   {
     int sum = matrix[i * cols + cols - 1];
 
-    for (unsigned int j = 0; j < cols && i + j < rows; j++)
+    for (size_t j = 0; j < cols && i + j < rows; j++)
     {
       sum += matrix[(i + j) * cols + cols - 1 - j];
     }

@@ -2,11 +2,12 @@
 #include "minSumMdg.hpp"
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstddef>
 
 int main(int argc, char* argv[])
 {
   using namespace spiridonov;
+
   if (argc != 4)
   {
     std::cerr << "Usage: ./lab num input output" << "\n";
@@ -14,13 +15,15 @@ int main(int argc, char* argv[])
   }
 
   int num = 0;
+
   try
   {
-    num = std::stoi(argv[1]);
+    num = std::atoi(argv[1]);
   }
+
   catch (const std::exception & e)
   {
-    std::cerr << "Error parsing first argument" << "\n";
+    std::cerr << "Error first argument" << e.what() << "\n";
     return 1;
   }
 
@@ -30,12 +33,12 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  unsigned int rows = 0;
-  unsigned int cols = 0;
-  std::ifstream input(argv[2]);
-  std::ofstream output(argv[3]);
+  size_t rows = 0;
+  size_t cols = 0;
+  std::fstream input(argv[2]);
+  std::fstream output(argv[3]);
   input >> rows >> cols;
-  int min_sum = 0;
+  size_t min_sum = 0;
 
   if (!input)
   {
@@ -46,28 +49,21 @@ int main(int argc, char* argv[])
   if (rows == 0 || cols == 0)
   {
     output << 0 << "\n";
-    output.close();
     return 0;
   }
 
+  int * matrix = nullptr;
+  int interim_matrix[10000] = {};
+
   if (num == 1)
   {
-   int matrix[rows * cols] = {0};
-    try
-    {
-      spiridonov::readMatrix(input, matrix, rows, cols);
-    }
-    catch (const std::logic_error & e)
-    {
-      std::cerr << e.what() << "\n";
-      return 2;
-    }
+    matrix = interim_matrix;
     min_sum = spiridonov::getMinimumSum(matrix, rows, cols);
   }
 
   else if (num == 2)
   {
-    int * matrix = new int[rows * cols]();
+    matrix = new int[rows * cols]();
     try
     {
       spiridonov::readMatrix(input, matrix, rows, cols);
@@ -87,8 +83,6 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  input.close();
-
   if (!output)
   {
     std::cerr << "Failed to open output file: " << argv[3] << "\n";
@@ -96,6 +90,5 @@ int main(int argc, char* argv[])
   }
 
   output << min_sum << "\n";
-  output.close();
   return 0;
 }
