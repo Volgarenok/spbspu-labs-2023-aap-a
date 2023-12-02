@@ -85,7 +85,7 @@ int main(int argc, char ** argv)
       }
       return 2;
     }
-    
+
     std::ofstream outputFile(argv[3]);
 
     if (!outputFile.is_open())
