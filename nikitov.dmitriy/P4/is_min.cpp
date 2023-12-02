@@ -3,18 +3,18 @@
 bool nikitov::isMin(size_t i, const int matrix[], size_t cols)
 {
   int num = matrix[i];
-  bool isRequiredCondition = false;
-  bool& isOk = isRequiredCondition;
+  bool isLessThanNeighbors = false;
+  bool& isLTN = isLessThanNeighbors;
 
-  isOk = num < matrix[i - cols - 1];
-  isOk = isOk && num < matrix[i - cols - 1];
-  isOk = isOk && num < matrix[i - cols];
-  isOk = isOk && num < matrix[i - cols + 1];
-  isOk = isOk && num < matrix[i - 1];
-  isOk = isOk && num < matrix[i + 1];
-  isOk = isOk && num < matrix[i + cols - 1];
-  isOk = isOk && num < matrix[i + cols];
-  isOk = isOk && num < matrix[i + cols + 1];
+  isLTN = num < matrix[i - cols - 1];
+  isLTN = isLTN && num < matrix[i - cols - 1];
+  isLTN = isLTN && num < matrix[i - cols];
+  isLTN = isLTN && num < matrix[i - cols + 1];
+  isLTN = isLTN && num < matrix[i - 1];
+  isLTN = isLTN && num < matrix[i + 1];
+  isLTN = isLTN && num < matrix[i + cols - 1];
+  isLTN = isLTN && num < matrix[i + cols];
+  isLTN = isLTN && num < matrix[i + cols + 1];
 
-  return isRequiredCondition;
+  return isLessThanNeighbors;
 }

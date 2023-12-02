@@ -49,10 +49,10 @@ int main(int argc, char* argv[])
     return 2;
   }
 
+  int array[10000] = {};
   int* matrix = nullptr;
   if (type == 1)
   {
-     int array[10000] = {};
      matrix = array;
   }
   else if (type == 2)
