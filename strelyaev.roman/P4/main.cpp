@@ -78,7 +78,7 @@ int main(int argc, char * argv[])
     inputMatrix(input, matrix, rows * columns);
     makeClockwise(clock_matrix, rows, columns);
     subtractMatrix(matrix, clock_matrix, rows * columns);
-    printMatrix(output, matrix, columns * rows);
+    printMatrix(output, matrix, columns * rows) << "\n";
   }
   catch (const std::logic_error& e)
   {
