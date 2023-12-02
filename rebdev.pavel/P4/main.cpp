@@ -27,7 +27,7 @@ int main(int argc, char ** argv)
     return 2;
   }
 
-  int rows = 0, colums = 0;
+  size_t rows = 0, colums = 0;
   try
   {
     inputFile >> rows;
@@ -55,13 +55,13 @@ int main(int argc, char ** argv)
     return (((rows || colums) == 0) ? 0 : 2);
   }
 
-  if (rows > (std::numeric_limits<long int>::max() / colums))
+  if (rows > (std::numeric_limits<size_t>::max() / colums))
   {
     inputFile.close();
     return 2;
   }
 
-  long long int arr2[rows * colums];
+  long long int arr2[10000];
   long long int * array = nullptr;
 
   if (arrayMode == 1)
