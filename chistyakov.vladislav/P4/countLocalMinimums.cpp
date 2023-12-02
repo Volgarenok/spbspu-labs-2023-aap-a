@@ -3,7 +3,7 @@
 #include <limits>
 #include <stdexcept>
 
-size_t countLocalMinimums(int * array, size_t rows, size_t cols)
+size_t chistyakov::countLocalMinimums(int * array, size_t rows, size_t cols)
 {
   if (rows <= 2 || cols <= 2)
   {

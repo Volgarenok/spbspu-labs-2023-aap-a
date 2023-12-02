@@ -12,6 +12,8 @@ void writeAnswerInFile(int answer,char * outputFile)
 
 int main(int argc, char** argv)
 {
+  using namespace chistyakov;
+
   if (argc != 4)
   {
     std::cerr << "Bad input arguments\n";

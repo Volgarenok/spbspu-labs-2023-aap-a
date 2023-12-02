@@ -1,7 +1,10 @@
 #ifndef MIN_HPP
 #define MIN_HPP
 
-int min(int num1, int num2, int num3, int num4);
-int min(int num1, int num2, int num3);
+namespace chistyakov
+{
+  int min(int num1, int num2, int num3, int num4);
+  int min(int num1, int num2, int num3);
+}
 
 #endif

@@ -3,6 +3,9 @@
 
 #include <cstddef>
 
-size_t countLocalMinimums(int * array, size_t rows, size_t cols);
+namespace chistyakov
+{
+  size_t countLocalMinimums(int * array, size_t rows, size_t cols);
+}
 
 #endif
