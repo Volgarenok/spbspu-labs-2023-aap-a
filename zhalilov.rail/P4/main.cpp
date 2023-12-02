@@ -16,8 +16,7 @@ int main(int argc, char * argv[])
   {
     size_t pos = 0;
     num = std::stoi(argv[1], &pos);
-    int length = sizeof(argv[1])/sizeof(char);
-    if (length != pos)
+    if (argv[1][pos] != '\0')
     {
       throw std::invalid_argument("Incorrect arg of task number");
     }
