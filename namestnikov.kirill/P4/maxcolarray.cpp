@@ -9,7 +9,6 @@ int * namestnikov::getMaxColArray(size_t result, size_t cols, const int * matrix
   }
   catch (const std::bad_alloc &)
   {
-    delete[] maxCol;
     throw;
   }
   for (size_t j = 0; j < cols; ++j)
