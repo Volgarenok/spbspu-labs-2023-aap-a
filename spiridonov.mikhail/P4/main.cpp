@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 
   catch (const std::exception & e)
   {
-    std::cerr << "Error first argument" << e.what() << "\n";
+    std::cerr << "Error parsing first argument" << "\n";
     return 1;
   }
 
@@ -35,8 +35,8 @@ int main(int argc, char* argv[])
 
   size_t rows = 0;
   size_t cols = 0;
-  std::fstream input(argv[2]);
-  std::fstream output(argv[3]);
+  std::ifstream input(argv[2]);
+  std::ofstream output(argv[3]);
   input >> rows >> cols;
   size_t min_sum = 0;
 
