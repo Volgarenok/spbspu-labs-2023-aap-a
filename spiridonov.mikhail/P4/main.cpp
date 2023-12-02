@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 
   try
   {
-    num = std::atoi(argv[1]);
+    num = std::stoi(argv[1]);
   }
 
   catch (const std::exception & e)
