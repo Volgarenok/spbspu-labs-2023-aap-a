@@ -1,6 +1,6 @@
-#include "lowertriangularmatrix.hpp"
+#include "checklowertriangularmatrix.hpp"
 
-bool piyavkin::lowerTriangularMatrix(size_t result, size_t rows, size_t cols, const int * matrix)
+bool piyavkin::checkLowerTriangularMatrix(size_t result, size_t rows, size_t cols, const int * matrix)
 {
   if (rows <= 1 || rows != cols)
   {
