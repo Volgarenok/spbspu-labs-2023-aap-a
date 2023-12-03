@@ -1,5 +1,5 @@
-#include <algorithm>
 #include "maxSumDiagonal.hpp"
+#include <algorithm>
 
 long long int baranov::maxSumDiagonal(const int * matrix, size_t rows, size_t columns)
 {
