@@ -14,11 +14,16 @@ int main(int argc, char ** argv)
   unsigned char task = 0;
   try
   {
-    task = std::stoll(argv[1]);
+    size_t ind = 0;
+    task = std::stoll(argv[1], &ind);
+    if (argv[1][ind] != '\0')
+    {
+      throw std::invalid_argument("Incorrect first CLA argument\n");
+    }
   }
   catch (const std::out_of_range &)
   {
-    std::cerr << "Valuue of first CLA is too large\n";
+    std::cerr << "Value of first CLA is too large\n";
     return 1;
   }
   catch (const std::invalid_argument &)
