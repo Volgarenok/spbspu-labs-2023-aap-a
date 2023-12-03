@@ -10,12 +10,12 @@ namespace vyzhanov
   struct SequenceSpec
   {
     void operator()(int num);
-    size_t counter() const;
-    size_t sum1() const;
-    size_t moreLess() const;
+    size_t getCount() const;
+    size_t getSum() const;
+    size_t checkMoreLess() const;
     private:
       CountAfterMax count;
-      First_Second_Sum sum;
+      SumTwoPrev sum;
       MoreAndLess moreless;
    };
 }

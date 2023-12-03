@@ -30,9 +30,9 @@ int main()
   while (num != 0);
   try
   {
-    std::cout << spec.moreLess() << "\n";
-    std::cout << spec.counter() << "\n";
-    std::cout << spec.sum1() << "\n";
+    std::cout << spec.checkMoreLess() << "\n";
+    std::cout << spec.getCount() << "\n";
+    std::cout << spec.getSum() << "\n";
   }
   catch (const std::exception & e)
   {

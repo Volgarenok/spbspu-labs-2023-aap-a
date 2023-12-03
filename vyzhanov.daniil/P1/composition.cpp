@@ -7,15 +7,15 @@ void vyzhanov::SequenceSpec::operator()(int num)
   moreless(num);
 }
 
-size_t vyzhanov::SequenceSpec::counter() const
+size_t vyzhanov::SequenceSpec::getCount() const
 {
   return count();
 }
-size_t vyzhanov::SequenceSpec::sum1() const
+size_t vyzhanov::SequenceSpec::getSum() const
 {
   return sum();
 }
-size_t vyzhanov::SequenceSpec::moreLess() const
+size_t vyzhanov::SequenceSpec::checkMoreLess() const
 {
   return moreless();
 }
