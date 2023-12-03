@@ -1,8 +1,8 @@
-#include "countLocalMinimums.hpp"
-#include "inputArray.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "countLocalMinimums.hpp"
+#include "inputArray.hpp"
 
 void writeAnswerInFile(int answer,char * outputFile)
 {
