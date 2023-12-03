@@ -39,7 +39,7 @@ int main(int argc, char** argv)
   int * array = nullptr;
 
   if (taskNumber == 1)
-  { 
+  {
     int a[10000] = {};
     array = a;
   }
