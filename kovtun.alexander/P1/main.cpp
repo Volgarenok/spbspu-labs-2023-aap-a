@@ -19,7 +19,7 @@ int main()
     std::cin >> number;
     if (!std::cin)
     {
-      std::cerr << "sequence is not valid";
+      std::cerr << "sequence is not valid\n";
       return 1;
     }
 
@@ -28,7 +28,7 @@ int main()
       size_t max_size = std::numeric_limits<size_t>::max();
       if (size == max_size)
       {
-        std::cerr << "sequence is too long";
+        std::cerr << "sequence is too long\n";
         return 2;
       }
       size++;
@@ -41,7 +41,7 @@ int main()
 
   if (size == 0)
   {
-    std::cerr << "sequence is too short";
+    std::cerr << "sequence is too short\n";
     return 2;
   }
 
