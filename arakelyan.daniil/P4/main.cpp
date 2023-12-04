@@ -1,12 +1,9 @@
-#include <cstddef>
-#include <iomanip>
 #include <iostream>
-#include <memory>
+#include <cstddef>
 #include <stdexcept>
-#include <string>
+#include <iomanip>
 #include "input_output_matrix.hpp"
 #include "matrix_operations.hpp"
-#include <stdexcept>
 
 
 
@@ -65,33 +62,27 @@ int main (int argc, char * argv[])
     return 2;
   }
 
-
-  int stabMatrix[10000] = {};
-  double stabSmoothedMatrix[10000] = {};
-
+  int staticMatrix[10000] = {};
+  double staticSmoothedMatrix[10000] = {};
 
   int * matrix = nullptr;
   double * smoothedMatrix = nullptr;
 
-
   if (firstArgument == 1)
   {
-    matrix = stabMatrix;
-    smoothedMatrix = stabSmoothedMatrix;
+    matrix = staticMatrix;
+    smoothedMatrix = staticSmoothedMatrix;
   }
   else
   {
-    matrix = new int[rows * cols];
-    if (!matrix)
+    try
     {
-      std::cerr << "Can't create input matrix\n";
-      delete [] matrix;
-      return 2;
+      matrix = new int[rows * cols];
+      smoothedMatrix = new double[rows * cols];
     }
-    smoothedMatrix = new double[rows * cols];
-    if (!smoothedMatrix)
+    catch (const std::bad_alloc & e)
     {
-      std::cerr << "Can't create matrix smoothed matrix\n";
+      std::cerr << "Error: " << e.what() << "\n";
       delete [] matrix;
       delete [] smoothedMatrix;
       return 2;
@@ -101,8 +92,8 @@ int main (int argc, char * argv[])
   try
   {
     arakelyan::inputMatrix(input, matrix, rows * cols);
-    arakelyan::transformToSmoothMatrix(matrix, smoothedMatrix, rows, cols);
-    arakelyan::outputTransformMatrix(output, smoothedMatrix, rows, cols);
+    arakelyan::smoothedMatrixCreation(matrix, smoothedMatrix, rows, cols);
+    arakelyan::outputMatrix(output, smoothedMatrix, rows, cols);
   }
   catch (const std::logic_error & e)
   {
