@@ -1,6 +1,6 @@
 #include "matrixtransformation.hpp"
 
-void marishin::transformMatrix(int* matrix, const size_t rows, const size_t cols)
+void marishin::transformMatrix(int* matrix, size_t rows, size_t cols)
 {
   int topRow = 0;
   int bottomRow = rows - 1;
@@ -40,7 +40,7 @@ void marishin::transformMatrix(int* matrix, const size_t rows, const size_t cols
   }
 }
 
-void marishin::inputMatrix(std::ostream& b, int* matrix, const size_t rows, const size_t cols)
+void marishin::inputMatrix(std::ostream& b, int* matrix, size_t rows, size_t cols)
 {
   b << rows << " " << cols;
   for (size_t i = 0; i < rows * cols; ++i)

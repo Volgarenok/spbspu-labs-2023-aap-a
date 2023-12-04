@@ -5,7 +5,7 @@
 
 namespace marishin
 {
-  void transformMatrix(int* matrix, const size_t rows, const size_t cols);
-  void inputMatrix(std::ostream& b, int* matrix, const size_t rows, const size_t cols);
+  void transformMatrix(int* matrix, size_t rows, size_t cols);
+  void inputMatrix(std::ostream& b, int* matrix, size_t rows, size_t cols);
 }
 #endif

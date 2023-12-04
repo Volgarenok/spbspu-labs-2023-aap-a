@@ -1,6 +1,6 @@
 #include "arraycheck.hpp"
 
-size_t marishin::checkingArray(std::istream& input, int* matrix, const size_t rows, const size_t cols)
+size_t marishin::checkArray(std::istream& input, int* matrix, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows * cols; ++i)
   {
@@ -10,26 +10,4 @@ size_t marishin::checkingArray(std::istream& input, int* matrix, const size_t ro
     }
   }
   return rows * cols;
-}
-
-void marishin::processingMatrix(std::istream& input, int* matrix, const size_t rows, const size_t cols, int num, const char* outputFilename)
-{
-  if (checkingArray(input, matrix, rows, cols) == rows * cols)
-  {
-    transformMatrix(matrix, rows, cols);
-    std::ofstream output(outputFilename);
-    inputMatrix(output, matrix, rows, cols);
-    if (num == 2)
-    {
-      delete[] matrix;
-    }
-  }
-  else
-  {
-    if (num == 2)
-    {
-      delete[] matrix;
-    }
-    throw std::logic_error("The contents of the file cannot be interpreted");
-  }
 }
