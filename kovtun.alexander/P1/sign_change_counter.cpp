@@ -16,6 +16,11 @@ void kovtun::SignChangeCounter::operator()(int number)
 
   if ((previousNumber_ > 0 && number < 0) || (previousNumber_ < 0 && number > 0))
   {
+    size_t max_size = std::numeric_limits<size_t>::max();
+    if (counter_ == max_size)
+    {
+      throw std::overflow_error("SignChangeCounter overflow");
+    }
     counter_++;
   }
 

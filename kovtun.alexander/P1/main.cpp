@@ -33,8 +33,16 @@ int main()
       }
       size++;
 
-      signChangeCounter(number);
-      localMaxCounter(number);
+      try
+      {
+        signChangeCounter(number);
+        localMaxCounter(number);
+      }
+      catch(std::overflow_error &e)
+      {
+        std::cerr << e.what() << '\n';
+        return 2;
+      }
     }
   }
   while (number != 0);
