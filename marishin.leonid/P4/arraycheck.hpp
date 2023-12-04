@@ -1,8 +1,7 @@
 #ifndef ARRAY_CHECK_HPP
 #define ARRAY_CHECK_HPP
 
-#include <iostream>
-#include <fstream>
+#include <iostream>>
 #include "matrixtransformation.hpp"
 
 namespace marishin
