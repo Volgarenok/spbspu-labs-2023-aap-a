@@ -1,10 +1,9 @@
 #include <iostream>
-#include <fstream>
 #include <cstddef>
-#include <stdexcept>
 #include <iomanip>
 #include "input_output_matrix.hpp"
 #include "matrix_operations.hpp"
+#include <stdexcept>
 
 
 
@@ -30,14 +29,14 @@ int main (int argc, char * argv[])
     return 1;
   }
 
-  std::fstream input(argv[2]);
+  std::ifstream input(argv[2]);
   if (!input.is_open())
   {
     std::cerr << "Cannot open the input file\n";
     return 2;
   }
 
-  std::fstream output(argv[3]);
+  std::ofstream output(argv[3]);
   if (!output.is_open())
   {
     std::cerr << "Cannot open the output file\n";
