@@ -3,14 +3,14 @@
 #include <limits>
 #include <stdexcept>
 
-vyzhanov::SumTwoPrev::SumTwoPrev():
+vyzhanov::CountEqualSumTwoPrev::CountEqualSumTwoPrev():
   count_sum_(0),
   num1_(0),
   num2_(0),
   num3_(0)
 {}
 
-void vyzhanov::SumTwoPrev::operator()(int num)
+void vyzhanov::CountEqualSumTwoPrev::operator()(int num)
 {
   num3_ = num2_;
   num2_ = num1_;
@@ -33,7 +33,7 @@ void vyzhanov::SumTwoPrev::operator()(int num)
     count_sum_++;
   }
 }
-size_t vyzhanov::SumTwoPrev::operator()() const
+size_t vyzhanov::CountEqualSumTwoPrev::operator()() const
 {
   if (num3_ == 0)
   {

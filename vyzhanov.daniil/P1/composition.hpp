@@ -15,7 +15,7 @@ namespace vyzhanov
     size_t checkMoreLess() const;
     private:
       CountAfterMax count;
-      SumTwoPrev sum;
+      CountEqualSumTwoPrev sum;
       MoreAndLess moreless;
    };
 }
