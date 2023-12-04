@@ -53,12 +53,12 @@ int main(int argc, char ** argv)
     return (((rows || colums) == 0) ? 0 : 2);
   }
 
-  if (rows > (std::numeric_limits<size_t>::max() / colums))
+  if (rows > (std::numeric_limits< size_t >::max() / colums))
   {
     return 2;
   }
 
-  long long int arr2[10000];
+  long long int arr2[10000] = {0};
   long long int * array = nullptr;
 
   if (arrayMode == 1)
@@ -87,6 +87,10 @@ int main(int argc, char ** argv)
 
     if (!outputFile.is_open())
     {
+      if (arrayMode != 1)
+      {
+        delete [] array;
+      }
       return 2;
     }
 
