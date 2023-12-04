@@ -19,7 +19,7 @@ std::ostream & arakelyan::outputMatrix(std::ostream & output, double * matrix, s
   {
     for (size_t j = 0; j < cols; ++j)
     {
-      output << " " << matrix[i * cols + j];
+      output << " " << round(matrix[i * cols + j ]* 10) / 10;
     }
   }
   return output;

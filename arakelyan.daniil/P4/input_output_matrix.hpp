@@ -2,6 +2,7 @@
 #define INP_MATRIX_HPP
 #include <fstream>
 #include <iomanip>
+#include <cmath>
 namespace arakelyan
 {
   void inputMatrix(std::istream & input, int * matrix, size_t el);
