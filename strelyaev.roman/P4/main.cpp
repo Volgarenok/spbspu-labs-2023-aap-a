@@ -50,6 +50,8 @@ int main(int argc, char * argv[])
   }
 
   int * matrix = nullptr;
+  int * temp_pointer_origin = nullptr;
+  int * temp_pointer_clock = nullptr;
   int * clock_matrix = nullptr;
   int temp_matrix[10000] = {};
   int temp_clock[10000] = {};
@@ -64,6 +66,8 @@ int main(int argc, char * argv[])
     {
       matrix = new int [rows * columns];
       clock_matrix = new int [rows * columns];
+      temp_pointer_origin = matrix;
+      temp_pointer_clock = clock_matrix;
     }
     catch (...)
     {
@@ -83,16 +87,10 @@ int main(int argc, char * argv[])
   catch (const std::logic_error& e)
   {
     std::cerr << e.what() << "\n";
-    if (n == 2)
-    {
-      delete [] matrix;
-      delete [] clock_matrix;
-    }
+    delete [] temp_pointer_origin;
+    delete [] temp_pointer_clock;
     return 2;
   }
-  if (n == 2)
-  {
-    delete [] matrix;
-    delete [] clock_matrix;
-  }
+  delete [] temp_pointer_origin;
+  delete [] temp_pointer_clock;
 }
