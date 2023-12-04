@@ -32,7 +32,7 @@ void kovtun::LocalMaxCounter::operator()(int number)
   secondNumber_ = thirdNumber_;
 }
 
-size_t kovtun::LocalMaxCounter::operator()()
+const size_t kovtun::LocalMaxCounter::operator()()
 {
   return counter_;
 }

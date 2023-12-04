@@ -11,7 +11,7 @@ namespace kovtun
   public:
     LocalMaxCounter();
     void operator()(int);
-    size_t operator()();
+    const size_t operator()();
 
   private:
     size_t counter_;
