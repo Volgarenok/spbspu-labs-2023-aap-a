@@ -4,6 +4,7 @@
 
 int main()
 {
+  using namespace lopatina;
   Loc_Max_Counter counter;
 
   int number = 0;
@@ -18,7 +19,7 @@ int main()
     while (number != 0) {
       try
       {
-        counter.count(number);
+        counter(number);
       }
       catch (const std::exception & e)
       {
@@ -38,7 +39,7 @@ int main()
   }
   try
   {
-    std::cout << counter.get_result() << "\n";
+    std::cout << counter() << "\n";
   }
   catch (const std::exception & e)
   {

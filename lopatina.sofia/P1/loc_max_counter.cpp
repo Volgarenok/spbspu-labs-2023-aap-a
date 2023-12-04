@@ -2,7 +2,7 @@
 #include <limits>
 #include <stdexcept>
 
-Loc_Max_Counter::Loc_Max_Counter():
+lopatina::Loc_Max_Counter::Loc_Max_Counter():
   number_1(0),
   number_2(0),
   number_3(0),
@@ -10,7 +10,7 @@ Loc_Max_Counter::Loc_Max_Counter():
   count_(0)
 {}
 
-void Loc_Max_Counter::count(int num)
+void lopatina::Loc_Max_Counter::operator()(int num)
 {
   if (number_1 == 0) {
     number_1 = num;
@@ -34,7 +34,7 @@ void Loc_Max_Counter::count(int num)
   }
 }
 
-size_t Loc_Max_Counter::get_result() const
+size_t lopatina::Loc_Max_Counter::operator()() const
 {
   if (number_3 == 0) {
     throw std::logic_error("Sequence is too short\n");
