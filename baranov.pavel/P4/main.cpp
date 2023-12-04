@@ -48,40 +48,39 @@ int main(int argc, char ** argv)
     return 0;
   }
 
-  long long int result = 0;
+  int fixSizeMatrix[10000] = {0};
+  int * matrix = nullptr;
+
   if (task == 1)
   {
-    int matrix[10000] = {0};
-    try
-    {
-      baranov::inputMatrix(input, matrix, rows, columns);
-    }
-    catch (...)
-    {
-      std::cerr << "Can not read matrix\n";
-      return 2;
-    }
-    result = baranov::maxSumDiagonal(matrix, rows, columns);
+    matrix = fixSizeMatrix;
   }
   else if (task == 2)
   {
-    int * matrix = new int[rows * columns]{0};
-    try
+    matrix = new int[rows * columns]{0};
+  }
+
+  try
+  {
+    baranov::inputMatrix(input, matrix, rows, columns);
+  }
+  catch (const std::exception &)
+  {
+    std::cerr << "Can not read a matrix\n";
+    if (task == 2)
     {
-      baranov::inputMatrix(input, matrix, rows, columns);
-    }
-    catch (...)
-    {
-      std::cerr << "Can not read matrix\n";
       delete[] matrix;
-      return 2;
     }
-    result = baranov::maxSumDiagonal(matrix, rows, columns);
+    return 2;
+  }
+
+  long long int result = 0;
+  result = baranov::maxSumDiagonal(matrix, rows, columns);
+  if (task == 2)
+  {
     delete[] matrix;
   }
-  {
-    std::ofstream output(argv[3]);
-    output << result << '\n';
-  }
+  std::ofstream output(argv[3]);
+  output << result << '\n';
 }
 
