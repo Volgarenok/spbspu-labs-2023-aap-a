@@ -3,6 +3,11 @@
 
 size_t spiridonov::getMinimumSum(const int * matrix, size_t rows, size_t cols)
 {
+  if (rows == 0 || cols == 0)
+  {
+    return 0;
+  }
+
   int min_sum = matrix[cols - 1];
 
   for (size_t i = 1; i < rows; i++)

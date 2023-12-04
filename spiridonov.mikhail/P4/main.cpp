@@ -55,12 +55,6 @@ int main(int argc, char* argv[])
     return 2;
   }
 
-  if (rows == 0 || cols == 0)
-  {
-    output << 0 << "\n";
-    return 0;
-  }
-
   int* matrix = nullptr;
   int interim_matrix[10000] = {};
 
