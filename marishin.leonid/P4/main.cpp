@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
     return 2;
   }
   int* matrix = nullptr;
-  const int arraySize = 10000;
+  constexpr int arraySize = 10000;
   int staticMatrix[arraySize]{};
   if (num == 1)
   {
