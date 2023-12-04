@@ -1,7 +1,6 @@
 #ifndef INP_MATRIX_HPP
 #define INP_MATRIX_HPP
-#include <fstream>
-#include <iomanip>
+#include <iostream>
 #include <cmath>
 namespace arakelyan
 {
