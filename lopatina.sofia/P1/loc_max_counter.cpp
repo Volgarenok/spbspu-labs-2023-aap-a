@@ -32,6 +32,7 @@ void Loc_Max_Counter::count(int num)
     number_1 = number_2;
     number_2 = number_3;
   }
+}
 
 size_t Loc_Max_Counter::get_result() const
 {
@@ -39,4 +40,5 @@ size_t Loc_Max_Counter::get_result() const
     throw std::logic_error("Sequence is too short\n");
   }
   return count_;
+
 }
