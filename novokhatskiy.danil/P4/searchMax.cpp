@@ -4,7 +4,7 @@
 
 int novokhatskiy::searchMax(int matrix[], size_t rows, size_t cols)
 {
-  int max = std::numeric_limits<int>::min();
+  int max = std::numeric_limits< int >::min();
   size_t size = std::min(rows, cols);
   if ((rows != 0) && (cols != 0))
   {
