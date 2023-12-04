@@ -13,10 +13,20 @@ int main(int argc, char ** argv)
     return 1;
   }
 
-  int arrayMode = std::stoi(argv[1]);
+  int arrayMode = 0;
+  try
+  {
+    arrayMode = std::stoi(argv[1]);
+  }
+  catch (const std::logic_error & e)
+  {
+    std::cerr << "First param isn't number!\n";
+    return 1;
+  }
 
   if (((arrayMode != 1) && (arrayMode != 2)) || (argv[1][1] != 0))
   {
+    std::cerr << "First param must be only number!\n";
     return 1;
   }
 
@@ -95,7 +105,6 @@ int main(int argc, char ** argv)
     }
 
     outputFile << rebdev::findNumberOfLocalMax(array, rows, colums);
-    outputFile.close();
     if (arrayMode != 1)
     {
       delete [] array;
