@@ -1,10 +1,10 @@
-#include "getMinimumSum.hpp"
-#include "minSumMdg.hpp"
 #include <iostream>
 #include <fstream>
 #include <cstddef>
 #include <cstdlib>
 #include <stdexcept>
+#include "getMinimumSum.hpp"
+#include "minSumMdg.hpp"
 
 int main(int argc, char* argv[])
 {
