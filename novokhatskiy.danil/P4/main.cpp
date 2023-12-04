@@ -45,9 +45,9 @@ int main(int argc, char * argv[])
     return 2;
   }
   int* matrix = nullptr;
+  int arr[10000] = {};
   if (num == 1)
   {
-    int arr[10000] = {};
     matrix = arr;
   }
   else if (num == 2)
