@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <cstddef>
 #include <stdexcept>
 #include <iomanip>
@@ -29,14 +30,14 @@ int main (int argc, char * argv[])
     return 1;
   }
 
-  std::ifstream input(argv[2]);
+  std::fstream input(argv[2]);
   if (!input.is_open())
   {
     std::cerr << "Cannot open the input file\n";
     return 2;
   }
 
-  std::ofstream output(argv[3]);
+  std::fstream output(argv[3]);
   if (!output.is_open())
   {
     std::cerr << "Cannot open the output file\n";
