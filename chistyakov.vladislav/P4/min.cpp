@@ -1,4 +1,3 @@
-#include <algorithm>
 #include "min.hpp"
 
 int chistyakov::min(int num1, int num2, int num3, int num4)

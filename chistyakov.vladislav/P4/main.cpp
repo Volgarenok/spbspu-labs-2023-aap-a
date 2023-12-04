@@ -43,10 +43,10 @@ int main(int argc, char** argv)
   }
 
   int * array = nullptr;
+  int a[10000] = {};
 
   if (taskNumber == 1)
   {
-    int a[10000] = {};
     array = a;
   }
   else

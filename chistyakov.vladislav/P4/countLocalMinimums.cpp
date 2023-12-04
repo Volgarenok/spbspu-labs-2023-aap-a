@@ -1,7 +1,7 @@
-#include "countLocalMinimums.hpp"
-#include "min.hpp"
 #include <limits>
 #include <stdexcept>
+#include "countLocalMinimums.hpp"
+#include "min.hpp"
 
 size_t chistyakov::countLocalMinimums(const int * array, size_t rows, size_t cols)
 {
