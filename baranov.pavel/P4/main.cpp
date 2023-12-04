@@ -44,7 +44,7 @@ int main(int argc, char ** argv)
   else if (rows == 0 || columns == 0 || rows == 1 || columns == 1)
   {
     std::ofstream output(argv[3]);
-    output << 0;
+    output << 0 << '\n';
     return 0;
   }
 
@@ -81,7 +81,7 @@ int main(int argc, char ** argv)
   }
   {
     std::ofstream output(argv[3]);
-    output << result;
+    output << result << '\n';
   }
 }
 
