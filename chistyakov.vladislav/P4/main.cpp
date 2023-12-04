@@ -25,6 +25,12 @@ int main(int argc, char** argv)
     return 1;
   }
 
+  if (((taskNumber != 1) && (taskNumber != 2)) || argv[1][1] != 0)
+  {
+    std::cerr << "First argument must be only digit!\n";
+    return 1;
+  }
+
   std::ifstream input(argv[2]);
   size_t cols = 0;
   size_t rows = 0;
@@ -32,8 +38,8 @@ int main(int argc, char** argv)
   input >> cols >> rows;
   if (!input)
   {
-      std::cerr << "Cannot parse number of column or rows\n";
-      return 2;
+    std::cerr << "Cannot parse number of column or rows\n";
+    return 2;
   }
 
   int * array = nullptr;
@@ -43,14 +49,9 @@ int main(int argc, char** argv)
     int a[10000] = {};
     array = a;
   }
-  else if (taskNumber == 2)
-  {
-    array = new int[rows * cols];
-  }
   else
   {
-    std::cerr << "Values is not 1 or 2\n";
-    return 1;
+    array = new int[rows * cols];
   }
 
   size_t numOfElements = 0;
