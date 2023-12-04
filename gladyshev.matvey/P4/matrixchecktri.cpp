@@ -2,18 +2,18 @@
 
 bool gladyshev::isUpperTriangular(const int * matrix, size_t rows, size_t cols)
 {
-  bool flag = true;
+  bool checkside = true;
   for (size_t i = 1; i < rows; ++i)
   {
     for (size_t j = 0; j < i; ++j)
     {
       if (matrix[rows * i + j] != 0)
       {
-        flag = false;
+        checkside = false;
       }
     }
   }
-  if (flag == true)
+  if (checkside)
   {
     return true;
   }
