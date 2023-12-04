@@ -3,8 +3,7 @@
 
 int * namestnikov::getMaxColArray(size_t result, size_t cols, const int * matrix)
 {
-  int * maxCol = nullptr;
-  maxCol = new int[result];
+  int * maxCol = new int[result];
   for (size_t j = 0; j < cols; ++j)
   {
     maxCol[j] = matrix[j];
@@ -21,8 +20,7 @@ int * namestnikov::getMaxColArray(size_t result, size_t cols, const int * matrix
 
 int * namestnikov::getMinRowArray(size_t result, size_t cols, const int * matrix)
 {
-  int * minRow = nullptr;
-  minRow = new int[result];
+  int * minRow = new int[result];
   for (size_t i = 0; i < result; i += cols)
   {
     minRow[i]  = matrix[i];
