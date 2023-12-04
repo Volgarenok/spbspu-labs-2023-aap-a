@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
   try
   {
     char* end = nullptr;
-    int num = std::strtoll(argv[1], std::addressof(end), 10);
+    num = std::strtoll(argv[1], std::addressof(end), 10);
     if (*end != '\0')
     {
       throw std::invalid_argument("Incorrect value");
