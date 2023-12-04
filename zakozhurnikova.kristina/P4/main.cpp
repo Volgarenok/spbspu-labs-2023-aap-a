@@ -1,16 +1,13 @@
 #include "file_operation.h"
 #include "matrix_operation.h"
 #include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <string>
 
 int main(int argc, const char * argv[])
 {
   int option = 0;
   try
   {
-    zakozhurnikova::checkArguments(argc, argv);
+    option = zakozhurnikova::checkArguments(argc, argv);
   }
   catch (const std::invalid_argument& e)
   {
@@ -73,8 +70,7 @@ int main(int argc, const char * argv[])
 
   if (option == 1)
   {
-    zakozhurnikova::fillMatrix(staticMatrix, rows, cols);
-    zakozhurnikova::substractMatrix(original, staticMatrix, rows, cols);
+    matrix = staticMatrix;
   }
   if (option == 2)
   {
@@ -88,12 +84,14 @@ int main(int argc, const char * argv[])
       std::cerr << e.what() << '\n';
       return 1;
     }
-    zakozhurnikova::fillMatrix(matrix, rows, cols);
-    zakozhurnikova::substractMatrix(original, matrix, rows, cols);
+  }
+  zakozhurnikova::fillMatrix(matrix, rows, cols);
+  zakozhurnikova::substractMatrix(original, matrix, rows, cols);
+  zakozhurnikova::writeToDest(output, original, rows, cols);
+  if (option == 2)
+  {
     delete[] matrix;
   }
-
-  zakozhurnikova::writeToFile(output, original, rows, cols);
   delete[] original;
   return 0;
 }
