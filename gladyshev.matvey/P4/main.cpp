@@ -14,7 +14,7 @@ int main(int argc, char * argv[])
     return 1;
   }
   char * check_num = nullptr;
-  unsigned short int ex_num= std::strtoll(argv[1], std::addressof(check_num), 10);
+  unsigned short int ex_num = std::strtoll(argv[1], std::addressof(check_num), 10);
   if (*check_num != '\0')
   {
     std::cerr << "Cannot parse a value\n";
@@ -49,6 +49,7 @@ int main(int argc, char * argv[])
   }
   if (rows < 1 || cols < 1)
   {
+    std::cerr << "Bad matrix\n";
     return 0;
   }
   if (rows != cols)
