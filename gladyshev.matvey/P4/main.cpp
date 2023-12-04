@@ -47,11 +47,6 @@ int main(int argc, char * argv[])
     std::cerr << "Cannot read a number\n";
     return 2;
   }
-  if (rows < 1 || cols < 1)
-  {
-    std::cerr << "Bad matrix\n";
-    return 0;
-  }
   if (rows != cols)
   {
     std::cerr << "Matrix is not a square\n";
