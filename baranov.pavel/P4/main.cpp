@@ -15,20 +15,15 @@ int main(int argc, char ** argv)
   try
   {
     size_t ind = 0;
-    task = std::stoll(argv[1], &ind);
+    task = std::stoll(argv[1], std::addressof(ind));
     if (argv[1][ind] != '\0')
     {
-      throw std::invalid_argument("Incorrect first CLA argument\n");
+      throw std::invalid_argument("Invalid first CLA argument\n");
     }
   }
-  catch (const std::out_of_range &)
+  catch (const std::exception &)
   {
-    std::cerr << "Value of first CLA is too large\n";
-    return 1;
-  }
-  catch (const std::invalid_argument &)
-  {
-    std::cerr << "Cannot parse a value\n";
+    std::cerr << "Invalid first CLA argument\n";
     return 1;
   }
   if (task != 1 && task != 2)
