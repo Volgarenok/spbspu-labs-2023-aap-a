@@ -1,10 +1,11 @@
 #include "searchMax.hpp"
 #include <algorithm>
+#include <limits>
 
 int novokhatskiy::searchMax(int matrix[], size_t rows, size_t cols)
 {
-  int max = 0;
-  size_t size = std::min(rows,cols);
+  int max = std::numeric_limits<int>::min();
+  size_t size = std::min(rows, cols);
   if ((rows != 0) && (cols != 0))
   {
     for (size_t i = 0; i < size - 1; i++)
@@ -14,10 +15,7 @@ int novokhatskiy::searchMax(int matrix[], size_t rows, size_t cols)
       {
         sum += matrix[j];
       }
-      if (sum > max)
-      {
-        max = sum;
-      }
+      max = std::max(max, sum);
     }
     for (size_t i = size - 1 + cols; i < rows * cols; i += cols)
     {
@@ -26,10 +24,7 @@ int novokhatskiy::searchMax(int matrix[], size_t rows, size_t cols)
       {
         sum += matrix[j];
       }
-      if (sum > max)
-      {
-        max = sum;
-      }
+      max = std::max(max, sum);
     }
   }
   return max;
