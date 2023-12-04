@@ -3,10 +3,8 @@
 #include <cstdlib>
 #include <string>
 #include <stdexcept>
-#include "min_row_array.hpp"
-#include "max_col_array.hpp"
+#include "saddle_points_counter.hpp"
 #include "input_array.hpp"
-#include "get_result.hpp"
 
 int main(int argc, char ** argv)
 {
@@ -98,7 +96,7 @@ int main(int argc, char ** argv)
     std::cerr << "Not enough memory\n";
     return 3;
   }
-  count = getResult(matrix, maxCol, minRow, result, cols);
+  count = countSaddlePoints(matrix, maxCol, minRow, result, cols);
   if (num == 2)
   {
     delete [] matrix;
