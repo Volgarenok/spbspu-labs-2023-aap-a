@@ -32,8 +32,8 @@ int main(int argc, char * argv[])
     return 1;
   }
 
-  int rows = 0;
-  int cols = 0;
+  size_t rows = 0;
+  size_t cols = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
   if (!input)
@@ -45,11 +45,7 @@ int main(int argc, char * argv[])
   using namespace zhalilov;
   size_t nonZeroDiags = 0;
   int *matrix = nullptr;
-  int statMatrix[10000];
-  for (int i = 0; i < 10000; i++)
-  {
-    statMatrix[i] = 0;
-  }
+  int statMatrix[10000] = {};
   if (num == 1)
   {
     matrix = statMatrix;
@@ -57,7 +53,7 @@ int main(int argc, char * argv[])
   if (num == 2)
   {
     matrix = new int[rows * cols];
-    for (int i = 0; i < rows * cols; i++)
+    for (size_t i = 0; i < rows * cols; i++)
     {
       matrix[i] = 0;
     }

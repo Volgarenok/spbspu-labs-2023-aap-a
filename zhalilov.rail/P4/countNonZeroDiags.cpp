@@ -2,23 +2,23 @@
 
 #include <algorithm>
 
-size_t zhalilov::countNonZeroDiags(const int matrix[], int rows, int cols)
+size_t zhalilov::countNonZeroDiags(const int matrix[], size_t rows, size_t cols)
 {
   size_t count = 0;
-  int sqrLength = std::min(rows, cols);
-  int lineLength = sqrLength * sqrLength;
+  size_t sqrLength = std::min(rows, cols);
+  size_t lineLength = sqrLength * sqrLength;
   bool isUpperZero = false;
   bool isLowerZero = false;
-  for (int i = 1; i < sqrLength; i++)
+  for (size_t i = 1; i < sqrLength; i++)
   {
-    for (int j = 0; j < sqrLength - i; j++)
+    for (size_t j = 0; j < sqrLength - i; j++)
     {
-      int upperIndex = i + (cols + 1) * j;
+      size_t upperIndex = i + (cols + 1) * j;
       if (matrix[upperIndex] == 0)
       {
         isUpperZero = true;
       }
-      int lowerIndex = lineLength - 1 - i - (cols + 1) * j;
+      size_t lowerIndex = lineLength - 1 - i - (cols + 1) * j;
       if (matrix[lowerIndex] == 0)
       {
         isLowerZero = true;

@@ -5,7 +5,7 @@
 
 namespace zhalilov
 {
-  size_t countNonZeroDiags(const int matrix[], int rows, int cols);
+  size_t countNonZeroDiags(const int matrix[], size_t rows, size_t cols);
 }
 
 #endif

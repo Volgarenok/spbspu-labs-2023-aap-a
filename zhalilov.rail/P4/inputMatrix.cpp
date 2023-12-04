@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-std::istream &zhalilov::inputMatrix(int matrix[], int rows, int cols, std::istream &input)
+std::istream &zhalilov::inputMatrix(int matrix[], size_t rows, size_t cols, std::istream &input)
 {
-  for (int i = 0; i < rows * cols; i++)
+  for (size_t i = 0; i < rows * cols; i++)
   {
     if (!(input >> matrix[i]))
     {
