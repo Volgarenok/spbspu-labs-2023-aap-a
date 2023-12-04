@@ -17,33 +17,24 @@ int main(int argc, char* argv[])
   }
 
   int num = 0;
-
-  if ((std::atoi(argv[1]) == 1) || (std::atoi(argv[1]) == 2))
-  {
-    char * arg = argv[1];
-    int length = 0;
-
-    while (arg[length] != '\0')
-    {
-      length++;
-    }
-
-    if (length > 1)
-    {
-      std::cerr << "Invalid first argument" << "\n";
-      return 1;
-    }
-  }
+  char * check = nullptr;
 
   try
   {
-    num = std::atoi(argv[1]);
+    num = std::strtoll(argv[1], std::addressof(check), 10);
   }
-  catch (const std::exception& e)
+
+  catch (const std::invalid_argument & e)
   {
-    std::cerr << "Error parsing first argument: " << e.what() << "\n";
+    std::cerr << "Error checking first argument" << "\n";
     return 1;
   }
+
+  if (*check != '\0')
+  {
+    std::cerr << "Invalid first argument" << "\n";
+  }
+
 
   if (num < 1 || num > 2)
   {
@@ -67,7 +58,6 @@ int main(int argc, char* argv[])
   if (rows == 0 || cols == 0)
   {
     output << 0 << "\n";
-    output.close();
     return 0;
   }
 
