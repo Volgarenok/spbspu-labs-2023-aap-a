@@ -22,16 +22,17 @@ int main(int argc, char* argv[])
     int num = std::strtoll(argv[1], std::addressof(end), 10);
     if (*end != '\0')
     {
-      throw std::logic_error("Incorrect value");
-    }
-    if (num != 1 && num != 2)
-    {
-      throw std::logic_error("First parameter is out of range");
+      throw std::invalid_argument("Incorrect value");
     }
   }
   catch (const std::exception& e)
   {
     std::cerr << "ERROR: " << e.what() << "\n";
+    return 1;
+  }
+  if (num != 1 && num != 2)
+  {
+    std::cerr << "First parameter is out of range\n";
     return 1;
   }
   size_t rows = 0;
@@ -44,23 +45,15 @@ int main(int argc, char* argv[])
     return 2;
   }
   int* matrix = nullptr;
-  constexpr int arraySize = 10000;
+  const int arraySize = 10000;
   int staticMatrix[arraySize]{};
-  try
+  if (num == 1)
   {
-    if (num == 1)
-    {
-      matrix = staticMatrix;
-    }
-    else if (num == 2)
-    {
-      matrix = new int[rows * cols];
-    }
+    matrix = staticMatrix;
   }
-  catch (const std::exception& e)
+  else if (num == 2)
   {
-    std::cerr << "ERROR: " << e.what() << "\n";
-    return 2;
+    matrix = new int[rows * cols];
   }
   if (checkArray(input, matrix, rows, cols) != rows * cols)
   {
