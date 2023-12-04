@@ -27,7 +27,7 @@ void kovtun::SignChangeCounter::operator()(int number)
   previousNumber_ = number;
 }
 
-const size_t kovtun::SignChangeCounter::operator()()
+size_t kovtun::SignChangeCounter::operator()() const
 {
   return counter_;
 }

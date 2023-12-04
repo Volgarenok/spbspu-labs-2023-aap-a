@@ -13,7 +13,7 @@ namespace kovtun
   public:
     SignChangeCounter();
     void operator()(int);
-    const size_t operator()();
+    size_t operator()() const;
 
   private:
     size_t counter_;

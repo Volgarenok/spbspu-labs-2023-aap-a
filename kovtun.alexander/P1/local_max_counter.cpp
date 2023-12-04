@@ -37,7 +37,7 @@ void kovtun::LocalMaxCounter::operator()(int number)
   secondNumber_ = thirdNumber_;
 }
 
-const size_t kovtun::LocalMaxCounter::operator()()
+size_t kovtun::LocalMaxCounter::operator()() const
 {
   return counter_;
 }
