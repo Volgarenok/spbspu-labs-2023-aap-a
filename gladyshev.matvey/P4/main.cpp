@@ -58,13 +58,12 @@ int main(int argc, char * argv[])
     return 1;
   }
   std::fstream output(argv[3], std::ios::out);
-  constexpr size_t capacity = 10000;
-  int staticmatrix[capacity] {};
+  int fixedlengthmatrix[10000] {};
   int * dynamicmatrix = nullptr;
   int * matrix = nullptr;
   if (ex_num == 1)
   {
-    matrix = staticmatrix;
+    matrix = fixedlengthmatrix;
     try
     {
       makeMatrix(input, matrix, rows, cols);
