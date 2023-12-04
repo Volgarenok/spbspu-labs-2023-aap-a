@@ -1,5 +1,5 @@
-#ifndef FIRST_SECOND_SUM_HPP
-#define FIRST_SECOND_SUM_HPP
+#ifndef COUNTEQUALSUMTWOPREV_HPP
+#define COUNTEQUALSUMTWOPREV_HPP
 
 #include <cstddef>
 

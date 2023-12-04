@@ -1,4 +1,4 @@
-#include "first_second_sum.hpp"
+#include "CountEqualSumTwoPrev.hpp"
 #include <iostream>
 #include <limits>
 #include <stdexcept>

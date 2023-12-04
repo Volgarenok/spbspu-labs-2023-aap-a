@@ -1,4 +1,4 @@
-#include "sequence_counter.hpp"
+#include "CountAfterMax.hpp"
 #include <iostream>
 #include <limits>
 #include <stdexcept>

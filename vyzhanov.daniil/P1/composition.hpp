@@ -1,8 +1,8 @@
 #ifndef COMPOSITION_HPP
 #define COMPOSITION_HPP
 
-#include "sequence_counter.hpp"
-#include "first_second_sum.hpp"
+#include "CountAfterMax.hpp"
+#include "CountEqualSumTwoPrev.hpp"
 #include "more_less_check.hpp"
 
 namespace vyzhanov

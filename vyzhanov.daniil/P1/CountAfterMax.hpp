@@ -1,5 +1,5 @@
-#ifndef SEQUENCE_COUNTER_HPP
-#define SEQUENCE_COUNTER_HPP
+#ifndef COUNTERAFTERMAX_HPP
+#define COUNTERAFTERMAX_HPP
 
 #include <cstddef>
 
