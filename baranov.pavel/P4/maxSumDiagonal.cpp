@@ -3,14 +3,14 @@
 
 long long int baranov::maxSumDiagonal(const int * matrix, size_t rows, size_t columns)
 {
-  unsigned int side = std::min(rows, columns);
+  size_t side = std::min(rows, columns);
   long long int result = 0;
-  int current_sum = 0;
+  long long int current_sum = 0;
 
-  for (unsigned int i = 0; i < (side - 1); ++i)
+  for (size_t i = 0; i < (side - 1); ++i)
   {
     current_sum = 0;
-    for (unsigned int j = 0; j <= i; ++j)
+    for (size_t j = 0; j <= i; ++j)
     {
       current_sum += matrix[i * columns - j * columns + j];
     }
@@ -20,10 +20,10 @@ long long int baranov::maxSumDiagonal(const int * matrix, size_t rows, size_t co
     }
   }
 
-  for (unsigned int i = 1; i < side; ++i)
+  for (size_t i = 1; i < side; ++i)
   {
     current_sum = 0;
-    for (unsigned int j = 0; j < side - i; j++)
+    for (size_t j = 0; j < side - i; j++)
     {
       current_sum += matrix[i * columns + (side - 1) + j * columns - j];
     }
