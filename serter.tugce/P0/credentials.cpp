@@ -1,6 +1,6 @@
 #include "credentials.hpp"
 #include <iostream>
-void serter::outCredentials(const Credentials & cr)
+void serter::outCredentials(const Kimlik Bilgileri & cr)
 {
-    std::cout << cr.second << "." << cr.first;
+ std::cout << cr.saniye << "." << cr.birinci;
 }
