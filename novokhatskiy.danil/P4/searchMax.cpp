@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <limits>
 
-int novokhatskiy::searchMax(int matrix[], size_t rows, size_t cols)
+int novokhatskiy::searchMax(const int matrix[], size_t rows, size_t cols)
 {
   int max = std::numeric_limits< int >::min();
   size_t size = std::min(rows, cols);

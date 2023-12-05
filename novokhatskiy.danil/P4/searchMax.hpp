@@ -4,6 +4,6 @@
 
 namespace novokhatskiy
 {
-  int searchMax(int matrix[], size_t rows, size_t cols);
+  int searchMax(const int matrix[], size_t rows, size_t cols);
 }
 #endif
