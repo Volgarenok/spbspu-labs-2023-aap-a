@@ -58,12 +58,12 @@ int main(int argc, char * argv[])
     return 1;
   }
   std::fstream output(argv[3], std::ios::out);
-  int fixedlengthmatrix[10000] {};
-  int * dynamicmatrix = nullptr;
+  int fixedLengthMatrix[10000] {};
+  int * dynamicMatrix = nullptr;
   int * matrix = nullptr;
   if (ex_num == 1)
   {
-    matrix = fixedlengthmatrix;
+    matrix = fixedLengthMatrix;
     try
     {
       makeMatrix(input, matrix, rows, cols);
@@ -76,7 +76,7 @@ int main(int argc, char * argv[])
   }
   else
   {
-    matrix = dynamicmatrix;
+    matrix = dynamicMatrix;
     try
     {
       matrix = new int [rows * cols];
