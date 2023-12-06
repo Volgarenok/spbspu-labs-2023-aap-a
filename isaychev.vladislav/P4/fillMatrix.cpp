@@ -1,9 +1,9 @@
 #include "fillMatrix.hpp"
 #include <stdexcept>
 
-void isaychev::fillMatrix(std::istream &input, int * matrix, isaychev::ulli_t rs, isaychev::ulli_t cs)
+void isaychev::fillMatrix(std::istream &input, int * matrix, size_t rs, size_t cs)
 {
-  for (isaychev::ulli_t i = 0; i < rs * cs; ++i)
+  for (size_t i = 0; i < rs * cs; ++i)
   {
     input >> matrix[i];
     if (!input)

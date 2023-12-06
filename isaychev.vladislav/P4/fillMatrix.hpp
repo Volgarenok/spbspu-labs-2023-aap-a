@@ -2,11 +2,11 @@
 #define FILLMATRIX_HPP
 
 #include <iostream>
+#include <cstdlib>
 
 namespace isaychev
 {
-  using ulli_t = unsigned long long int;
-  void fillMatrix(std::istream &input, int * matrix, ulli_t rs, ulli_t cs);
+  void fillMatrix(std::istream &input, int * matrix, size_t rs, size_t cs);
 }
 
 #endif
