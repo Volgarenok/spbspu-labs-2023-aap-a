@@ -5,6 +5,6 @@
 
 namespace marishin
 {
-  size_t checkArray(std::istream& input, const int* matrix, size_t rows, size_t cols);
+  size_t checkArray(std::istream& input, int* matrix, size_t rows, size_t cols);
 }
 #endif
