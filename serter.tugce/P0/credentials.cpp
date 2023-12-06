@@ -1,6 +1,6 @@
-#include "credentials.hpp"
 #include <iostream>
-void serter::outCredentials(const Kimlik Bilgileri & cr)
+
+int main()
 {
- std::cout << cr.saniye << "." << cr.birinci;
+  std::cout << "serter.tugce\n";
 }
