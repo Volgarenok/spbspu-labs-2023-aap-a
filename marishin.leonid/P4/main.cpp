@@ -66,7 +66,7 @@ int main(int argc, char* argv[])
   }
   transformMatrix(matrix, rows, cols);
   std::ofstream output(argv[3]);
-  inputMatrix(output, matrix, rows, cols);
+  outputMatrix(output, matrix, rows, cols);
   if (num == 2)
   {
     delete[] matrix;

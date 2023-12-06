@@ -40,7 +40,7 @@ void marishin::transformMatrix(int* matrix, size_t rows, size_t cols)
   }
 }
 
-void marishin::inputMatrix(std::ostream& b, int* matrix, size_t rows, size_t cols)
+void marishin::outputMatrix(std::ostream& b, int* matrix, size_t rows, size_t cols)
 {
   b << rows << " " << cols;
   for (size_t i = 0; i < rows * cols; ++i)
