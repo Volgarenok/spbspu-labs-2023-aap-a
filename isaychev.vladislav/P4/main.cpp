@@ -23,7 +23,7 @@ int main(int argc, char * argv[])
   }
   char * endPtr = nullptr;
   long long int ctrl_parameter = std::strtoll(argv[1], &endPtr, 10);
-  if ( endPtr == argv[1] || (endPtr != argv[1] && (endPtr - argv[1] < lengthOfArr)))
+  if (endPtr == argv[1] || (endPtr != argv[1] && (endPtr - argv[1] < lengthOfArr)))
   {
     std::cerr << "First parameter is not a number\n";
     return 1;
