@@ -3,7 +3,7 @@
 
 #include "CountAfterMax.hpp"
 #include "CountEqualSumTwoPrev.hpp"
-#include "more_less_check.hpp"
+#include "PrevMoreNextLessCheck.hpp"
 
 namespace vyzhanov
 {

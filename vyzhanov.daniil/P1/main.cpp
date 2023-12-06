@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include <iostream>
-#include "composition.hpp"
+#include "CompositionOfCharacteristics.hpp"
 
 int main()
 {
