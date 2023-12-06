@@ -1,6 +1,6 @@
 #include "arraycheck.hpp"
 
-size_t marishin::checkArray(std::istream& input, int* matrix, size_t rows, size_t cols)
+size_t marishin::checkArray(std::istream& input, const int* matrix, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows * cols; ++i)
   {
