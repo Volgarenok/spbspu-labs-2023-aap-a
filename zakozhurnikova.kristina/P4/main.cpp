@@ -94,7 +94,7 @@ int main(int argc, const char * argv[])
       delete[] matrix;
     }
     delete[] original;
-    return 2;
+    return 0;
   }
   if (option == 2)
   {
