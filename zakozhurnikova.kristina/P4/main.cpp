@@ -72,17 +72,13 @@ int main(int argc, const char * argv[])
   {
     try
     {
-      matrix = new int[rows * cols]{0};
+      matrix = new int[rows * cols]{};
     }
     catch (const std::bad_alloc &e)
     {
       delete[] original;
       std::cerr << e.what() << '\n';
       return 1;
-    }
-    catch (const std::bad_array_new_length &e)
-    {
-      return 2;
     }
   }
   zakozhurnikova::fillMatrix(matrix, rows, cols);
