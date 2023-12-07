@@ -2,31 +2,28 @@
 #include <limits>
 #include <stdexcept>
 
-const int min_ = std::numeric_limits< int >::min();
-
 belokurskaya::CounterOfNumbersEqualToTheMaximum::CounterOfNumbersEqualToTheMaximum():
-  max_(min_),
-  count_max_(1)
+  max_element_(std::numeric_limits< int >::min()),
+  max_element_amount_(1)
 {}
 
 void belokurskaya::CounterOfNumbersEqualToTheMaximum::operator()(int number)
 {
-  if (number > max_)
+  if (number > max_element_)
   {
-    max_ = number;
-    count_max_ = 1;
+    max_element_ = number;
+    max_element_amount_ = 1;
   }
-  else if (number == max_)
+  else if (number == max_element_)
   {
-    size_t max_size = std::numeric_limits< size_t >::max();
-    if (count_max_ == max_size)
+    if (max_element_amount_ == std::numeric_limits< size_t >::max())
       {
-        throw "There is too many elements equal max";
+        throw std::out_of_range("There is too many elements equal max");
       }
-    ++count_max_;
+    ++max_element_amount_;
   }
 }
 size_t belokurskaya::CounterOfNumbersEqualToTheMaximum::operator()() const
 {
-  return count_max_;
+  return max_element_amount_;
 }

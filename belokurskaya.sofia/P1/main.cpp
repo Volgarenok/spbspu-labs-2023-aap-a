@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "sequence_counter.hpp"
+
 int main()
 {
   int number = 0;

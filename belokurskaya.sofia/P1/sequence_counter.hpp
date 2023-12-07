@@ -2,17 +2,21 @@
 #define SEQUENCE_COUNTER_HPP
 
 #include <cstddef>
+#include <limits>
+
 namespace belokurskaya
 {
   struct CounterOfNumbersEqualToTheMaximum
   {
     CounterOfNumbersEqualToTheMaximum();
+
     void operator()(int number);
     size_t operator()() const;
+
   private:
-    size_t count_;
-    int max_;
-    size_t count_max_;
+
+    int max_element_;
+    size_t max_element_amount_;
   };
 }
 #endif
