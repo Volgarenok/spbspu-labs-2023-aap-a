@@ -34,11 +34,7 @@ int main(int argc, const char * argv[])
     std::cerr << "Can not read a number\n";
     return 2;
   }
-  if (rows == 0 && cols == 0)
-  {
-    output << "0 0";
-    return 0;
-  }
+
   const size_t s = rows * cols;
   int staticMatrix[10000] = {};
   int *matrix = nullptr;
@@ -87,7 +83,19 @@ int main(int argc, const char * argv[])
   }
   zakozhurnikova::fillMatrix(matrix, rows, cols);
   zakozhurnikova::substractMatrix(original, matrix, rows, cols);
-  zakozhurnikova::writeToDest(output, original, rows, cols);
+  try
+  {
+    zakozhurnikova::writeToDest(output, original, rows, cols);
+  }
+  catch (const std::invalid_argument &e)
+  {
+    if (option == 2)
+    {
+      delete[] matrix;
+    }
+    delete[] original;
+    return 2;
+  }
   if (option == 2)
   {
     delete[] matrix;
