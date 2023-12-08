@@ -7,18 +7,18 @@ sakovskaia::SequenceSignsCounter::SequenceSignsCounter():
   count_(0)
 {}
 
-void sakovskaia::SequenceSignsCounter::operator()(int number_)
+void sakovskaia::SequenceSignsCounter::operator()(int number)
 {
   size_t max_size = std::numeric_limits< size_t >::max();
-  if ((number_ > 0 && last_number_ < 0) || (number_ < 0 && last_number_ > 0))
+  if ((number > 0 && last_number_ < 0) || (number < 0 && last_number_ > 0))
   {
-    if (count_ > max_size)
+    if (count_ == max_size)
     {
       throw std::logic_error("Sequence is too long");
     }
     ++count_;
   }
-  last_number_ = number_;
+  last_number_ = number;
 }
 
 size_t sakovskaia::SequenceSignsCounter::operator()() const
