@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <stdexcept>
 #include "getMinimumSum.hpp"
-#include "minSumMdg.hpp"
+#include "readMatrix.hpp"
 
 int main(int argc, char* argv[])
 {

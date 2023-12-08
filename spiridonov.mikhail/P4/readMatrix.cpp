@@ -1,4 +1,4 @@
-#include "minSumMdg.hpp"
+#include "readMatrix.hpp"
 #include <iostream>
 
 void spiridonov::readMatrix(std::istream & input, int * const matrix, const size_t rows, const size_t cols)
