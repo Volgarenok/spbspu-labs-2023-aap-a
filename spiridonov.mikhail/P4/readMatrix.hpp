@@ -1,5 +1,5 @@
-#ifndef MINSUMMDG_HPP
-#define MINSUMMDG_HPP
+#ifndef READMATRIX_HPP
+#define READMATRIX_HPP
 #include <cstddef>
 #include <iostream>
 
