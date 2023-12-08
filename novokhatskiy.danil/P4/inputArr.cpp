@@ -5,7 +5,7 @@ size_t novokhatskiy::inputArr(std::istream& input, int matrix[], size_t rows, si
   for(size_t i = 0; i != rows * cols; ++i)
   {
     input >> matrix[i];
-    if(!input)
+    if (!input)
     {
       return i;
     }
