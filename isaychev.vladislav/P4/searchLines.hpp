@@ -1,10 +1,11 @@
 #ifndef SEARCHLINES_HPP
 #define SEARCHLINES_HPP
 
+#include <stdexcept>
+
 namespace isaychev
 {
-  using ulli_t = unsigned long long int;
-  ulli_t searchLines(const int * matrix, ulli_t rs, ulli_t cs);
+  size_t searchLines(const int * matrix, size_t rs, size_t cs);
 }
 
 #endif

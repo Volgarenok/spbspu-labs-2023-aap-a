@@ -1,4 +1,3 @@
-#include <stdexcept>
 #include <fstream>
 #include <string>
 #include "fillMatrix.hpp"
