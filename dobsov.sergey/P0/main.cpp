@@ -1,6 +1,9 @@
 #include <iostream>
+#include "credentials.hpp"
 
 int main()
 {
-  std::cout << "dobsov.sergey\n";
+  using namespace dobsov;
+  outCredentials(Credentials{"sergey", "dobsov"});
+  std::cout << "\n";
 }

@@ -147,11 +147,14 @@ Accepted Labs
 | Arakelyan Daniil        | ✓  |    |    |
 | Baranov Pavel           | ✓  |    |    |
 | Belokurskaya Sofia      | ✓  |    |    |
+| Chernov Artem           | ✓  |    |    |
+| Chistyakov Vladislav    | ✓  |    |    |
 | Dobsov Sergey           | ✓  |    |    |
 | Erohin Vladimir         | ✓  |    |    |
 | Gladyshev Matvey        | ✓  |    |    |
 | Grechishnikov Roman     | ✓  |    |    |
 | Isaychev Vladislav      | ✓  |    |    |
+| Kovtun Alexander        | ✓  |    |    |
 | Lopatina Sofia          | ✓  |    |    |
 | Marishin Leonid         | ✓  |    |    |
 | Namestnikov Kirill      | ✓  |    |    |
@@ -159,15 +162,19 @@ Accepted Labs
 | Novokhatskiy Danil      | ✓  |    |    |
 | Petuhov Kirill          | ✓  |    |    |
 | Piyavkin Anton          | ✓  |    |    |
+| Poleleyko Ivan          | ✓  |    |    |
 | Rebdev Pavel            | ✓  |    |    |
 | Sakovskaia Maiia        | ✓  |    |    |
 | Shabalin Dmitrij        | ✓  |    |    |
 | Shibaleva Ekaterina     | ✓  |    |    |
 | Sivkov Filipp           | ✓  |    |    |
+| Skopchenko Alexander    | ✓  |    |    |
+| Skuratov Danil          | ✓  |    |    |
 | Spiridonov Mikhail      | ✓  |    |    |
 | Stepanov Gena           | ✓  |    |    |
 | Strelyaev Roman         | ✓  |    |    |
+| Vyzhanov Daniil         | ✓  |    |    |
 | Zaitsev Vladimir        | ✓  |    |    |
 | Zakozhurnikova Kristina | ✓  |    |    |
 | Zhalilov Rail           | ✓  |    |    |
-| __Total__               |  26|   0|   0|
+| __Total__               |  33|   0|   0|
