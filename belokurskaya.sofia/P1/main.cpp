@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "sequence_counter.hpp"
+#include "counter_of_numbers_equal_to_the_maximum.hpp"
 
 int main()
 {
