@@ -41,21 +41,12 @@ int main()
   try
   {
     std::cout << signChangeCounter() << '\n';
+    std::cout << localMaxCounter() << '\n';
   }
   catch (const std::out_of_range & e)
   {
     std::cerr << "sequence is too short: " << e.what() << '\n';
   }
-
-  try
-  {
-    std::cout << localMaxCounter() << '\n';
-  }
-  catch(const std::out_of_range & e)
-  {
-    std::cerr << "sequence is too short: " << e.what() << '\n';
-  }
-
 
   return 0;
 }
