@@ -9,7 +9,6 @@
 int main()
 {
   int number = 0;
-  size_t size = 0;
 
   kovtun::SignChangeCounter signChangeCounter;
   kovtun::LocalMaxCounter localMaxCounter;
@@ -25,14 +24,6 @@ int main()
 
     if (number != 0)
     {
-      size_t max_size = std::numeric_limits< size_t >::max();
-      if (size == max_size)
-      {
-        std::cerr << "sequence is too long\n";
-        return 2;
-      }
-      size++;
-
       try
       {
         signChangeCounter(number);
@@ -46,12 +37,6 @@ int main()
     }
   }
   while (number != 0);
-
-  if (size == 0)
-  {
-    std::cerr << "sequence is too short\n";
-    return 2;
-  }
 
   std::cout << signChangeCounter() << '\n';
   std::cout << localMaxCounter() << '\n';
