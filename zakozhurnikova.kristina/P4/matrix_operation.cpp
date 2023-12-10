@@ -61,7 +61,7 @@ void zakozhurnikova::writeToMatrix(std::istream& in, int *matrix, size_t rows, s
       in >> matrix[i * cols + j];
       if (!in)
       {
-         std::exception();
+        throw std::exception();
       }
     }
   }
