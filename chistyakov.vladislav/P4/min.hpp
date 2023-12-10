@@ -1,8 +1,6 @@
 #ifndef MIN_HPP
 #define MIN_HPP
 
-#include <algorithm>
-
 namespace chistyakov
 {
   int min(int num1, int num2, int num3, int num4);
