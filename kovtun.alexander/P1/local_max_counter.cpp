@@ -39,5 +39,10 @@ void kovtun::LocalMaxCounter::operator()(int number)
 
 size_t kovtun::LocalMaxCounter::operator()() const
 {
+  if (counter_ == 0)
+  {
+    throw std::out_of_range("LocalMaxCounter hasn't counted anything");
+  }
+
   return counter_;
 }

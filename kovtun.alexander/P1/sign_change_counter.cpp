@@ -29,5 +29,10 @@ void kovtun::SignChangeCounter::operator()(int number)
 
 size_t kovtun::SignChangeCounter::operator()() const
 {
+  if (counter_ == 0)
+  {
+    throw std::out_of_range("SignChangeCounter hasn't counted anything");
+  }
+
   return counter_;
 }

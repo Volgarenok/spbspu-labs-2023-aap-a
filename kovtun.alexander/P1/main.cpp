@@ -31,15 +31,22 @@ int main()
       }
       catch (const std::overflow_error & e)
       {
-        std::cerr << e.what() << '\n';
+        std::cerr << "sequence is too long: " << e.what() << '\n';
         return 2;
       }
     }
   }
   while (number != 0);
 
-  std::cout << signChangeCounter() << '\n';
-  std::cout << localMaxCounter() << '\n';
+  try
+  {
+    std::cout << signChangeCounter() << '\n';
+    std::cout << localMaxCounter() << '\n';
+  }
+  catch (const std::out_of_range & e)
+  {
+    std::cerr << "sequence is too short: " << e.what() << '\n';
+  }
 
   return 0;
 }
