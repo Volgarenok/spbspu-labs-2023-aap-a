@@ -17,9 +17,9 @@ void belokurskaya::CounterOfNumbersEqualToTheMaximum::operator()(int number)
   else if (number == max_element_)
   {
     if (max_element_amount_ == std::numeric_limits< size_t >::max())
-      {
-        throw std::out_of_range("There is too many elements equal max");
-      }
+    {
+      throw std::out_of_range("There is too many elements equal max");
+    }
     ++max_element_amount_;
   }
 }
