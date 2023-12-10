@@ -1,9 +1,7 @@
 #ifndef FILE_OPERATION_H
 #define FILE_OPERATION_H
-#include <fstream>
 #include <cstddef>
-#include <exception>
-#include <string>
+#include <iosfwd>
 
 namespace zakozhurnikova
 {

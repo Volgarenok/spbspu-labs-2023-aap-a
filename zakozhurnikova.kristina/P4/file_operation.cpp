@@ -1,4 +1,6 @@
 #include "file_operation.h"
+#include <ostream>
+#include <exception>
 
 int zakozhurnikova::checkArguments(int argc, const char **const argv)
 {

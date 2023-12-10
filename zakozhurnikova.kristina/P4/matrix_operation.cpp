@@ -56,7 +56,7 @@ void zakozhurnikova::writeToMatrix(std::istream& in, int *matrix, size_t rows, s
 {
   for (size_t i = 0; i < rows; i++)
   {
-    for (size_t j = 0; i < cols; j++)
+    for (size_t j = 0; j < cols; j++)
     {
       in >> matrix[i * cols + j];
       if (!in)
