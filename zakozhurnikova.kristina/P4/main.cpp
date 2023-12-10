@@ -51,7 +51,7 @@ int main(int argc, const char * argv[])
 
   try
   {
-    zakozhurnikova::writeToMatrix(std::cin, original, rows, cols);
+    zakozhurnikova::writeToMatrix(input, original, rows, cols);
   }
   catch (const std::exception &e)
   {

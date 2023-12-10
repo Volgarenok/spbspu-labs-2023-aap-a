@@ -1,5 +1,5 @@
 #include "matrix_operation.h"
-#include <iostream>
+#include <istream>
 
 void zakozhurnikova::fillMatrix(int *matrix, size_t rows, size_t cols)
 {
