@@ -4,7 +4,7 @@ int zakozhurnikova::checkArguments(int argc, const char **const argv)
 {
   if (argc != 4)
   {
-    throw std::invalid_argument("Error in command line arguments\n");
+    throw std::invalid_argument("Error in command line arguments");
   }
   char* ptr = nullptr;
   int option = std::strtoll(argv[1], std::addressof(ptr), 10);
@@ -28,7 +28,7 @@ void zakozhurnikova::writeToDest(std::ostream& out, const int *matrix, size_t ro
   }
   else if ((rows == 0 && cols != 0) || (rows != 0 && cols == 0))
   {
-    throw std::invalid_argument("Such matrix can not exist\n");
+    throw std::invalid_argument("Such matrix can not exist");
   }
   for (size_t i = 0; i < rows * cols - 1; i++)
   {

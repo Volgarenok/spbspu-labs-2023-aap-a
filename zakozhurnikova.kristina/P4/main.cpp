@@ -25,18 +25,17 @@ int main(int argc, const char * argv[])
   }
   catch (const std::exception& e)
   {
-    std::cerr << "Can not open file\n";
+    std::cerr << "Can not open file";
     return 2;
   }
   input >> rows >> cols;
   if (!input)
   {
-    std::cerr << "Can not read a number\n";
+    std::cerr << "Can not read a number";
     return 2;
   }
 
   const size_t s = rows * cols;
-  int staticMatrix[10000] = {};
   int *matrix = nullptr;
   int *original = nullptr;
 
@@ -46,26 +45,24 @@ int main(int argc, const char * argv[])
   }
   catch (const std::bad_alloc &e)
   {
-    std::cout << e.what() << '\n';
+    std::cerr << e.what() << '\n';
     return 1;
   }
 
-  for (size_t i = 0; i < rows; i++)
+  try
   {
-    for (size_t j = 0; j < cols; j++)
-    {
-      input >> original[i * cols + j];
-      if (!input)
-      {
-        std::cerr << "Incorrect input!\n";
-        delete[] original;
-        return 1;
-      }
-    }
+    zakozhurnikova::writeToMatrix(std::cin, original, rows, cols);
+  }
+  catch (const std::exception &e)
+  {
+    std::cerr << "Read from file error" << '\n';
+    delete[] original;
+    return 1;
   }
 
   if (option == 1)
   {
+    int staticMatrix[10000] = {};
     matrix = staticMatrix;
   }
   if (option == 2)
