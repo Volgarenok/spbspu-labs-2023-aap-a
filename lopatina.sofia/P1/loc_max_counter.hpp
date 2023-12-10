@@ -4,8 +4,9 @@
 #include <cstddef>
 namespace lopatina
 {
-  struct Loc_Max_Counter {
-    Loc_Max_Counter();
+  struct LocMaxCounter
+  {
+    LocMaxCounter();
     void operator()(int num);
     size_t operator()() const;
   private:

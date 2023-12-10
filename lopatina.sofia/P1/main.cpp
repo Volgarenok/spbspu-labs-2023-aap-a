@@ -5,7 +5,7 @@
 int main()
 {
   using namespace lopatina;
-  Loc_Max_Counter counter;
+  LocMaxCounter counter;
 
   int number = 0;
   std::cin >> number;
