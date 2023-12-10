@@ -25,7 +25,7 @@ int main()
 
     if (number != 0)
     {
-      size_t max_size = std::numeric_limits<size_t>::max();
+      size_t max_size = std::numeric_limits< size_t >::max();
       if (size == max_size)
       {
         std::cerr << "sequence is too long\n";

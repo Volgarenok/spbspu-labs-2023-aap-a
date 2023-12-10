@@ -25,7 +25,7 @@ void kovtun::LocalMaxCounter::operator()(int number)
   thirdNumber_ = number;
   if (firstNumber_ < secondNumber_ && secondNumber_ > thirdNumber_)
   {
-    size_t max_size = std::numeric_limits<size_t>::max();
+    size_t max_size = std::numeric_limits< size_t >::max();
     if (counter_ == max_size)
     {
       throw std::overflow_error("LocalMaxCounter overflow");
