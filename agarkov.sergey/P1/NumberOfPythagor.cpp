@@ -28,7 +28,7 @@ bool agarkov::NumberOfPythagor::isPythTriple(int current)
   int x = p_t_;
   int y = p_;
   int z = current;
-  return ((a * a + b * b) == c * c);
+  return ((x * x + y * y) == z * z);
 }
 
 size_t agarkov::NumberOfPythagor::operator()() const
