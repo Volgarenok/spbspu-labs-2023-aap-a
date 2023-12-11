@@ -29,7 +29,7 @@ void zakozhurnikova::writeToDest(std::ostream& out, const int *matrix, size_t ro
     out << "0 0";
     return;
   }
-  else if ((rows == 0 && cols != 0) || (rows != 0 && cols == 0))
+  else if ((!rows) && (!cols))
   {
     throw std::invalid_argument("Such matrix can not exist");
   }
