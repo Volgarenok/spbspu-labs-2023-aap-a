@@ -50,18 +50,6 @@ int main(int argc, const char * argv[])
     std::cerr << e.what() << '\n';
     return 1;
   }
-
-  try
-  {
-    zakozhurnikova::writeToMatrix(input, original, rows, cols);
-  }
-  catch (const std::runtime_error &e)
-  {
-    std::cerr << e.what() << '\n';
-    delete[] original;
-    return 1;
-  }
-
   if (option == 1)
   {
     matrix = data;
@@ -79,11 +67,22 @@ int main(int argc, const char * argv[])
       return 1;
     }
   }
-  zakozhurnikova::fillMatrix(matrix, rows, cols);
-  zakozhurnikova::substractMatrix(original, matrix, rows, cols);
+
   try
   {
-    zakozhurnikova::writeToDest(output, original, rows, cols);
+    zakozhurnikova::writeToMatrix(input, matrix, rows, cols);
+  }
+  catch (const std::runtime_error &e)
+  {
+    std::cerr << e.what() << '\n';
+    delete[] original;
+    return 1;
+  }
+  zakozhurnikova::fillMatrix(original, rows, cols);
+  zakozhurnikova::substractMatrix(matrix, original, rows, cols);
+  try
+  {
+    zakozhurnikova::writeToDest(output, matrix, rows, cols);
   }
   catch (const std::invalid_argument &e)
   {

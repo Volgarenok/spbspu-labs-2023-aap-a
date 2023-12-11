@@ -3,7 +3,7 @@
 #include <exception>
 #include <istream>
 
-int zakozhurnikova::checkArguments(int argc, const char *const *const argv)
+int zakozhurnikova::checkArguments(int argc, const char* const* argv)
 {
   if (argc != 4)
   {
@@ -22,7 +22,7 @@ int zakozhurnikova::checkArguments(int argc, const char *const *const argv)
   return option;
 }
 
-void zakozhurnikova::writeToDest(std::ostream& out, const int *matrix, size_t rows, size_t cols)
+void zakozhurnikova::writeToDest(std::ostream& out, const int* matrix, size_t rows, size_t cols)
 {
   if (rows == 0 && cols == 0)
   {
@@ -39,7 +39,7 @@ void zakozhurnikova::writeToDest(std::ostream& out, const int *matrix, size_t ro
   }
   out << matrix[rows * cols - 1];
 }
-void zakozhurnikova::writeToMatrix(std::istream& in, int *matrix, size_t rows, size_t cols)
+void zakozhurnikova::writeToMatrix(std::istream& in, int* matrix, size_t rows, size_t cols)
 {
   for (size_t i = 0; i < rows; i++)
   {
