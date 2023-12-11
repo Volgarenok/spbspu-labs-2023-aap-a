@@ -14,29 +14,24 @@ int main()
     return 1;
   }
 
-
-  if (number != 0) {
-    while (number != 0) {
-      try
-      {
-        counter(number);
-      }
-      catch (const std::exception & e)
-      {
-        std::cerr << e.what();
-        return 2;
-      }
-
-      std::cin >> number;
-      if (!std::cin) {
-        std::cerr << "Is not a sequence\n";
-        return 1;
-      }
+  while (number != 0) {
+    try
+    {
+      counter(number);
     }
-  } else {
-    std::cerr << "Sequence is too short\n";
-    return 2;
+    catch (const std::exception & e)
+    {
+      std::cerr << e.what();
+      return 2;
+    }
+
+    std::cin >> number;
+    if (!std::cin) {
+      std::cerr << "Is not a sequence\n";
+      return 1;
+    }
   }
+
   try
   {
     std::cout << counter() << "\n";
