@@ -1,5 +1,5 @@
-#ifndef INP_MATRIX_HPP
-#define INP_MATRIX_HPP
+#ifndef INPUT_OUTPUT_MATRIX_HPP 
+#define INPUT_OUTPUT_MATRIX_HPP
 #include <cmath>
 #include <fstream>
 namespace arakelyan
