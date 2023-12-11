@@ -9,29 +9,33 @@
 int main(int argc, char ** argv)
 {
   using namespace grechishnikov;
-  if (argc != 4)
-  {
-    std::cerr << "Wrong number of elements in command line arguments\n";
-    return 1;
-  }
-  if (std::strlen(argv[1]) != 1)
-  {
-    std::cerr << "Wrong numder of task input\n";
-    return 1;
-  }
   int num = 0;
   try
   {
-    num = std::stoll(argv[1]);
+    if (argc != 4)
+    {
+      throw std::logic_error("Wrong number of elements in command line argument");
+    }
+    if (argv[1][1] != '\0')
+    {
+      throw std::logic_error("Wrong numder of task input");
+    }
+    try
+    {
+      num = std::stoll(argv[1]);
+    }
+    catch (...)
+    {
+      throw std::logic_error("Cannot parse a value");
+    }
+    if (num != 1 && num != 2)
+    {
+      throw std::logic_error("Wrong task number");
+    }
   }
-  catch (...)
+  catch (const std::logic_error &e)
   {
-    std::cerr << "Cannot parse a value\n";
-    return 1;
-  }
-  if (num != 1 && num != 2)
-  {
-    std::cerr << "Wrong task number\n";
+    std::cerr << e.what() << "\n";
     return 1;
   }
 
@@ -46,32 +50,35 @@ int main(int argc, char ** argv)
 
   size_t maxSize = rows * cols;
   int * pMatr = nullptr;
-  if (num == 1)
+  int matr[10000] = {0};
+  try
   {
-    if (maxSize > 10000)
+    if (num == 1)
     {
-      std::cerr << "Matrix is too big\n";
-      return 2;
+      if (maxSize > 10000)
+      {
+        throw std::logic_error("Matrix is to big");
+      }
+      pMatr = matr;
     }
-    int matr[10000] = {0};
-    pMatr = matr;
-  }
-  if (num == 2)
-  {
-    try
+    if (num == 2)
     {
       pMatr = new int [maxSize];
-    }
-    catch (const std::bad_alloc &e)
-    {
-      delete [] pMatr;
-      std::cerr << "Cannot allocate memory for matrix\n";
-      return 2;
     }
     for (size_t i = 0; i < maxSize; ++i)
     {
       pMatr[i] = 0;
     }
+  }
+  catch (const std::bad_alloc &e)
+  {
+    std::cerr << "Cannot allocate memory for matrix\n";
+    return 2;
+  }
+  catch (const std::logic_error &e)
+  {
+    std::cerr << e.what() << "\n";
+    return 2;
   }
 
   try
@@ -88,7 +95,6 @@ int main(int argc, char ** argv)
     return 2;
   }
   int maxMatrCol = countInMatr(pMatr, rows, cols);
-
   std::ofstream output(argv[3]);
   output << maxMatrCol << "\n";
 
