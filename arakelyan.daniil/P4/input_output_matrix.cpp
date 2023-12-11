@@ -1,5 +1,4 @@
-#include "input_output_matrix.hpp"
-#include <stdexcept>
+ #include "input_output_matrix.hpp"
 
 void arakelyan::inputMatrix(std::istream & input, int * matrix, size_t el)
 {
@@ -11,14 +10,14 @@ void arakelyan::inputMatrix(std::istream & input, int * matrix, size_t el)
     }
   }
 }
-std::ostream & arakelyan::outputMatrix(std::ostream & output, double * matrix, size_t rows, size_t cols)
+std::ostream & arakelyan::outputMatrix(std::ostream & output, const double * matrix, size_t rows, size_t cols)
 {
   output << rows << " " << cols;
   for (size_t i = 0; i < rows; ++i)
   {
     for (size_t j = 0; j < cols; ++j)
     {
-      output << " " << round(matrix[i * cols + j ]* 10) / 10;
+      output << " " << std::round(matrix[i * cols + j] * 10) / 10;
     }
   }
   return output;

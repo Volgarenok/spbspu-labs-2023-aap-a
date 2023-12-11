@@ -1,10 +1,11 @@
 #ifndef INPUT_OUTPUT_MATRIX_HPP
 #define INPUT_OUTPUT_MATRIX_HPP
-#include <cmath>
-#include <fstream>
+#include <iostream>
+#include <stdexcept>
+#include <cstddef>
 namespace arakelyan
 {
   void inputMatrix(std::istream & input, int * matrix, size_t el);
-  std::ostream & outputMatrix(std::ostream & output, double * matrix, size_t rows, size_t cols);
+  std::ostream & outputMatrix(std::ostream & output, const double * matrix, size_t rows, size_t cols);
 }
 #endif

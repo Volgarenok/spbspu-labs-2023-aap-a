@@ -1,11 +1,9 @@
 #include <iostream>
+#include <fstream>
 #include <cstddef>
-#include <iomanip>
+#include <stdexcept>
 #include "input_output_matrix.hpp"
 #include "matrix_operations.hpp"
-#include <stdexcept>
-
-
 
 int main (int argc, char * argv[])
 {
@@ -62,16 +60,16 @@ int main (int argc, char * argv[])
     return 2;
   }
 
-  int staticMatrix[10000] = {};
-  double staticSmoothedMatrix[10000] = {};
+  int tempMatrix[10000] = {};
+  double tempSmoothedMatrix[10000] = {};
 
   int * matrix = nullptr;
   double * smoothedMatrix = nullptr;
 
   if (firstArgument == 1)
   {
-    matrix = staticMatrix;
-    smoothedMatrix = staticSmoothedMatrix;
+    matrix = tempMatrix;
+    smoothedMatrix = tempSmoothedMatrix;
   }
   else
   {
