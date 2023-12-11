@@ -51,18 +51,3 @@ void zakozhurnikova::substractMatrix(int *original,const int *substract, size_t 
     }
   }
 }
-
-void zakozhurnikova::writeToMatrix(std::istream& in, int *matrix, size_t rows, size_t cols)
-{
-  for (size_t i = 0; i < rows; i++)
-  {
-    for (size_t j = 0; j < cols; j++)
-    {
-      in >> matrix[i * cols + j];
-      if (!in)
-      {
-        throw std::exception();
-      }
-    }
-  }
-}

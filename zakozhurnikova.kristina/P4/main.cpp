@@ -54,9 +54,9 @@ int main(int argc, const char * argv[])
   {
     zakozhurnikova::writeToMatrix(input, original, rows, cols);
   }
-  catch (const std::exception &e)
+  catch (const std::runtime_error &e)
   {
-    std::cerr << "Read from file error" << '\n';
+    std::cerr << e.what() << '\n';
     delete[] original;
     return 1;
   }
