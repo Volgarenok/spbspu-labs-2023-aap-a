@@ -58,7 +58,7 @@ int main(int argc, const char * argv[])
   {
     try
     {
-      matrix = new int[rows * cols]{};
+      matrix = new int[s]{};
     }
     catch (const std::bad_alloc &e)
     {
