@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <cstddef>
-#include <iomanip>
+#include <cmath>
 namespace arakelyan
 {
   void inputMatrix(std::istream & input, int * matrix, size_t el);
