@@ -1,6 +1,6 @@
-#include "loc_max_counter.hpp"
 #include <iostream>
 #include <stdexcept>
+#include "loc_max_counter.hpp"
 
 int main()
 {
@@ -15,12 +15,10 @@ int main()
   }
 
   while (number != 0) {
-    try
-    {
+    try {
       counter(number);
     }
-    catch (const std::exception & e)
-    {
+    catch (const std::exception & e) {
       std::cerr << e.what();
       return 2;
     }
@@ -32,12 +30,10 @@ int main()
     }
   }
 
-  try
-  {
+  try {
     std::cout << counter() << "\n";
   }
-  catch (const std::exception & e)
-  {
+  catch (const std::exception & e) {
     std::cerr << e.what();
     return 2;
   }
