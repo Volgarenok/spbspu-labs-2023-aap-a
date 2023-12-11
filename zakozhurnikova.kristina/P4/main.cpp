@@ -76,7 +76,10 @@ int main(int argc, const char * argv[])
   {
     std::cerr << e.what() << '\n';
     delete[] original;
-    delete[] matrix;
+    if (option == 2)
+    {
+      delete[] matrix;
+    }
     return 1;
   }
   zakozhurnikova::fillMatrix(original, rows, cols);
