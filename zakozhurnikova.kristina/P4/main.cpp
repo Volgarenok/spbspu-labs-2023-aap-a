@@ -39,7 +39,7 @@ int main(int argc, const char * argv[])
   const size_t s = rows * cols;
   int *matrix = nullptr;
   int *original = nullptr;
-  int staticMatrix[10000];
+  int data[10000] = {};
 
   try
   {
@@ -64,7 +64,7 @@ int main(int argc, const char * argv[])
 
   if (option == 1)
   {
-    matrix = staticMatrix;
+    matrix = data;
   }
   if (option == 2)
   {
