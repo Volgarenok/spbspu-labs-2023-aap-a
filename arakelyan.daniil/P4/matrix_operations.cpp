@@ -27,7 +27,6 @@ void arakelyan::smoothedMatrixCreation(const int * matrix, double * smooth, size
         }
       }
     }
-
     smooth[i] = sum / count;
   }
 }

@@ -108,6 +108,5 @@ int main (int argc, char * argv[])
     delete [] matrix;
     delete [] smoothedMatrix;
   }
-
   return 0;
 }
