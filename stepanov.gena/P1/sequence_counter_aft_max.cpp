@@ -11,15 +11,15 @@ stepanov::SequenceCounterAftMax::SequenceCounterAftMax():
 
 void stepanov::SequenceCounterAftMax::counter(int current_number)
 {
-  ++count_;
+  const size_t max_size = std::numeric_limits<size_t>::max();
+  if (max_size - count_ < 1)
+  {
+    throw std::logic_error("Sequence addition would cause overflow");
+  }
+  count_ += 1;
   if (current_number == 0 && count_ == 1)
   {
     throw std::logic_error("The amount of AFT-MAX cannot be certain");
-  }
-  const size_t maxSize_ = std::numeric_limits< size_t >::max();
-  if (count_ == maxSize_)
-  {
-    throw std::logic_error("Sequence is too long");
   }
   if (current_number > maxElement_)
   {

@@ -3,34 +3,34 @@
 #include <stdexcept>
 
 stepanov::SequenceCounterMonInc::SequenceCounterMonInc():
-  last_number_(0),
-  current_count_(0),
-  max_count_(0)
+  lastNumber_(0),
+  currentCount_(0),
+  maxCount_(0)
 {}
 void stepanov::SequenceCounterMonInc::counter(size_t current_number)
 {
-  const size_t max_size_ = std::numeric_limits< size_t >::max();
-  if (last_number_ <= current_number)
+  const size_t max_size = std::numeric_limits< size_t >::max();
+  if (lastNumber_ <= current_number)
   {
-    last_number_ = current_number;
-    if (current_count_ == max_size_)
+    lastNumber_ = current_number;
+    if (max_size - currentCount_ < 1)
     {
-      throw std::logic_error("Sequence is too long");
+      throw std::logic_error("Sequence addition would cause overflow");
     }
-    ++current_count_;
-    if (current_count_ > max_count_)
+    currentCount_ += 1;
+    if (currentCount_ > maxCount_)
     {
-      max_count_ = current_count_;
+      maxCount_ = currentCount_;
     }
   }
   else
   {
-    last_number_ = current_number;
-    current_count_ = 1;
+    lastNumber_ = current_number;
+    currentCount_ = 1;
   }
 }
 
 size_t stepanov::SequenceCounterMonInc::getResult() const
 {
-  return max_count_;
+  return maxCount_;
 }

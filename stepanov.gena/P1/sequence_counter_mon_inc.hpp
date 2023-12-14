@@ -12,9 +12,9 @@ namespace stepanov
     size_t getResult() const;
 
   private:
-    size_t last_number_;
-    size_t current_count_;
-    size_t max_count_;
+    size_t lastNumber_;
+    size_t currentCount_;
+    size_t maxCount_;
   };
 }
 

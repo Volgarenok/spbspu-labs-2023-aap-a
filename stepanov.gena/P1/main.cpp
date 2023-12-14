@@ -12,7 +12,7 @@ int main()
   do
   {
     std::cin >> current_number;
-    if (!std::cin)
+    if (! std::cin)
     {
       std::cerr <<"Is not a sequence\n";
       return 1;
@@ -34,4 +34,5 @@ int main()
   while (current_number != 0);
   std::cout << "[MON-INC]" << "=" << count.getResult() << "\n";
   std::cout << "[AFT-MAX]" << "=" << count_aft.getResult() << "\n";
+  return 0;
 }
