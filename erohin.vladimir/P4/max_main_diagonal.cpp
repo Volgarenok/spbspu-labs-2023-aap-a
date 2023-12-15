@@ -1,7 +1,7 @@
 #include "max_main_diagonal.hpp"
 #include <limits>
 
-long long erohin::findMaxMainDiagonal(int * matrix, const size_t & rows, const size_t & cols)
+long long erohin::findMaxMainDiagonal(const int * matrix, size_t rows, size_t cols)
 {
   long long cur_sum = 0;
   long long max_sum = std::numeric_limits< long long >::min();
