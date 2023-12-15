@@ -1,7 +1,6 @@
 #ifndef INPUT_OUTPUT_MATRIX_HPP
 #define INPUT_OUTPUT_MATRIX_HPP
 #include <iostream>
-#include <stdexcept>
 #include <cstddef>
 namespace arakelyan
 {
