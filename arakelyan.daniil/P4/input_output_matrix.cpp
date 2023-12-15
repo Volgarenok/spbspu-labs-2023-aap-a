@@ -1,3 +1,4 @@
+#include <cmath>
 #include "input_output_matrix.hpp"
 
 void arakelyan::inputMatrix(std::istream & input, int * matrix, size_t el)
