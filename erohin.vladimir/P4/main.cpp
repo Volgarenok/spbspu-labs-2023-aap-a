@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <stdexcept>
-#include "circle_fill.hpp"
+#include "fill_circle.hpp"
 #include "read_print_matrix.hpp"
 #include "max_main_diagonal.hpp"
 
@@ -87,7 +87,7 @@ int main(int argc, char * argv[])
   }
   try
   {
-    circleFill(matrix, rows, cols);
+    fillCircle(matrix, rows, cols);
   }
   catch (const std::exception & e)
   {
