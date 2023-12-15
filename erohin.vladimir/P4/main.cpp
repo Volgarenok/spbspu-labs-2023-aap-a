@@ -96,7 +96,7 @@ int main(int argc, char * argv[])
     return 4;
   }
   std::ofstream output(argv[3]);
-  output << rows << " " << cols;
+  output << rows << " " << cols << " ";
   printMatrix(output, matrix, rows, cols);
   output << "\n";
   if (isExist)

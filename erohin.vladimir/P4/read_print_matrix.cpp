@@ -18,7 +18,11 @@ void erohin::printMatrix(std::ostream & output, const int * matrix, size_t rows,
   {
     for (size_t j = 0; j < cols; ++j)
     {
-      output << " " << matrix[rows * i + j];
+      output << matrix[rows * i + j];
+      if ((i + 1) < rows || (j + 1) < cols)
+      {
+        output << " ";
+      }
     }
   }
 }
