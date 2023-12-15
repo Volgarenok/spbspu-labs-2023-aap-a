@@ -5,7 +5,6 @@
 #include "circle_fill.hpp"
 #include "read_print_matrix.hpp"
 #include "max_main_diagonal.hpp"
-#include "is_numeric.hpp"
 
 int main(int argc, char * argv[])
 {
@@ -16,18 +15,18 @@ int main(int argc, char * argv[])
     return 1;
   }
   int num = 0;
-  if (!isNumeric(argv[1]))
-  {
-    std::cerr << "Value of first CLA is not a number\n";
-    return 1;
-  }
   try
   {
-    num = std::stoll(argv[1]);
+    num = std::strtoll(argv[1], nullptr, 10);
   }
   catch (const std::out_of_range &)
   {
     std::cerr << "Value of first CLA is too large\n";
+    return 1;
+  }
+  catch (const std::invalid_argument &)
+  {
+    std::cerr << "Value of first CLA is not a number\n";
     return 1;
   }
   if (num > 2)
@@ -92,6 +91,7 @@ int main(int argc, char * argv[])
   }
   catch (const std::exception & e)
   {
+    delete[] matrix;
     std::cerr << e.what() << "\n";
     return 4;
   }

@@ -1,5 +1,5 @@
 #include "read_print_matrix.hpp"
-#include <fstream>
+#include <iostream>
 
 void erohin::readMatrix(std::istream & input, int * matrix, size_t rows, size_t cols)
 {

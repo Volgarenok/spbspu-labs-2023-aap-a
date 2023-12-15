@@ -1,7 +1,7 @@
 #ifndef READ_PRINT_MATRIX_HPP
 #define READ_PRINT_MATRIX_HPP
 
-#include <fstream>
+#include <iosfwd>
 namespace erohin
 {
   void readMatrix(std::istream & input, int * matrix, size_t rows, size_t cols);
