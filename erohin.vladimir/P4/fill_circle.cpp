@@ -1,9 +1,9 @@
-#include "circle_fill.hpp"
+#include "fill_circle.hpp"
 #include <algorithm>
 #include <limits>
 #include <stdexcept>
 
-void erohin::circleFill(int * matrix, size_t rows, size_t cols)
+void erohin::fillCircle(int * matrix, size_t rows, size_t cols)
 {
   size_t dist_edge_rows = 0;
   size_t dist_edge_cols = 0;
