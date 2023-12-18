@@ -36,7 +36,6 @@ int main(int argc, char * argv[])
   }
   size_t rows = 0;
   size_t cols = 0;
-  bool isExist = true;
   long long maxSumDiagonal = 0;
   std::ifstream input(argv[2]);
   input >> rows >> cols;
@@ -77,14 +76,7 @@ int main(int argc, char * argv[])
     return 2;
   }
   input.close();
-  if (rows < 2 && cols < 2)
-  {
-    isExist = false;
-  }
-  else
-  {
-    maxSumDiagonal = findMaxMainDiagonal(matrix, rows, cols);
-  }
+  maxSumDiagonal = findMaxMainDiagonal(matrix, rows, cols);
   try
   {
     fillCircle(matrix, rows, cols);
@@ -99,10 +91,7 @@ int main(int argc, char * argv[])
   output << rows << " " << cols << " ";
   printMatrix(output, matrix, rows, cols);
   output << "\n";
-  if (isExist)
-  {
-    output << maxSumDiagonal;
-  }
+  output << maxSumDiagonal;
   output.close();
   if (num == 2)
   {
