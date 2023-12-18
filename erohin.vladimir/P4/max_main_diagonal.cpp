@@ -3,6 +3,10 @@
 
 long long erohin::findMaxMainDiagonal(const int * matrix, size_t rows, size_t cols)
 {
+  if (rows < 2 && cols < 2)
+  {
+    return 0;
+  }
   long long cur_sum = 0;
   long long max_sum = std::numeric_limits< long long >::min();
   size_t cur_row = 0;
