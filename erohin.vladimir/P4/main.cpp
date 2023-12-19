@@ -14,22 +14,8 @@ int main(int argc, char * argv[])
     std::cerr << "Wrong number of line arguments\n";
     return 1;
   }
-  int num = 0;
-  try
-  {
-    num = std::strtoll(argv[1], nullptr, 10);
-  }
-  catch (const std::out_of_range &)
-  {
-    std::cerr << "Value of first CLA is too large\n";
-    return 1;
-  }
-  catch (const std::invalid_argument &)
-  {
-    std::cerr << "Value of first CLA is not a number\n";
-    return 1;
-  }
-  if (num > 2)
+  long long num = std::strtoll(argv[1], nullptr, 10);
+  if (num == 0 || num > 2)
   {
     std::cerr << "Wrong task number\n";
     return 1;
