@@ -116,16 +116,31 @@ namespace spiridonov
 
   void CompositeShape::move(point_t pos)
   {
-
+    point_t currentPos = getFrameRect().pos;
+    move(pos.x - currentPos.x, pos.y - currentPos.y);
   }
 
   void CompositeShape::move(double x, double y)
   {
-
+    for (size_t i = 0; i < shapes; ++i)
+    {
+      shapeptrs[i].move(x, y);
+    }
   }
 
   void CompositeShape::scale(double coefficient)
   {
+    if (coefficient <= 0)
+    {
+      throw std::invalid_argument("Error: invalid coefficient to scale");
+    }
 
+    point_t center = getFrameRect().pos;
+    for (size_t i = 0; i < shapes; ++i)
+    {
+      shapeptrs[i].scale(coefficient);
+      point_t newCenter = shapeptrs[i].getFrameRect().pos;
+      shapeptrs[i].move((center.x - newCenter.x) * coefficient, (center.y - newCenter.y) * coefficient);
+    }
   }
 }
