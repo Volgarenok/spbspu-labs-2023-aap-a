@@ -14,6 +14,18 @@ namespace spiridonov
     CompositeShape(const CompositeShape& other);
     CompositeShape(CompositeShape&& other) noexcept;
     ~CompositeShape();
+
+    CompositeShape& operator=(const CompositeShape& other);
+    CompositeShape& operator=(CompositeShape&& other) noexcept;
+
+    void addShape(const Shape& shape);
+    void removeShape(size_t index);
+    double getArea() const;
+    rectangle_t getFrameRect() const;
+    void move(point_t pos);
+    void move(double x, double y);
+    void scale(double coefficient);
+  };
 }
 
 #endif
