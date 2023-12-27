@@ -65,22 +65,53 @@ namespace spiridonov
 
   void CompositeShape::addShape(const Shape& shape)
   {
-
+    if (shapes == capacity)
+    {
+      size_t newCapacity = capacity == 0 ? 1 : capacity * 2;
+      Shape** newShapePtrs = new Shape * [newCapacity];
+      std::copy(shapeptrs, shapeptrs + shapes, newShapePtrs);
+      delete[] shapeptrs;
+      shapeptrs = newShapePtrs;
+      capacity = newCapacity;
+    }
+    shapeptrs[shapes++] = new Shape(shape);
   }
 
   void CompositeShape::removeShape(size_t index)
   {
+    if (index >= shapes)
+    {
+      throw std::out_of_range("Error: index out of range");
+    }
 
+    std::copy(shapeptrs + index + 1, shapeptrs + shapes, shapeptrs + index);
+    --shapes;
   }
 
   double CompositeShape::getArea() const
   {
-
+    double area = 0.0;
+    for (size_t i = 0; i < shapes; ++i)
+    {
+      area += shapeptrs[i].getArea();
+    }
+    return area;
   }
 
   rectangle_t CompositeShape::getFrameRect() const
   {
+    if (shapes == 0)
+    {
+      throw std::logic_error("Error: empty CompositeShape");
+    }
 
+    rectangle_t frameRect = shapeptrs[0]->getFrameRect();
+    for (size_t i = 1; i < shapes; ++i)
+    {
+      rectangle_t currentFrameRect = shapeptrs[i]->getFrameRect();
+      frameRect = getFrameRect(frameRect, currentFrameRect);
+    }
+    return frameRect;
   }
 
   void CompositeShape::move(point_t pos)
