@@ -63,6 +63,18 @@ int main()
 
       composite.move(dx, dy);
     }
+
+    else if (input == "END")
+    {
+      break;
+    }
+    else
+    {
+      std::cerr << "Error: Unknown command\n";
+
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
     
   return 0;
 }
