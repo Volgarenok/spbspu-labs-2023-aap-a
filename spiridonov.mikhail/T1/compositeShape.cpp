@@ -82,7 +82,9 @@ namespace spiridonov
       throw std::out_of_range("Error: index out of range");
     }
 
-    std::copy(shapeptrs + index + 1, shapeptrs + shapes, shapeptrs + index);
+    delete shapePtrs[index];
+    std::copy(shapePtrs + index + 1, shapePtrs + shapes, shapePtrs + index);
+
     --shapes;
   }
 
