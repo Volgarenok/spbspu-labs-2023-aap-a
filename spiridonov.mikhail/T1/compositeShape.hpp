@@ -1,6 +1,7 @@
 #ifndef COMPOSITESHAPE_HPP
 #define COMPOSITESHAPE_HPP
 #include "shape.hpp"
+#include <cstddef>
 
 namespace spiridonov
 {
