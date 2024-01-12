@@ -76,10 +76,17 @@ namespace spiridonov
     return frameRect;
   }
 
+  size_t CompositeShape::getShapesCount() const
+  {
+    return shapes;
+  }
+
   void CompositeShape::move(point_t pos)
   {
-    point_t currentPos = getFrameRect().pos;
-    move(pos.x - currentPos.x, pos.y - currentPos.y);
+    for (size_t i = 0; i < shapes; ++i)
+    {
+      shapePtrs[i]->move(pos);
+    }
   }
 
   void CompositeShape::move(double x, double y)
