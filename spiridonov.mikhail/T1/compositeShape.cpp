@@ -4,63 +4,16 @@
 
 namespace spiridonov
 {
-  CompositeShape::CompositeShape() :
-    shapes(0),
-    capacity(0),
-    shapeptrs(nullptr)
-  {}
-
-  CompositeShape::CompositeShape(const CompositeShape& other) :
-    shapes(other.shapes),
-    capacity(other.capacity),
-    shapeptrs(new Shape* [other.capacity])
-  {
-    std::copy(other.shapeptrs, other.shapeptrs + other.shapes, shapeptrs);
-  }
-
-  CompositeShape::CompositeShape(CompositeShape&& other) noexcept :
-    shapes(other.shapes),
-    capacity(other.capacity),
-    shapeptrs(other.shapeptrs)
-  {
-    other.shapes = 0;
-    other.capacity = 0;
-    other.shapeptrs = nullptr;
-  }
+  CompositeShape::CompositeShape() : shapePtrs(nullptr), shapes(0) {}
 
   CompositeShape::~CompositeShape()
   {
-    delete[] shapeptrs;
-    shapes = 0;
-    capacity = 0;
-  }
-
-  CompositeShape& CompositeShape::operator=(const CompositeShape& other)
-  {
-    if (this != &other)
+    for (size_t i = 0; i < shapes; ++i)
     {
-      shapes = other.shapes;
-      capacity = other.capacity;
-      delete[] shapeptrs;
-      shapeptrs = new Shape * [other.capacity];
-      std::copy(other.shapeptrs, other.shapeptrs + other.shapes, shapeptrs);
+      delete shapePtrs[i];
     }
-    return *this;
-  }
-
-  CompositeShape& CompositeShape::operator=(CompositeShape&& other) noexcept
-  {
-    if (this != &other)
-    {
-      shapes = other.shapes;
-      capacity = other.capacity;
-      delete[] shapeptrs;
-      shapeptrs = other.shapeptrs;
-      other.shapes = 0;
-      other.capacity = 0;
-      other.shapeptrs = nullptr;
-    }
-    return *this;
+    delete[] shapePtrs;
+    shapePtrs = nullptr;
   }
 
   void CompositeShape::addShape(Shape* shape)
