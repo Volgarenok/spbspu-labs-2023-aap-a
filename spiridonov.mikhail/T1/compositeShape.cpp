@@ -113,6 +113,16 @@ namespace spiridonov
     }
   }
 
+  Shape* CompositeShape::getShape(size_t index) const
+  {
+    if (index >= shapes)
+    {
+      throw std::out_of_range("Error: index out of range");
+    }
+
+    return shapePtrs[index];
+  }
+
   void CompositeShape::clear()
   {
     for (size_t i = 0; i < shapes; ++i)
