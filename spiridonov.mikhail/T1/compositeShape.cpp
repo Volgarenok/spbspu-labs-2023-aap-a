@@ -63,18 +63,16 @@ namespace spiridonov
     return *this;
   }
 
-  void CompositeShape::addShape(const Shape& shape)
+  void CompositeShape::addShape(Shape* shape)
   {
-    if (shapes == capacity)
-    {
-      size_t newCapacity = capacity == 0 ? 1 : capacity * 2;
-      Shape** newShapePtrs = new Shape * [newCapacity];
-      std::copy(shapeptrs, shapeptrs + shapes, newShapePtrs);
-      delete[] shapeptrs;
-      shapeptrs = newShapePtrs;
-      capacity = newCapacity;
-    }
-    shapeptrs[shapes++] = new Shape(shape);
+    Shape** newShapes = new Shape * [shapes + 1];
+    std::copy(shapePtrs, shapePtrs + shapes, newShapes);
+    newShapes[shapes] = shape;
+
+    delete[] shapePtrs;
+    shapePtrs = newShapes;
+
+    ++shapes;
   }
 
   void CompositeShape::removeShape(size_t index)
