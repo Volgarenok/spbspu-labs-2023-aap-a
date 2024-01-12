@@ -19,8 +19,6 @@ namespace spiridonov
     void scale(double coefficient) override;
     Shape* getShape(size_t index) const;
     void clear();
-
-
     size_t getShapesCount() const;
 
   private:
