@@ -93,7 +93,7 @@ namespace spiridonov
   {
     for (size_t i = 0; i < shapes; ++i)
     {
-      shapeptrs[i].move(x, y);
+      shapePtrs[i]->move(x, y);
     }
   }
 
