@@ -112,4 +112,15 @@ namespace spiridonov
       shapeptrs[i].move((center.x - newCenter.x) * coefficient, (center.y - newCenter.y) * coefficient);
     }
   }
+
+  void CompositeShape::clear()
+  {
+    for (size_t i = 0; i < shapes; ++i)
+    {
+      delete shapePtrs[i];
+    }
+    delete[] shapePtrs;
+    shapePtrs = nullptr;
+    shapes = 0;
+  }
 }

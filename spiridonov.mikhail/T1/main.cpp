@@ -49,6 +49,20 @@ int main()
           << " " << shape->getFrameRect().pos.y + shape->getFrameRect().height / 2 << "\n";
       }
     }
+
+    else if (input == "MOVE")
+    {
+      double dx = 0.0, dy = 0.0;
+      std::cin >> dx >> dy;
+
+      if (std::cin.fail())
+      {
+        std::cerr << "Error: Invalid move parameters\n";
+        return 1;
+      }
+
+      composite.move(dx, dy);
+    }
     
   return 0;
 }
