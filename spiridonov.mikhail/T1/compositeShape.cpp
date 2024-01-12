@@ -88,29 +88,38 @@ namespace spiridonov
     --shapes;
   }
 
-  double CompositeShape::getArea() const
+  double CompositeShape::getArea()
   {
     double area = 0.0;
     for (size_t i = 0; i < shapes; ++i)
     {
-      area += shapeptrs[i].getArea();
+      area += shapePtrs[i]->getArea();
     }
     return area;
   }
 
-  rectangle_t CompositeShape::getFrameRect() const
+  rectangle_t CompositeShape::getFrameRect()
   {
     if (shapes == 0)
     {
-      throw std::logic_error("Error: empty CompositeShape");
+      throw std::logic_error("Error: CompositeShape is empty");
     }
 
-    rectangle_t frameRect = shapeptrs[0]->getFrameRect();
+    rectangle_t frameRect = shapePtrs[0]->getFrameRect();
     for (size_t i = 1; i < shapes; ++i)
     {
-      rectangle_t currentFrameRect = shapeptrs[i]->getFrameRect();
-      frameRect = getFrameRect(frameRect, currentFrameRect);
+      rectangle_t currentFrameRect = shapePtrs[i]->getFrameRect();
+      double left = std::min(frameRect.pos.x - frameRect.width / 2, currentFrameRect.pos.x - currentFrameRect.width / 2);
+      double right = std::max(frameRect.pos.x + frameRect.width / 2, currentFrameRect.pos.x + currentFrameRect.width / 2);
+      double top = std::max(frameRect.pos.y + frameRect.height / 2, currentFrameRect.pos.y + currentFrameRect.height / 2);
+      double bottom = std::min(frameRect.pos.y - frameRect.height / 2, currentFrameRect.pos.y - currentFrameRect.height / 2);
+
+      frameRect.width = right - left;
+      frameRect.height = top - bottom;
+      frameRect.pos.x = (left + right) / 2;
+      frameRect.pos.y = (top + bottom) / 2;
     }
+
     return frameRect;
   }
 
