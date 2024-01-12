@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "baseTypes.hp"
+#include "baseTypes.hpp"
 #include "rectangle.hpp"
 #include "shape.hpp"
 #include "compositeShape.hpp"
@@ -64,6 +64,20 @@ int main()
       composite.move(dx, dy);
     }
 
+    else if (input == "RECTANGLE")
+    {
+      double width = 0.0, height = 0.0, x = 0.0, y = 0.0;
+      std::cin >> width >> height >> x >> y;
+
+      if (std::cin.fail())
+      {
+        std::cerr << "Error: Invalid rectangle parameters\n";
+        return 1;
+      }
+
+      composite.addShape(new Rectangle(width, height, x, y));
+    }
+
     else if (input == "CONCAVE")
     {
       double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, x3 = 0.0, y3 = 0.0, x4 = 0.0, y4 = 0.0;
@@ -91,10 +105,13 @@ int main()
 
       composite.addShape(new Parallelogram(x1, x2, x3, y1, y2, y3));
 
+    }
+
     else if (input == "END")
     {
       break;
     }
+
     else
     {
       std::cerr << "Error: Unknown command\n";
@@ -102,7 +119,7 @@ int main()
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    
+  }
+
   return 0;
 }
-
