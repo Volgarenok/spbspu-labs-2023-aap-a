@@ -99,17 +99,9 @@ namespace spiridonov
 
   void CompositeShape::scale(double coefficient)
   {
-    if (coefficient <= 0)
-    {
-      throw std::invalid_argument("Error: invalid coefficient to scale");
-    }
-
-    point_t center = getFrameRect().pos;
     for (size_t i = 0; i < shapes; ++i)
     {
-      shapeptrs[i].scale(coefficient);
-      point_t newCenter = shapeptrs[i].getFrameRect().pos;
-      shapeptrs[i].move((center.x - newCenter.x) * coefficient, (center.y - newCenter.y) * coefficient);
+      shapePtrs[i]->scale(coefficient);
     }
   }
 
