@@ -16,5 +16,4 @@ namespace spiridonov
     double pos;
   };
 }
-
 #endif
