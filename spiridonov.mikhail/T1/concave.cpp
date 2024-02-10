@@ -37,10 +37,10 @@ namespace spiridonov
 
   rectangle_t Concave::getFrameRect()
   {
-    double minX = std::min({ arrayOfPoints[0].x, arrayOfPoints[1].x, arrayOfPoints[2].x, arrayOfPoints[3].x });
-    double minY = std::min({ arrayOfPoints[0].y, arrayOfPoints[1].y, arrayOfPoints[2].y, arrayOfPoints[3].y });
-    double maxX = std::max({ arrayOfPoints[0].x, arrayOfPoints[1].x, arrayOfPoints[2].x, arrayOfPoints[3].x });
-    double maxY = std::max({ arrayOfPoints[0].y, arrayOfPoints[1].y, arrayOfPoints[2].y, arrayOfPoints[3].y });
+    double minX = std::min(std::min(std::min(arrayOfPoints[0].x, arrayOfPoints[1].x), arrayOfPoints[2].x), arrayOfPoints[3].x);
+    double minY = std::min(std::min(std::min(arrayOfPoints[0].y, arrayOfPoints[1].y), arrayOfPoints[2].y), arrayOfPoints[3].y);
+    double maxX = std::max(std::max(std::max(arrayOfPoints[0].x, arrayOfPoints[1].x), arrayOfPoints[2].x), arrayOfPoints[3].x);
+    double maxY = std::max(std::max(std::max(arrayOfPoints[0].y, arrayOfPoints[1].y), arrayOfPoints[2].y), arrayOfPoints[3].y);
 
     double width = maxX - minX;
     double height = maxY - minY;
@@ -92,10 +92,10 @@ namespace spiridonov
 
   void Concave::updateFrameRect()
   {
-    double minX = std::min({ arrayOfPoints[0].x, arrayOfPoints[1].x, arrayOfPoints[2].x, arrayOfPoints[3].x });
-    double minY = std::min({ arrayOfPoints[0].y, arrayOfPoints[1].y, arrayOfPoints[2].y, arrayOfPoints[3].y });
-    double maxX = std::max({ arrayOfPoints[0].x, arrayOfPoints[1].x, arrayOfPoints[2].x, arrayOfPoints[3].x });
-    double maxY = std::max({ arrayOfPoints[0].y, arrayOfPoints[1].y, arrayOfPoints[2].y, arrayOfPoints[3].y });
+    double minX = std::min(std::min(std::min(arrayOfPoints[0].x, arrayOfPoints[1].x), arrayOfPoints[2].x), arrayOfPoints[3].x);
+    double minY = std::min(std::min(std::min(arrayOfPoints[0].y, arrayOfPoints[1].y), arrayOfPoints[2].y), arrayOfPoints[3].y);
+    double maxX = std::max(std::max(std::max(arrayOfPoints[0].x, arrayOfPoints[1].x), arrayOfPoints[2].x), arrayOfPoints[3].x);
+    double maxY = std::max(std::max(std::max(arrayOfPoints[0].y, arrayOfPoints[1].y), arrayOfPoints[2].y), arrayOfPoints[3].y);
 
     double width = maxX - minX;
     double height = maxY - minY;
