@@ -1,5 +1,5 @@
 #ifndef BASE_TYPES_HPP
-#define	BASE_TYPES_HPP
+#define BASE_TYPES_HPP
 
 namespace spiridonov
 {
@@ -13,7 +13,8 @@ namespace spiridonov
   {
     double width;
     double height;
-    double pos;
+    point_t pos;
   };
 }
+
 #endif
