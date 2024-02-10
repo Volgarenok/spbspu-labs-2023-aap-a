@@ -3,6 +3,7 @@
 
 namespace spiridonov
 {
+
   struct point_t
   {
     double x;
@@ -15,6 +16,7 @@ namespace spiridonov
     double height;
     point_t pos;
   };
+
 }
 
 #endif

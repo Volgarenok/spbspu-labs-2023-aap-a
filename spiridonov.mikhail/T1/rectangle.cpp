@@ -3,6 +3,7 @@
 
 namespace spiridonov
 {
+
   double Rectangle::getArea()
   {
     return frameRect_.height * frameRect_.width;
@@ -33,4 +34,5 @@ namespace spiridonov
     frameRect_.height *= coefficient;
     frameRect_.width *= coefficient;
   }
+
 }

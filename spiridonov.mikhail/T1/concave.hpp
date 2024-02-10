@@ -5,6 +5,7 @@
 
 namespace spiridonov
 {
+
   class Concave : public Shape
   {
   public:
@@ -18,12 +19,12 @@ namespace spiridonov
     void move(double x, double y) override;
     void scale(double coefficient) override;
     ~Concave() = default;
-
   private:
     point_t arrayOfPoints[4];
     rectangle_t frameRect_;
     void updateFrameRect();
   };
+
 }
 
 #endif

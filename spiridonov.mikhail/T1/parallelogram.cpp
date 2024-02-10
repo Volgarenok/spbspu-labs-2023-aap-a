@@ -4,6 +4,7 @@
 
 namespace spiridonov
 {
+
   Parallelogram::Parallelogram(rectangle_t rect) :
     arrayOfPoints{ {rect.pos.x, rect.pos.y},
                    {rect.pos.x + rect.width, rect.pos.y},
@@ -68,4 +69,5 @@ namespace spiridonov
       arrayOfPoints[i].y = center.y + dy * coefficient;
     }
   }
+
 }

@@ -5,6 +5,7 @@
 
 namespace spiridonov
 {
+
   class Parallelogram : public Shape
   {
   public:
@@ -23,6 +24,7 @@ namespace spiridonov
   private:
     point_t arrayOfPoints[3];
   };
+
 }
 
 #endif

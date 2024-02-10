@@ -88,6 +88,8 @@ namespace spiridonov
     updateFrameRect();
   }
 
+
+
   void Concave::updateFrameRect()
   {
     double minX = std::min({ arrayOfPoints[0].x, arrayOfPoints[1].x, arrayOfPoints[2].x, arrayOfPoints[3].x });

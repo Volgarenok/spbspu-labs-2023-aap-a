@@ -3,6 +3,7 @@
 
 namespace spiridonov
 {
+
   class Rectangle : public Shape
   {
   public:
@@ -20,6 +21,7 @@ namespace spiridonov
   private:
     rectangle_t frameRect_;
   };
+
 }
 
 #endif
