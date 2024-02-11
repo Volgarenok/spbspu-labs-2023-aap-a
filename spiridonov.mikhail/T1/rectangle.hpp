@@ -14,8 +14,8 @@ namespace spiridonov
     Rectangle(double width, double height, double x, double y) :
       frameRect_{ width, height, {x, y} }
     {}
-    double getArea() override;
-    rectangle_t getFrameRect() override;
+    double getArea() const override;
+    rectangle_t getFrameRect() const override;
     void move(point_t pos) override;
     void move(double x, double y) override;
     void scale(double coefficient) override;

@@ -22,7 +22,7 @@ namespace spiridonov
     }
   }
 
-  double Concave::getArea()
+  double Concave::getArea() const
   {
     double area = 0.5 * fabs(
       arrayOfPoints[0].x * (arrayOfPoints[1].y - arrayOfPoints[2].y) +
@@ -35,7 +35,7 @@ namespace spiridonov
     return area;
   }
 
-  rectangle_t Concave::getFrameRect()
+  rectangle_t Concave::getFrameRect() const
   {
     double minX = std::min(std::min(std::min(arrayOfPoints[0].x, arrayOfPoints[1].x), arrayOfPoints[2].x), arrayOfPoints[3].x);
     double minY = std::min(std::min(std::min(arrayOfPoints[0].y, arrayOfPoints[1].y), arrayOfPoints[2].y), arrayOfPoints[3].y);

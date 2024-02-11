@@ -11,14 +11,14 @@ namespace spiridonov
                    {rect.pos.x + rect.width / 2, rect.pos.y + rect.height} }
   {}
 
-  double Parallelogram::getArea()
+  double Parallelogram::getArea() const
   {
     double side1 = sqrt(pow(arrayOfPoints[1].x - arrayOfPoints[0].x, 2) + pow(arrayOfPoints[1].y - arrayOfPoints[0].y, 2));
     double side2 = sqrt(pow(arrayOfPoints[2].x - arrayOfPoints[1].x, 2) + pow(arrayOfPoints[2].y - arrayOfPoints[1].y, 2));
     return 0.5 * side1 * side2;
   }
 
-  rectangle_t Parallelogram::getFrameRect()
+  rectangle_t Parallelogram::getFrameRect() const
   {
     double minX = std::min(std::min(arrayOfPoints[0].x, arrayOfPoints[1].x), arrayOfPoints[2].x);
     double minY = std::min(std::min(arrayOfPoints[0].y, arrayOfPoints[1].y), arrayOfPoints[2].y);

@@ -41,7 +41,7 @@ namespace spiridonov
     --shapes;
   }
 
-  double CompositeShape::getArea()
+  double CompositeShape::getArea() const
   {
     double area = 0.0;
     for (size_t i = 0; i < shapes; ++i)
@@ -51,7 +51,7 @@ namespace spiridonov
     return area;
   }
 
-  rectangle_t CompositeShape::getFrameRect()
+  rectangle_t CompositeShape::getFrameRect() const
   {
     if (shapes == 0)
     {

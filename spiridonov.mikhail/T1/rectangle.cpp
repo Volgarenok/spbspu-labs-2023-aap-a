@@ -4,12 +4,12 @@
 namespace spiridonov
 {
 
-  double Rectangle::getArea()
+  double Rectangle::getArea() const
   {
     return frameRect_.height * frameRect_.width;
   }
 
-  rectangle_t Rectangle::getFrameRect()
+  rectangle_t Rectangle::getFrameRect() const
   {
     return frameRect_;
   }
