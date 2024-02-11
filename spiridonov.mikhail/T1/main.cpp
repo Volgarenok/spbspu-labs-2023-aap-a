@@ -16,35 +16,31 @@ int main()
   CompositeShape composite;
 
   std::string input;
+  bool scaleCommandFound = false;
   while (std::cin >> input)
   {
     if (!input.empty())
     {
       try
       {
-        bool scaleCommandFound = false;
         if (input == "SCALE")
         {
           scaleCommandFound = true;
           double centerX = 0.0, centerY = 0.0, scaleCoefficient = 0.0;
           std::cin >> centerX >> centerY >> scaleCoefficient;
 
-          if (std::cin.fail() || scaleCoefficient < 0 || !scaleCommandFound)
+          if (!std::cin.fail() && scaleCoefficient >= 0)
           {
-            std::cerr << "Error: Invalid scale parameters\n";
-            return 1;
+            std::cout << "Before scaling:\n";
+            for (size_t i = 0; i < composite.getShapesCount(); ++i)
+            {
+              Shape* shape = composite.getShape(i);
+              std::cout << shape->getArea() << " " << shape->getFrameRect().pos.x - shape->getFrameRect().width / 2
+                << " " << shape->getFrameRect().pos.y - shape->getFrameRect().height / 2
+                << " " << shape->getFrameRect().pos.x + shape->getFrameRect().width / 2
+                << " " << shape->getFrameRect().pos.y + shape->getFrameRect().height / 2 << "\n";
+            }
           }
-
-          std::cout << "Before scaling:\n";
-          for (size_t i = 0; i < composite.getShapesCount(); ++i)
-          {
-            Shape* shape = composite.getShape(i);
-            std::cout << shape->getArea() << " " << shape->getFrameRect().pos.x - shape->getFrameRect().width / 2
-              << " " << shape->getFrameRect().pos.y - shape->getFrameRect().height / 2
-              << " " << shape->getFrameRect().pos.x + shape->getFrameRect().width / 2
-              << " " << shape->getFrameRect().pos.y + shape->getFrameRect().height / 2 << "\n";
-          }
-
           composite.scale(scaleCoefficient);
 
           std::cout << "After scaling:\n";
@@ -127,6 +123,11 @@ int main()
         std::cerr << "Error: " << e.what() << "\n";
       }
     }
+  }
+  if (!scaleCommandFound)
+  {
+    std::cerr << "No SCALE command\n";
+    return 1;
   }
 
   return 0;
