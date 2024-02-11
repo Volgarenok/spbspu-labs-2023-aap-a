@@ -22,12 +22,14 @@ int main()
     {
       try
       {
+        bool scaleCommandFound = false;
         if (input == "SCALE")
         {
+          scaleCommandFound = true;
           double centerX = 0.0, centerY = 0.0, scaleCoefficient = 0.0;
           std::cin >> centerX >> centerY >> scaleCoefficient;
 
-          if (std::cin.fail() || scaleCoefficient < 0)
+          if (std::cin.fail() || scaleCoefficient < 0 || !scaleCommandFound)
           {
             std::cerr << "Error: Invalid scale parameters\n";
             return 1;
