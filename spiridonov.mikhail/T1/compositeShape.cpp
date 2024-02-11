@@ -97,11 +97,11 @@ namespace spiridonov
     }
   }
 
-  void CompositeShape::scale(double coefficient, const point_t& scaleCenter)
+  void CompositeShape::scale(double coefficient)
   {
     for (size_t i = 0; i < shapes; ++i)
     {
-      shapePtrs[i]->scale(coefficient, scaleCenter);
+      shapePtrs[i]->scale(coefficient);
     }
   }
 

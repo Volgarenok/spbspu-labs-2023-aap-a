@@ -19,7 +19,7 @@ namespace spiridonov
     rectangle_t getFrameRect() const;
     void move(point_t pos) override;
     void move(double x, double y) override;
-    void scale(double coefficient, const point_t& scaleCenter) override;
+    void scale(double coefficient) override;
     ~Parallelogram() = default;
   private:
     point_t arrayOfPoints[3];

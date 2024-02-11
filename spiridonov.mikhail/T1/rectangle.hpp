@@ -18,7 +18,7 @@ namespace spiridonov
     rectangle_t getFrameRect() const override;
     void move(point_t pos) override;
     void move(double x, double y) override;
-    void scale(double coefficient, const point_t& center) override;
+    void scale(double coefficient) override;
     ~Rectangle() = default;
   private:
     rectangle_t frameRect_;

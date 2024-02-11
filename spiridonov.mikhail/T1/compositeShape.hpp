@@ -17,7 +17,7 @@ namespace spiridonov
     rectangle_t getFrameRect() const override;
     void move(point_t pos) override;
     void move(double x, double y) override;
-    void scale(double coefficient, const point_t& scaleCenter) override;
+    void scale(double coefficient) override;
     Shape* getShape(size_t index) const;
     void clear();
 
