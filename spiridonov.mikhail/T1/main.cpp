@@ -29,6 +29,11 @@ int main()
           scaleCommandFound = true;
           double centerX = 0.0, centerY = 0.0, scaleCoefficient = 0.0;
           std::cin >> centerX >> centerY >> scaleCoefficient;
+          if (scaleCoefficient < 0)
+          {
+            std::cerr << "Error scale coefficient\n";
+            return 1;
+          }
 
           if (!std::cin.fail() && scaleCoefficient >= 0)
           {
