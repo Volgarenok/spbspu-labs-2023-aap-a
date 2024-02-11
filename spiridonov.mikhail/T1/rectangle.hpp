@@ -1,6 +1,6 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
-#include "baseTypes.hpp"
+#include "base-types.hpp"
 #include "shape.hpp"
 
 namespace spiridonov

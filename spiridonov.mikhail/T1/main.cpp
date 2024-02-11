@@ -2,7 +2,7 @@
 #include <string>
 #include <limits>
 #include <stdexcept>
-#include "baseTypes.hpp"
+#include "base-types.hpp"
 #include "rectangle.hpp"
 #include "shape.hpp"
 #include "compositeShape.hpp"
