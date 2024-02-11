@@ -17,6 +17,7 @@ int main()
 
   std::string input;
   bool scaleCommandFound = false;
+  bool shapesAdded = false;
   while (std::cin >> input)
   {
     if (!input.empty())
@@ -68,12 +69,14 @@ int main()
         }
         else if (input == "RECTANGLE")
         {
+          shapesAdded = true;
           double width = 0.0, height = 0.0, x = 0.0, y = 0.0;
           std::cin >> width >> height >> x >> y;
 
           if (std::cin.fail())
           {
             std::cerr << "Error: Invalid rectangle parameters\n";
+            shapesAdded = false;
             return 1;
           }
 
@@ -81,12 +84,14 @@ int main()
         }
         else if (input == "CONCAVE")
         {
+          shapesAdded = true;
           double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, x3 = 0.0, y3 = 0.0, x4 = 0.0, y4 = 0.0;
           std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> x4 >> y4;
 
           if (std::cin.fail())
           {
             std::cerr << "Error: Invalid concave parameters\n";
+            shapesAdded = false;
             return 1;
           }
 
@@ -94,12 +99,14 @@ int main()
         }
         else if (input == "PARALLELOGRAM")
         {
+          shapesAdded = true;
           double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, x3 = 0.0, y3 = 0.0;
           std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
 
           if (std::cin.fail())
           {
             std::cerr << "Error: Invalid parallelogram parameters\n";
+            shapesAdded = false;
             return 1;
           }
 
@@ -124,9 +131,9 @@ int main()
       }
     }
   }
-  if (!scaleCommandFound)
+  if (!scaleCommandFound || !shapesAdded)
   {
-    std::cerr << "No SCALE command\n";
+    std::cerr << "No SCALE command or nothing to scale\n";
     return 1;
   }
 
