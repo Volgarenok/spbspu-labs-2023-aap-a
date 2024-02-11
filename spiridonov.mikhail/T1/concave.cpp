@@ -68,7 +68,7 @@ namespace spiridonov
     move(newPos);
   }
 
-  void Concave::scale(double coefficient)
+  void Concave::scale(double coefficient, const point_t& scaleCenter)
   {
     if (coefficient <= 0)
     {

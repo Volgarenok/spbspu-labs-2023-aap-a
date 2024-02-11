@@ -42,7 +42,7 @@ int main()
                 << " " << shape->getFrameRect().pos.y + shape->getFrameRect().height / 2 << "\n";
             }
           }
-          composite.scale(scaleCoefficient);
+          composite.scale(scaleCoefficient, {centerX, centerY});
 
           std::cout << "After scaling:\n";
           for (size_t i = 0; i < composite.getShapesCount(); ++i)

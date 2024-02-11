@@ -25,7 +25,7 @@ namespace spiridonov
     frameRect_.pos.y += y;
   }
 
-  void Rectangle::scale(double coefficient)
+  void Rectangle::scale(double coefficient, const point_t& center)
   {
     if (coefficient <= 0)
     {

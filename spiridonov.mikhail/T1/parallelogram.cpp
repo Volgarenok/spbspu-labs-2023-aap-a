@@ -51,7 +51,7 @@ namespace spiridonov
     move(newPos);
   }
 
-  void Parallelogram::scale(double coefficient)
+  void Parallelogram::scale(double coefficient, const point_t& scaleCenter)
   {
     if (coefficient <= 0)
     {
