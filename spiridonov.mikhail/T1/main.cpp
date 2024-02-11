@@ -27,7 +27,7 @@ int main()
           double centerX = 0.0, centerY = 0.0, scaleCoefficient = 0.0;
           std::cin >> centerX >> centerY >> scaleCoefficient;
 
-          if (std::cin.fail())
+          if (std::cin.fail() || scaleCoefficient < 0)
           {
             std::cerr << "Error: Invalid scale parameters\n";
             return 1;
