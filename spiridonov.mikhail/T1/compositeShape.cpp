@@ -1,4 +1,5 @@
 #include "compositeShape.hpp"
+#include "rectangle.hpp"
 #include <algorithm>
 #include <stdexcept>
 
@@ -101,7 +102,15 @@ namespace spiridonov
   {
     for (size_t i = 0; i < shapes; ++i)
     {
-      shapePtrs[i]->scale(coefficient);
+      Rectangle* rectangle = dynamic_cast<Rectangle*>(shapePtrs[i]);
+      if (rectangle != nullptr)
+      {
+        rectangle->scale(coefficient);
+      }
+      else
+      {
+        shapePtrs[i]->scale(coefficient);
+      }
     }
   }
 
