@@ -102,15 +102,7 @@ namespace spiridonov
   {
     for (size_t i = 0; i < shapes; ++i)
     {
-      Rectangle* rectangle = dynamic_cast<Rectangle*>(shapePtrs[i]);
-      if (rectangle != nullptr)
-      {
-        rectangle->scale(coefficient);
-      }
-      else
-      {
-        shapePtrs[i]->scale(coefficient);
-      }
+      shapePtrs[i]->scale(coefficient);
     }
   }
 
