@@ -29,10 +29,22 @@ namespace spiridonov
   {
     if (coefficient <= 0)
     {
-      throw std::invalid_argument("Error: invalid coefficient to scale");
+        throw std::invalid_argument("Error: invalid coefficient to scale");
     }
-    frameRect_.height *= coefficient;
-    frameRect_.width *= coefficient;
+
+    double widthCenter = frameRect_.width / 2.0;
+    double heightCenter = frameRect_.height / 2.0;
+
+    double newWidth = frameRect_.width * coefficient;
+    double newHeight = frameRect_.height * coefficient;
+
+    double dx = (frameRect_.width - newWidth) / 2.0;
+    double dy = (frameRect_.height - newHeight) / 2.0;
+
+    frameRect_.width = newWidth;
+    frameRect_.height = newHeight;
+    frameRect_.pos.x += dx - widthCenter * (coefficient - 1);
+    frameRect_.pos.y += dy - heightCenter * (coefficient - 1);
   }
 
 }
