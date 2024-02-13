@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <iomanip>
 #include "base-types.hpp"
 #include "rectangle.hpp"
 #include "shape.hpp"
@@ -35,7 +36,7 @@ int main()
             std::cerr << "Error: Invalid scale command or scale coefficient\n";
             return 1;
           }
-          std::cout.precision(2);
+          std::cout << std::fixed << std::setprecision(1);
           for (size_t i = 0; i < composite.getShapesCount(); ++i)
           {
             Shape* shape = composite.getShape(i);
@@ -136,7 +137,7 @@ int main()
 
   if (invalidShapeDetected)
   {
-    std::cerr << "Error: Invalid shape detected\n";
+    std::cout << "Invalid shape detected\n";
     return 0;
   }
 
