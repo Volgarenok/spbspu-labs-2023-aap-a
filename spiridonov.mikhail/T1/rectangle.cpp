@@ -51,16 +51,19 @@ namespace spiridonov
   {
     if (coefficient <= 0)
     {
-      std::cerr << "Error: Invalid scale coefficient\n";
-      return;
+        std::cerr << "Error: Invalid scale coefficient\n";
+        return;
     }
 
-    point_t center = { (left_ + right_) / 2, (bottom_ + top_) / 2 };
+    double centerX = (left_ + right_) / 2;
+    double centerY = (bottom_ + top_) / 2;
 
-    left_ = center.x + (left_ - center.x) * coefficient;
-    right_ = center.x + (right_ - center.x) * coefficient;
-    top_ = center.y + (top_ - center.y) * coefficient;
-    bottom_ = center.y + (bottom_ - center.y) * coefficient;
+    double newWidth = (right_ - left_) * coefficient;
+    double newHeight = (top_ - bottom_) * coefficient;
+
+    left_ = centerX - newWidth / 2;
+    right_ = centerX + newWidth / 2;
+    bottom_ = centerY - newHeight / 2;
+    top_ = centerY + newHeight / 2;
   }
-
 }

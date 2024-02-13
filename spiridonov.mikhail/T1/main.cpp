@@ -26,6 +26,11 @@ int main()
     {
       try
       {
+        if (!(input == "SCALE" || input == "MOVE" || input == "RECTANGLE" || input == "CONCAVE" || input == "PARALLELOGRAM" || input == "END"))
+        {
+          std::cerr << "Error input\n";
+          return 1;
+        }
         if (input == "SCALE")
         {
           scaleCommandFound = true;
@@ -136,6 +141,7 @@ int main()
       catch (const std::invalid_argument& e)
       {
         std::cerr << "Error: " << e.what() << "\n";
+        return 1;
       }
     }
   }
@@ -143,7 +149,7 @@ int main()
   if (invalidShapeDetected)
   {
     std::cout << "Invalid shape detected\n";
-    return 0;
+    return 1;
   }
 
   if (!scaleCommandFound && shapesAdded)
