@@ -3,7 +3,6 @@
 
 namespace spiridonov
 {
-
   double Rectangle::getArea() const
   {
     return frameRect_.height * frameRect_.width;
@@ -29,22 +28,23 @@ namespace spiridonov
   {
     if (coefficient <= 0)
     {
-        throw std::invalid_argument("Error: invalid coefficient to scale");
+      throw std::invalid_argument("Error: invalid coefficient to scale");
     }
 
-    double widthCenter = frameRect_.width / 2.0;
-    double heightCenter = frameRect_.height / 2.0;
+    double centerX = frameRect_.pos.x;
+    double centerY = frameRect_.pos.y;
 
     double newWidth = frameRect_.width * coefficient;
     double newHeight = frameRect_.height * coefficient;
 
-    double dx = (frameRect_.width - newWidth) / 2.0;
-    double dy = (frameRect_.height - newHeight) / 2.0;
+    double deltaX = (newWidth - frameRect_.width) / 2;
+    double deltaY = (newHeight - frameRect_.height) / 2;
 
     frameRect_.width = newWidth;
     frameRect_.height = newHeight;
-    frameRect_.pos.x += dx - widthCenter * (coefficient - 1);
-    frameRect_.pos.y += dy - heightCenter * (coefficient - 1);
+
+    frameRect_.pos.x = centerX - deltaX;
+    frameRect_.pos.y = centerY + deltaY;
   }
 
 }

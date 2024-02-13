@@ -34,29 +34,14 @@ int main()
             std::cerr << "Error scale coefficient\n";
             return 1;
           }
-
-          if (!std::cin.fail() && scaleCoefficient >= 0)
-          {
-            std::cout << "Before scaling:\n";
-            for (size_t i = 0; i < composite.getShapesCount(); ++i)
-            {
-              Shape* shape = composite.getShape(i);
-              std::cout << shape->getArea() << " " << shape->getFrameRect().pos.x - shape->getFrameRect().width / 2
-                << " " << shape->getFrameRect().pos.y - shape->getFrameRect().height / 2
-                << " " << shape->getFrameRect().pos.x + shape->getFrameRect().width / 2
-                << " " << shape->getFrameRect().pos.y + shape->getFrameRect().height / 2 << "\n";
-            }
-          }
           composite.scale(scaleCoefficient);
-
-          std::cout << "After scaling:\n";
           for (size_t i = 0; i < composite.getShapesCount(); ++i)
           {
             Shape* shape = composite.getShape(i);
-            std::cout << shape->getArea() << " " << shape->getFrameRect().pos.x - shape->getFrameRect().width / 2
-              << " " << shape->getFrameRect().pos.y - shape->getFrameRect().height / 2
-              << " " << shape->getFrameRect().pos.x + shape->getFrameRect().width / 2
-              << " " << shape->getFrameRect().pos.y + shape->getFrameRect().height / 2 << "\n";
+            std::cout << shape->getArea() << " " << shape->getFrameRect().pos.x << " "
+              << shape->getFrameRect().pos.y << " "
+              << shape->getFrameRect().width << " "
+              << shape->getFrameRect().height << "\n";
           }
         }
         else if (input == "MOVE")

@@ -15,8 +15,8 @@ namespace spiridonov
       arrayOfPoints{ {x1, y1}, {x2, y2}, {x3, y3} }
     {}
     Parallelogram(rectangle_t rect);
-    double getArea() const;
-    rectangle_t getFrameRect() const;
+    double getArea() const override;
+    rectangle_t getFrameRect() const override;
     void move(point_t pos) override;
     void move(double x, double y) override;
     void scale(double coefficient) override;
