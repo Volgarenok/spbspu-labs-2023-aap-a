@@ -5,23 +5,9 @@
 
 namespace spiridonov
 {
-  bool isQuadrilateralConcave(const point_t& p1, const point_t& p2, const point_t& p3, const point_t& p4)
-  {
-    double sign1 = (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y);
-    double sign2 = (p2.x - p3.x) * (p4.y - p3.y) - (p4.x - p3.x) * (p2.y - p3.y);
-    double sign3 = (p4.x - p3.x) * (p1.y - p3.y) - (p1.x - p3.x) * (p4.y - p3.y);
-
-    return (sign1 * sign2 > 0) && (sign2 * sign3 > 0);
-  }
-
   Concave::Concave(point_t p1, point_t p2, point_t p3, point_t p4) :
     arrayOfPoints{ p1, p2, p3, p4 }
-  {
-    if (!isQuadrilateralConcave(p1, p2, p3, p4))
-    {
-      throw std::invalid_argument("Error: Non-convex quadrilateral is not supported.");
-    }
-  }
+  {}
 
   double Concave::getArea() const
   {
