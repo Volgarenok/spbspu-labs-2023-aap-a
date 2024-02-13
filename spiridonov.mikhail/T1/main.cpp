@@ -56,11 +56,6 @@ int main()
 
           composite.scale(scaleCoefficient);
 
-          for (size_t i = 0; i < composite.getShapesCount(); ++i)
-          {
-            Shape* shape = composite.getShape(i);
-            rectangle_t frameRect = shape->getFrameRect();
-          }
         }
         else if (input == "MOVE")
         {
