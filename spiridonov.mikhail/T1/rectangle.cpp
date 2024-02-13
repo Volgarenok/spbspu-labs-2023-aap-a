@@ -33,6 +33,10 @@ namespace spiridonov
   {
     double dx = pos.x - (left_ + right_) / 2;
     double dy = pos.y - (bottom_ + top_) / 2;
+    left_ += dx;
+    right_ += dx;
+    top_ += dy;
+    bottom_ += dy;
   }
 
   void Rectangle::move(double dx, double dy)
