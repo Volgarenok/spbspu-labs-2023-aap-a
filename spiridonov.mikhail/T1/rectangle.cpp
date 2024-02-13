@@ -1,6 +1,6 @@
 #include "rectangle.hpp"
-#include <stdexcept>
 #include <iostream>
+#include <stdexcept>
 
 namespace spiridonov
 {
@@ -12,7 +12,7 @@ namespace spiridonov
   {
     if (left >= right || bottom >= top)
     {
-      throw std::invalid_argument("Invalid rectangle coordinates");
+      throw std::invalid_argument("Invalid rectangle parameters");
     }
   }
 

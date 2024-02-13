@@ -26,11 +26,6 @@ int main()
     {
       try
       {
-        if (!(input == "SCALE" || input == "MOVE" || input == "RECTANGLE" || input == "CONCAVE" || input == "PARALLELOGRAM" || input == "END"))
-        {
-          std::cout << "Undefined function detected\n";
-          return 0;
-        }
         if (input == "SCALE")
         {
           scaleCommandFound = true;
@@ -51,11 +46,6 @@ int main()
           {
             Shape* shape = composite.getShape(i);
             rectangle_t frameRect = shape->getFrameRect();
-            std::cout << shape->getArea() << " "
-              << frameRect.pos.x - frameRect.width / 2 << " "
-              << frameRect.pos.y - frameRect.height / 2 << " "
-              << frameRect.pos.x + frameRect.width / 2 << " "
-              << frameRect.pos.y + frameRect.height / 2 << "\n";
           }
 
           composite.scale(scaleCoefficient);
@@ -64,11 +54,6 @@ int main()
           {
             Shape* shape = composite.getShape(i);
             rectangle_t frameRect = shape->getFrameRect();
-            std::cout << shape->getArea() << " "
-              << frameRect.pos.x - frameRect.width / 2 << " "
-              << frameRect.pos.y - frameRect.height / 2 << " "
-              << frameRect.pos.x + frameRect.width / 2 << " "
-              << frameRect.pos.y + frameRect.height / 2 << "\n";
           }
         }
         else if (input == "MOVE")
@@ -90,11 +75,10 @@ int main()
           double left = 0.0, bottom = 0.0, right = 0.0, top = 0.0;
           std::cin >> left >> bottom >> right >> top;
 
-          if (std::cin.fail() || left >= right || bottom >= top)
+          if (std::cin.fail())
           {
-            std::cerr << "Error: Invalid rectangle parameters\n";
+            invalidShapeDetected = true;
             shapesAdded = false;
-            return 1;
           }
 
           composite.addShape(new Rectangle(left, bottom, right, top));
@@ -107,9 +91,8 @@ int main()
 
           if (std::cin.fail())
           {
-            std::cerr << "Error: Invalid concave parameters\n";
+            invalidShapeDetected = true;
             shapesAdded = false;
-            return 1;
           }
 
           composite.addShape(new Concave({ x1, y1 }, { x2, y2 }, { x3, y3 }, { x4, y4 }));
@@ -122,9 +105,8 @@ int main()
 
           if (std::cin.fail())
           {
-            std::cerr << "Error: Invalid parallelogram parameters\n";
+            invalidShapeDetected = true;
             shapesAdded = false;
-            return 1;
           }
 
           composite.addShape(new Parallelogram(x1, x2, x3, y1, y2, y3));
@@ -148,8 +130,25 @@ int main()
 
   if (invalidShapeDetected)
   {
-    std::cout << "Invalid shape detected\n";
-    return 1;
+    for (size_t i = 0; i < composite.getShapesCount(); ++i)
+    {
+      Shape* shape = composite.getShape(i);
+      try
+      {
+        double area = shape->getArea();
+        rectangle_t frameRect = shape->getFrameRect();
+        std::cout << area << " "
+          << frameRect.pos.x - frameRect.width / 2 << " "
+          << frameRect.pos.y - frameRect.height / 2 << " "
+          << frameRect.pos.x + frameRect.width / 2 << " "
+          << frameRect.pos.y + frameRect.height / 2 << "\n";
+       invalidShapeDetected = true;
+      }
+      catch (...)
+      {
+        continue;
+      }
+    }
   }
 
   if (!scaleCommandFound && shapesAdded)
