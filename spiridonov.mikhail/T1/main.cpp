@@ -33,15 +33,15 @@ int main()
           std::cin >> centerX >> centerY >> scaleCoefficient;
           if (std::cin.fail() || scaleCoefficient <= 0)
           {
-            throw std::invalid_argument("Invalid scale command or scale coefficient");
+            std::cerr << "Error: Invalid scale command or scale coefficient\n";
+            return 1;
           }
           if (composite.getShapesCount() == 0)
           {
-            throw std::logic_error("Nothing to scale");
+            std::cerr << "Error: Nothing to scale\n";
+            return 1;
           }
-
           std::cout << std::fixed << std::setprecision(1);
-
           for (size_t i = 0; i < composite.getShapesCount(); ++i)
           {
             Shape* shape = composite.getShape(i);
