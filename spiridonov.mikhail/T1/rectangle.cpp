@@ -23,17 +23,16 @@ namespace spiridonov
 
   rectangle_t Rectangle::getFrameRect() const
   {
-    return { (left_ + right_) / 2, (bottom_ + top_) / 2, right_ - left_, top_ - bottom_ };
+    double width = right_ - left_;
+    double height = top_ - bottom_;
+    point_t pos = { left_ + width / 2, bottom_ + height / 2 };
+    return { width, height, pos };
   }
 
   void Rectangle::move(point_t pos)
   {
     double dx = pos.x - (left_ + right_) / 2;
     double dy = pos.y - (bottom_ + top_) / 2;
-    left_ += dx;
-    right_ += dx;
-    top_ += dy;
-    bottom_ += dy;
   }
 
   void Rectangle::move(double dx, double dy)
@@ -52,15 +51,12 @@ namespace spiridonov
       return;
     }
 
-    double newWidth = (right_ - left_) * coefficient;
-    double newHeight = (top_ - bottom_) * coefficient;
+    point_t center = { (left_ + right_) / 2, (bottom_ + top_) / 2 };
 
-    double centerX = (left_ + right_) / 2;
-    double centerY = (top_ + bottom_) / 2;
-
-    left_ = centerX - newWidth / 2;
-    right_ = centerX + newWidth / 2;
-    top_ = centerY + newHeight / 2;
-    bottom_ = centerY - newHeight / 2;
+    left_ = center.x + (left_ - center.x) * coefficient;
+    right_ = center.x + (right_ - center.x) * coefficient;
+    top_ = center.y + (top_ - center.y) * coefficient;
+    bottom_ = center.y + (bottom_ - center.y) * coefficient;
   }
+
 }

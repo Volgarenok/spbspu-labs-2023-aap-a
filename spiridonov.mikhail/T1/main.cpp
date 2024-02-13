@@ -35,7 +35,7 @@ int main()
             std::cerr << "Error: Invalid scale command or scale coefficient\n";
             return 1;
           }
-          std::cout.precision(1);
+          std::cout.precision(2);
           for (size_t i = 0; i < composite.getShapesCount(); ++i)
           {
             Shape* shape = composite.getShape(i);
