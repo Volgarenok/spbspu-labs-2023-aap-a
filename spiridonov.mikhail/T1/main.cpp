@@ -33,19 +33,25 @@ int main()
           std::cin >> centerX >> centerY >> scaleCoefficient;
           if (std::cin.fail() || scaleCoefficient <= 0)
           {
-            std::cerr << "Error: Invalid scale command or scale coefficient\n";
-            return 1;
+            throw std::invalid_argument("Invalid scale command or scale coefficient");
           }
           if (composite.getShapesCount() == 0)
           {
-            std::cerr << "Error: Nothing to scale\n";
-            return 1;
+            throw std::logic_error("Nothing to scale");
           }
+
           std::cout << std::fixed << std::setprecision(1);
+
           for (size_t i = 0; i < composite.getShapesCount(); ++i)
           {
             Shape* shape = composite.getShape(i);
+            double area = shape->getArea();
             rectangle_t frameRect = shape->getFrameRect();
+            std::cout << area << " "
+              << frameRect.pos.x - frameRect.width / 2 << " "
+              << frameRect.pos.y - frameRect.height / 2 << " "
+              << frameRect.pos.x + frameRect.width / 2 << " "
+              << frameRect.pos.y + frameRect.height / 2 << "\n";
           }
 
           composite.scale(scaleCoefficient);
@@ -142,11 +148,11 @@ int main()
           << frameRect.pos.y - frameRect.height / 2 << " "
           << frameRect.pos.x + frameRect.width / 2 << " "
           << frameRect.pos.y + frameRect.height / 2 << "\n";
-       invalidShapeDetected = true;
+        invalidShapeDetected = true;
       }
-      catch (...)
+      catch (const std::exception& e)
       {
-        continue;
+        std::cerr << "Error processing shape: " << e.what() << "\n";
       }
     }
   }
