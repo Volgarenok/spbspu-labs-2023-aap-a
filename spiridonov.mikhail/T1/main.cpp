@@ -28,8 +28,8 @@ int main()
       {
         if (!(input == "SCALE" || input == "MOVE" || input == "RECTANGLE" || input == "CONCAVE" || input == "PARALLELOGRAM" || input == "END"))
         {
-          std::cerr << "Error input\n";
-          return 1;
+          std::cout << "Undefined function detected\n";
+          return 0;
         }
         if (input == "SCALE")
         {

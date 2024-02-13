@@ -51,8 +51,8 @@ namespace spiridonov
   {
     if (coefficient <= 0)
     {
-        std::cerr << "Error: Invalid scale coefficient\n";
-        return;
+      std::cerr << "Error: Invalid scale coefficient\n";
+      return;
     }
 
     double centerX = (left_ + right_) / 2;
