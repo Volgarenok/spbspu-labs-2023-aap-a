@@ -36,6 +36,11 @@ int main()
             std::cerr << "Error: Invalid scale command or scale coefficient\n";
             return 1;
           }
+          if (composite.getShapesCount() == 0)
+          {
+            std::cerr << "Error: Nothing to scale\n";
+            return 1;
+          }
           std::cout << std::fixed << std::setprecision(1);
           for (size_t i = 0; i < composite.getShapesCount(); ++i)
           {
