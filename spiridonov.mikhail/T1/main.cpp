@@ -12,14 +12,11 @@
 int main()
 {
   using namespace spiridonov;
-
   CompositeShape composite;
-
   std::string input;
   bool scaleCommandFound = false;
   bool shapesAdded = false;
   bool invalidShapeDetected = false;
-
   while (std::cin >> input)
   {
     if (!input.empty())
@@ -45,29 +42,34 @@ int main()
           for (size_t i = 0; i < composite.getShapesCount(); ++i)
           {
             Shape* shape = composite.getShape(i);
-            double area = shape->getArea();
             rectangle_t frameRect = shape->getFrameRect();
-            std::cout << area << " "
+            std::cout << shape->getArea() << " "
               << frameRect.pos.x - frameRect.width / 2 << " "
               << frameRect.pos.y - frameRect.height / 2 << " "
               << frameRect.pos.x + frameRect.width / 2 << " "
               << frameRect.pos.y + frameRect.height / 2 << "\n";
           }
-
           composite.scale(scaleCoefficient);
-
+          for (size_t i = 0; i < composite.getShapesCount(); ++i)
+          {
+            Shape* shape = composite.getShape(i);
+            rectangle_t frameRect = shape->getFrameRect();
+            std::cout << shape->getArea() << " "
+              << frameRect.pos.x - frameRect.width / 2 << " "
+              << frameRect.pos.y - frameRect.height / 2 << " "
+              << frameRect.pos.x + frameRect.width / 2 << " "
+              << frameRect.pos.y + frameRect.height / 2 << "\n";
+          }
         }
         else if (input == "MOVE")
         {
           double dx = 0.0, dy = 0.0;
           std::cin >> dx >> dy;
-
           if (std::cin.fail())
           {
             std::cerr << "Error: Invalid move parameters\n";
             return 1;
           }
-
           composite.move(dx, dy);
         }
         else if (input == "RECTANGLE")
@@ -75,13 +77,12 @@ int main()
           shapesAdded = true;
           double left = 0.0, bottom = 0.0, right = 0.0, top = 0.0;
           std::cin >> left >> bottom >> right >> top;
-
-          if (std::cin.fail())
+          if (std::cin.fail() || left >= right || bottom >= top)
           {
-            invalidShapeDetected = true;
+            std::cerr << "Error: Invalid rectangle parameters\n";
             shapesAdded = false;
+            return 1;
           }
-
           composite.addShape(new Rectangle(left, bottom, right, top));
         }
         else if (input == "CONCAVE")
@@ -89,13 +90,12 @@ int main()
           shapesAdded = true;
           double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, x3 = 0.0, y3 = 0.0, x4 = 0.0, y4 = 0.0;
           std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> x4 >> y4;
-
           if (std::cin.fail())
           {
-            invalidShapeDetected = true;
+            std::cerr << "Error: Invalid concave parameters\n";
             shapesAdded = false;
+            return 1;
           }
-
           composite.addShape(new Concave({ x1, y1 }, { x2, y2 }, { x3, y3 }, { x4, y4 }));
         }
         else if (input == "PARALLELOGRAM")
@@ -103,13 +103,12 @@ int main()
           shapesAdded = true;
           double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, x3 = 0.0, y3 = 0.0;
           std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
-
           if (std::cin.fail())
           {
-            invalidShapeDetected = true;
+            std::cerr << "Error: Invalid parallelogram parameters\n";
             shapesAdded = false;
+            return 1;
           }
-
           composite.addShape(new Parallelogram(x1, x2, x3, y1, y2, y3));
         }
         else if (input == "END")
@@ -128,35 +127,15 @@ int main()
       }
     }
   }
-
   if (invalidShapeDetected)
   {
-    for (size_t i = 0; i < composite.getShapesCount(); ++i)
-    {
-      Shape* shape = composite.getShape(i);
-      try
-      {
-        double area = shape->getArea();
-        rectangle_t frameRect = shape->getFrameRect();
-        std::cout << area << " "
-          << frameRect.pos.x - frameRect.width / 2 << " "
-          << frameRect.pos.y - frameRect.height / 2 << " "
-          << frameRect.pos.x + frameRect.width / 2 << " "
-          << frameRect.pos.y + frameRect.height / 2 << "\n";
-        invalidShapeDetected = true;
-      }
-      catch (const std::exception& e)
-      {
-        std::cerr << "Error processing shape: " << e.what() << "\n";
-      }
-    }
+    std::cout << "Invalid shape detected\n";
+    return 1;
   }
-
   if (!scaleCommandFound && shapesAdded)
   {
     std::cerr << "Error: Scaling command not found\n";
     return 1;
   }
-
   return 0;
 }
