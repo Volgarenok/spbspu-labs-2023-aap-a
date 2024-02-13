@@ -1,50 +1,66 @@
-#include "rectangle.hpp"
+include "rectangle.hpp"
 #include <stdexcept>
+#include <iostream>
 
 namespace spiridonov
 {
+  Rectangle::Rectangle() : left_(0.0), bottom_(0.0), right_(0.0), top_(0.0)
+  {}
+
+  Rectangle::Rectangle(double left, double bottom, double right, double top) :
+    left_(left), bottom_(bottom), right_(right), top_(top)
+  {
+    if (left >= right || bottom >= top)
+    {
+      throw std::invalid_argument("Invalid rectangle coordinates");
+    }
+  }
+
   double Rectangle::getArea() const
   {
-    return frameRect_.height * frameRect_.width;
+    return (right_ - left_) * (top_ - bottom_);
   }
 
   rectangle_t Rectangle::getFrameRect() const
   {
-    return frameRect_;
+    return { (left_ + right_) / 2, (bottom_ + top_) / 2, right_ - left_, top_ - bottom_ };
   }
 
   void Rectangle::move(point_t pos)
   {
-    frameRect_.pos = pos;
+    double dx = pos.x - (left_ + right_) / 2;
+    double dy = pos.y - (bottom_ + top_) / 2;
+    left_ += dx;
+    right_ += dx;
+    top_ += dy;
+    bottom_ += dy;
   }
 
-  void Rectangle::move(double x, double y)
+  void Rectangle::move(double dx, double dy)
   {
-    frameRect_.pos.x += x;
-    frameRect_.pos.y += y;
+    left_ += dx;
+    right_ += dx;
+    top_ += dy;
+    bottom_ += dy;
   }
 
   void Rectangle::scale(double coefficient)
   {
     if (coefficient <= 0)
     {
-      throw std::invalid_argument("Error: invalid coefficient to scale");
+      std::cerr << "Error: Invalid scale coefficient\n";
+      return;
     }
 
-    double centerX = frameRect_.pos.x;
-    double centerY = frameRect_.pos.y;
+    double newWidth = (right_ - left_) * coefficient;
+    double newHeight = (top_ - bottom_) * coefficient;
 
-    double newWidth = frameRect_.width * coefficient;
-    double newHeight = frameRect_.height * coefficient;
+    double centerX = (left_ + right_) / 2;
+    double centerY = (top_ + bottom_) / 2;
 
-    double deltaX = (newWidth - frameRect_.width) / 2;
-    double deltaY = (newHeight - frameRect_.height) / 2;
-
-    frameRect_.width = newWidth;
-    frameRect_.height = newHeight;
-
-    frameRect_.pos.x = centerX - deltaX;
-    frameRect_.pos.y = centerY + deltaY;
+    left_ = centerX - newWidth / 2;
+    right_ = centerX + newWidth / 2;
+    top_ = centerY + newHeight / 2;
+    bottom_ = centerY - newHeight / 2;
   }
-
 }

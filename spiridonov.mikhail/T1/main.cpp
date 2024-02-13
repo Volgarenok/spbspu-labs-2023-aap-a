@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <limits>
 #include <stdexcept>
 #include "base-types.hpp"
 #include "rectangle.hpp"
@@ -18,6 +17,8 @@ int main()
   std::string input;
   bool scaleCommandFound = false;
   bool shapesAdded = false;
+  bool invalidShapeDetected = false;
+
   while (std::cin >> input)
   {
     if (!input.empty())
@@ -29,19 +30,34 @@ int main()
           scaleCommandFound = true;
           double centerX = 0.0, centerY = 0.0, scaleCoefficient = 0.0;
           std::cin >> centerX >> centerY >> scaleCoefficient;
-          if (scaleCoefficient < 0)
+          if (std::cin.fail() || scaleCoefficient <= 0)
           {
-            std::cerr << "Error scale coefficient\n";
+            std::cerr << "Error: Invalid scale command or scale coefficient\n";
             return 1;
           }
-          composite.scale(scaleCoefficient);
+          std::cout.precision(1);
           for (size_t i = 0; i < composite.getShapesCount(); ++i)
           {
             Shape* shape = composite.getShape(i);
-            std::cout << shape->getArea() << " " << shape->getFrameRect().pos.x << " "
-              << shape->getFrameRect().pos.y << " "
-              << shape->getFrameRect().width << " "
-              << shape->getFrameRect().height << "\n";
+            rectangle_t frameRect = shape->getFrameRect();
+            std::cout << shape->getArea() << " "
+              << frameRect.pos.x - frameRect.width / 2 << " "
+              << frameRect.pos.y - frameRect.height / 2 << " "
+              << frameRect.pos.x + frameRect.width / 2 << " "
+              << frameRect.pos.y + frameRect.height / 2 << "\n";
+          }
+
+          composite.scale(scaleCoefficient);
+
+          for (size_t i = 0; i < composite.getShapesCount(); ++i)
+          {
+            Shape* shape = composite.getShape(i);
+            rectangle_t frameRect = shape->getFrameRect();
+            std::cout << shape->getArea() << " "
+              << frameRect.pos.x - frameRect.width / 2 << " "
+              << frameRect.pos.y - frameRect.height / 2 << " "
+              << frameRect.pos.x + frameRect.width / 2 << " "
+              << frameRect.pos.y + frameRect.height / 2 << "\n";
           }
         }
         else if (input == "MOVE")
@@ -60,17 +76,17 @@ int main()
         else if (input == "RECTANGLE")
         {
           shapesAdded = true;
-          double width = 0.0, height = 0.0, x = 0.0, y = 0.0;
-          std::cin >> width >> height >> x >> y;
+          double left = 0.0, bottom = 0.0, right = 0.0, top = 0.0;
+          std::cin >> left >> bottom >> right >> top;
 
-          if (std::cin.fail())
+          if (std::cin.fail() || left >= right || bottom >= top)
           {
             std::cerr << "Error: Invalid rectangle parameters\n";
             shapesAdded = false;
             return 1;
           }
 
-          composite.addShape(new Rectangle(width, height, x, y));
+          composite.addShape(new Rectangle(left, bottom, right, top));
         }
         else if (input == "CONCAVE")
         {
@@ -101,7 +117,6 @@ int main()
           }
 
           composite.addShape(new Parallelogram(x1, x2, x3, y1, y2, y3));
-
         }
         else if (input == "END")
         {
@@ -109,10 +124,7 @@ int main()
         }
         else
         {
-          std::cerr << "Error: Unknown command\n";
-
-          std::cin.clear();
-          std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+          invalidShapeDetected = true;
         }
       }
       catch (const std::invalid_argument& e)
@@ -121,9 +133,16 @@ int main()
       }
     }
   }
-  if (!scaleCommandFound || !shapesAdded)
+
+  if (invalidShapeDetected)
   {
-    std::cerr << "No SCALE command or nothing to scale\n";
+    std::cerr << "Error: Invalid shape detected\n";
+    return 0;
+  }
+
+  if (!scaleCommandFound && shapesAdded)
+  {
+    std::cerr << "Error: Scaling command not found\n";
     return 1;
   }
 

@@ -5,25 +5,23 @@
 
 namespace spiridonov
 {
-
   class Rectangle : public Shape
   {
   public:
-    Rectangle() : frameRect_{ 0.0, 0.0, {0.0, 0.0} }
-    {}
-    Rectangle(double width, double height, double x, double y) :
-      frameRect_{ width, height, {x, y} }
-    {}
+    Rectangle();
+    Rectangle(double left, double bottom, double right, double top);
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void move(point_t pos) override;
-    void move(double x, double y) override;
+    void move(double dx, double dy) override;
     void scale(double coefficient) override;
-    ~Rectangle() = default;
-  private:
-    rectangle_t frameRect_;
-  };
 
+  private:
+    double left_;
+    double bottom_;
+    double right_;
+    double top_;
+  };
 }
 
 #endif
