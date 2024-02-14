@@ -13,7 +13,7 @@ int main()
 {
   using namespace spiridonov;
   CompositeShape composite;
-  std::string input;
+  std::string input = "";
   bool scaleCommandFound = false;
   bool shapesAdded = false;
   bool invalidShapeDetected = false;
@@ -57,8 +57,8 @@ int main()
             std::cout << shape->getArea() << " "
               << frameRect.pos.x - frameRect.width / 2 << " "
               << frameRect.pos.y - frameRect.height / 2 << " "
-              << frameRect.pos.x + frameRect.width / 2 + 1 << " "
-              << frameRect.pos.y + frameRect.height / 2 + 1 << "\n";
+              << frameRect.pos.x + frameRect.width / 2 << " "
+              << frameRect.pos.y + frameRect.height / 2 << "\n";
           }
         }
         else if (input == "MOVE")
@@ -79,7 +79,7 @@ int main()
           std::cin >> left >> bottom >> right >> top;
           if (std::cin.fail() || left >= right || bottom >= top)
           {
-            std::cerr << "Error: Invalid rectangle parameters\n";
+            invalidShapeDetected = true;
             shapesAdded = false;
             return 1;
           }
@@ -114,10 +114,6 @@ int main()
         else if (input == "END")
         {
           break;
-        }
-        else
-        {
-          invalidShapeDetected = true;
         }
       }
       catch (const std::invalid_argument& e)
