@@ -1,61 +1,57 @@
 #include "rectangle.hpp"
+#include "base-types.hpp"
 #include <stdexcept>
-#include <iostream>
 
 namespace spiridonov
 {
-  Rectangle::Rectangle() : left_(0.0), bottom_(0.0), right_(0.0), top_(0.0)
+  Rectangle::Rectangle(const point_t& p1, const point_t& p2) :
+    bottomLeft_(p1),
+    topRight_(p2)
   {}
-  Rectangle::Rectangle(double left, double bottom, double right, double top) :
-    left_(left), bottom_(bottom), right_(right), top_(top)
-  {
-    if (left >= right || bottom >= top)
-    {
-      throw std::invalid_argument("Invalid rectangle coordinates");
-    }
-  }
+
   double Rectangle::getArea() const
   {
-    return (right_ - left_) * (top_ - bottom_);
+    return (topRight_.x - bottomLeft_.x) * (topRight_.y - bottomLeft_.y);
   }
+
   rectangle_t Rectangle::getFrameRect() const
   {
-    double width = right_ - left_;
-    double height = top_ - bottom_;
-    point_t pos = { left_ + width / 2, bottom_ + height / 2 };
+    double width = topRight_.x - bottomLeft_.x;
+    double height = topRight_.y - bottomLeft_.y;
+    point_t pos = { (topRight_.x + bottomLeft_.x) / 2, (topRight_.y + bottomLeft_.y) / 2 };
     return { width, height, pos };
   }
+
   void Rectangle::move(point_t pos)
   {
-    double dx = pos.x - (left_ + right_) / 2;
-    double dy = pos.y - (bottom_ + top_) / 2;
-    left_ += dx;
-    right_ += dx;
-    top_ += dy;
-    bottom_ += dy;
+    double width = topRight_.x - bottomLeft_.x;
+    double height = topRight_.y - bottomLeft_.y;
+    topRight_ = { pos.x + (width / 2), pos.y + (height / 2) };
+    bottomLeft_ = { pos.x - (width / 2), pos.y - (height / 2) };
   }
-  void Rectangle::move(double dx, double dy)
+
+  void Rectangle::move(double x, double y)
   {
-    left_ += dx;
-    right_ += dx;
-    top_ += dy;
-    bottom_ += dy;
+    topRight_.x += x;
+    bottomLeft_.x += x;
+    topRight_.y += y;
+    bottomLeft_.y += y;
   }
+
   void Rectangle::scale(double coefficient)
   {
-    if (coefficient <= 0)
+    if (coefficient <= 0.0)
     {
-      std::cerr << "Error: Invalid scale coefficient\n";
-      return;
+      throw std::invalid_argument("Invalid coefficient");
     }
-
-    double centerX = (left_ + right_) / 2;
-    double centerY = (bottom_ + top_) / 2;
-    double newWidth = (right_ - left_) * coefficient;
-    double newHeight = (top_ - bottom_) * coefficient;
-    left_ = centerX - newWidth / 2;
-    right_ = centerX + newWidth / 2;
-    bottom_ = centerY - newHeight / 2;
-    top_ = centerY + newHeight / 2;
+    else
+    {
+      double width = (topRight_.x - bottomLeft_.x) / 2;
+      double height = (topRight_.y - bottomLeft_.y) / 2;
+      topRight_.x += (coefficient - 1.0) * width;
+      topRight_.y += (coefficient - 1.0) * height;
+      bottomLeft_.x -= (coefficient - 1.0) * width;
+      bottomLeft_.y -= (coefficient - 1.0) * height;
+    }
   }
 }

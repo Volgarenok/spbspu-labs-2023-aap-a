@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include <string>
 #include <stdexcept>
 #include <iomanip>
@@ -54,11 +55,11 @@ int main()
           {
             Shape* shape = composite.getShape(i);
             rectangle_t frameRect = shape->getFrameRect();
-            std::cout << shape->getArea() << " "
-              << frameRect.pos.x - frameRect.width / 2 << " "
-              << frameRect.pos.y - frameRect.height / 2 << " "
-              << frameRect.pos.x + frameRect.width / 2 << " "
-              << frameRect.pos.y + frameRect.height / 2 << "\n";
+            std::cout << shape->getArea() << " ";
+            std::cout << std::setprecision(1) << " " << std::round((frameRect.pos.x - (frameRect.width / 2)) * 10) / 10;
+            std::cout << std::setprecision(1) << " " << std::round((frameRect.pos.y - (frameRect.height / 2)) * 10) / 10;
+            std::cout << std::setprecision(1) << " " << std::round((frameRect.pos.x + (frameRect.width / 2)) * 10) / 10;
+            std::cout << std::setprecision(1) << " " << std::round((frameRect.pos.y + (frameRect.height / 2)) * 10) / 10 << "\n";
           }
         }
         else if (input == "MOVE")
@@ -75,15 +76,15 @@ int main()
         else if (input == "RECTANGLE")
         {
           shapesAdded = true;
-          double left = 0.0, bottom = 0.0, right = 0.0, top = 0.0;
-          std::cin >> left >> bottom >> right >> top;
-          if (std::cin.fail() || left >= right || bottom >= top)
+          point_t p1 = {0, 0};
+          point_t p2 = {0, 0};
+          std::cin >> p1.x >> p1.y >> p2.x >> p2.y;
+          if (std::cin.fail() || p1.x >= p2.x || p2.y >= p2.y)
           {
             invalidShapeDetected = true;
             shapesAdded = false;
-            return 1;
           }
-          composite.addShape(new Rectangle(left, bottom, right, top));
+          composite.addShape(new Rectangle(p1, p2));
         }
         else if (input == "CONCAVE")
         {
