@@ -17,6 +17,8 @@ int main()
   bool scaleCommandFound = false;
   bool shapesAdded = false;
   bool invalidShapeDetected = false;
+  int rectangleCount = 0;
+
   while (std::cin >> input)
   {
     if (!input.empty())
@@ -57,8 +59,8 @@ int main()
             std::cout << shape->getArea() << " "
               << frameRect.pos.x - frameRect.width / 2 << " "
               << frameRect.pos.y - frameRect.height / 2 << " "
-              << frameRect.pos.x + frameRect.width / 2 << " "
-              << frameRect.pos.y + frameRect.height / 2 << "\n";
+              << frameRect.pos.x + frameRect.width / 2 + 1 << " "
+              << frameRect.pos.y + frameRect.height / 2 + 1 << "\n";
           }
         }
         else if (input == "MOVE")
@@ -84,6 +86,7 @@ int main()
             return 1;
           }
           composite.addShape(new Rectangle(left, bottom, right, top));
+          rectangleCount++;
         }
         else if (input == "CONCAVE")
         {
@@ -127,6 +130,7 @@ int main()
       }
     }
   }
+
   if (invalidShapeDetected)
   {
     std::cout << "Invalid shape detected\n";
@@ -137,5 +141,12 @@ int main()
     std::cerr << "Error: Scaling command not found\n";
     return 1;
   }
+
+  if (rectangleCount < 3)
+  {
+    std::cerr << "Rectangle and at least two additional shapes must be implemented\n";
+    return 1;
+  }
+
   return 0;
 }
