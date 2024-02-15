@@ -15,6 +15,7 @@ int main()
   CompositeShape composite;
   std::string input = "";
   bool badShape = false;
+  bool scaleCommandFound = false;
   while(std::cin >> input)
   {
     try
@@ -51,6 +52,7 @@ int main()
       }
       else if(input == "SCALE")
       {
+        scaleCommandFound = true;
         double centerX = 0.0, centerY = 0.0, scaleCoefficient = 0.0;
         std::cin >> centerX >> centerY >> scaleCoefficient;
         if (std::cin && scaleCoefficient <= 0)
@@ -90,6 +92,11 @@ int main()
     catch (const std::invalid_argument& e)
     {
       std::cerr << e.what() << '\n';
+      return 1;
+    }
+    if (!scaleCommandFound && shapesAdded)
+    {
+      std::cerr << "Error: Scaling command not found\n";
       return 1;
     }
   }
