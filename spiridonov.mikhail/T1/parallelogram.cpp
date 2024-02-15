@@ -61,14 +61,15 @@ namespace spiridonov
 
     point_t center = getFrameRect().pos;
 
+    move(center);
+
     for (int i = 0; i < 3; ++i)
     {
-      double dx = arrayOfPoints[i].x - center.x;
-      double dy = arrayOfPoints[i].y - center.y;
-
-      arrayOfPoints[i].x = center.x + dx * coefficient;
-      arrayOfPoints[i].y = center.y + dy * coefficient;
+      arrayOfPoints[i].x *= coefficient;
+      arrayOfPoints[i].y *= coefficient;
     }
+
+    move(-center.x, -center.y);
   }
 
 }
