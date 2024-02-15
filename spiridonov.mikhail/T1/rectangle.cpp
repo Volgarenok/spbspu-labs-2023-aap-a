@@ -42,16 +42,20 @@ namespace spiridonov
   {
     if (coefficient <= 0.0)
     {
-      throw std::invalid_argument("Invalid coefficient");
+        throw std::invalid_argument("Invalid coefficient");
     }
     else
     {
-      double width = (topRight_.x - bottomLeft_.x) / 2;
-      double height = (topRight_.y - bottomLeft_.y) / 2;
-      topRight_.x += (coefficient - 1.0) * width;
-      topRight_.y += (coefficient - 1.0) * height;
-      bottomLeft_.x -= (coefficient - 1.0) * width;
-      bottomLeft_.y -= (coefficient - 1.0) * height;
+      double width = topRight_.x - bottomLeft_.x;
+      double height = topRight_.y - bottomLeft_.y;
+      point_t center = { (topRight_.x + bottomLeft_.x) / 2, (topRight_.y + bottomLeft_.y) / 2 };
+
+      width *= coefficient;
+      height *= coefficient;
+
+      topRight_ = { center.x + width / 2, center.y + height / 2 };
+      bottomLeft_ = { center.x - width / 2, center.y - height / 2 };
     }
   }
+
 }
