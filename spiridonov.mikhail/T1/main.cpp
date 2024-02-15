@@ -83,6 +83,17 @@ int main()
           << frameRect.pos.y + frameRect.height / 2 << "\n";
         }
       }
+      else if (input == "MOVE")
+      {
+        double dx = 0.0, dy = 0.0;
+        std::cin >> dx >> dy;
+        if (std::cin.fail())
+        {
+          std::cerr << "Error: Invalid move parameters\n";
+          return 1;
+        }
+        composite.move(dx, dy);
+      }
       else if (badShape)
       {
         std::cerr << "Bad shape!" << '\n';
@@ -94,7 +105,7 @@ int main()
       std::cerr << e.what() << '\n';
       return 1;
     }
-    if (!scaleCommandFound && shapesAdded)
+    if (!scaleCommandFound)
     {
       std::cerr << "Error: Scaling command not found\n";
       return 1;
