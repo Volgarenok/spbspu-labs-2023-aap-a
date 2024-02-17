@@ -13,7 +13,7 @@ int main()
 {
   using namespace spiridonov;
   CompositeShape composite;
-  std::string input;
+  std::string input = "";
   bool scaleCommandFound = false;
   bool shapesAdded = false;
   bool invalidShapeDetected = false;
@@ -132,7 +132,7 @@ int main()
   }
   if (invalidShapeDetected)
   {
-    std::cout << "Invalid shape detected\n";
+    std::cerr << "Invalid shape detected\n";
     return 1;
   }
   if (!scaleCommandFound && shapesAdded)
