@@ -55,10 +55,10 @@ int main()
             Shape* shape = composite.getShape(i);
             rectangle_t frameRect = shape->getFrameRect();
             std::cout << shape->getArea() << " "
-              << frameRect.pos.x - frameRect.width / 2 << " "
-              << frameRect.pos.y - frameRect.height / 2 << " "
-              << frameRect.pos.x + frameRect.width / 2 << " "
-              << frameRect.pos.y + frameRect.height / 2 << "\n";
+              << frameRect.pos.x - frameRect.width / 2 - centerX << " "
+              << frameRect.pos.y - frameRect.height / 2 - centerY<< " "
+              << frameRect.pos.x + frameRect.width / 2 - centerX<< " "
+              << frameRect.pos.y + frameRect.height / 2 - centerY<< "\n";
           }
         }
         else if (input == "MOVE")
