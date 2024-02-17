@@ -8,16 +8,19 @@ namespace spiridonov
   class Rectangle : public Shape
   {
   public:
-    Rectangle(const point_t& p1, const point_t& p2);
-    double getArea() const;
-    rectangle_t getFrameRect() const;
-    void move(point_t pos);
-    void move(double x, double y);
-    void scale(double coefficient);
+    Rectangle();
+    Rectangle(double left, double bottom, double right, double top);
+    double getArea() const override;
+    rectangle_t getFrameRect() const override;
+    void move(point_t pos) override;
+    void move(double dx, double dy) override;
+    void scale(double coefficient) override;
 
   private:
-    point_t bottomLeft_;
-    point_t topRight_;
+    double left_;
+    double bottom_;
+    double right_;
+    double top_;
   };
 }
 
