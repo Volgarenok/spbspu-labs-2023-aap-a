@@ -79,12 +79,15 @@ int main()
           std::cin >> left >> bottom >> right >> top;
           if (std::cin.fail() || left >= right || bottom >= top)
           {
-            std::cerr << "Error: Invalid rectangle parameters\n";
+            invalidShapeDetected = true;
             shapesAdded = false;
-            return 1;
           }
-          composite.addShape(new Rectangle(left, bottom, right, top));
+          else
+          {
+            composite.addShape(new Rectangle(left, bottom, right, top));
+          }
         }
+
         else if (input == "CONCAVE")
         {
           shapesAdded = true;
