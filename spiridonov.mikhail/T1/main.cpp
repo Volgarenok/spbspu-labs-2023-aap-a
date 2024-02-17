@@ -133,7 +133,7 @@ int main()
   if (invalidShapeDetected)
   {
     std::cerr << "Invalid shape detected\n";
-    return 1;
+    return 0;
   }
   if (!scaleCommandFound && shapesAdded)
   {
