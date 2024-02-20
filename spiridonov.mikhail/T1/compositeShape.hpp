@@ -21,7 +21,6 @@ namespace spiridonov
     Shape* getShape(size_t index) const;
     void clear();
 
-
     size_t getShapesCount() const;
 
   private:

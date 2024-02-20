@@ -8,6 +8,7 @@
 #include "compositeShape.hpp"
 #include "concave.hpp"
 #include "parallelogram.hpp"
+#include "outFile.hpp"
 
 int main()
 {
@@ -26,41 +27,31 @@ int main()
         if (input == "SCALE")
         {
           scaleCommandFound = true;
-          double centerX = 0.0, centerY = 0.0, scaleCoefficient = 0.0;
+          double centerX = 0.0;
+          double centerY = 0.0;
+          double scaleCoefficient = 0.0;
           std::cin >> centerX >> centerY >> scaleCoefficient;
-          if (std::cin.fail() || scaleCoefficient <= 0)
+          setCenter(centerX, centerY);
+          size_t count = composite.getShapesCount();
+
+          if (std::cin.fail() || scaleCoefficient <= 0 || count == 0)
           {
-            std::cerr << "Error: Invalid scale command or scale coefficient\n";
-            return 1;
-          }
-          if (composite.getShapesCount() == 0)
-          {
-            std::cerr << "Error: Nothing to scale\n";
+            std::cerr << "Error: Invalid scale command, scale coefficient, or no shapes to scale\n";
             return 1;
           }
           std::cout << std::fixed << std::setprecision(1);
-          for (size_t i = 0; i < composite.getShapesCount(); ++i)
+          outputShapes(std::cout, composite, false);
+          std::cout << "\n";
+
+          for (size_t i = 0; i < count; ++i)
           {
             Shape* shape = composite.getShape(i);
-            rectangle_t frameRect = shape->getFrameRect();
-            std::cout << shape->getArea() << " "
-              << frameRect.pos.x - frameRect.width / 2 << " "
-              << frameRect.pos.y - frameRect.height / 2 << " "
-              << frameRect.pos.x + frameRect.width / 2 << " "
-              << frameRect.pos.y + frameRect.height / 2 << "\n";
-          }
-          composite.scale(scaleCoefficient);
-          for (size_t i = 0; i < composite.getShapesCount(); ++i)
-          {
-            Shape* shape = composite.getShape(i);
-            rectangle_t frameRect = shape->getFrameRect();
-            std::cout << shape->getArea() << " "
-              << frameRect.pos.x - frameRect.width / 2 - centerX << " "
-              << frameRect.pos.y - frameRect.height / 2 - centerY<< " "
-              << frameRect.pos.x + frameRect.width / 2 - centerX<< " "
-              << frameRect.pos.y + frameRect.height / 2 - centerY<< "\n";
+            shape->scale(scaleCoefficient);
+            outputShapes(std::cout, composite, true);
+            std::cout << "\n";
           }
         }
+
         else if (input == "MOVE")
         {
           double dx = 0.0, dy = 0.0;

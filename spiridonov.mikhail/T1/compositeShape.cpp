@@ -1,7 +1,8 @@
 #include "compositeShape.hpp"
-#include "rectangle.hpp"
 #include <algorithm>
 #include <stdexcept>
+#include "rectangle.hpp"
+
 
 namespace spiridonov
 {
@@ -44,14 +45,15 @@ namespace spiridonov
 
   double CompositeShape::getArea() const
   {
-    double area = 0.0;
+    double totalArea = 0.0;
+
     for (size_t i = 0; i < shapes; ++i)
     {
-      area += shapePtrs[i]->getArea();
+      double shapeArea = shapePtrs[i]->getArea();
+      totalArea += shapeArea;
     }
-    return area;
+    return totalArea;
   }
-
   rectangle_t CompositeShape::getFrameRect() const
   {
     if (shapes == 0)
@@ -105,7 +107,6 @@ namespace spiridonov
       shapePtrs[i]->scale(coefficient);
     }
   }
-
   Shape* CompositeShape::getShape(size_t index) const
   {
     if (index >= shapes)

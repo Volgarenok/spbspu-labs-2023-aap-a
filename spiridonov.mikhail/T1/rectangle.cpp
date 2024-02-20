@@ -1,6 +1,6 @@
 #include "rectangle.hpp"
-#include <stdexcept>
 #include <iostream>
+#include <stdexcept>
 
 namespace spiridonov
 {
@@ -48,7 +48,6 @@ namespace spiridonov
       std::cerr << "Error: Invalid scale coefficient\n";
       return;
     }
-
     double centerX = (left_ + right_) / 2;
     double centerY = (bottom_ + top_) / 2;
     double newWidth = (right_ - left_) * coefficient;

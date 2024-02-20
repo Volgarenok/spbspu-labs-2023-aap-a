@@ -2,6 +2,7 @@
 #define SHAPE_HPP
 #include "base-types.hpp"
 
+
 namespace spiridonov
 {
   class Shape
