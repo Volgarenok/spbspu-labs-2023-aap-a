@@ -1,16 +1,17 @@
 #include "rectangle.hpp"
 #include <stdexcept>
 
-petuhov::Rectangle::Rectangle(const petuhov::point_t & pos, double width, double height): rect_({pos, width, height})
+petuhov::Rectangle::Rectangle(point_t left_bottom_corner, point_t right_top_corner)
 {
-  if (width < 0.0)
+  if (left_bottom_corner.x >= right_top_corner.x || left_bottom_corner.y >= right_top_corner.y)
   {
-    throw std::invalid_argument("Width must be non-negative");
+    throw std::invalid_argument("Invalid rectangle");
   }
-  if (height < 0.0)
-  {
-    throw std::invalid_argument("Height must be non-negative");
-  }
+
+  rect_.pos.x = (left_bottom_corner.x + right_top_corner.x) / 2;
+  rect_.pos.y = (left_bottom_corner.y + right_top_corner.y) / 2;
+  rect_.width = right_top_corner.x - left_bottom_corner.x;
+  rect_.height = right_top_corner.y - left_bottom_corner.y;
 }
 
 double petuhov::Rectangle::getArea() const
