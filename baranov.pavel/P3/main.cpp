@@ -13,14 +13,7 @@ int main()
     string = baranov::inputString(std::cin, size);
     result = new char[size]{0};
   }
-  catch (const std::logic_error & e)
-  {
-    delete[] string;
-    delete[] result;
-    std::cerr << "Error: " << e.what() << '\n';
-    return 2;
-  }
-  catch (const std::bad_alloc & e)
+  catch (const std::exception & e)
   {
     delete[] string;
     delete[] result;

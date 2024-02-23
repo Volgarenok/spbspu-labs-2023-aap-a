@@ -1,14 +1,26 @@
 #include <iostream>
 #include <iomanip>
 #include "extendstring.h"
-
+#include <getString.hpp>
 int main()
 {
   char * string = nullptr;
   std::cin >> std::noskipws;
   try
   {
-    string = strelyaev::inputString(std::cin);
+    string = strelyaev::getString(std::cin);
+    if (string == nullptr)
+    {
+      delete [] string;
+      std::cerr << "Unable to create string\n";
+      return 1;
+    }
+    if ((string[0] == '\n') || (string[0] == '\0'))
+    {
+      delete [] string;
+      std::cerr << "Unable to create string\n";
+      return 1;
+    }
   }
   catch (const std::logic_error & e)
   {
