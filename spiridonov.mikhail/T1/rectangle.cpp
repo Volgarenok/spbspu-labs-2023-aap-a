@@ -14,6 +14,7 @@ namespace spiridonov
       throw std::invalid_argument("Invalid rectangle coordinates");
     }
   }
+
   double Rectangle::getArea() const
   {
     return (right_ - left_) * (top_ - bottom_);
@@ -48,13 +49,20 @@ namespace spiridonov
       std::cerr << "Error: Invalid scale coefficient\n";
       return;
     }
+
     double centerX = (left_ + right_) / 2;
     double centerY = (bottom_ + top_) / 2;
+
     double newWidth = (right_ - left_) * coefficient;
     double newHeight = (top_ - bottom_) * coefficient;
+
     left_ = centerX - newWidth / 2;
     right_ = centerX + newWidth / 2;
     bottom_ = centerY - newHeight / 2;
     top_ = centerY + newHeight / 2;
+  }
+  Shape* Rectangle::clone() const
+  {
+    return new Rectangle(*this);
   }
 }

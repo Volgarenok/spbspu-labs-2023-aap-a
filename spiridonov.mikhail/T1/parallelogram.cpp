@@ -70,5 +70,8 @@ namespace spiridonov
       arrayOfPoints[i].y = center.y + dy * coefficient;
     }
   }
-
+  Parallelogram* Parallelogram::clone() const
+  {
+    return new Parallelogram(*this);
+  }
 }

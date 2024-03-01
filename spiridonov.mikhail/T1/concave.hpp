@@ -18,6 +18,7 @@ namespace spiridonov
     void move(point_t pos) override;
     void move(double x, double y) override;
     void scale(double coefficient) override;
+    Concave* clone() const override;
     ~Concave() = default;
   private:
     point_t arrayOfPoints[4];

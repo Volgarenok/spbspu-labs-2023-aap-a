@@ -1,32 +1,45 @@
 #include "compositeShape.hpp"
 #include <algorithm>
+#include <cmath>
 #include <stdexcept>
 #include "rectangle.hpp"
 
-
 namespace spiridonov
 {
-  CompositeShape::CompositeShape() : shapePtrs(nullptr), shapes(0) {}
+  CompositeShape::CompositeShape() : shapePtrs(nullptr), shapes(0), capacity_(0), scaleCoefficient(1.0)
+  {}
 
   CompositeShape::~CompositeShape()
   {
+    clear();
+  }
+
+  Shape* CompositeShape::clone() const
+  {
+    CompositeShape* newComposite = new CompositeShape();
+    newComposite->capacity_ = capacity_;
     for (size_t i = 0; i < shapes; ++i)
     {
-      delete shapePtrs[i];
+      newComposite->addShape(shapePtrs[i]->clone());
     }
-    delete[] shapePtrs;
-    shapePtrs = nullptr;
+    return newComposite;
   }
 
   void CompositeShape::addShape(Shape* shape)
   {
-    Shape** newShapes = new Shape * [shapes + 1];
-    std::copy(shapePtrs, shapePtrs + shapes, newShapes);
-    newShapes[shapes] = shape;
-
-    delete[] shapePtrs;
-    shapePtrs = newShapes;
-
+    if (shapes >= capacity_)
+    {
+      size_t newCapacity = (capacity_ == 0) ? 1 : 2 * capacity_;
+      Shape** tempArray = new Shape * [newCapacity];
+      for (size_t i = 0; i < shapes; ++i)
+      {
+        tempArray[i] = shapePtrs[i];
+      }
+      delete[] shapePtrs;
+      shapePtrs = tempArray;
+      capacity_ = newCapacity;
+    }
+    shapePtrs[shapes] = shape;
     ++shapes;
   }
 
@@ -38,22 +51,37 @@ namespace spiridonov
     }
 
     delete shapePtrs[index];
-    std::copy(shapePtrs + index + 1, shapePtrs + shapes, shapePtrs + index);
+
+    for (size_t i = index; i < shapes - 1; ++i)
+    {
+      shapePtrs[i] = shapePtrs[i + 1];
+    }
 
     --shapes;
+  }
+
+  void CompositeShape::setScaleCoefficient(double coefficient)
+  {
+    scaleCoefficient = coefficient;
   }
 
   double CompositeShape::getArea() const
   {
     double totalArea = 0.0;
+    double currentScaleCoefficient = scaleCoefficient;
 
     for (size_t i = 0; i < shapes; ++i)
     {
-      double shapeArea = shapePtrs[i]->getArea();
-      totalArea += shapeArea;
+      totalArea += shapePtrs[i]->getArea();
     }
+
+    totalArea = ceil(totalArea);
+
+    totalArea *= currentScaleCoefficient * currentScaleCoefficient;
+
     return totalArea;
   }
+
   rectangle_t CompositeShape::getFrameRect() const
   {
     if (shapes == 0)
@@ -102,11 +130,20 @@ namespace spiridonov
 
   void CompositeShape::scale(double coefficient)
   {
+    rectangle_t frameRect = getFrameRect();
+    const point_t center = frameRect.pos;
+
     for (size_t i = 0; i < shapes; ++i)
     {
+      const point_t shapeCenter = shapePtrs[i]->getFrameRect().pos;
+      double deltaX = (shapeCenter.x - center.x) * coefficient;
+      double deltaY = (shapeCenter.y - center.y) * coefficient;
+
+      shapePtrs[i]->move({ deltaX, deltaY });
       shapePtrs[i]->scale(coefficient);
     }
   }
+
   Shape* CompositeShape::getShape(size_t index) const
   {
     if (index >= shapes)
@@ -126,5 +163,6 @@ namespace spiridonov
     delete[] shapePtrs;
     shapePtrs = nullptr;
     shapes = 0;
+    capacity_ = 0;
   }
 }

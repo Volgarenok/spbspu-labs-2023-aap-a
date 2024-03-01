@@ -10,10 +10,11 @@ namespace spiridonov
   public:
     CompositeShape();
     ~CompositeShape();
-
+    Shape* clone() const override;
     void addShape(Shape* shape);
     void removeShape(size_t index);
     double getArea() const override;
+    void setScaleCoefficient(double coefficient);
     rectangle_t getFrameRect() const override;
     void move(point_t pos) override;
     void move(double x, double y) override;
@@ -26,6 +27,8 @@ namespace spiridonov
   private:
     Shape** shapePtrs;
     size_t shapes;
+    size_t capacity_;
+    double scaleCoefficient;
   };
 }
 

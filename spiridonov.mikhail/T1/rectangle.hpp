@@ -15,6 +15,7 @@ namespace spiridonov
     void move(point_t pos) override;
     void move(double dx, double dy) override;
     void scale(double coefficient) override;
+    Shape* clone() const override;
 
   private:
     double left_;

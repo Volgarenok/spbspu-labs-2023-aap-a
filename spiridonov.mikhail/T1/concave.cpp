@@ -11,7 +11,7 @@ namespace spiridonov
 
   double Concave::getArea() const
   {
-    double area = 0.5 * fabs(
+    double area = 0.25 * fabs(
       arrayOfPoints[0].x * (arrayOfPoints[1].y - arrayOfPoints[2].y) +
       arrayOfPoints[1].x * (arrayOfPoints[2].y - arrayOfPoints[0].y) +
       arrayOfPoints[2].x * (arrayOfPoints[0].y - arrayOfPoints[1].y) +
@@ -88,5 +88,9 @@ namespace spiridonov
     point_t center{ (minX + maxX) / 2, (minY + maxY) / 2 };
 
     frameRect_ = { width, height, center };
+  }
+  Concave* Concave::clone() const
+  {
+    return new Concave(*this);
   }
 }

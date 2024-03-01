@@ -33,23 +33,18 @@ int main()
           std::cin >> centerX >> centerY >> scaleCoefficient;
           setCenter(centerX, centerY);
           size_t count = composite.getShapesCount();
-
           if (std::cin.fail() || scaleCoefficient <= 0 || count == 0)
           {
             std::cerr << "Error: Invalid scale command, scale coefficient, or no shapes to scale\n";
             return 1;
           }
           std::cout << std::fixed << std::setprecision(1);
-          outputShapes(std::cout, composite, false);
+          outputShapes(std::cout, composite, false, 1);
           std::cout << "\n";
 
-          for (size_t i = 0; i < count; ++i)
-          {
-            Shape* shape = composite.getShape(i);
-            shape->scale(scaleCoefficient);
-            outputShapes(std::cout, composite, true);
-            std::cout << "\n";
-          }
+          composite.setScaleCoefficient(scaleCoefficient);
+          outputShapes(std::cout, composite, true, scaleCoefficient);
+          std::cout << "\n";
         }
 
         else if (input == "MOVE")
@@ -75,7 +70,8 @@ int main()
           }
           else
           {
-            composite.addShape(new Rectangle(left, bottom, right, top));
+            Rectangle* rectangle = new Rectangle(left, bottom, right, top);
+            composite.addShape(rectangle);
           }
         }
 
@@ -90,7 +86,8 @@ int main()
             shapesAdded = false;
             return 1;
           }
-          composite.addShape(new Concave({ x1, y1 }, { x2, y2 }, { x3, y3 }, { x4, y4 }));
+          Concave* concave = new Concave({ x1, y1 }, { x2, y2 }, { x3, y3 }, { x4, y4 });
+          composite.addShape(concave);
         }
         else if (input == "PARALLELOGRAM")
         {
@@ -103,6 +100,7 @@ int main()
             shapesAdded = false;
             return 1;
           }
+          Parallelogram* parallelogram = new Parallelogram(x1, x2, x3, y1, y2, y3);
           composite.addShape(new Parallelogram(x1, x2, x3, y1, y2, y3));
         }
         else if (input == "END")
