@@ -80,11 +80,14 @@ int main()
           shapesAdded = true;
           double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, x3 = 0.0, y3 = 0.0, x4 = 0.0, y4 = 0.0;
           std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> x4 >> y4;
-          if (std::cin.fail())
+          double dir1 = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1);
+          double dir2 = (x3 - x2) * (y4 - y2) - (y3 - y2) * (x4 - x2);
+          double dir3 = (x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3);
+
+          if (std::cin.fail() || !(dir1 < 0 && dir2 < 0 && dir3 < 0) && !(dir1 > 0 && dir2 > 0 && dir3 > 0))
           {
-            std::cerr << "Error: Invalid concave parameters\n";
+            invalidShapeDetected = true;
             shapesAdded = false;
-            return 1;
           }
           Concave* concave = new Concave({ x1, y1 }, { x2, y2 }, { x3, y3 }, { x4, y4 });
           composite.addShape(concave);
@@ -94,11 +97,10 @@ int main()
           shapesAdded = true;
           double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, x3 = 0.0, y3 = 0.0;
           std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
-          if (std::cin.fail())
+          if (std::cin.fail() || y1 != y2 && y3 != y2)
           {
-            std::cerr << "Error: Invalid parallelogram parameters\n";
+            invalidShapeDetected = true;
             shapesAdded = false;
-            return 1;
           }
           Parallelogram* parallelogram = new Parallelogram(x1, x2, x3, y1, y2, y3);
           composite.addShape(parallelogram);
