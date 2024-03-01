@@ -101,7 +101,7 @@ int main()
             return 1;
           }
           Parallelogram* parallelogram = new Parallelogram(x1, x2, x3, y1, y2, y3);
-          composite.addShape(new Parallelogram(x1, x2, x3, y1, y2, y3));
+          composite.addShape(parallelogram);
         }
         else if (input == "END")
         {
