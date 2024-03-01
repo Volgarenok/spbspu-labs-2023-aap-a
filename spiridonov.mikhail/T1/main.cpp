@@ -97,7 +97,7 @@ int main()
           shapesAdded = true;
           double x1 = 0.0, y1 = 0.0, x2 = 0.0, y2 = 0.0, x3 = 0.0, y3 = 0.0;
           std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
-          if (std::cin.fail() || y1 != y2 && y3 != y2)
+          if (std::cin.fail() || (y1 != y2 && y3 != y2))
           {
             invalidShapeDetected = true;
             shapesAdded = false;
