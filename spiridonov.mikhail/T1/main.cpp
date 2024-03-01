@@ -84,7 +84,7 @@ int main()
           double dir2 = (x3 - x2) * (y4 - y2) - (y3 - y2) * (x4 - x2);
           double dir3 = (x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3);
 
-          if (std::cin.fail() || !(dir1 < 0 && dir2 < 0 && dir3 < 0) && !(dir1 > 0 && dir2 > 0 && dir3 > 0))
+          if (std::cin.fail() || (!(dir1 < 0 && dir2 < 0 && dir3 < 0) && !(dir1 > 0 && dir2 > 0 && dir3 > 0)))
           {
             invalidShapeDetected = true;
             shapesAdded = false;
