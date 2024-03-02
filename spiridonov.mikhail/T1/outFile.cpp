@@ -5,15 +5,7 @@
 
 namespace spiridonov
 {
-  double globalCenterX = 0.0;
-  double globalCenterY = 0.0;
-
-  void setCenter(double centerX, double centerY)
-  {
-    globalCenterX = centerX;
-    globalCenterY = centerY;
-  }
-  void outputShapes(std::ostream& out, const CompositeShape& shapes, bool useGlobalCenter, const double scaleCoefficient)
+  void outputShapes(std::ostream& out, const CompositeShape& shapes, bool useGlCent, const double k, const double cenX, const double cenY)
   {
     out << shapes.getArea();
 
@@ -23,13 +15,13 @@ namespace spiridonov
       Shape* shape = shapes.getShape(i);
 
       Shape* cloneShape = shape->clone();
-      cloneShape->scale(scaleCoefficient);
+      cloneShape->scale(k);
 
-      double centerX = cloneShape->getFrameRect().pos.x;
-      double centerY = cloneShape->getFrameRect().pos.y;
+      double shapeCenterX = cloneShape->getFrameRect().pos.x;
+      double shapeCenterY = cloneShape->getFrameRect().pos.y;
 
-      double offsetX = (useGlobalCenter) ? globalCenterX - centerX : 0.0;
-      double offsetY = (useGlobalCenter) ? globalCenterY - centerY : 0.0;
+      double offsetX = (useGlCent) ? cenX - shapeCenterX : 0.0;
+      double offsetY = (useGlCent) ? cenY - shapeCenterY : 0.0;
 
       cloneShape->move(-offsetX, -offsetY);
 
@@ -53,3 +45,4 @@ namespace spiridonov
     while (i < shapes.getShapesCount());
   }
 }
+

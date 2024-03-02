@@ -31,7 +31,6 @@ int main()
           double centerY = 0.0;
           double scaleCoefficient = 0.0;
           std::cin >> centerX >> centerY >> scaleCoefficient;
-          setCenter(centerX, centerY);
           size_t count = composite.getShapesCount();
           if (std::cin.fail() || scaleCoefficient <= 0 || count == 0)
           {
@@ -39,11 +38,11 @@ int main()
             return 1;
           }
           std::cout << std::fixed << std::setprecision(1);
-          outputShapes(std::cout, composite, false, 1);
+          outputShapes(std::cout, composite, false, 1, centerX, centerY);
           std::cout << "\n";
 
           composite.setScaleCoefficient(scaleCoefficient);
-          outputShapes(std::cout, composite, true, scaleCoefficient);
+          outputShapes(std::cout, composite, true, scaleCoefficient, centerX, centerY);
           std::cout << "\n";
         }
 

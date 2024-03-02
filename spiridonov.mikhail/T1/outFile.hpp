@@ -5,8 +5,7 @@
 
 namespace spiridonov
 {
-  void setCenter(double centerX, double centerY);
-  void outputShapes(std::ostream& out, const CompositeShape& shapes, bool useGlobalCenter, const double scaleCoefficient);
+  void outputShapes(std::ostream& out, const CompositeShape& shapes, bool useGlCent, const double k, const double cenX, const double cenY);
 }
 
 #endif

@@ -6,8 +6,9 @@
 
 namespace spiridonov
 {
-  CompositeShape::CompositeShape() : shapePtrs(nullptr), shapes(0), capacity_(0), scaleCoefficient(1.0)
-  {}
+  CompositeShape::CompositeShape(): shapePtrs(nullptr), shapes(0), capacity_(0), scaleCoefficient(1.0)
+  {
+  }
 
   CompositeShape::~CompositeShape()
   {

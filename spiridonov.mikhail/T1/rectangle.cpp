@@ -4,9 +4,7 @@
 
 namespace spiridonov
 {
-  Rectangle::Rectangle() : left_(0.0), bottom_(0.0), right_(0.0), top_(0.0)
-  {}
-  Rectangle::Rectangle(double left, double bottom, double right, double top) :
+  Rectangle::Rectangle(double left, double bottom, double right, double top):
     left_(left), bottom_(bottom), right_(right), top_(top)
   {
     if (left >= right || bottom >= top)

@@ -5,10 +5,9 @@
 
 namespace spiridonov
 {
-  class Rectangle : public Shape
+  class Rectangle: public Shape
   {
   public:
-    Rectangle();
     Rectangle(double left, double bottom, double right, double top);
     double getArea() const override;
     rectangle_t getFrameRect() const override;
@@ -26,3 +25,5 @@ namespace spiridonov
 }
 
 #endif
+
+
