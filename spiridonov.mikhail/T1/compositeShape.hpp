@@ -5,20 +5,20 @@
 
 namespace spiridonov
 {
-  class CompositeShape : public Shape
+  class CompositeShape
   {
   public:
     CompositeShape();
     ~CompositeShape();
-    Shape* clone() const override;
+    CompositeShape* clone() const;
     void addShape(Shape* shape);
     void removeShape(size_t index);
-    double getArea() const override;
+    double getArea() const;
     void setScaleCoefficient(double coefficient);
-    rectangle_t getFrameRect() const override;
-    void move(point_t pos) override;
-    void move(double x, double y) override;
-    void scale(double coefficient) override;
+    rectangle_t getFrameRect() const;
+    void move(point_t pos);
+    void move(double x, double y);
+    void scale(double coefficient);
     Shape* getShape(size_t index) const;
     void clear();
 

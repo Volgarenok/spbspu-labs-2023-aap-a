@@ -14,16 +14,17 @@ namespace spiridonov
     clear();
   }
 
-  Shape* CompositeShape::clone() const
+  CompositeShape* CompositeShape::clone() const
   {
     CompositeShape* newComposite = new CompositeShape();
-    newComposite->capacity_ = capacity_;
-    for (size_t i = 0; i < shapes; ++i)
+    newComposite->capacity_ = this->capacity_;
+    for (size_t i = 0; i < this->shapes; ++i)
     {
-      newComposite->addShape(shapePtrs[i]->clone());
+      newComposite->addShape(this->shapePtrs[i]->clone());
     }
     return newComposite;
   }
+
 
   void CompositeShape::addShape(Shape* shape)
   {
