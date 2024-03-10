@@ -5,14 +5,15 @@ namespace petuhov
 {
   struct point_t
   {
-    double x;
-    double y;
+    float x;
+    float y;
   };
+
   struct rectangle_t
   {
     point_t pos;
-    double width;
-    double height;
+    float width;
+    float height;
   };
 }
 

@@ -1,20 +1,21 @@
 #include "rectangle.hpp"
 #include <stdexcept>
 
-petuhov::Rectangle::Rectangle(point_t left_bottom_corner, point_t right_top_corner)
+petuhov::Rectangle::Rectangle(const point_t &pos, float width, float height) : rect_{{0,0}, 0, 0}
 {
-  if (left_bottom_corner.x >= right_top_corner.x || left_bottom_corner.y >= right_top_corner.y)
+  if (width > 0.0f && height > 0.0f)
   {
-    throw std::invalid_argument("Invalid rectangle");
+    rect_.pos = pos;
+    rect_.width = width;
+    rect_.height = height;
   }
-
-  rect_.pos.x = (left_bottom_corner.x + right_top_corner.x) / 2;
-  rect_.pos.y = (left_bottom_corner.y + right_top_corner.y) / 2;
-  rect_.width = right_top_corner.x - left_bottom_corner.x;
-  rect_.height = right_top_corner.y - left_bottom_corner.y;
+  else
+  {
+    throw std::invalid_argument("Width and height must be positive");
+  }
 }
 
-double petuhov::Rectangle::getArea() const
+float petuhov::Rectangle::getArea() const
 {
   return rect_.width * rect_.height;
 }
@@ -24,13 +25,26 @@ petuhov::rectangle_t petuhov::Rectangle::getFrameRect() const
   return rect_;
 }
 
-void petuhov::Rectangle::move(const point_t & pos)
+void petuhov::Rectangle::move(const petuhov::point_t &pos)
 {
   rect_.pos = pos;
 }
 
-void petuhov::Rectangle::scale(double factor)
+void petuhov::Rectangle::move(float dx, float dy)
 {
-  rect_.width *= factor;
-  rect_.height *= factor;
+  rect_.pos.x += dx;
+  rect_.pos.y += dy;
+}
+
+void petuhov::Rectangle::scale(float factor)
+{
+  if (factor > 0.0f)
+  {
+    rect_.width *= factor;
+    rect_.height *= factor;
+  }
+  else
+  {
+    throw std::invalid_argument("Factor must be positive");
+  }
 }

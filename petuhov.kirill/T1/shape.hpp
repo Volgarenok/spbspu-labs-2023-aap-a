@@ -7,10 +7,13 @@ namespace petuhov
   class Shape
   {
     public:
-      virtual double getArea() const = 0;
+      virtual ~Shape() = default;
+
+      virtual float getArea() const = 0;
       virtual rectangle_t getFrameRect() const = 0;
-      virtual void move(const petuhov::point_t & pos) = 0;
-      virtual void scale(double factor) = 0;
+      virtual void move(const petuhov::point_t & newPos) = 0;
+      virtual void move(float dx, float dy) = 0;
+      virtual void scale(float factor) = 0;
   };
 }
 
