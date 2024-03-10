@@ -5,7 +5,7 @@
 
 namespace petuhov
 {
-  class Circle: public petuhov::Shape
+  class Circle : public petuhov::Shape
   {
     public:
       Circle(const petuhov::point_t &pos, float radius);

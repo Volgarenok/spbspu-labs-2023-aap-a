@@ -1,9 +1,14 @@
 #include "circle.hpp"
 #include <stdexcept>
+#include <cmath>
 
-petuhov::Circle::Circle(const point_t &center, float radius): center_(center), radius_(radius)
+petuhov::Circle::Circle(const point_t &center, float radius): center_(center), radius_(0.0f)
 {
-  if (radius_ <= 0.0f)
+  if (radius > 0.0f)
+  {
+    radius_ = radius;
+  }
+  else
   {
     throw std::invalid_argument("Invalid radius");
   }
@@ -11,7 +16,7 @@ petuhov::Circle::Circle(const point_t &center, float radius): center_(center), r
 
 float petuhov::Circle::getArea() const
 {
-  return 3.14 * radius_ * radius_;
+  return M_PI * radius_ * radius_;
 }
 
 petuhov::rectangle_t petuhov::Circle::getFrameRect() const
