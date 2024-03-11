@@ -22,6 +22,13 @@ int main()
       float width = std::abs(x1 - x2);
       float height = std::abs(y1 - y2);
       shapes[shapeCount++] = new petuhov::Rectangle({centerX, centerY}, width, height);
+    } 
+    else if (command == "CIRCLE")
+    {
+      float x, y, radius = 0;
+      std::cin >> x >> y >> radius;
+      shapes[shapeCount++] = new petuhov::Circle({x, y}, radius);
     }
+    
   }
 }
