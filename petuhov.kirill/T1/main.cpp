@@ -4,6 +4,7 @@
 #include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "regular.hpp"
 
 int main()
 {
@@ -29,6 +30,12 @@ int main()
       std::cin >> x >> y >> radius;
       shapes[shapeCount++] = new petuhov::Circle({x, y}, radius);
     }
-    
+    else if (command == "REGULAR")
+    {
+      float x, y, radius = 0;
+      int vertexCount = 0;
+      std::cin >> x >> y >> radius >> vertexCount;
+      shapes[shapeCount++] = new petuhov::Regular({x, y}, radius, vertexCount);
+    }
   }
 }
