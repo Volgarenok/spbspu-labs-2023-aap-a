@@ -6,31 +6,25 @@ void petuhov::substractString(char * firstString, const char * secondString)
   {
     return;
   }
+  size_t index = 0;
 
-  char *pFirst = firstString;
-  const char *pSecond = nullptr;
-  bool charFound = false;
-
-  while (*pFirst)
+  for (int i = 0; firstString[i] != '\0'; ++i)
   {
-    charFound = false;
-    pSecond = secondString;
+    bool charFound = 0;
 
-    while (*pSecond)
+    for (int j = 0; secondString[j] != '\0'; ++j)
     {
-      if (*pFirst == *pSecond)
+      if (firstString[i] == secondString[j])
       {
-        charFound = true;
+        charFound = 1;
         break;
       }
-      ++pSecond;
     }
 
     if (!charFound)
     {
-      *firstString++ = *pFirst;
+      firstString[index++] = firstString[i];
     }
-    ++pFirst;
   }
-  *firstString = '\0';
+  firstString[index] = '\0';
 }

@@ -3,9 +3,9 @@
 char * petuhov::streamToString(std::istream & input)
 {
   char sym = 0;
-  size_t bufferSize = 1;
+  size_t stringBufferSize = 0;
   char * string = nullptr;
-  char * buffer = nullptr;
+  char * stringBuffer = nullptr;
 
   input >> std::noskipws;
 
@@ -13,30 +13,30 @@ char * petuhov::streamToString(std::istream & input)
   {
     if (!input)
     {
-      delete[] buffer;
+      delete[] stringBuffer;
       delete[] string;
       throw std::logic_error("Error reading input");
     }
     try
     {
-      buffer = new char[bufferSize + 1];
+      stringBuffer = new char[stringBufferSize + 2];
     }
-    catch (const std::bad_alloc &e)
+    catch (std::bad_alloc & e)
     {
       delete[] string;
       throw;
     }
+
     if (string != nullptr)
     {
-      for (size_t i = 0; i < bufferSize - 1; ++i)
-      {
-        buffer[i] = string[i];
+      for (size_t i = 0; i < stringBufferSize; ++i) {
+        stringBuffer[i] = string[i];
       }
       delete[] string;
     }
-    buffer[bufferSize - 1] = sym;
-    buffer[bufferSize] = '\0';
-    string = buffer;
+    stringBuffer[stringBufferSize++] = sym;
+    stringBuffer[stringBufferSize] = '\0';
+    string = stringBuffer;
   }
   return string;
 }

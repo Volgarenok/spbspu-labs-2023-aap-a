@@ -1,7 +1,7 @@
-#include <cstddef>
 #include "streamtostring.hpp"
 #include "substractstring.hpp"
 #include "removespaces.hpp"
+#include <cstddef>
 
 int main()
 {
@@ -13,35 +13,48 @@ int main()
   try
   {
     firstString = petuhov::streamToString(std::cin);
-    if (firstString != nullptr)
+  }
+  catch (std::exception &e)
+  {
+    std::cerr << e.what();
+    return 1;
+  }
+  if (firstString != nullptr)
+  {
+    while (firstString[length] != '\0')
     {
-      while (firstString[length] != '\0')
-      {
-        ++length;
-      }
+      ++length;
+    }
+    try
+    {
       cloneString = new char[length + 1];
     }
-    secondString = petuhov::streamToString(std::cin);
-
-    petuhov::removeSpaces(firstString, cloneString);
-    petuhov::substractString(firstString, secondString);
-    if (!firstString)
+    catch (std::exception &e)
     {
       delete[] firstString;
-      std::cerr << "first string is empty";
-      return 2;
+      std::cerr << "Error while creating cloneString";
+      return 1;
     }
-    std::cout << firstString << "\n" << cloneString << "\n";
   }
-  catch (const std::exception &e)
+  try
   {
-    std::cerr << "Error: " << e.what();
+    secondString = petuhov::streamToString(std::cin);
+  }
+  catch (std::exception &e)
+  {
     delete[] firstString;
-    delete[] cloneString;
-    delete[] secondString;
+    std::cerr << e.what();
     return 1;
   }
 
+  petuhov::removeSpaces(firstString, cloneString);
+  petuhov::substractString(firstString, secondString);
+  if (!firstString)
+  {
+    std::cerr << "first string is empty";
+    return 2;
+  }
+  std::cout << firstString << "\n" << cloneString << "\n";
   delete[] firstString;
   delete[] cloneString;
   delete[] secondString;

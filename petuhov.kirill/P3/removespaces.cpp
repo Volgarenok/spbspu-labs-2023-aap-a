@@ -1,20 +1,16 @@
 #include "removespaces.hpp"
-#include <cstddef>
+#include <iostream>
 
 void petuhov::removeSpaces(const char * string, char * output)
 {
-  if (!string || !output)
+  if (!string || !output) return;
+  size_t index = 0;
+  for (size_t i = 0; string[i] != '\0'; ++i)
   {
-    return;
-  }
-  const char * start = string;
-  while (*string != '\0')
-  {
-    if (*string != ' ' || (string != start && *(string - 1) != ' '))
+    if (string[i] != ' ' || (i > 0 && string[i-1] != ' '))
     {
-      *output++ = *string;
+      output[index++] = string[i];
     }
-    string++;
   }
-  *output = '\0';
+  output[index] = '\0';
 }
