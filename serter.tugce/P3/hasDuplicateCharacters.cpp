@@ -1,25 +1,16 @@
 #include "hasDuplicateCharacters.hpp"
-#include <stdexcept>
 
 int serter::hasDuplicateCharacters(const char* str)
 {
-  if (str == nullptr)
+  int charCount[256] = {0};
+  for (int i = 0; str[i] != '\0'; ++i)
   {
-    throw std::invalid_argument("Null pointer passed to countDuplicateCharacters");
+      charCount[str[i]]++;
+      if (charCount[str[i]] > 1)
+      {
+          return charCount[str[i]];
+      }
   }
-
-  bool characters[256] = {false};
-
-  while (*str != '\0')
-  {
-    if (characters[*str])
-    {
-      return 1;
-    }
-    characters[*str] = true;
-    ++str;
-  }
-
   return 0;
 }
 

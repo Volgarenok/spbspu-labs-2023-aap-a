@@ -10,26 +10,7 @@ int main()
 
   try
   {
-    buffer = new char[bufferSize]{'\0'};
-  }
-  catch (const std::bad_alloc& e)
-  {
-    std::cerr << "Error of allocation: " << e.what() << std::endl;
-    return 1;
-  }
-
-  try
-  {
-    serter::inputString(buffer, bufferSize);
-    size_t currentIndex = 0;
-    while (buffer[currentIndex] != '\0')
-    {
-      ++currentIndex;
-    }
-    if (currentIndex == bufferSize - 1)
-    {
-      serter::expandBuffer(buffer, bufferSize, currentIndex);
-    }
+    buffer = serter::inputString(buffer, bufferSize);
     std::cout << serter::hasDuplicateCharacters(buffer) << '\n';
     delete[] buffer;
     return 0;

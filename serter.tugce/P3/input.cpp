@@ -20,8 +20,9 @@ void serter::checkForEmptyString(const char* buffer)
   }
 }
 
-void serter::inputString(char* buffer, size_t bufferSize)
+char* serter::inputString(char* buffer, size_t& bufferSize)
 {
+  buffer = new char[bufferSize];
   char character = 0;
   size_t index = 0;
 
@@ -33,6 +34,7 @@ void serter::inputString(char* buffer, size_t bufferSize)
     {
       throw std::runtime_error("Invalid input");
     }
+
     if (index < bufferSize - 1)
     {
       buffer[index++] = character;
@@ -42,32 +44,19 @@ void serter::inputString(char* buffer, size_t bufferSize)
         break;
       }
     }
-    else
+    else if (index == bufferSize - 1)
     {
-      break;
+      bufferSize *= 20;
+      char* newBuffer = new char[bufferSize];
+      for(size_t i = 0; i < index; ++i)
+      {
+        newBuffer[i] = buffer[i];
+      }
+      delete[] buffer;
+      buffer = newBuffer;
     }
   }
   serter::checkForEmptyString(buffer);
-}
-
-void serter::expandBuffer(char* buffer, size_t& bufferSize, size_t currentIndex)
-{
-  const size_t newBufferSize = bufferSize * 2;
-  char* newBuffer = nullptr;
-  try
-  {
-    newBuffer = new char[newBufferSize]();
-  }
-  catch (const std::bad_alloc&)
-  {
-    throw;
-  }
-  for (size_t k = 0; k < currentIndex; ++k)
-  {
-    newBuffer[k] = buffer[k];
-  }
-  delete[] buffer;
-  buffer = newBuffer;
-  bufferSize = newBufferSize;
+  return buffer;
 }
 
