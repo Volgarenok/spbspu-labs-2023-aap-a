@@ -17,9 +17,23 @@ spiridonov::CompositeShape* spiridonov::CompositeShape::clone() const
 {
   CompositeShape* newComposite = new CompositeShape();
   newComposite->capacity_ = this->capacity_;
-  for (size_t i = 0; i < this->shapes; ++i)
+
+  try
   {
-    newComposite->addShape(this->shapePtrs[i]->clone());
+    for (size_t i = 0; i < this->shapes; ++i)
+    {
+      auto clonedShape = this->shapePtrs[i]->clone();
+      newComposite->addShape(clonedShape);
+    }
+  }
+  catch(const std::exception& e)
+  {
+    for (size_t i = 0; i < newComposite->shapes; ++i)
+    {
+      delete newComposite->shapePtrs[i];
+    }
+    delete newComposite;
+    throw;
   }
   return newComposite;
 }
