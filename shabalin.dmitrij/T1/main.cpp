@@ -1,19 +1,14 @@
 #include <iostream>
-#include "inputShapes.hpp"
+#include "ioOperations.hpp"
 #include "rectangle.hpp"
 #include "shape.hpp"
+#include "Triangle.hpp"
+#include "square.hpp"
+#include "parallelogram.hpp"
+#include "operations.hpp"
 
-int main() 
+int main()
 {
-  using namespace shabalinl;
-  bool initialScale = false;
-  size_t shapesCount = 999;
-  shabalin::Shape **setOfShapes = new shabalin::Shape *[shapesCount]{};
-
-  while (!initialScale)
-  {
-    if (!std::cin.good())
-    {
-    }
-  }
+  using namespace shabalin;
+  return 0;
 }

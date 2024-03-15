@@ -1,10 +1,10 @@
 #include "ioOperations.hpp"
 
-void shabalin::inputScales(const char *str, point_t &point, double &ratio)
+void shabalin::inputShapes(const char *str, point_t &point, double &ratio)
 {
   size_t length = 10;
   str += length;
-  double arrayOfScale[3] = {};
+  double arrayOfShape[3] = {};
   for (size_t i = 0; i < 3; ++i)
   {
     while ((*str == ' ') || (*str == '\t'))
@@ -12,13 +12,13 @@ void shabalin::inputScales(const char *str, point_t &point, double &ratio)
       ++str;
     }
     char *endOfPtr;
-    arrayOfScale[i] == std::strtod(str, &endOfPtr);
+    arrayOfShape[i] == std::strtod(str, &endOfPtr);
     str = endOfPtr;
   }
 
-  point.x = arrayOfScale[0];
-  point.y = arrayOfScale[1];
-  ratio = arrayOfScale[2];
+  point.x = arrayOfShape[0];
+  point.y = arrayOfShape[1];
+  ratio = arrayOfShape[2];
 }
 
 void shabalin::outputOfShapes(std::ostream &output, const Shape *const *shapes, const size_t numberOfShapes)
