@@ -27,7 +27,7 @@ shabalin::rectangle_t shabalin::Rectangle::getFrameRect() const
   return {width, height, center};
 }
 
-void shabalin::Rectangle::scaleShape(const double k)
+void shabalin::Rectangle::unsafeScale(const double k)
 {
   double width = std::abs(pointLeft.x - pointRight.x);
   double height = std::abs(pointLeft.y - pointRight.y);

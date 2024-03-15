@@ -1,6 +1,7 @@
 #ifndef SHAPE_HPP 
 #define SHAPE_HPP
 #include "base_type.hpp"
+#include <iostream>
 
 namespace shabalin
 {
@@ -11,7 +12,8 @@ namespace shabalin
     virtual rectangle_t getFrameRect() const = 0;
     virtual void move(point_t postion) = 0;
     virtual void move(double, double) = 0;
-    virtual void scale(double);
+    void scale(double);
+    virtual void unsafeScale(double);
   };
 }
 
