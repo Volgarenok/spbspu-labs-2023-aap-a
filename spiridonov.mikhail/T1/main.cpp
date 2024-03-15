@@ -38,11 +38,11 @@ int main()
             return 1;
           }
           std::cout << std::fixed << std::setprecision(1);
-          outSh(std::cout, composite, false, 1, centerX, centerY);
+          outShapes(std::cout, composite, false, 1, centerX, centerY);
           std::cout << "\n";
 
           composite.setScaleCoefficient(scaleCoefficient);
-          outSh(std::cout, composite, true, scaleCoefficient, centerX, centerY);
+          outShapes(std::cout, composite, true, scaleCoefficient, centerX, centerY);
           std::cout << "\n";
         }
 

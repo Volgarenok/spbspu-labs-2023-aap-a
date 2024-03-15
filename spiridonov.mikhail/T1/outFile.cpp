@@ -3,7 +3,7 @@
 #include "compositeShape.hpp"
 #include "shape.hpp"
 
-void spiridonov::outSh(std::ostream& out, const CompositeShape& shapes, bool useGlCen, const double k, const double cenX, const double cenY)
+void spiridonov::outShapes(std::ostream& out, const CompositeShape& shapes, bool centered, double k, double cenX, double cenY)
 {
   out << shapes.getArea();
 
@@ -18,8 +18,8 @@ void spiridonov::outSh(std::ostream& out, const CompositeShape& shapes, bool use
     double shapeCenterX = cloneShape->getFrameRect().pos.x;
     double shapeCenterY = cloneShape->getFrameRect().pos.y;
 
-    double offsetX = (useGlCen) ? cenX - shapeCenterX : 0.0;
-    double offsetY = (useGlCen) ? cenY - shapeCenterY : 0.0;
+    double offsetX = (centered) ? cenX - shapeCenterX : 0.0;
+    double offsetY = (centered) ? cenY - shapeCenterY : 0.0;
 
     cloneShape->move(-offsetX, -offsetY);
 

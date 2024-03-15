@@ -3,7 +3,7 @@
 #include <cmath>
 #include <algorithm>
 
-spiridonov::Concave::Concave(point_t p1, point_t p2, point_t p3, point_t p4) :
+spiridonov::Concave::Concave(point_t p1, point_t p2, point_t p3, point_t p4):
   arrayOfPoints_{ p1, p2, p3, p4 }
 {
 }

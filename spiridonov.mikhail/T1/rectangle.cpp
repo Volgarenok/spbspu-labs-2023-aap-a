@@ -1,8 +1,7 @@
 #include "rectangle.hpp"
-#include <iostream>
 #include <stdexcept>
 
-spiridonov::Rectangle::Rectangle(double left, double bottom, double right, double top) :
+spiridonov::Rectangle::Rectangle(double left, double bottom, double right, double top):
   left_(left), bottom_(bottom), right_(right), top_(top)
 {
   if (left >= right || bottom >= top)
@@ -46,7 +45,7 @@ void spiridonov::Rectangle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
-    std::cerr << "Error: Invalid scale coefficient\n";
+    throw std::invalid_argument("Invalid scale coefficient");
     return;
   }
 

@@ -3,7 +3,7 @@
 #include <cmath>
 #include <algorithm>
 
-spiridonov::Parallelogram::Parallelogram(double x1, double x2, double x3, double y1, double y2, double y3) :
+spiridonov::Parallelogram::Parallelogram(double x1, double x2, double x3, double y1, double y2, double y3):
   arrayOfPoints_{ {x1, y1}, {x2, y2}, {x3, y3} }
 {
 }
@@ -14,8 +14,8 @@ spiridonov::Parallelogram::~Parallelogram()
 
 double spiridonov::Parallelogram::getArea() const
 {
-  double side1 = std::sqrt(pow(arrayOfPoints_[1].x - arrayOfPoints_[0].x, 2) + pow(arrayOfPoints_[1].y - arrayOfPoints_[0].y, 2));
-  double side2 = std::sqrt(pow(arrayOfPoints_[2].x - arrayOfPoints_[1].x, 2) + pow(arrayOfPoints_[2].y - arrayOfPoints_[1].y, 2));
+  double side1 = std::sqrt(std::pow(arrayOfPoints_[1].x - arrayOfPoints_[0].x, 2) + std::pow(arrayOfPoints_[1].y - arrayOfPoints_[0].y, 2));
+  double side2 = std::sqrt(std::pow(arrayOfPoints_[2].x - arrayOfPoints_[1].x, 2) + std::pow(arrayOfPoints_[2].y - arrayOfPoints_[1].y, 2));
   return 0.5 * side1 * side2;
 }
 

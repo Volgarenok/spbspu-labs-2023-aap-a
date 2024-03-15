@@ -5,7 +5,7 @@
 
 namespace spiridonov
 {
-  void outSh(std::ostream& out, const CompositeShape& shps, bool useGlCen, const double k, const double cenX, const double cenY);
+  void outShapes(std::ostream& out, const CompositeShape& shapes, bool useGlCen, double k, double cenX, double cenY);
 }
 
 #endif
