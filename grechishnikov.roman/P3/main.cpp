@@ -1,29 +1,28 @@
 #include <iostream>
 #include <cstddef>
 #include <exception>
-#include "inputStr.hpp"
+#include <inputString.hpp>
 #include "countUnique.hpp"
 
 int main()
 {
   using namespace grechishnikov;
 
-  char* str = nullptr;
+  const char* str = nullptr;
   try
   {
-    str = inputStr(std::cin);
+    str = inputString(std::cin);
   }
   catch (const std::bad_alloc &e)
   {
     delete[] str;
-    std::cerr << "Cannot allocate enough\n";
+    std::cerr << "Cannot allocate enough memory\n";
     return 1;
   }
-  catch (const std::logic_error &e)
+  if (str == nullptr)
   {
-    delete[] str;
-    std::cerr << e.what() << "\n";
-    return 1;
+    std::cerr << "String is empty\n";
+    return 2;
   }
   std::cout << countUnique(str) << "\n";
   delete[] str;
