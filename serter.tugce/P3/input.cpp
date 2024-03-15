@@ -3,26 +3,26 @@
 #include <cstddef>
 #include <stdexcept>
 
-void serter::checkForEmptyString(const char* buffer)
+void serter::checkForEmptyString(const char* buffer, size_t& bufferSize)
 {
-  bool hasNonSpace = false;
-  for (size_t i = 0; buffer[i] != '\0'; ++i)
-  {
-    if (!std::isspace(buffer[i]))
+    bool hasNonSpace = false;
+    for (size_t i = 0; i < bufferSize - 1; ++i)
     {
-      hasNonSpace = true;
-      break;
+      if (!std::isspace(buffer[i]))
+      {
+        hasNonSpace = true;
+        break;
+      }
     }
-  }
-  if (!hasNonSpace)
-  {
-    throw std::invalid_argument("Empty string");
-  }
+    if (!hasNonSpace)
+    {
+      throw std::invalid_argument("Empty string");
+    }
 }
 
 char* serter::inputString(char* buffer, size_t& bufferSize)
 {
-  buffer = new char[bufferSize];
+  buffer = new char[bufferSize]();
   char character = 0;
   size_t index = 0;
 
@@ -32,6 +32,7 @@ char* serter::inputString(char* buffer, size_t& bufferSize)
   {
     if (!std::cin)
     {
+      delete[] buffer;
       throw std::runtime_error("Invalid input");
     }
 
@@ -47,7 +48,7 @@ char* serter::inputString(char* buffer, size_t& bufferSize)
     else if (index == bufferSize - 1)
     {
       bufferSize *= 20;
-      char* newBuffer = new char[bufferSize];
+      char* newBuffer = new char[bufferSize]();
       for(size_t i = 0; i < index; ++i)
       {
         newBuffer[i] = buffer[i];
@@ -56,7 +57,7 @@ char* serter::inputString(char* buffer, size_t& bufferSize)
       buffer = newBuffer;
     }
   }
-  serter::checkForEmptyString(buffer);
+  serter::checkForEmptyString(buffer, bufferSize);
   return buffer;
 }
 
