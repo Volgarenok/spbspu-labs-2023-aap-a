@@ -11,7 +11,7 @@ int main()
   try
   {
     buffer = serter::inputString(buffer, bufferSize);
-    std::cout << serter::hasDuplicateCharacters(buffer) << '\n';
+    std::cout << serter::hasDuplicateCharacters(buffer, bufferSize) << '\n';
     delete[] buffer;
     return 0;
   }

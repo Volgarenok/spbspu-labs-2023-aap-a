@@ -3,14 +3,14 @@
 
 int serter::hasDuplicateCharacters(const char* str, size_t sizeOfString)
 {
-  int charCount[256] = {0};
-  for (size_t i = 0; i < sizeOfString; ++i)
+  for (size_t i = 0; i < sizeOfString - 1; ++i)
   {
-    char currentChar = str[i];
-    charCount[currentChar]++;
-    if (charCount[currentChar] > 1)
+    for (size_t j = i + 1; j < sizeOfString; ++j)
     {
-      return 1;
+      if (str[i] == str[j])
+      {
+        return 1;
+      }
     }
   }
   return 0;
