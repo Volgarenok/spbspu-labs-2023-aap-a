@@ -11,8 +11,9 @@ namespace shabalin
 
   struct rectangle_t
   {
-    double x;
-    double y;
+    double width;
+    double height;
+    point_t position;
   };
 }
 
