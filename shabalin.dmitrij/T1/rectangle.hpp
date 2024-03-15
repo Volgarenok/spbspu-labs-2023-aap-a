@@ -10,7 +10,7 @@ namespace shabalin
       Rectangle(point_t leftCorner, point_t rightCorner);
       virtual double getArea() const;
       virtual rectangle_t getFrameRect() const;
-      virtual void move(point_t);
+      virtual void move(const point_t);
       virtual void move(double, double);
       virtual void unsafeScale(const double ratio);
     private: 
