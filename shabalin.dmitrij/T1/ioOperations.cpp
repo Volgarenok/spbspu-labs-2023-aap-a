@@ -1,6 +1,6 @@
 #include "ioOperations.hpp"
 
-void shabalin::inputShapes(const char *str, point_t &point, double &ratio)
+void shabalin::inputOfShapes(const char *str, point_t &point, double &ratio)
 {
   size_t length = 10;
   str += length;
