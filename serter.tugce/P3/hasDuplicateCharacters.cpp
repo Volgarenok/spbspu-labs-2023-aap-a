@@ -1,15 +1,17 @@
 #include "hasDuplicateCharacters.hpp"
+#include <cstddef>
 
-int serter::hasDuplicateCharacters(const char* str)
+int serter::hasDuplicateCharacters(const char* str, size_t sizeOfString)
 {
   int charCount[256] = {0};
-  for (int i = 0; str[i] != '\0'; ++i)
+  for (size_t i = 0; i < sizeOfString; ++i)
   {
-      charCount[str[i]]++;
-      if (charCount[str[i]] > 1)
-      {
-          return charCount[str[i]];
-      }
+    char currentChar = str[i];
+    charCount[currentChar]++;
+    if (charCount[currentChar] > 1)
+    {
+      return 1;
+    }
   }
   return 0;
 }
