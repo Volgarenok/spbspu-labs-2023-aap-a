@@ -6,12 +6,15 @@
 void serter::checkForEmptyString(const char* buffer, size_t& bufferSize)
 {
     bool hasNonSpace = false;
-    for (size_t i = 0; i < bufferSize - 1; ++i)
+    for (size_t i = 0; i < bufferSize; ++i)
     {
-      if (!std::isspace(buffer[i]))
+      if(buffer[i] != '\0')
       {
-        hasNonSpace = true;
-        break;
+        if (!std::isspace(buffer[i]))
+        {
+          hasNonSpace = true;
+          break;
+        }
       }
     }
     if (!hasNonSpace)
