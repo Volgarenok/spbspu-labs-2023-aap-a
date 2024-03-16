@@ -23,9 +23,9 @@ void serter::checkForEmptyString(const char* buffer, size_t& bufferSize)
     }
 }
 
-char* serter::inputString(char* buffer, size_t& bufferSize)
+char* serter::inputString(size_t& bufferSize)
 {
-  buffer = new char[bufferSize]();
+  char* buffer = new char[bufferSize]();
   char character = 0;
   size_t index = 0;
 

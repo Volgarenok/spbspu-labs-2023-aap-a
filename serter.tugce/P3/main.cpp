@@ -10,7 +10,7 @@ int main()
 
   try
   {
-    buffer = serter::inputString(buffer, bufferSize);
+    buffer = serter::inputString(bufferSize);
     std::cout << serter::hasDuplicateCharacters(buffer, bufferSize) << '\n';
     delete[] buffer;
     return 0;
