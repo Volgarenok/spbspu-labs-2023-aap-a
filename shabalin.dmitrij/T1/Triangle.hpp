@@ -7,7 +7,7 @@ namespace shabalin
   class Triangle: public Shape
   {
     public: 
-      Triangle(point_t, point_t, point_t);
+      Triangle(point_t &, point_t &, point_t &);
       virtual double getArea() const;
       virtual rectangle_t getFrameRect() const;
       virtual void move(point_t);

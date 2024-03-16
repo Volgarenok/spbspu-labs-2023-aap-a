@@ -1,7 +1,7 @@
 #include "Triangle.hpp"
 #include "shape.hpp"
 
-shabalin::Triangle::Triangle(point_t p1, point_t p2, point_t p3):
+shabalin::Triangle::Triangle(point_t &p1, point_t &p2, point_t &p3):
   p1_(p1),
   p2_(p2),
   p3_(p3)
@@ -27,12 +27,13 @@ double shabalin::Triangle::getArea() const
   return std::sqrt(perimetr * (perimetr - a) * (perimetr - b) * (perimetr - c));
 }
 
-/*
+
 shabalin::rectangle_t shabalin::Triangle::getFrameRect() const
 {
-
+  double width = (std::max(p1_.x, std::max(p2_.x, p3_.x)) - std::min(p1_.x, std::min(p2_.x, p3_.x)));
+  double height = (std::max(p1_.y, std::max(p2_.y, p3_.y)) - std::min(p1_.y, std::min(p2_.y, p3_.y)));
 }
-*/ 
+ 
 
 void shabalin::Triangle::move(double del_x, double del_y)
 {
