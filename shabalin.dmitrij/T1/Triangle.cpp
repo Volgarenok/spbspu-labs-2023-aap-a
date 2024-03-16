@@ -24,5 +24,46 @@ double shabalin::Triangle::getArea() const
   double b = Triangle::getLength(p2_, p3_);
   double c = Triangle::getLength(p3_, p1_);
   double perimetr = (a + b + c) / 2.0;
-  return std::sqrt(perimetr * (perimetr - a) * (perimetr - b) * (perimetr - c))
+  return std::sqrt(perimetr * (perimetr - a) * (perimetr - b) * (perimetr - c));
 }
+
+/*
+shabalin::rectangle_t shabalin::Triangle::getFrameRect() const
+{
+
+}
+*/ 
+
+void shabalin::Triangle::move(double del_x, double del_y)
+{
+  point_t *points[] = { &p1_, &p2_, &p3_};
+  for (size_t i = 0; i < 3; ++i)
+  {
+    points[i]->x += del_x;
+    points[i]->y += del_y;
+  }
+}
+
+void shabalin::Triangle::move(const point_t point)
+{
+  double midX = (p1_.x + p2_.x + p3_.x) / 3;
+  double midY = (p1_.y + p2_.y + p3_.y) / 3;
+  point_t center = { midX + midY };
+  double dx = point.x - center.x;
+  double dy = point.y - center.y;
+  this->move(dx, dy);
+}
+
+void shabalin::Triangle::unsafeScale(const double ratio)
+{
+  point_t *points[] = { &p1_, &p2_, &p3_};
+  double midX = (p1_.x + p2_.x + p3_.x) / 3;
+  double midY = (p1_.y + p2_.y + p3_.y) / 3;
+  point_t center = { midX + midY };
+  for (size_t i = 0; i < 3; ++i)
+  {
+    points[i]->x = center.x + (points[i]->x - center.x) * ratio;
+    points[i]->y = center.y + (points[i]->y - center.y) * ratio;
+  }
+}
+
