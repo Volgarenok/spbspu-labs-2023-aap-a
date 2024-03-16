@@ -27,23 +27,6 @@ shabalin::rectangle_t shabalin::Rectangle::getFrameRect() const
   return {width, height, center};
 }
 
-void shabalin::Rectangle::unsafeScale(const double k)
-{
-  double width = std::abs(pointLeft.x - pointRight.x);
-  double height = std::abs(pointLeft.y - pointRight.y);
-
-  double newWidth = width * k;
-  double newHeight = height * k;
-
-  double del_x = (newWidth - width) / 2.0;
-  double del_y = (newHeight - height) / 2.0;
-
-  pointLeft.x -= del_x;
-  pointRight.x -= del_y;
-  pointLeft.y += del_x;
-  pointRight.y += del_y;
-}
-
 void shabalin::Rectangle::move(const point_t newCenter)
 {
   point_t center({(pointLeft.x + pointRight.x) / 2, (pointLeft.y + pointRight.y) / 2});
@@ -64,3 +47,21 @@ void shabalin::Rectangle::move(double del_x, double del_y)
     points[i]->y+= del_y;
   }
 }
+
+void shabalin::Rectangle::unsafeScale(const double ratio)
+{
+  double width = std::abs(pointLeft.x - pointRight.x);
+  double height = std::abs(pointLeft.y - pointRight.y);
+
+  double newWidth = width * ratio;
+  double newHeight = height * ratio;
+
+  double del_x = (newWidth - width) / 2.0;
+  double del_y = (newHeight - height) / 2.0;
+
+  pointLeft.x -= del_x;
+  pointRight.x -= del_y;
+  pointLeft.y += del_x;
+  pointRight.y += del_y;
+}
+
