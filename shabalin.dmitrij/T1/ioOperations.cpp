@@ -53,6 +53,17 @@ void shabalin::outputOfShapes(std::ostream &output, const Shape *const *shapes, 
   {
     area += shapes[i]->getArea();
   }
+  output << area;
+
+  for (size_t i = 0; i < numberOfShapes; ++i)
+  {
+    double width = shapes[i]->getFrameRect().width;
+    double height = shapes[i]->getFrameRect().height;
+    point_t poi = shapes[i]->getFrameRect().position;
+    point_t leftCorner = { poi.x - width / 2.0, poi.y - height / 2.0 };
+    point_t rightCorner = { poi.x + width / 2.0, poi.y + height / 2.0 };
+    output << " " << leftCorner.x << " " << leftCorner.y << " " << rightCorner.x << " " << rightCorner.y;
+  }
   /*
   output << std::fixed; 
   output.precision(1);
