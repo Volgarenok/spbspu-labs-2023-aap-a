@@ -1,28 +1,59 @@
 #include "ioOperations.hpp"
 
-void shabalin::inputShapes(const char *str, point_t &point, double &ratio)
+void shabalin::inputShapes(std::istream &input, size_t &countOfShapes)
 {
-  size_t length = 10;
-  str += length;
-  double arrayOfShape[3] = {};
-  for (size_t i = 0; i < 3; ++i)
-  {
-    while ((*str == ' ') || (*str == '\t'))
-    {
-      ++str;
-    }
-    char *endOfPtr;
-    arrayOfShape[i] == std::strtod(str, &endOfPtr);
-    str = endOfPtr;
-  }
+  std::string shapes[4] = { "RECTANGLE", "TRIANGLE", "SQUARE", "PARALLELOGRAM"};
+  std::string name = "";
+  Shape **shape = nullptr;
+  char character = 0;
 
-  point.x = arrayOfShape[0];
-  point.y = arrayOfShape[1];
-  ratio = arrayOfShape[2];
+  while ((input >> name) && (name != "") && (name != "SCALE"))
+  {
+    for (size_t i = 0; i < shape; ++i)
+    {
+      if (name == shapes[i])
+      {
+        Shape **newShape = new Shape *[countOfShapes + 1];
+        for (size_t k = 0; k < countOfShapes; ++k)
+        {
+          newShapes[k] = shape[k];
+        }
+        delete[] shape;
+        shape = newShape;
+        try
+        {
+          readOfShapes(input, shape, countOfShapes, name);
+        }
+        catch (const std::exception& e)
+        {
+          std::cerr << e.what() << '\n';
+        }
+      }
+    }
+
+    input >> std::noskipws;
+    while (character != '\n')
+    {
+      input >> character;
+    }
+    input >> std::skipws;
+  }
+  return shape;
 }
 
-void shabalin::outputOfShapes(std::ostream &output, const Shape *const *shapes, const size_t numberOfShapes)
+void shabalin::outputOfShapes(std::ostream &output, const Shape *const *shapes, const size_t &numberOfShapes)
 {
+  if (numberOfShapes == 0)
+  {
+    throw std::logic_error("zero shape");
+  }
+
+  double area = 0.0;
+  for (size_t i = 0; i < numberOfShapes; ++i)
+  {
+    area += shapes[i]->getArea();
+  }
+  /*
   output << std::fixed; 
   output.precision(1);
   double area = 0;
@@ -41,4 +72,5 @@ void shabalin::outputOfShapes(std::ostream &output, const Shape *const *shapes, 
     output << " " << leftCornerX << " " << leftCornerY << " " << rightCornerX << " " << rightCornerY;
   }
   output << "\n";
+  */
 }

@@ -6,8 +6,8 @@
 
 namespace shabalin
 {
-  void inputOfShapes(const char *str, point_t &point, double &ratio);
-  void outputOfShapes(std::ostream &output, const Shape *const *shapes, const size_t numberOfShapes);
+  void inputShapes(std::istream &input, size_t &countOfShapes);
+  void outputOfShapes(std::ostream &output, const Shape *const *shapes, const size_t &numberOfShapes);
 }
 
 #endif
