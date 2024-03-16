@@ -13,8 +13,7 @@ namespace shabalin
     virtual rectangle_t getFrameRect() const;
     virtual void move(const point_t &);
     virtual void move(double, double);
-    virtual void scale(double);
-    virtual ~Parallelogram() = default;
+    virtual void unsafeScale(double);
   private:
     point_t p1_;
     point_t p2_;
