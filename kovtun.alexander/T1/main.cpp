@@ -7,16 +7,20 @@
 
 int main()
 {
-  std::string shapeName = "";
-  std::cin >> shapeName;
+  std::string instruction = "";
+  kovtun::Shape ** shapes = new kovtun::Shape *[100]();
 
-  kovtun::Shape * shape = nullptr;
-  if (shapeName == "RECTANGLE")
+  for (size_t shapeIndex = 0; instruction != "SCALE"; shapeIndex++)
   {
-    kovtun::point_t rectanglePoints[2];
-    for (size_t i = 0; i < 2; i++)
+    std::cin >> instruction;
+    if (instruction == "RECTANGLE")
     {
-      std::cin >> rectanglePoints[i].x >> rectanglePoints[i].y;
+      kovtun::point_t rectanglePoints[2];
+      for (size_t i = 0; i < 2; i++)
+      {
+        std::cin >> rectanglePoints[i].x >> rectanglePoints[i].y;
+      }
+      shapes[shapeIndex] = new kovtun::Rectangle();
     }
 
     if (!std::cin)
@@ -24,8 +28,7 @@ int main()
       std::cerr << "bad input\n";
       return 1;
     }
-
-    shape = new kovtun::Rectangle();
   }
+
 }
 
