@@ -6,14 +6,14 @@
 
 int main()
 {
+  const size_t defaultSize = 1000;
+
   char * firstString = nullptr;
   char * secondString = nullptr;
-  char * loweredString = nullptr;
-  char * mergedString = nullptr;
+  char * result = nullptr;
   try
   {
     firstString = kovtun::readString(std::cin);
-    size_t firstStringLength = kovtun::getStringLength(firstString);
     secondString = kovtun::readString(std::cin);
 
     if (firstString[0] == '\0' && secondString[0] == '\0')
@@ -24,41 +24,26 @@ int main()
       return 2;
     }
 
-    loweredString = new char[firstStringLength + 1]();
-    loweredString[firstStringLength] = '\0';
-    kovtun::convertToLowercase(loweredString, firstString);
+    result = new char[defaultSize]();
+    kovtun::convertToLowercase(result, firstString);
+    std::cout << result << '\n';
 
-    mergedString = kovtun::mergeStrings(firstString, secondString);
-  }
-  catch (const std::bad_alloc & e)
-  {
-    // как лучше все это проверять и чистить?
-    delete [] firstString;
-    delete [] secondString;
-    delete [] loweredString;
-    delete [] mergedString;
-
-    std::cerr << e.what() << "\n";
-    return 1;
+    result = kovtun::mergeStrings(result, firstString, secondString);
+    std::cout << result << '\n';
   }
   catch (...)
   {
     delete [] firstString;
     delete [] secondString;
-    delete [] loweredString;
-    delete [] mergedString;
+    delete [] result;
 
     std::cerr << "unexpected error occurred\n";
-    return 3;
+    return 1;
   }
-
-  std::cout << loweredString << "\n";
-  std::cout << mergedString << "\n";
 
   delete [] firstString;
   delete [] secondString;
-  delete [] loweredString;
-  delete [] mergedString;
+  delete [] result;
 
   return 0;
 }

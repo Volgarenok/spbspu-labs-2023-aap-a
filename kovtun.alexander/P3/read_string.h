@@ -7,7 +7,6 @@
 namespace kovtun
 {
   char * readString(std::istream & in);
-  size_t getStringLength(const char * string);
 }
 
 #endif
