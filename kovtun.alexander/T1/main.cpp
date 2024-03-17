@@ -15,14 +15,16 @@ int main()
     std::cin >> instruction;
     if (instruction == "RECTANGLE")
     {
+      // uninitialized?
       kovtun::point_t rectanglePoints[2];
       for (size_t i = 0; i < 2; i++)
       {
         std::cin >> rectanglePoints[i].x >> rectanglePoints[i].y;
       }
-      shapes[shapeIndex] = new kovtun::Rectangle();
+      shapes[shapeIndex] = new kovtun::Rectangle(rectanglePoints[0], rectanglePoints[1]);
     }
 
+    // ?
     if (!std::cin)
     {
       std::cerr << "bad input\n";

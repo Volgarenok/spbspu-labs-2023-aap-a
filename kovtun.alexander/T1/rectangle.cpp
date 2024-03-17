@@ -1,5 +1,10 @@
 #include "rectangle.h"
 
+kovtun::Rectangle::Rectangle(kovtun::point_t leftBottomCorner, kovtun::point_t rightTopCorner):
+    leftBottomCorner_(leftBottomCorner),
+    rightTopCorner_(rightTopCorner)
+{}
+
 double kovtun::Rectangle::getArea() const
 {
   return 0;
