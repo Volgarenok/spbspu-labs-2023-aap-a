@@ -67,4 +67,3 @@ char* serter::inputString(size_t& bufferSize)
   serter::checkForEmptyString(buffer, bufferSize);
   return buffer;
 }
-
