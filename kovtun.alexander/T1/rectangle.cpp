@@ -12,7 +12,12 @@ double kovtun::Rectangle::getArea() const
 
 kovtun::rectangle_t kovtun::Rectangle::getFrameRect() const
 {
-  return rectangle_t();
+  double width = rightTopCorner_.x - leftBottomCorner_.x;
+  double height = rightTopCorner_.y - leftBottomCorner_.y;
+  point_t position = { leftBottomCorner_.x + width / 2, rightTopCorner_.y - height / 2};
+  rectangle_t frameRect = { width, height, position };
+
+  return frameRect;
 }
 
 void kovtun::Rectangle::move(kovtun::point_t point)
