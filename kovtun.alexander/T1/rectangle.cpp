@@ -7,7 +7,7 @@ kovtun::Rectangle::Rectangle(kovtun::point_t leftBottomCorner, kovtun::point_t r
 
 double kovtun::Rectangle::getArea() const
 {
-  return 0;
+  return (rightTopCorner_.x - leftBottomCorner_.x) * (rightTopCorner_.y - leftBottomCorner_.y);;
 }
 
 kovtun::rectangle_t kovtun::Rectangle::getFrameRect() const
