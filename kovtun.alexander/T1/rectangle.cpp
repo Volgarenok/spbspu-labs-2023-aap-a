@@ -22,12 +22,18 @@ kovtun::rectangle_t kovtun::Rectangle::getFrameRect() const
 
 void kovtun::Rectangle::move(kovtun::point_t point)
 {
-
+  rectangle_t selfRect = getFrameRect();
+  double dx = point.x - selfRect.pos.x;
+  double dy = point.y - selfRect.pos.y;
+  move(dx, dy);
 }
 
 void kovtun::Rectangle::move(double dx, double dy)
 {
-
+  leftBottomCorner_.x += dx;
+  rightTopCorner_.x += dx;
+  leftBottomCorner_.y += dy;
+  rightTopCorner_.y += dy;
 }
 
 void kovtun::Rectangle::scale(double k)
