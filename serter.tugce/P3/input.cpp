@@ -52,7 +52,6 @@ char* serter::inputString(size_t& bufferSize)
       {
         buffer[i] = newBuffer[i];
       }
-        
       delete[] newBuffer;
     }
 
