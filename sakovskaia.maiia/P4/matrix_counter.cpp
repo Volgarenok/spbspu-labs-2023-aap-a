@@ -1,6 +1,5 @@
 #include "matrix.hpp"
-#include "matrix_input_res.hpp"
-#include <math.h>
+#include <cmath>
 
 void sakovskaia::countCounterclockwiseMatrix(int * a, size_t rows, size_t columns)
 {
@@ -9,9 +8,9 @@ void sakovskaia::countCounterclockwiseMatrix(int * a, size_t rows, size_t column
   size_t circle = 1;
   size_t index = 0;
   size_t cnt_columns = columns;
-  for (circle = 1; circle <= (ceil((std::min(rows, columns)) / 2)); ++circle)
+  for (circle = 1; circle <= (std::ceil((std::min(rows, columns)) / 2) + 1); circle += 1)
   {
-    for (index = cnt; index <= (rows * columns - columns * circle + cnt); index = index + rows)
+    for (index = cnt * rows + cnt; index <= (rows * columns - columns * circle + cnt); index = index + rows)
     {
       a[index] = ++n;
     }
@@ -19,26 +18,29 @@ void sakovskaia::countCounterclockwiseMatrix(int * a, size_t rows, size_t column
     {
       a[index] = ++n;
     }
-    for (index = (rows * columns - columns * circle - circle); index <= (circle * (columns - 1)); index = index - rows)
+    if (index > rows)
+    {
+      for (index = (rows * columns - columns * circle - circle); index > (circle * rows - circle); index = index - rows)
+      {
+        a[index] = ++n;
+      }
+    }
+    if ((index < rows) || (circle != (std::ceil((std::min(rows, columns)) / 2) + 1)))
+    {
+      a[circle * rows - circle] = ++n;
+    }
+    for (index = (circle * (rows - 1) - 1); index >= (cnt * rows + circle); --index)
     {
       a[index] = ++n;
     }
-    for (index = (circle * (columns - 1) - 1); index <= (cnt * columns + circle); --index)
-    {
-      a[index] = ++n;
-    }
-    ++cnt;
+    cnt += 1;
     cnt_columns = cnt_columns - 2;
   }
 }
 
-sakovskaia::AnswerCounter::AnswerCounter():
-  index(0)
-{}
-
-void sakovskaia::AnswerCounter::operator()(int * input_matrix, int * counterclockwise_matrix, size_t size)
+void sakovskaia::countAnswer(int * input_matrix, const int * counterclockwise_matrix, size_t size)
 {
-  for (index = 0; index <= size; ++index)
+  for (size_t index = 0; index < size; ++index)
   {
     input_matrix[index] += counterclockwise_matrix[index];
   }

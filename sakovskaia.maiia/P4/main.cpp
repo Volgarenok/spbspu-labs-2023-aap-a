@@ -7,21 +7,26 @@
 int main(int argc, char * argv[])
 {
   using namespace sakovskaia;
-  AnswerCounter countanswer;
   if (argc != 4)
   {
     std::cerr << "Error in command line arguments\n";
     return 1;
   }
 
+  char * endptr = nullptr;
   int num = 0;
   try
   {
-    num = std::stoll(argv[1]);
+    num = std::strtoll(argv[1], std::addressof(endptr), 10);
   }
-  catch(const std::invalid_argument & e)
+  catch (const std::invalid_argument & e)
   {
     std::cerr << "Cannot read first argument\n";
+    return 1;
+  }
+  if (*endptr != '\0')
+  {
+    std::cerr << "First argument error\n";
     return 1;
   }
   if ((num > 2) || (num < 1))
@@ -39,6 +44,11 @@ int main(int argc, char * argv[])
     return 2;
   }
 
+  if ((rows == 0) or (columns == 0))
+  {
+    return 0;
+  }
+
   std::ofstream output(argv[3]);
 
   int * input_matrix = nullptr;
@@ -48,52 +58,36 @@ int main(int argc, char * argv[])
   int new_input_matrix[10000] = {};
   int new_counterclockwise_matrix[10000] = {};
 
-  if (num == 1)
+  try
   {
-    try
+    if (num == 1)
     {
       input_matrix = new_input_matrix;
       counterclockwise_matrix = new_counterclockwise_matrix;
     }
-    catch (const std::logic_error & e)
-    {
-      std::cerr << e.what() << "\n";
-      input.close();
-      output.close();
-      return 2;
-    }
-  }
-  else if (num == 2)
-  {
-    try
+    else if (num == 2)
     {
       input_matrix = new int[rows * columns];
       counterclockwise_matrix = new int[rows * columns];
       new_dynamic_matrix = input_matrix;
       new_dynamic_counterclockwise_matrix = counterclockwise_matrix;
     }
-    catch (const std::logic_error & e)
-    {
-      std::cerr << e.what() << "\n";
-      delete [] input_matrix;
-      delete [] counterclockwise_matrix;
-      input.close();
-      output.close();
-      return 2;
-    }
   }
+  catch (const std::logic_error & e)
+  {
+    std::cerr << e.what() << "\n";
+    delete [] input_matrix;
+    delete [] counterclockwise_matrix;
+    return 2;
+  }
+
   try
   {
     inputMatrix(input, input_matrix, rows * columns);
     countCounterclockwiseMatrix(counterclockwise_matrix, rows, columns);
-    countanswer(input_matrix, counterclockwise_matrix, rows * columns);
-    output << rows << " " << columns;
-    printAnswer(output, counterclockwise_matrix, rows * columns);
-    if (num == 2)
-    {
-      delete [] new_dynamic_matrix;
-      delete [] new_dynamic_counterclockwise_matrix;
-    }
+    countAnswer(input_matrix, counterclockwise_matrix, rows * columns);
+    output << rows << " " << columns << " ";
+    printAnswer(output, input_matrix, rows * columns);
   }
   catch (const std::logic_error & e)
   {
@@ -103,10 +97,11 @@ int main(int argc, char * argv[])
       delete [] new_dynamic_matrix;
       delete [] new_dynamic_counterclockwise_matrix;
     }
-    input.close();
-    output.close();
     return 2;
   }
-  input.close();
-  output.close();
+  if (num == 2)
+  {
+    delete [] new_dynamic_matrix;
+    delete [] new_dynamic_counterclockwise_matrix;
+  }
 }

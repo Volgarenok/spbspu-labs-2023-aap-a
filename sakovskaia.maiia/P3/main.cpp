@@ -15,11 +15,11 @@ int main()
     std::cerr << e.what() << "\n";
     return 1;
   }
-  size_t size = 128;
+  size_t size = 1000;
   char * new_string = nullptr;
   try
   {
-    new_string = new char[size];
+    new_string = new char[size]{};
   }
   catch (const std::bad_alloc & e)
   {
