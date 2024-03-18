@@ -86,7 +86,7 @@ rectange_t shabalin::Triangle::getFrameRect() const
   return rectange_t{center, width, height};
 }
 
-shabalin::Shape shabalin::*Triangle::clone() const
+shabalin::Shape *shabalin::Triangle::clone() const
 {
   return new Triangle(p1_, p2_, p3_);
 }
