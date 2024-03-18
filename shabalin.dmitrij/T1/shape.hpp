@@ -14,7 +14,7 @@ public:
     virtual void move(double shift_x, double shift_y) = 0;
     virtual void scale(double scale) = 0;
     virtual double getArea() const = 0;
-    virtual rectange_t getFrameRect() const = 0;
+    virtual rectangle_t getFrameRect() const = 0;
     virtual Shape* clone() const = 0;
     virtual ~Shape() = default;
 };

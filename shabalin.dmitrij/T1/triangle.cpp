@@ -74,7 +74,7 @@ double Triangle::getArea() const
     return std::sqrt(p * (p - a) * (p - b) * (p - c));
 }
 
-rectange_t Triangle::getFrameRect() const
+rectangle_t Triangle::getFrameRect() const
 {
     double min_x = std::min({p1_.x, p2_.x, p3_.x});
     double max_x = std::max({p1_.x, p2_.x, p3_.x});
@@ -85,7 +85,7 @@ rectange_t Triangle::getFrameRect() const
     double width = max_x - min_x;
     double height = max_y - min_y;
 
-    return rectange_t{center, width, height};
+    return rectangle_t{center, width, height};
 }
 
 Shape* Triangle::clone() const

@@ -53,7 +53,7 @@ namespace shabalin
     return side_length_ * side_length_;
   }
 
-  rectange_t Square::getFrameRect() const
+  rectangle_t Square::getFrameRect() const
   {
     return {left_bottom_, side_length_, side_length_};
   }

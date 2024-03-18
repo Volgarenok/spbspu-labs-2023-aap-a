@@ -74,7 +74,7 @@ namespace shabalin
     }
     return area;
   }
-  rectange_t CompositeShape::getFrameRect() const
+  rectangle_t CompositeShape::getFrameRect() const
   {
     point_t bl = shapes[0]->getFrameRect().bl();
     point_t ur = shapes[0]->getFrameRect().ur();
@@ -147,7 +147,7 @@ namespace shabalin
     os << std::fixed << std::setprecision(1) << compositeShape.getArea();
     for (size_t i = 0; i < compositeShape.size(); ++i)
     {
-      rectange_t frameRect = compositeShape[i]->getFrameRect();
+      rectangle_t frameRect = compositeShape[i]->getFrameRect();
       point_t bottom_left = frameRect.bl();
       point_t upper_right = frameRect.ur();
       os << std::fixed << std::setprecision(1) << " "

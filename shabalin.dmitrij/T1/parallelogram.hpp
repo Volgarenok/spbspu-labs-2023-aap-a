@@ -13,7 +13,7 @@ namespace shabalin
         void move(double shift_x, double shift_y) override;
         void scale(double scale) override;
         double getArea() const override;
-        rectange_t getFrameRect() const override;
+        rectangle_t getFrameRect() const override;
         Shape* clone() const override;
 
     private:

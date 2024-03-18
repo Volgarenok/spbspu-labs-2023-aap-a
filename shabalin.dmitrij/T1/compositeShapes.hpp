@@ -18,7 +18,7 @@ namespace shabalin
     CompositeShape &operator=(CompositeShape &&obj);
     void scale(point_t p, double scale);
     double getArea() const;
-    rectange_t getFrameRect() const;
+    rectangle_t getFrameRect() const;
     void push_back(Shape *shp);
     void pop_back();
     Shape *at(size_t id);

@@ -7,7 +7,7 @@ namespace shabalin
 {
   std::ostream &operator<<(std::ostream &os, const Shape &obj)
   {
-    rectange_t frameRect = obj.getFrameRect();
+    rectangle_t frameRect = obj.getFrameRect();
     point_t bottom_left = frameRect.bl();
     point_t upper_right = frameRect.ur();
     os << std::fixed << std::setprecision(1)

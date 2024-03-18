@@ -66,7 +66,7 @@ namespace shabalin
         return std::abs(p2_.x - p1_.x) * std::abs(p3_.y - p1_.y);
     }
 
-    rectange_t Parallelogram::getFrameRect() const
+    rectangle_t Parallelogram::getFrameRect() const
     {
         double min_x = std::min({p1_.x, p2_.x, p3_.x});
         double max_x = std::max({p1_.x, p2_.x, p3_.x});
@@ -77,7 +77,7 @@ namespace shabalin
         double width = max_x - min_x;
         double height = max_y - min_y;
 
-        return rectange_t{center, width, height};
+        return rectangle_t{center, width, height};
     }
 
     Shape* Parallelogram::clone() const

@@ -7,7 +7,7 @@ namespace shabalin
   {
     double x, y;
   };
-  struct rectange_t
+  struct rectangle_t
   {
     point_t center;
     double width, height;

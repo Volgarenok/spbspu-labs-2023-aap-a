@@ -14,7 +14,7 @@ public:
     void move(double shift_x, double shift_y) override;
     void scale(double scale) override;
     double getArea() const override;
-    rectange_t getFrameRect() const override;
+    rectangle_t getFrameRect() const override;
     Shape* clone() const override;
 private:
     Rectangle(point_t center, size_t width, size_t height);
