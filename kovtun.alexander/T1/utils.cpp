@@ -42,3 +42,13 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
   return counter;
 }
 
+void kovtun::isotropicScale(kovtun::Shape *shape, const kovtun::point_t & center, double ratio)
+{
+  point_t oldCenter = shape->getFrameRect().pos;
+  shape->move(center);
+  shape->scale(ratio);
+  double dx = (oldCenter.x - center.x) * ratio;
+  double dy = (oldCenter.y - center.y) * ratio;
+  shape->move(dx, dy);
+}
+
