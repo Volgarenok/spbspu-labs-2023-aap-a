@@ -1,10 +1,20 @@
 #include "shape.hpp"
-#include <stdexcept>
-void shabalin::Shape::unsafeScale(const double ratio)
+
+#include <iomanip>
+#include "base-types.hpp"
+
+namespace shabalin
 {
-  if (ratio < 0.0)
-  {
-    throw std::logic_error("Ratio can't be less than 0");
-  }
-  unsafeScale(ratio);
+
+std::ostream& operator<<(std::ostream& os, const Shape& obj)
+{
+    rectange_t frameRect = obj.getFrameRect();
+    point_t bottom_left = frameRect.bl();
+    point_t upper_right = frameRect.ur();
+    os << std::fixed << std::setprecision(1)
+    << obj.getArea() << " "
+    << bottom_left.x << " " << bottom_left.y << " "
+    << upper_right.x << " " << upper_right.y;
+    return os;
+}
 }
