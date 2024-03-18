@@ -8,41 +8,58 @@
 
 int main()
 {
-  petuhov::Shape * shapes[1000] = {};
+  petuhov::Shape *shapes[1000] = {};
   size_t shapeCount = 0;
   std::string command;
+  bool errorFlag = false;
 
   while (std::cin >> command && command != "SCALE")
   {
-    if (command == "RECTANGLE")
+    try
     {
-      float x1 = 0;
-      float y1 = 0;
-      float x2 = 0;
-      float y2 = 0;
-      std::cin >> x1 >> y1 >> x2 >> y2;
-      float centerX = (x1 + x2) / 2;
-      float centerY = (y1 + y2) / 2;
-      float width = std::abs(x1 - x2);
-      float height = std::abs(y1 - y2);
-      shapes[shapeCount++] = new petuhov::Rectangle({centerX, centerY}, width, height);
+      if (command == "RECTANGLE")
+      {
+        float x1 = 0;
+        float y1 = 0;
+        float x2 = 0;
+        float y2 = 0;
+        std::cin >> x1 >> y1 >> x2 >> y2;
+        float centerX = (x1 + x2) / 2;
+        float centerY = (y1 + y2) / 2;
+        float width = std::abs(x1 - x2);
+        float height = std::abs(y1 - y2);
+        shapes[shapeCount++] = new petuhov::Rectangle({centerX, centerY}, width, height);
+      }
+      else if (command == "CIRCLE")
+      {
+        float x = 0;
+        float y = 0;
+        float radius = 0;
+        std::cin >> x >> y >> radius;
+        if (radius <= 0)
+        {
+          throw std::invalid_argument("Invalid radius for CIRCLE.");
+        }
+        shapes[shapeCount++] = new petuhov::Circle({x, y}, radius);
+      }
+      else if (command == "REGULAR")
+      {
+        float x = 0;
+        float y = 0;
+        float radius = 0;
+        int vertexCount;
+        std::cin >> x >> y >> radius >> vertexCount;
+        if (radius <= 0 || vertexCount <= 2)
+        {
+          throw std::invalid_argument("Invalid parameters for REGULAR.");
+        }
+        shapes[shapeCount++] = new petuhov::Regular({x, y}, radius, vertexCount);
+      }
     }
-    else if (command == "CIRCLE")
+    catch (const std::invalid_argument &e)
     {
-      float x = 0;
-      float y = 0;
-      float radius = 0;
-      std::cin >> x >> y >> radius;
-      shapes[shapeCount++] = new petuhov::Circle({x, y}, radius);
-    }
-    else if (command == "REGULAR")
-    {
-      float x = 0;
-      float y = 0;
-      float radius = 0;
-      int vertexCount = 0;
-      std::cin >> x >> y >> radius >> vertexCount;
-      shapes[shapeCount++] = new petuhov::Regular({x, y}, radius, vertexCount);
+      std::cerr << "Error creating shape: " << e.what() << std::endl;
+      errorFlag = true;
     }
   }
 
@@ -53,6 +70,11 @@ int main()
     for (size_t i = 0; i < shapeCount; i++)
     {
       shapes[i]->scale(scale);
+    }
+
+    if (errorFlag)
+    {
+      std::cerr << "Errors were found in the description of some shapes." << std::endl;
     }
   }
   else
@@ -65,4 +87,6 @@ int main()
   {
     delete shapes[i];
   }
+
+  return 0;
 }
