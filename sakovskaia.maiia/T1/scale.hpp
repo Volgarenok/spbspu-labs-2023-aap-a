@@ -2,6 +2,6 @@
 #define SCALE_HPP
 namespace sakovskaia
 {
-  void scaleShapes(Shape * const * shape, const point_t scalePoint, const double scaleRatio);
+  void scaleShapes(Shape * shape, point_t scalePoint, double scaleRatio);
 }
 #endif

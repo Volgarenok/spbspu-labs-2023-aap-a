@@ -1,5 +1,5 @@
 #include "scale.hpp"
-void sakovskaia::scaleShapes(Shape * const * shape, const point_t scalePoint, const double scaleRatio)
+void sakovskaia::scaleShapes(Shape * shape, point_t scalePoint, double scaleRatio)
 {
   rectangle_t frameRect = shape->getFrameRect();
   point_t startPoint = frameRect.pos;
