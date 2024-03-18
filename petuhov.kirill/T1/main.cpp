@@ -23,7 +23,7 @@ int main()
       float width = std::abs(x1 - x2);
       float height = std::abs(y1 - y2);
       shapes[shapeCount++] = new petuhov::Rectangle({centerX, centerY}, width, height);
-    } 
+    }
     else if (command == "CIRCLE")
     {
       float x, y, radius = 0;
@@ -53,7 +53,8 @@ int main()
     }
   }
 
-  for (size_t i = 0; i < shapeCount; ++i) {
+  for (size_t i = 0; i < shapeCount; ++i)
+  {
     delete shapes[i];
   }
 }
