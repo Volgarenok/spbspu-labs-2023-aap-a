@@ -1,7 +1,7 @@
 #ifndef COMMANDS_HPP
 #define COMMANDS_HPP
-
 #include <string>
+
 namespace shabalin
 {
   namespace Figures
@@ -17,7 +17,6 @@ namespace shabalin
     static const std::string scale = "SCALE";
     static const std::string allCommands[] = {scale};
   }
-  
   bool isCommand(const std::string &command);
   bool isFigure(const std::string &figure);
 }
