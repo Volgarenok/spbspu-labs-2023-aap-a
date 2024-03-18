@@ -45,11 +45,18 @@ void petuhov::Regular::move(float dx, float dy)
   center_.y += dy;
 }
 
-void petuhov::Regular::scale(float factor)
+void petuhov::Regular::scale(const petuhov::point_t &center, float factor)
 {
   if (factor <= 0.0f)
   {
     throw std::invalid_argument("Invalid factor");
   }
+
+  float dx = center_.x - center.x;
+  float dy = center_.y - center.y;
+
   radius_ *= factor;
+
+  center_.x = center.x + dx * factor;
+  center_.y = center.y + dy * factor;
 }

@@ -36,10 +36,12 @@ void petuhov::Rectangle::move(float dx, float dy)
   rect_.pos.y += dy;
 }
 
-void petuhov::Rectangle::scale(float factor)
+void petuhov::Rectangle::scale(const petuhov::point_t &center, float factor)
 {
   if (factor > 0.0f)
   {
+    rect_.pos.x = center.x + (rect_.pos.x - center.x) * factor;
+    rect_.pos.y = center.y + (rect_.pos.y - center.y) * factor;
     rect_.width *= factor;
     rect_.height *= factor;
   }

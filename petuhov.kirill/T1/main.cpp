@@ -66,13 +66,15 @@ int main()
 
   if (command == "SCALE")
   {
-    float scale = 0;
-    std::cin >> scale;
+    float scale_factor = 0;
+    petuhov::point_t scale_center = {0, 0};
+    std::cin >> scale_center.x >> scale_center.y;
+    std::cin >> scale_factor;
     for (size_t i = 0; i < shapeCount; i++)
     {
       try
       {
-        shapes[i]->scale(scale);
+        shapes[i]->scale(scale_center, scale_factor);
         petuhov::point_t lower_left {
           shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
           shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2

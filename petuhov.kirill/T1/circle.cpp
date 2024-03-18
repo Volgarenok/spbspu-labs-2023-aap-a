@@ -35,11 +35,16 @@ void petuhov::Circle::move(float dx, float dy)
   center_.y += dy;
 }
 
-void petuhov::Circle::scale(float factor)
+void petuhov::Circle::scale(const petuhov::point_t &scale_center, float factor)
 {
   if (factor <= 0.0f)
   {
     throw std::invalid_argument("Invalid factor");
   }
+
+  float dx = center_.x - scale_center.x;
+  float dy = center_.y - scale_center.y;
   radius_ *= factor;
+  center_.x = scale_center.x + dx * factor;
+  center_.y = scale_center.y + dy * factor;
 }

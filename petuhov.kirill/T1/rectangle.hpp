@@ -13,7 +13,7 @@ namespace petuhov
       petuhov::rectangle_t getFrameRect() const override;
       void move(const petuhov::point_t & pos) override;
       void move(float dx, float dy) override;
-      void scale(float factor) override;
+      void scale(const petuhov::point_t &center, float factor) override;
 
     private:
       petuhov::rectangle_t rect_;
