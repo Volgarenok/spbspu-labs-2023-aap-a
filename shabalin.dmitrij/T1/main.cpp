@@ -1,12 +1,11 @@
 #include <fstream>
 #include <iostream>
-
 #include "square.hpp"
 #include "commands.hpp"
 #include "compositeshape.hpp"
 #include "triangle.hpp"
 #include "rectangle.hpp"
-#include "tokenizer.hpp"
+#include "checker.hpp"
 
 void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShape);
 void executeCommand(const std::string& string, shabalin::CompositeShape& compositeShape);
@@ -24,8 +23,8 @@ int main()
     {
       continue;
     }
-    shabalin::Tokenizer tokenizer(line);
-    tokenizer >> entity;
+    shabalin::Checker checker(line);
+    checker >> entity;
     try
     {
       if (shabalin::isFigure(entity))
@@ -64,31 +63,31 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
   double x3 = 0;
   double y3 = 0;
   double side = 0;
-  shabalin::Tokenizer tokenizer(line);
+  shabalin::Checker checker(line);
   std::string figure = "";
-  tokenizer >> figure;
+  checker >> figure;
   try
   {
     if (figure == shabalin::Figures::triangle)
     {
-      tokenizer >> x >> y >> x2 >> y2 >> x3 >> y3;
-      if (tokenizer)
+      checker >> x >> y >> x2 >> y2 >> x3 >> y3;
+      if (checker)
       {
         compositeShape.push_back(new shabalin::Triangle{{x, y}, {x2, y2}, {x3, y3}});
       }
     }
     else if (figure == shabalin::Figures::square)
     {
-      tokenizer >> x >> y >> side;
-      if (tokenizer)
+      checker >> x >> y >> side;
+      if (checker)
       {
         compositeShape.push_back(new shabalin::Square{{x, y}, side});
       }
     }
     else if (figure == shabalin::Figures::rectangle)
     {
-      tokenizer >> x >> y >> x2 >> y2;
-      if (tokenizer)
+      checker >> x >> y >> x2 >> y2;
+      if (checker)
       {
         compositeShape.push_back(new shabalin::Rectangle{{x, y}, {x2, y2}});
       }
@@ -102,7 +101,7 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
 
 void executeCommand(const std::string& string, shabalin::CompositeShape& compositeShape)
 {
-  shabalin::Tokenizer tokenizer(string);
+  shabalin::Checker checker(string);
   std::string commandName = "";
   tokenizer >> commandName;
   if (commandName == shabalin::Commands::scale)
@@ -110,8 +109,8 @@ void executeCommand(const std::string& string, shabalin::CompositeShape& composi
     double x = 0;
     double y = 0;
     double scale = 0;
-    tokenizer >> x >> y >> scale;
-    if (tokenizer && scale > 0.0)
+    checker >> x >> y >> scale;
+    if (checker && scale > 0.0)
     {
       if (compositeShape.empty())
       {

@@ -1,8 +1,6 @@
 #ifndef COMPOSITE_HPP
 #define COMPOSITE_HPP
-
 #include <ostream>
-
 #include "shape.hpp"
 
 namespace shabalin

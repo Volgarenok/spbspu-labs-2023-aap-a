@@ -1,5 +1,4 @@
 #include "compositeshape.hpp"
-
 #include <algorithm>
 #include <iomanip>
 #include <stdexcept>
