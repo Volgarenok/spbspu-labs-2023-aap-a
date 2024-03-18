@@ -19,6 +19,5 @@ public:
     virtual ~Shape() = default;
 };
 std::ostream& operator<<(std::ostream& os, const Shape& obj);
-
 }
 #endif
