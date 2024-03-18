@@ -7,12 +7,15 @@ kovtun::Circle::Circle(const kovtun::point_t &center, double radius):
 
 double kovtun::Circle::getArea() const
 {
-  return 0.0;
+  double pi = 3.141592;
+  return radius_ * radius_ * pi;
 }
 
 kovtun::rectangle_t kovtun::Circle::getFrameRect() const
 {
-  return {};
+  double side = radius_ * 2;
+  rectangle_t selfRect = {side, side, center_};
+  return selfRect;
 }
 
 void kovtun::Circle::move(const kovtun::point_t &point)
