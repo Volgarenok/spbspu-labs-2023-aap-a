@@ -14,8 +14,8 @@ int main()
 {
   std::istream *inputStream;
   shabalin::CompositeShape shapes;
-  bool scaleExecuted = false;
-  while (*inputStream)
+  bool scaleExecute = false;
+  while (inputStream)
   {
     std::string line, entity;
     std::getline(*inputStream, line);
@@ -36,7 +36,7 @@ int main()
         executeCommand(line, shapes);
         if (entity == shabalin::Commands::scale)
         {
-          scaleExecuted = true;
+          scaleExecute = true;
         }
       }
     }
@@ -46,7 +46,7 @@ int main()
       return 1;
     }
   }
-  if (!scaleExecuted)
+  if (!scaleExecute)
   {
     std::cerr << "Scale command wasn't executed" << '\n';
     return 1;
