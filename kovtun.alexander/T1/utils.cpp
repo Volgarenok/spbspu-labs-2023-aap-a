@@ -42,6 +42,33 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
   return counter;
 }
 
+void kovtun::showResult(std::ostream &out, kovtun::Shape ** shapes, size_t shapesCount)
+{
+  double totalArea = 0.0;
+  for (size_t i = 0; i < shapesCount; i++)
+  {
+    if (!shapes[i])
+    {
+      continue;
+    }
+
+    totalArea += shapes[i]->getArea();
+  }
+  std::cout << totalArea << " ";
+  for (size_t i = 0; i < shapesCount; i++)
+  {
+    if (!shapes[i])
+    {
+      continue;
+    }
+
+    kovtun::rectangle_t selfRect = shapes[i]->getFrameRect();
+    kovtun::point_t leftBottomCorner = { selfRect.pos.x - selfRect.width / 2.0, selfRect.pos.y - selfRect.height / 2.0 };
+    kovtun::point_t rightTopCorner = { selfRect.pos.x + selfRect.width / 2.0, selfRect.pos.y + selfRect.height / 2.0 };
+    std::cout << leftBottomCorner.x << " " << leftBottomCorner.y << " " << rightTopCorner.x << " " << rightTopCorner.y << '\n';
+  }
+}
+
 void kovtun::isotropicScale(kovtun::Shape *shape, const kovtun::point_t & center, double ratio)
 {
   point_t oldCenter = shape->getFrameRect().pos;

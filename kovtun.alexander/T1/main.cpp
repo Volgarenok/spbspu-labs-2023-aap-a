@@ -26,30 +26,7 @@ int main()
       // TODO: throw?
     }
 
-    double totalArea = 0.0;
-    for (size_t i = 0; i < shapesCount; i++)
-    {
-      if (!shapes[i])
-      {
-        continue;
-      }
-
-      totalArea += shapes[i]->getArea();
-    }
-    std::cout << totalArea << " ";
-    for (size_t i = 0; i < shapesCount; i++)
-    {
-      if (!shapes[i])
-      {
-        continue;
-      }
-
-      kovtun::rectangle_t selfRect = shapes[i]->getFrameRect();
-      kovtun::point_t leftBottomCorner = { selfRect.pos.x - selfRect.width / 2.0, selfRect.pos.y - selfRect.height / 2.0 };
-      kovtun::point_t rightTopCorner = { selfRect.pos.x + selfRect.width / 2.0, selfRect.pos.y + selfRect.height / 2.0 };
-      std::cout << leftBottomCorner.x << " " << leftBottomCorner.y << " " << rightTopCorner.x << " " << rightTopCorner.y << '\n';
-    }
-
+    kovtun::showResult(std::cout, shapes, shapesCount);
     for (size_t i = 0; i < shapesCount; i++)
     {
       if (!shapes[i])
@@ -59,30 +36,7 @@ int main()
 
       kovtun::isotropicScale(shapes[i], scaleCenter, scaleRatio);
     }
-
-    totalArea = 0.0;
-    for (size_t i = 0; i < shapesCount; i++)
-    {
-      if (!shapes[i])
-      {
-        continue;
-      }
-
-      totalArea += shapes[i]->getArea();
-    }
-    std::cout << totalArea << " ";
-    for (size_t i = 0; i < shapesCount; i++)
-    {
-      if (!shapes[i])
-      {
-        continue;
-      }
-
-      kovtun::rectangle_t selfRect = shapes[i]->getFrameRect();
-      kovtun::point_t leftBottomCorner = { selfRect.pos.x - selfRect.width / 2.0, selfRect.pos.y - selfRect.height / 2.0 };
-      kovtun::point_t rightTopCorner = { selfRect.pos.x + selfRect.width / 2.0, selfRect.pos.y + selfRect.height / 2.0 };
-      std::cout << leftBottomCorner.x << " " << leftBottomCorner.y << " " << rightTopCorner.x << " " << rightTopCorner.y << '\n';
-    }
+    kovtun::showResult(std::cout, shapes, shapesCount);
 
   }
   catch (...)
