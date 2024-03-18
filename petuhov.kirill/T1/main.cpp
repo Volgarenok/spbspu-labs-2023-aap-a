@@ -4,7 +4,7 @@
 #include "base-types.hpp"
 #include "shape.hpp"
 #include "rectangle.hpp"
-#include "circle.hpp"
+#include "ring.hpp"
 #include "regular.hpp"
 
 int main()
@@ -31,17 +31,18 @@ int main()
         float height = y1 - y2;
         shapes[shapeCount++] = new petuhov::Rectangle({centerX, centerY}, width, height);
       }
-      else if (command == "CIRCLE")
+      else if (command == "RING")
       {
         float x = 0;
         float y = 0;
-        float radius = 0;
-        std::cin >> x >> y >> radius;
-        if (radius <= 0)
+        float innerRadius = 0;
+        float outerRadius = 0;
+        std::cin >> x >> y >> innerRadius >> outerRadius;
+        if (innerRadius <= 0 || outerRadius <= 0 || innerRadius >= outerRadius)
         {
-          throw std::invalid_argument("Invalid radius for CIRCLE.");
+          throw std::invalid_argument("Invalid parameters for RING.");
         }
-        shapes[shapeCount++] = new petuhov::Circle({x, y}, radius);
+        shapes[shapeCount++] = new petuhov::Ring({x, y}, innerRadius, outerRadius);
       }
       else if (command == "REGULAR")
       {
