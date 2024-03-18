@@ -1,6 +1,7 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
 #include "shape.hpp"
+#include "base-types.hpp"
 namespace sakovskaia
 {
   class Rectangle: public Shape

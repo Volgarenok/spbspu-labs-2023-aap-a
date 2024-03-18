@@ -4,7 +4,7 @@
 #include "shape.hpp"
 namespace sakovskaia
 {
-  void coorShapes(const char * string, double * coordinates, size_t cnt_points);
+  void coorShapes(const char * string, double * coordinates, size_t cnt);
   Shape * inputRectangle(const char * string);
 }
 #endif
