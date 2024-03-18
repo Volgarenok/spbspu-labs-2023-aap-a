@@ -31,6 +31,7 @@ spiridonov::CompositeShape* spiridonov::CompositeShape::clone() const
     {
       delete newComposite->shapePtrs[i];
     }
+    newComposite->clear();
     delete newComposite;
     throw;
   }
