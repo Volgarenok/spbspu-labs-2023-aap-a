@@ -1,5 +1,5 @@
-#ifndef COMPOSITE_HPP
-#define COMPOSITE_HPP
+#ifndef COMPOSITESHAPES_HPP
+#define COMPOSITESHAPES_HPP
 #include <ostream>
 #include "shape.hpp"
 
