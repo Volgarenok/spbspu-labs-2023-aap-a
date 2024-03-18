@@ -1,14 +1,14 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
+#ifndef ELLIPSE_H
+#define ELLIPSE_H
 
 #include "shape.h"
 
 namespace kovtun
 {
-  class Circle : public Shape
+  class Ellipse : public Shape
   {
   public:
-    Circle(const point_t & center, double radius);
+    Ellipse(const point_t & center, double verticalRadius, double horizontalRadius);
     virtual double getArea() const;
     virtual rectangle_t getFrameRect() const;
     virtual void move(const point_t & point);
@@ -17,7 +17,8 @@ namespace kovtun
 
   private:
     point_t center_;
-    double radius_;
+    double verticalRadius_;
+    double horizontalRadius_;
   };
 }
 
