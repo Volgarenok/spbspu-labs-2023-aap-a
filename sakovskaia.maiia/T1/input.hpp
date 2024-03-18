@@ -2,7 +2,7 @@
 #define INPUT_HPP
 namespace sakovskaia
 {
-  void coordinates(const char * string, double * coordinates, size_t cnt_points);
+  void inputShapes(const char * string, double * coordinates, size_t cnt_points);
   Shape * inputRectangle(const char * string);
 }
 #endif
