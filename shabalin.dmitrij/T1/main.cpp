@@ -17,7 +17,7 @@ int main()
   std::istream *input = {};
   shabalin::CompositeShape shapes;
   bool scaleExecuted = false;
-  while (*input)
+  while (input)
   {
     std::string line, entity;
     std::getline(*input, line);
