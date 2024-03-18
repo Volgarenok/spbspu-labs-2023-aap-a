@@ -1,6 +1,6 @@
 #include "rectangle.h"
 
-kovtun::Rectangle::Rectangle(kovtun::point_t leftBottomCorner, kovtun::point_t rightTopCorner):
+kovtun::Rectangle::Rectangle(const kovtun::point_t & leftBottomCorner, const kovtun::point_t & rightTopCorner):
     leftBottomCorner_(leftBottomCorner),
     rightTopCorner_(rightTopCorner)
 {}
@@ -20,7 +20,7 @@ kovtun::rectangle_t kovtun::Rectangle::getFrameRect() const
   return frameRect;
 }
 
-void kovtun::Rectangle::move(kovtun::point_t point)
+void kovtun::Rectangle::move(const kovtun::point_t & point)
 {
   rectangle_t selfRect = getFrameRect();
   double dx = point.x - selfRect.pos.x;
@@ -47,3 +47,4 @@ void kovtun::Rectangle::scale(double k)
   leftBottomCorner_.y -= halfHeight * (k - 1);
   rightTopCorner_.y += halfHeight * (k - 1);
 }
+

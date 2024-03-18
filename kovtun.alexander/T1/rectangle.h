@@ -9,10 +9,10 @@ namespace kovtun
   class Rectangle : public Shape
   {
   public:
-    Rectangle(point_t leftBottomCorner, point_t rightTopCorner);
+    Rectangle(const point_t & leftBottomCorner, const point_t & rightTopCorner);
     virtual double getArea() const;
     virtual rectangle_t getFrameRect() const;
-    virtual void move(point_t point);
+    virtual void move(const point_t & point);
     virtual void move(double dx, double dy);
     virtual void scale(double k);
 
