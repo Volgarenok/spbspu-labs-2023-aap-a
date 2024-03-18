@@ -54,7 +54,7 @@ void kovtun::showResult(std::ostream &out, kovtun::Shape ** shapes, size_t shape
 
     totalArea += shapes[i]->getArea();
   }
-  std::cout << totalArea << " ";
+  out << totalArea << " ";
   for (size_t i = 0; i < shapesCount; i++)
   {
     if (!shapes[i])
@@ -65,7 +65,7 @@ void kovtun::showResult(std::ostream &out, kovtun::Shape ** shapes, size_t shape
     kovtun::rectangle_t selfRect = shapes[i]->getFrameRect();
     kovtun::point_t leftBottomCorner = { selfRect.pos.x - selfRect.width / 2.0, selfRect.pos.y - selfRect.height / 2.0 };
     kovtun::point_t rightTopCorner = { selfRect.pos.x + selfRect.width / 2.0, selfRect.pos.y + selfRect.height / 2.0 };
-    std::cout << leftBottomCorner.x << " " << leftBottomCorner.y << " " << rightTopCorner.x << " " << rightTopCorner.y << '\n';
+    out << leftBottomCorner.x << " " << leftBottomCorner.y << " " << rightTopCorner.x << " " << rightTopCorner.y << '\n';
   }
 }
 
