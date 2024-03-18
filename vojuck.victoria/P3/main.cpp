@@ -5,12 +5,12 @@
 
 int main()
 {
-  int size = 20;
-  char * array = new char[size]{'\0'};
   std::cin >> std::noskipws;
+  int size = 20;
+  char * array = nullptr;
   try
   {
-    vojuck::inputString(std::cin, array, size);
+    array = vojuck::inputString(std::cin, size);
     char * resultDigits = new char[size]{};
     vojuck::removeDigits(array, resultDigits);
     char * resultLetters = new char[size]{};
