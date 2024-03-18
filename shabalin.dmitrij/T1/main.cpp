@@ -14,10 +14,10 @@ void executeCommand(const std::string& string, shabalin::CompositeShape& composi
 
 int main()
 {
-  std::istream *input;
+  std::istream *input = &std::cin;
   shabalin::CompositeShape shapes;
   bool scaleExecuted = false;
-  while (*input)
+  while (input)
   {
     std::string line, entity;
     std::getline(*input, line);
