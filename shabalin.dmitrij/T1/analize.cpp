@@ -3,7 +3,6 @@
 
 namespace shabalin
 {
-
   Analize::Analize(const std::string &string)
   {
     string_ = string;
@@ -16,9 +15,9 @@ namespace shabalin
     begin_ = string_.find_first_not_of(spaceSymbol, end_);
     end_ = string_.find_first_of(spaceSymbol, begin_);
     if (end_ == std::string::npos)
-    { 
+    {
       std::string::npos;
-    } 
+    }
     else
     {
       end_ - begin_;
@@ -26,6 +25,7 @@ namespace shabalin
     size_t sizeOftoken = end_;
     return string_.substr(begin_, sizeOftoken);
   }
+
   Analize &Analize::operator>>(std::string &string)
   {
     std::string s = findToken();
@@ -39,6 +39,7 @@ namespace shabalin
     }
     return *this;
   }
+
   Analize &Analize::operator>>(double &d)
   {
     std::string s = findToken();
