@@ -85,7 +85,7 @@ void shabalin::pushFigure(const std::string& line, shabalin::CompositeShape& com
   }
 }
 
-void shabalin::executeCommand(const std::string &string, CompositeShape &compositeShape)
+void shabalin::executeCommand(const std::string &string, shabalin::CompositeShape &compositeShape)
 {
   shabalin::Analize analize(string);
   std::string name = "";
