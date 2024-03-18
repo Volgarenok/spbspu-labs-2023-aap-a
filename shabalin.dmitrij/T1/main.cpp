@@ -14,13 +14,13 @@ void executeCommand(const std::string& string, shabalin::CompositeShape& composi
 
 int main()
 {
-  std::istream* inputStream;
+  std::istream *input;
   shabalin::CompositeShape shapes;
   bool scaleExecuted = false;
-  while (*inputStream)
+  while (*input)
   {
     std::string line, entity;
-    std::getline(*inputStream, line);
+    std::getline(*input, line);
     if (line.empty())
     {
       continue;
@@ -112,9 +112,9 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
 void executeCommand(const std::string& string, shabalin::CompositeShape& compositeShape)
 {
   shabalin::Analize analize(string);
-  std::string commandName = "";
-  analize >> commandName;
-  if (commandName == shabalin::Commands::scale)
+  std::string name = "";
+  analize >> name;
+  if (name == shabalin::Commands::scale)
   {
     double x = 0;
     double y = 0;
