@@ -10,3 +10,12 @@ void sakovskaia::inputFigure(const char * string, double * coordinates, size_t c
     string += cnt_points;
   }
 }
+
+sakovskaia::Shape * sakovskaia::inputRectangle(const char * string)
+{
+  double rectangleCoordinates[4]{};
+  inputFigure(string, rectangleCoordinates, 4);
+  point_t ll = {rectangleCoordinates[0], rectangleCoordinates[1]};
+  point_t ll = {rectangleCoordinates[2], rectangleCoordinates[3]};
+  return new Rectangle(ll, ur);
+}
