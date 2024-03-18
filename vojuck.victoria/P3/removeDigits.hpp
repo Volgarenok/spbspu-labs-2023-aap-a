@@ -1,5 +1,5 @@
 #ifndef REMOVEDIGITS_HPP
-#define REMOVEDIGETS_HPP
+#define REMOVEDIGITS_HPP
 
 namespace vojuck
 {
