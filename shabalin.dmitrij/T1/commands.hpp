@@ -1,6 +1,6 @@
 #ifndef COMMANDS_HPP
 #define COMMANDS_HPP
-
+#include "compositeShapes.hpp"
 #include <string>
 namespace shabalin
 {
@@ -19,6 +19,8 @@ static const std::string allCommands[] = {scale};
 }
 bool isCommand(const std::string& command);
 bool isFigure(const std::string& figure);
+void pushFigure(const std::string& line, CompositeShape& compositeShape);
+void executeCommand(const std::string& string, CompositeShape& compositeShape);
 }
 
 #endif
