@@ -30,7 +30,7 @@ void sakoskaia::Rectangle::move(const point_t new_center)
   move(dx_, dy_);
 }
 
-void sakovskaia::Rectangle::move(const double dx, const double dy)
+void sakovskaia::Rectangle::move(double dx, double dy)
 {
   point_t center{((ur_.x + ll_.x) / 2), ((ur_.y + ll_.y) / 2)};
   center.x += dx;
@@ -43,7 +43,7 @@ void sakovskaia::Rectangle::move(const double dx, const double dy)
   }
 }
 
-void sakovskaia::Rectangle::scaleShape(const double k)
+void sakovskaia::Rectangle::scaleShape(double k)
 {
   double height = ur_.y - ll_.y;
   double width = ur_.x - ll_.x;
