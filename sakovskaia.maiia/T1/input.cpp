@@ -1,5 +1,5 @@
 #include "input.hpp"
-#include <stddef>
+#include <cstddef>
 
 void sakovskaia::coorShape(const char * string, double * coordinates, size_t cnt_points)
 {
