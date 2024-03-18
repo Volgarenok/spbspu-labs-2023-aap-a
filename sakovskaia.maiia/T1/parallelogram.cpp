@@ -32,3 +32,20 @@ sakovskaia::Parallelogram::getFrameRect() const
   return parallelogram;
 }
 
+void sakovskaia::Parallelogram::move(const point_t new_center)
+{
+  point_t center = {(p1_.x + p2_.x + p3_.x) / 3, (p1_.y + p2_.y + p3_.y) / 3};
+  double dx_ = new_center.x - center.x;
+  double dy_ = new_center.y - center.y;
+  this->move(dx_, dy_);
+}
+
+void sakovskaia::Parallelogram::move(double dx, double dy)
+{
+  point_t* points[] = {&p1_, &p2_, &p3_};
+  for (size_t i = 0; i < 3; i++)
+  {
+    points[i]->x += dx;
+    points[i]->y += dy;
+  }
+}
