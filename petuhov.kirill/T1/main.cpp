@@ -73,6 +73,8 @@ int main()
     {
       try
       {
+        std::cout << std::fixed;
+        std::cout.precision(1);
         petuhov::point_t lower_left {
           shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
           shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2
