@@ -1,67 +1,52 @@
-#include "base_type.hpp"
-#include <stdexcept>
 #include "rectangle.hpp"
 
-shabalin::Rectangle::Rectangle(point_t leftDownCorner, point_t rightUpperCorner):
-  pointLeft(leftDownCorner),
-  pointRight(rightUpperCorner)
+#include <stdexcept>
+
+shabalin::Rectangle::Rectangle(point_t center, size_t width, size_t height) : center_(center), width_(width), height_(height)
 {
-  if (pointLeft.y >= pointRight.y || pointLeft.x >= pointRight.x)
+}
+
+shabalin::Rectangle::Rectangle(point_t bottom_left, point_t upper_right)
+{
+  if (bottom_left.x >= upper_right.x ||
+      bottom_left.y >= upper_right.y)
   {
-    throw std::invalid_argument("invalid arguments");
+    throw std::invalid_argument("Can't create rectangle with next arguments");
   }
+  width_ = upper_right.x - bottom_left.x;
+  height_ = upper_right.y - bottom_left.y;
+  center_.x = bottom_left.x + width_ / 2.0;
+  center_.y = bottom_left.y + height_ / 2.0;
+}
+
+void shabalin::Rectangle::move(point_t p)
+{
+  center_ = p;
+}
+
+void shabalin::Rectangle::move(double shift_x, double shift_y)
+{
+  center_.x += shift_x;
+  center_.y += shift_y;
+}
+
+void shabalin::Rectangle::scale(double scale)
+{
+  width_ *= scale;
+  height_ *= scale;
+}
+
+shabalin::Shape *shabalin::Rectangle::clone() const
+{
+  return new Rectangle(center_, width_, height_);
 }
 
 double shabalin::Rectangle::getArea() const
 {
-  double height = std::abs(pointLeft.y - pointRight.y);
-  double width = std::abs(pointLeft.x - pointRight.x);
-  return height * width;
+  return width_ * height_;
 }
 
-shabalin::rectangle_t shabalin::Rectangle::getFrameRect() const
+rectange_t shabalin::Rectangle::getFrameRect() const
 {
-  point_t center({(pointLeft.x + pointRight.x) / 2, (pointLeft.y + pointRight.y) / 2});
-  double height = std::abs(pointLeft.y - pointRight.y);
-  double width = std::abs(pointLeft.x - pointRight.x);
-  return {width, height, center};
+  return rectange_t{center_, width_, height_};
 }
-
-void shabalin::Rectangle::move(const point_t newCenter)
-{
-  point_t center({(pointLeft.x + pointRight.x) / 2, (pointLeft.y + pointRight.y) / 2});
-  double del_x = newCenter.x - center.x;
-  double del_y = newCenter.y - center.y;
-  move(del_x, del_y);
-}
-
-void shabalin::Rectangle::move(double del_x, double del_y)
-{
-  point_t center({(pointLeft.x + pointRight.x) / 2, (pointLeft.y + pointRight.y)});
-  center.x = center.x + del_x;
-  center.y = center.y + del_y;
-  point_t *points[2] = {&pointLeft, &pointRight};
-  for (size_t i = 0; i < 2; ++i)
-  {
-    points[i]->x += del_x;
-    points[i]->y+= del_y;
-  }
-}
-
-void shabalin::Rectangle::unsafeScale(const double ratio)
-{
-  double width = std::abs(pointLeft.x - pointRight.x);
-  double height = std::abs(pointLeft.y - pointRight.y);
-
-  double newWidth = width * ratio;
-  double newHeight = height * ratio;
-
-  double del_x = (newWidth - width) / 2.0;
-  double del_y = (newHeight - height) / 2.0;
-
-  pointLeft.x -= del_x;
-  pointRight.x -= del_y;
-  pointLeft.y += del_x;
-  pointRight.y += del_y;
-}
-

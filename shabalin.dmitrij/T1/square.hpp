@@ -8,7 +8,7 @@ namespace shabalin
   class Square: public Shape
   {
   public:
-    Square(const point_t &, double);
+    Square(const point_t &leftCorner, double lengthOfSide);
     virtual double getArea() const;
     virtual rectangle_t getFrameRect() const;
     virtual void move(const point_t &);

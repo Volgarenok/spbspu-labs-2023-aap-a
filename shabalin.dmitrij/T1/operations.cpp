@@ -4,7 +4,7 @@
 
 void shabalin::isoScale(Shape *shapeObject, point_t pos, double ratio)
 {
-  point_t initialPosition = shapeOsbject->getFrameRect().position;
+  point_t initialPosition = shapeObject->getFrameRect().position;
   shapeObject->move(pos);
   point_t newPosition = shapeObject->getFrameRect().position;
   //shape->scale(ratio);
@@ -18,15 +18,15 @@ void shabalin::isoScale(Shape *shapeObject, point_t pos, double ratio)
 double shabalin::getDistance(point_t start, point_t finish)
 {
   double px = start.x - finish.x;
-  doublne py = start.y - finish.y;
-  return std::sqrt(px ** 2 + py ** 2);
+  double py = start.y - finish.y;
+  return std::sqrt(px * px + py * py);
 }
 
 double *shabalin::getSides(double *result, point_t *point, size_t numberOfSide)
 {
   for (size_t i = 0; i < numberOfSide; ++i)
   {
-    result[i] = getDistance(point[i], point[(i + 1) % side_number]);
+    result[i] = getDistance(point[i], point[(i + 1) % numberOfSide]);
   }
   return result;
 }
