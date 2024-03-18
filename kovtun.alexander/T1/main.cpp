@@ -32,5 +32,10 @@ int main()
     }
   }
 
+  shapes[0]->scale(4);
+  std::cout << "center x: " << shapes[0]->getFrameRect().pos.x << " y: " << shapes[0]->getFrameRect().pos.y << '\n';
+  std::cout << "width: " << shapes[0]->getFrameRect().width << '\n';
+  std::cout << "height: " << shapes[0]->getFrameRect().height << '\n';
+  std::cout << "area: " << shapes[0]->getArea() << '\n';
 }
 

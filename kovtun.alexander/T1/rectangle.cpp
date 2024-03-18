@@ -38,5 +38,12 @@ void kovtun::Rectangle::move(double dx, double dy)
 
 void kovtun::Rectangle::scale(double k)
 {
+  rectangle_t selfRect = getFrameRect();
+  double halfWidth = rightTopCorner_.x - selfRect.pos.x;
+  double halfHeight = rightTopCorner_.y - selfRect.pos.y;
 
+  leftBottomCorner_.x -= halfWidth * (k - 1);
+  rightTopCorner_.x += halfWidth * (k - 1);
+  leftBottomCorner_.y -= halfHeight * (k - 1);
+  rightTopCorner_.y += halfHeight * (k - 1);
 }
