@@ -27,8 +27,8 @@ int main()
         std::cin >> x1 >> y1 >> x2 >> y2;
         float centerX = (x1 + x2) / 2;
         float centerY = (y1 + y2) / 2;
-        float width = std::abs(x1 - x2);
-        float height = std::abs(y1 - y2);
+        float width = x1 - x2;
+        float height = y1 - y2;
         shapes[shapeCount++] = new petuhov::Rectangle({centerX, centerY}, width, height);
       }
       else if (command == "CIRCLE")
@@ -59,7 +59,6 @@ int main()
     }
     catch (const std::invalid_argument &e)
     {
-      std::cerr << "Error creating shape: " << e.what() << std::endl;
       errorFlag = true;
     }
   }
@@ -74,12 +73,21 @@ int main()
     {
       try
       {
-        shapes[i]->scale(scale_center, scale_factor);
         petuhov::point_t lower_left {
           shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
           shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2
         };
         petuhov::point_t upper_right {
+          shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
+          shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2
+        };
+        std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
+        shapes[i]->scale(scale_center, scale_factor);
+        lower_left = {
+          shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
+          shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2
+        };
+        upper_right = {
           shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
           shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2
         };
