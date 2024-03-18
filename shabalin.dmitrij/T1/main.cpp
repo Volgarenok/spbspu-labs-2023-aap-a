@@ -7,6 +7,9 @@
 #include "rectangle.hpp"
 #include "analize.hpp"
 
+void pushFigure(const std::string &line, shabalin::CompositeShape &compositeShape);
+void executeCommand(const std::string &string, shabalin::CompositeShape &compositeShape);
+
 int main()
 {
   std::istream *inputStream;
@@ -49,4 +52,43 @@ int main()
     return 1;
   }
   return 0;
+}
+
+void pushFigure(const std::string &line, shabalin::CompositeShape &compositeShape)
+{
+  double x, y, x2, y2, x3, y3, side = 0;
+  shabalin::Analize analize(line);
+  std::string figure = "";
+  analize >> figure;
+  try
+  {
+    if (figure == shabalin::Figures::triangle)
+    {
+      analize >> x >> y >> x2 >> y2 >> x3 >> y3;
+      if (checker)
+      {
+        compositeShape.push_back(new shabalin::Triangle{{x, y}, {x2, y2}, {x3, y3}});
+      }
+    }
+    else if (figure == shabalin::Figures::square)
+    {
+      checker >> x >> y >> side;
+      if (checker)
+      {
+        compositeShape.push_back(new shabalin::Square{{x, y}, side});
+      }
+    }
+    else if (figure == shabalin::Figures::rectangle)
+    {
+      checker >> x >> y >> x2 >> y2;
+      if (checker)
+      {
+        compositeShape.push_back(new shabalin::Rectangle{{x, y}, {x2, y2}});
+      }
+    }
+  }
+  catch (const std::invalid_argument &e)
+  {
+    std::cerr << e.what() << '\n';
+  }
 }
