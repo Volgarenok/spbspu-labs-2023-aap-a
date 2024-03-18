@@ -2,10 +2,11 @@
 #include <algorithm>
 #include <cmath>
 #include <stdexcept>
+#include "commands.hpp"
 
 namespace shabalin
 {
-Triangle::Triangle(point_t p1, point_t p2, point_t p3) :
+Triangle::Triangle(point_t p1, point_t p2, point_t p3):
 p1_(p1),
 p2_(p2),
 p3_(p3)
