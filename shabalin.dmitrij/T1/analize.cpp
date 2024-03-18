@@ -15,14 +15,7 @@ namespace shabalin
     constexpr char spaceSymbol = ' ';
     begin_ = string_.find_first_not_of(spaceSymbol, end_);
     end_ = string_.find_first_of(spaceSymbol, begin_);
-    if (end_ == std::string::npos)
-    {
-      std::string::npos;
-    }
-    else
-    {
-      end_ - begin_;
-    }
+    size_t tokenSize = end_ == std::string::npos ? std::string::npos : end_ - begin_;
     size_t sizeOftoken = end_;
     return string_.substr(begin_, sizeOftoken);
   }
