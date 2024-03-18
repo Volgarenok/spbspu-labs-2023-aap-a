@@ -19,15 +19,31 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
     }
     else if (instruction == "ELLIPSE")
     {
-
+      kovtun::point_t center = { 0.0, 0.0 };
+      double verticalRadius = 0.0;
+      double horizontalRadius = 0.0;
+      std::cin >> center.x >> center.y >> verticalRadius >> horizontalRadius;
+      shapes[counter] = new kovtun::Ellipse(center, verticalRadius, horizontalRadius);
     }
     else if (instruction == "CIRCLE")
     {
-
+      kovtun::point_t center = { 0.0, 0.0 };
+      double radius = 0.0;
+      std::cin >> center.x >> center.y >> radius;
+      shapes[counter] = new kovtun::Circle(center, radius);
     }
     else if (instruction == "RING")
     {
-
+      kovtun::point_t center = { 0.0, 0.0 };
+      double outerRadius = 0.0;
+      double innerRadius = 0.0;
+      std::cin >> center.x >> center.y >> outerRadius >> innerRadius;
+      shapes[counter] = new kovtun::Ring(center, outerRadius, innerRadius);
+    }
+    else
+    {
+      std::cerr << "incorrect shape: " << instruction << "\n";
+      std::cin.clear();
     }
 
     // ?

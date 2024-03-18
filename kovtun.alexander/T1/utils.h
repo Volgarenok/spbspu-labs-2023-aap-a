@@ -5,6 +5,9 @@
 
 #include "shape.h"
 #include "rectangle.h"
+#include "circle.h"
+#include "ellipse.h"
+#include "ring.h"
 
 namespace kovtun
 {
