@@ -1,43 +1,65 @@
 #include "square.hpp"
 
 #include <stdexcept>
+#include <algorithm>
 
-shabalin::Square::Square(const point_t &leftCorner, double lengthOfSide):
-  leftCorner_(leftCorner),
-  lengthOfSide_(lengthOfSide)
+namespace shabalin
 {
-  if (lengthOfSide <= 0)
+  Square::Square(double left_bottom_x, double left_bottom_y, double side_length) : left_bottom_{left_bottom_x, left_bottom_y},
+                                                                                   side_length_(side_length)
   {
-    throw std::invalid_argument("Error: incorrect square parameters");
+    if (side_length <= 0)
+    {
+      throw std::invalid_argument("Side length of the square must be positive");
+    }
   }
-}
 
-double shabalin::Square::getArea() const
-{
-  return lengthOfSide_ * lengthOfSide_;
-}
+  Square::Square(point_t center, double side_length) : 
+  left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
+                                                       side_length_(side_length)
+  {
+    if (side_length <= 0)
+    {
+      throw std::invalid_argument("Side length of the square must be positive");
+    }
+  }
+  void Square::move(point_t p)
+  {
+    double dx = p.x - (left_bottom_.x + side_length_ / 2);
+    double dy = p.y - (left_bottom_.y + side_length_ / 2);
+    left_bottom_.x += dx;
+    left_bottom_.y += dy;
+  }
 
-shabalin::rectangle_t shabalin::Square::getFrameRect() const
-{
-  point_t rect = { leftCorner_.x + (lengthOfSide_ / 2), leftCorner_.y + (lengthOfSide_ / 2) };
-  return rectangle_t{lengthOfSide_, lengthOfSide_, rect};
-}
+  void Square::move(double shift_x, double shift_y)
+  {
+    left_bottom_.x += shift_x;
+    left_bottom_.y += shift_y;
+  }
 
-void shabalin::Square::move(double del_x, double del_y)
-{
-  leftCorner_.x += del_x;
-  leftCorner_.y += del_y;
-}
+  void Square::scale(double scale)
+  {
+    double center_x = left_bottom_.x + side_length_ / 2;
+    double center_y = left_bottom_.y + side_length_ / 2;
 
-void shabalin::Square::move(const point_t &newCenter)
-{
-  rectangle_t newCenter_ = getFrameRect();
-  move(newCenter.x - newCenter_.position.x, newCenter.y - newCenter_.position.y);
-}
+    side_length_ *= scale;
 
-void shabalin::Square::unsafeScale(double ratio)
-{
-  point_t mid = {leftCorner_.x + (lengthOfSide_ / 2.0), leftCorner_.y + (lengthOfSide_ / 2.0)};
-  leftCorner_ = mid - (mid - leftCorner_) * ratio;
-  lengthOfSide_ *= ratio;  
+    left_bottom_.x = center_x - side_length_ / 2;
+    left_bottom_.y = center_y - side_length_ / 2;
+  }
+
+  double Square::getArea() const
+  {
+    return side_length_ * side_length_;
+  }
+
+  rectange_t Square::getFrameRect() const
+  {
+    return {left_bottom_, side_length_, side_length_};
+  }
+
+  Shape *Square::clone() const
+  {
+    return new Square(left_bottom_.x, left_bottom_.y, side_length_);
+  }
 }
