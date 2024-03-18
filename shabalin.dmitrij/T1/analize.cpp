@@ -1,5 +1,6 @@
 #include "analize.hpp"
 #include <cstddef>
+#include <string>
 
 namespace shabalin
 {

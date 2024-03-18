@@ -2,7 +2,7 @@
 #include <iostream>
 #include "square.hpp"
 #include "commands.hpp"
-#include "compositeshape.hpp"
+#include "compositeShapes.hpp"
 #include "triangle.hpp"
 #include "rectangle.hpp"
 #include "analize.hpp"
