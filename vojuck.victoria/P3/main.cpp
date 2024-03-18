@@ -16,6 +16,8 @@ int main()
     char * resultLetters = new char[size]{};
     vojuck::removeLetters(array, resultLetters);
     std::cout << resultDigits << "\n" << resultLetters << "\n";
+    delete [] resultDigits;
+    delete [] resultLetters;
   }
   catch (const std::bad_alloc &e)
   {
