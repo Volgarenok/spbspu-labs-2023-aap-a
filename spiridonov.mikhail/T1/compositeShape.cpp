@@ -21,7 +21,7 @@ spiridonov::CompositeShape* spiridonov::CompositeShape::clone() const
   {
     for (size_t i = 0; i < this->shapes; ++i)
     {
-      auto clonedShape = this->shapePtrs[i]->clone();
+      Shape* clonedShape = this->shapePtrs[i]->clone();
       newComposite->addShape(clonedShape);
     }
   }
@@ -36,7 +36,6 @@ spiridonov::CompositeShape* spiridonov::CompositeShape::clone() const
   }
   return newComposite;
 }
-
 
 void spiridonov::CompositeShape::addShape(Shape* shape)
 {
