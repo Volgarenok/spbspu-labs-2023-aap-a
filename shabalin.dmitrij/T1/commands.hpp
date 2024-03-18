@@ -17,6 +17,7 @@ namespace Commands
 static const std::string scale = "SCALE";
 static const std::string allCommands[] = {scale};
 }
+double isTriangle(point_t &p1, point_t &p2, point_t &p3);
 bool isCommand(const std::string& command);
 bool isFigure(const std::string& figure);
 void pushFigure(const std::string& line, CompositeShape& compositeShape);

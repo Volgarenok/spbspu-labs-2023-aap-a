@@ -16,7 +16,6 @@ namespace shabalin
     double getArea() const override;
     double distance(point_t p1, point_t p2);
     rectangle_t getFrameRect() const override;
-    double isTriangle(point_t &p1, point_t &p2, point_t &p3);
     Shape* clone() const override;
   private:
     point_t p1_;
