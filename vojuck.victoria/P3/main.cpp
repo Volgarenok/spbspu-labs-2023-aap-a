@@ -11,13 +11,12 @@ int main()
   try
   {
     array = vojuck::inputString(std::cin, size);
-    char * resultDigits = new char[size]{};
-    vojuck::removeDigits(array, resultDigits);
-    char * resultLetters = new char[size]{};
-    vojuck::removeLetters(array, resultLetters);
-    std::cout << resultDigits << "\n" << resultLetters << "\n";
-    delete [] resultDigits;
-    delete [] resultLetters;
+    char * result = new char[size]{};
+    vojuck::removeDigits(array, result);
+    std::cout << result << "\n";
+    vojuck::removeLetters(array, result);
+    std::cout << result << "\n";
+    delete [] result;
   }
   catch (const std::bad_alloc &e)
   {
