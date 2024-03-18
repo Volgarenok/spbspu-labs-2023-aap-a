@@ -3,20 +3,18 @@
 #include "removeLetters.hpp"
 #include "inputString.hpp"
 
-using namespace vojuck;
-
 int main()
 {
   int size = 20;
-  char * array = new char[size]{};
+  char * array = new char[size]{'\0'};
   std::cin >> std::noskipws;
   try
   {
-    inputString(std::cin, array, size);
+    vojuck::inputString(std::cin, array, size);
     char * resultDigits = new char[size]{};
-    removeDigits(array, resultDigits);
+    vojuck::removeDigits(array, resultDigits);
     char * resultLetters = new char[size]{};
-    removeLetters(array, resultLetters);
+    vojuck::removeLetters(array, resultLetters);
     std::cout << resultDigits << "\n" << resultLetters << "\n";
   }
   catch (const std::bad_alloc &e)

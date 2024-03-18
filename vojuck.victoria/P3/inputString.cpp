@@ -18,8 +18,8 @@ char * vojuck::inputString(std::istream& input, char * array, int& size)
       int  new_size = size + 20;
       try
       {
-        new_array = new char[new_size]{};
-        for (size_t j = 0; j < i; j++)
+        new_array = new char[new_size]{'\0'};
+        for (int j = 0; j < i; j++)
         {
           new_array[j] = array[j];
         }

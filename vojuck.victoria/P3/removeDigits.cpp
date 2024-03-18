@@ -1,7 +1,7 @@
 #include <cctype>
 #include "removeDigits.hpp"
 
-char * removeDigits(const char * input, char * result)
+char * vojuck::removeDigits(const char * input, char * result)
 {
   while (*input != '\n')
   {

@@ -1,7 +1,7 @@
 #include <cctype>
 #include "removeLetters.hpp"
 
-char * removeLetters(const char * input, char * result)
+char * vojuck::removeLetters(const char * input, char * result)
 {
   while (*input != '\n')
   {
