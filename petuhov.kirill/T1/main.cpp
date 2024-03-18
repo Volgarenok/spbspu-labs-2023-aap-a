@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "base-types.hpp"
 #include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
@@ -69,7 +70,24 @@ int main()
     std::cin >> scale;
     for (size_t i = 0; i < shapeCount; i++)
     {
-      shapes[i]->scale(scale);
+      try
+      {
+        shapes[i]->scale(scale);
+        petuhov::point_t lower_left {
+          shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
+          shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2
+        };
+        petuhov::point_t upper_right {
+          shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
+          shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2
+        };
+        std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
+      }
+      catch (const std::invalid_argument &e)
+      {
+        std::cerr << "Error scaling shape: " << e.what() << std::endl;
+        errorFlag = true;
+      }
     }
 
     if (errorFlag)
