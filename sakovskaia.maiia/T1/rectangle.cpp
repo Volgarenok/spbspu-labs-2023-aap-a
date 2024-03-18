@@ -42,3 +42,17 @@ void sakovskaia::Rectangle::move(const double dx, const double dy)
     points[i]->y += dy;
   }
 }
+
+void sakovskaia::Rectangle::scaleShape(const double k)
+{
+  double height = ur_.y - ll_.y;
+  double width = ur_.x - ll.x;
+  double new_height = height * k;
+  double new_width = width * k;
+  double dx_ = (new_width - width) / 2.0;
+  double dy_ = (new_height - height) / 2.0;
+  ll_.x -= dx_;
+  ll_.y -= dy_;
+  ur_.x += dx_;
+  ur_.y += dy_;
+}
