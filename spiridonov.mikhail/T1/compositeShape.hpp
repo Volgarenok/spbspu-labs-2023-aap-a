@@ -19,7 +19,7 @@ namespace spiridonov
     void move(point_t pos);
     void move(double x, double y);
     void scale(double coefficient);
-    Shape* getShape(size_t index) const;
+    Shape* getShape(size_t index);
     void clear();
 
     size_t getShapesCount() const;

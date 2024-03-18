@@ -3,7 +3,7 @@
 #include "compositeShape.hpp"
 #include "shape.hpp"
 
-void spiridonov::outShapes(std::ostream& out, const CompositeShape& shapes, bool centered, double k, double cenX, double cenY)
+void spiridonov::outShapes(std::ostream& out, CompositeShape& shapes, bool centered, double k, double cenX, double cenY)
 {
   out << shapes.getArea();
 

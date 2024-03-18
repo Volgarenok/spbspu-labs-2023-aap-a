@@ -62,13 +62,19 @@ int main()
           shapesAdded = true;
           double left = 0.0, bottom = 0.0, right = 0.0, top = 0.0;
           std::cin >> left >> bottom >> right >> top;
+          Rectangle* rectangle = nullptr;
           try
           {
             Rectangle* rectangle = new Rectangle(left, bottom, right, top);
             composite.addShape(rectangle);
           }
-          catch (const std::invalid_argument &e)
+          catch (const std::invalid_argument& e)
           {
+            if (rectangle != nullptr)
+            {
+              delete rectangle;
+              rectangle = nullptr;
+            }
             std::cerr << "Error: Invalid rectangle parameters: " << e.what() << "\n";
             invalidShapeDetected = true;
             shapesAdded = false;

@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include "rectangle.hpp"
 
-spiridonov::CompositeShape::CompositeShape(): shapePtrs(nullptr), shapes(0), capacity_(0), scaleCoefficient(1.0)
+spiridonov::CompositeShape::CompositeShape() : shapePtrs(nullptr), shapes(0), capacity_(0), scaleCoefficient(1.0)
 {
 }
 
@@ -16,7 +16,6 @@ spiridonov::CompositeShape::~CompositeShape()
 spiridonov::CompositeShape* spiridonov::CompositeShape::clone() const
 {
   CompositeShape* newComposite = new CompositeShape();
-  newComposite->capacity_ = this->capacity_;
 
   try
   {
@@ -26,7 +25,7 @@ spiridonov::CompositeShape* spiridonov::CompositeShape::clone() const
       newComposite->addShape(clonedShape);
     }
   }
-  catch(const std::exception& e)
+  catch (const std::exception& e)
   {
     for (size_t i = 0; i < newComposite->shapes; ++i)
     {
@@ -41,7 +40,7 @@ spiridonov::CompositeShape* spiridonov::CompositeShape::clone() const
 
 void spiridonov::CompositeShape::addShape(Shape* shape)
 {
-  if (shapes >= capacity_)
+  if (shapes + 1 > capacity_)
   {
     size_t newCapacity = (capacity_ == 0) ? 1 : 2 * capacity_;
     Shape** tempArray = new Shape * [newCapacity];
@@ -89,7 +88,7 @@ double spiridonov::CompositeShape::getArea() const
     totalArea += shapePtrs[i]->getArea();
   }
 
-  totalArea = ceil(totalArea);
+  totalArea = std::ceil(totalArea);
 
   totalArea *= currentScaleCoefficient * currentScaleCoefficient;
 
@@ -126,12 +125,15 @@ size_t spiridonov::CompositeShape::getShapesCount() const
   return shapes;
 }
 
-void spiridonov::CompositeShape::move(point_t pos)
+ void spiridonov::CompositeShape::move(point_t pos)
 {
-  for (size_t i = 0; i < shapes; ++i)
-  {
-    shapePtrs[i]->move(pos);
-  }
+   point_t center = getFrameRect().pos;
+   double dx = pos.x - center.x;
+   double dy = pos.y - center.y;
+   for (size_t i = 0; i < shapes; i++)
+   {
+     shapePtrs[i]->move(dx, dy);
+   }
 }
 
 void spiridonov::CompositeShape::move(double x, double y)
@@ -158,7 +160,7 @@ void spiridonov::CompositeShape::scale(double coefficient)
   }
 }
 
-spiridonov::Shape* spiridonov::CompositeShape::getShape(size_t index) const
+spiridonov::Shape* spiridonov::CompositeShape::getShape(size_t index)
 {
   if (index >= shapes)
   {
