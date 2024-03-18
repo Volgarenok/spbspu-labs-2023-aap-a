@@ -95,3 +95,13 @@ void kovtun::isotropicScale(kovtun::Shape *shape, const kovtun::point_t & center
   shape->move(dx, dy);
 }
 
+void kovtun::removeShapes(kovtun::Shape ** shapes, size_t shapesCount)
+{
+  for (size_t i = 0; i < shapesCount; i++)
+  {
+    delete shapes[i];
+  }
+
+  delete [] shapes;
+}
+
