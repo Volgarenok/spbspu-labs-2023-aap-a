@@ -108,6 +108,7 @@ namespace shabalin
     }
     shapes[count++] = shp;
   }
+  
   void CompositeShape::pop_back()
   {
     delete shapes[--count];

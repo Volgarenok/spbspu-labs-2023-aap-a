@@ -30,6 +30,15 @@ double Triangle::distance(point_t p1, point_t p2)
     return std::sqrt(std::pow(p2.x - p1.x, 2.0) + std::pow(p2.y - p1.y, 2.0));
 }
 
+double Triangle::getArea() const
+{
+    double a = std::sqrt(std::pow(p2_.x - p1_.x, 2) + std::pow(p2_.y - p1_.y, 2));
+    double b = std::sqrt(std::pow(p3_.x - p2_.x, 2) + std::pow(p3_.y - p2_.y, 2));
+    double c = std::sqrt(std::pow(p1_.x - p3_.x, 2) + std::pow(p1_.y - p3_.y, 2));
+    double p = (a + b + c) / 2;
+    return std::sqrt(p * (p - a) * (p - b) * (p - c));
+}
+
 void Triangle::move(point_t p)
 {
     double dx = p.x - (p1_.x + p2_.x + p3_.x) / 3.0;
@@ -64,15 +73,6 @@ void Triangle::scale(double scale)
     p2_.y = dy + (p2_.y - dy) * scale;
     p3_.x = dx + (p3_.x - dx) * scale;
     p3_.y = dy + (p3_.y - dy) * scale;
-}
-
-double Triangle::getArea() const
-{
-    double a = std::sqrt(std::pow(p2_.x - p1_.x, 2) + std::pow(p2_.y - p1_.y, 2));
-    double b = std::sqrt(std::pow(p3_.x - p2_.x, 2) + std::pow(p3_.y - p2_.y, 2));
-    double c = std::sqrt(std::pow(p1_.x - p3_.x, 2) + std::pow(p1_.y - p3_.y, 2));
-    double p = (a + b + c) / 2;
-    return std::sqrt(p * (p - a) * (p - b) * (p - c));
 }
 
 rectangle_t Triangle::getFrameRect() const
