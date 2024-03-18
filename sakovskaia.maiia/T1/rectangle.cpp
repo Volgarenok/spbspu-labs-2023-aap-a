@@ -29,3 +29,16 @@ void sakoskaia::Rectangle::move(const point_t new_center)
   double dy_ = new_center.y - center.y;
   move(dx_, dy_);
 }
+
+void sakovskaia::Rectangle::move(const double dx, const double dy)
+{
+  point_t center{((ur_.x + ll_.x) / 2), ((ur_.y + ll_.y) / 2)};
+  center.x += dx;
+  center.y += dy;
+  point_t * points[] = {&ll_, &ur_};
+  for (size_t i = 0; i < 2; i++)
+  {
+    points[i]->x += dx;
+    points[i]->y += dy;
+  }
+}
