@@ -72,12 +72,12 @@ int main()
           {
             if (rectangle != nullptr)
             {
-              delete rectangle;
               rectangle = nullptr;
             }
             std::cerr << "Error: Invalid rectangle parameters: " << e.what() << "\n";
             invalidShapeDetected = true;
             shapesAdded = false;
+            delete rectangle;
           }
         }
 

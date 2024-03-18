@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include "rectangle.hpp"
 
-spiridonov::CompositeShape::CompositeShape() : shapePtrs(nullptr), shapes(0), capacity_(0), scaleCoefficient(1.0)
+spiridonov::CompositeShape::CompositeShape(): shapePtrs(nullptr), shapes(0), capacity_(0), scaleCoefficient(1.0)
 {
 }
 
