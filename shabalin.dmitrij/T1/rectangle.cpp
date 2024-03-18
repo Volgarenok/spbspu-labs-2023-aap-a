@@ -2,7 +2,10 @@
 
 #include <stdexcept>
 
-shabalin::Rectangle::Rectangle(point_t center, size_t width, size_t height) : center_(center), width_(width), height_(height)
+shabalin::Rectangle::Rectangle(point_t center, size_t width, size_t height): 
+center_(center), 
+width_(width), 
+height_(height)
 {
 }
 
