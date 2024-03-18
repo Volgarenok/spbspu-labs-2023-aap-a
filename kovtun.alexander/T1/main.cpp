@@ -37,14 +37,16 @@ int main()
       kovtun::isotropicScale(shapes[i], scaleCenter, scaleRatio);
     }
     kovtun::showResult(std::cout, shapes, shapesCount);
-
   }
   catch (...)
   {
-    // TODO: clean shapes
+    kovtun::removeShapes(shapes, shapesCount);
+    std::cerr << "unexpected error occurred\n";
+    return 1;
   }
 
+  kovtun::removeShapes(shapes, shapesCount);
 
-
+  return 0;
 }
 

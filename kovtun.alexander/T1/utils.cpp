@@ -15,6 +15,13 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
       {
         in >> rectanglePoints[i].x >> rectanglePoints[i].y;
       }
+
+      if (rectanglePoints[0].x >= rectanglePoints[1].x || rectanglePoints[0].y >= rectanglePoints[1].y)
+      {
+        std::cerr << "incorrect shape options: " << instruction << "\n";
+        continue;
+      }
+
       shapes[counter] = new kovtun::Rectangle(rectanglePoints[0], rectanglePoints[1]);
     }
     else if (instruction == "ELLIPSE")
@@ -40,7 +47,7 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
       std::cin >> center.x >> center.y >> outerRadius >> innerRadius;
       shapes[counter] = new kovtun::Ring(center, outerRadius, innerRadius);
     }
-    else
+    else if (instruction != "SCALE")
     {
       std::cerr << "incorrect shape: " << instruction << "\n";
       std::cin.clear();
@@ -50,7 +57,6 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
     if (!std::cin)
     {
       std::cerr << "bad input\n";
-      // clear shapes
       throw;
     }
   }
@@ -81,8 +87,10 @@ void kovtun::showResult(std::ostream &out, kovtun::Shape ** shapes, size_t shape
     kovtun::rectangle_t selfRect = shapes[i]->getFrameRect();
     kovtun::point_t leftBottomCorner = { selfRect.pos.x - selfRect.width / 2.0, selfRect.pos.y - selfRect.height / 2.0 };
     kovtun::point_t rightTopCorner = { selfRect.pos.x + selfRect.width / 2.0, selfRect.pos.y + selfRect.height / 2.0 };
-    out << leftBottomCorner.x << " " << leftBottomCorner.y << " " << rightTopCorner.x << " " << rightTopCorner.y << '\n';
+    out << leftBottomCorner.x << " " << leftBottomCorner.y << " " << rightTopCorner.x << " " << rightTopCorner.y << " ";
   }
+
+  out << "\n";
 }
 
 void kovtun::isotropicScale(kovtun::Shape *shape, const kovtun::point_t & center, double ratio)
@@ -99,9 +107,12 @@ void kovtun::removeShapes(kovtun::Shape ** shapes, size_t shapesCount)
 {
   for (size_t i = 0; i < shapesCount; i++)
   {
+    if (!shapes[i])
+    {
+      continue;
+    }
+
     delete shapes[i];
   }
-
-  delete [] shapes;
 }
 
