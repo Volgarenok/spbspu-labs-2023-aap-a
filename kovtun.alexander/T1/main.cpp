@@ -4,33 +4,31 @@
 #include "base_types.h"
 #include "shape.h"
 #include "rectangle.h"
+#include "utils.h"
 
 int main()
 {
-  std::string instruction = "";
-  kovtun::Shape ** shapes = new kovtun::Shape *[100]();
-
-  for (size_t shapeIndex = 0; instruction != "SCALE"; shapeIndex++)
+  kovtun::Shape* shapes[100] = {};
+  size_t shapesCount = 0;
+  try
   {
-    std::cin >> instruction;
-    if (instruction == "RECTANGLE")
+    shapesCount = kovtun::parseShapes(std::cin, shapes);
+    kovtun::point_t scaleCenter = { 0.0, 0.0 };
+    double scaleRatio = 0.0;
+    std::cin >> scaleCenter.x >> scaleCenter.y >> scaleRatio;
+    if (scaleRatio <= 0.0)
     {
-      // uninitialized?
-      kovtun::point_t rectanglePoints[2];
-      for (size_t i = 0; i < 2; i++)
-      {
-        std::cin >> rectanglePoints[i].x >> rectanglePoints[i].y;
-      }
-      shapes[shapeIndex] = new kovtun::Rectangle(rectanglePoints[0], rectanglePoints[1]);
+      // TODO: throw
     }
 
-    // ?
-    if (!std::cin)
-    {
-      std::cerr << "bad input\n";
-      return 1;
-    }
+
   }
-  
+  catch (...)
+  {
+    // TODO: clean shapes
+  }
+
+
+
 }
 
