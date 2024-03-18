@@ -5,7 +5,7 @@
 #include "compositeshape.hpp"
 #include "triangle.hpp"
 #include "rectangle.hpp"
-#include "checker.hpp"
+#include "analize.hpp"
 
 void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShape);
 void executeCommand(const std::string& string, shabalin::CompositeShape& compositeShape);
@@ -23,8 +23,8 @@ int main()
     {
       continue;
     }
-    shabalin::Checker checker(line);
-    checker >> entity;
+    shabalin::Analize analize(line);
+    analize >> entity;
     try
     {
       if (shabalin::isFigure(entity))
@@ -56,21 +56,15 @@ int main()
 
 void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShape)
 {
-  double x = 0;
-  double y = 0;
-  double x2 = 0;
-  double y2 = 0;
-  double x3 = 0;
-  double y3 = 0;
-  double side = 0;
-  shabalin::Checker checker(line);
+  double x, y, x2, y2, x3, y3, side = 0;
+  shabalin::Analize analize(line);
   std::string figure = "";
-  checker >> figure;
+  analize >> figure;
   try
   {
     if (figure == shabalin::Figures::triangle)
     {
-      checker >> x >> y >> x2 >> y2 >> x3 >> y3;
+      analize >> x >> y >> x2 >> y2 >> x3 >> y3;
       if (checker)
       {
         compositeShape.push_back(new shabalin::Triangle{{x, y}, {x2, y2}, {x3, y3}});
@@ -101,7 +95,7 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
 
 void executeCommand(const std::string& string, shabalin::CompositeShape& compositeShape)
 {
-  shabalin::Checker checker(string);
+  shabalin::Analize analize(string);
   std::string commandName = "";
   tokenizer >> commandName;
   if (commandName == shabalin::Commands::scale)
@@ -109,8 +103,8 @@ void executeCommand(const std::string& string, shabalin::CompositeShape& composi
     double x = 0;
     double y = 0;
     double scale = 0;
-    checker >> x >> y >> scale;
-    if (checker && scale > 0.0)
+    analize >> x >> y >> scale;
+    if (analize && scale > 0.0)
     {
       if (compositeShape.empty())
       {
