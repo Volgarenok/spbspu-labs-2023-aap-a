@@ -2,7 +2,7 @@
 #define TRIANGLE_H
 
 #include "shape.hpp"
-#include "base-types.hpp"
+#include "base_types.hpp"
 
 namespace shabalin
 {
