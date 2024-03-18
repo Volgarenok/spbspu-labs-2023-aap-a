@@ -37,20 +37,21 @@ int main()
       std::cin >> x >> y >> radius >> vertexCount;
       shapes[shapeCount++] = new petuhov::Regular({x, y}, radius, vertexCount);
     }
-    if (command == "SCALE")
+  }
+
+  if (command == "SCALE")
+  {
+    float scale = 0;
+    std::cin >> scale;
+    for (size_t i = 0; i < shapeCount; i++)
     {
-      float scale = 0;
-      std::cin >> scale;
-      for (size_t i = 0; i < shapeCount; i++)
-      {
-        shapes[i]->scale(scale);
-      }
+      shapes[i]->scale(scale);
     }
-    else
-    {
-      std::cerr << "SCALE command is missing or invalid." << std::endl;
-      return 1;
-    }
+  }
+  else
+  {
+    std::cerr << "SCALE command is missing or invalid." << std::endl;
+    return 1;
   }
 
   for (size_t i = 0; i < shapeCount; ++i)
