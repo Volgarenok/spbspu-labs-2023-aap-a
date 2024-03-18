@@ -19,18 +19,20 @@ kovtun::rectangle_t kovtun::Ellipse::getFrameRect() const
   return selfRect;
 }
 
-void kovtun::Ellipse::move(const kovtun::point_t &point)
+void kovtun::Ellipse::move(const kovtun::point_t & point)
 {
-
+  center_ = point;
 }
 
 void kovtun::Ellipse::move(double dx, double dy)
 {
-
+  center_.x += dx;
+  center_.y += dy;
 }
 
 void kovtun::Ellipse::scale(double k)
 {
-
+  verticalRadius_ *= k;
+  horizontalRadius_ *= k;
 }
 
