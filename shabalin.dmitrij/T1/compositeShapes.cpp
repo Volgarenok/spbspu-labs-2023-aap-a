@@ -56,9 +56,9 @@ namespace shabalin
     for (size_t i = 0; i < size(); ++i)
     {
       Shape *shape = shapes[i];
-      point_t oldCenter = shape->getFrameRect().center;
+      point_t oldCenter = shape->getFrameRect().pos;
       shape->move(p);
-      point_t newCenter = shape->getFrameRect().center;
+      point_t newCenter = shape->getFrameRect().pos;
       shape->scale(scale);
       const double dx = (oldCenter.x - newCenter.x) * scale;
       const double dy = (oldCenter.y - newCenter.y) * scale;

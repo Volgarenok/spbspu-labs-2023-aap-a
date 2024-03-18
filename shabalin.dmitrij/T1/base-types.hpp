@@ -9,15 +9,15 @@ namespace shabalin
   };
   struct rectangle_t
   {
-    point_t center;
+    point_t pos;
     double width, height;
     point_t bl() const
     {
-      return {center.x - width / 2.0, center.y - height / 2.0};
+      return {pos.x - width / 2.0, pos.y - height / 2.0};
     }
     point_t ur() const
     {
-      return {center.x + width / 2.0, center.y + height / 2.0};
+      return {pos.x + width / 2.0, pos.y + height / 2.0};
     }
   };
 }
