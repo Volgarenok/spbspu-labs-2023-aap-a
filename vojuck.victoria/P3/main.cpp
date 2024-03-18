@@ -1,10 +1,7 @@
-
 #include <iostream>
 #include <iomanip>
-#include <cctype>
-
-char * removeDigits(const char * input, char * result);
-char * removeLetters(const char * input, char * result);
+#include "removeDigits.hpp"
+#include "removeLetters.hpp"
 
 int main()
 {
@@ -66,32 +63,3 @@ int main()
 
 }
 
-char * removeDigits(const char * input, char * result)
-{
-  while (*input != '\n')
-  {
-    if (!std::isdigit(*input))
-    {
-      *result = *input;
-      result++;
-    }
-    input++;
-  }
-  *result = '\0';
-  return result;
-}
-
-char * removeLetters(const char * input, char * result)
-{
-  while (*input != '\n')
-  {
-    if (!std::isalpha(*input))
-    {
-      *result = *input;
-      result++;
-    }
-    input++;
-  }
-  *result = '\0';
-  return result;
-}
