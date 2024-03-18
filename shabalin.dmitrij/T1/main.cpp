@@ -14,7 +14,7 @@ void executeCommand(const std::string& string, shabalin::CompositeShape& composi
 
 int main()
 {
-  std::istream *input;
+  std::istream *input = {};
   shabalin::CompositeShape shapes;
   bool scaleExecuted = false;
   while (*input)
