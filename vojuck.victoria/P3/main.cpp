@@ -22,6 +22,11 @@ int main()
     std::cerr << "Not enough memory\n";
     return 1;
   }
+  catch (const std::logic_error &e)
+  {
+    std::cerr << e.what();
+    return 2;
+  }
   std::cin >> std::skipws;
 
 }

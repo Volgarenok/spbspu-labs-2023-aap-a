@@ -35,11 +35,10 @@ char * vojuck::inputString(std::istream& input, int& size)
       }
     }
     array[i] = '\n';
-    if (array[0] == '\n')
-    {
-      delete [] array;
-      throw std::logic_error("where is srting?(\n");
-    }
+  }
+  if (std::isspace(c))
+  {
+    throw std::logic_error("the string is empty\n");
   }
   return array;
 }
