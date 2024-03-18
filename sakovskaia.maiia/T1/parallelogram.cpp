@@ -49,3 +49,14 @@ void sakovskaia::Parallelogram::move(double dx, double dy)
     points[i]->y += dy;
   }
 }
+
+void sakovskaia::Parallelogram::scaleShape(double k)
+{
+  point_t center = {(p1_.x + p2_.x + p3_.x) / 3, (p1_.y + p2_.y + p3_.y) / 3};
+  point_t* points[] = {&p1_, &p2_, &p3_};
+  for (size_t i = 0; i < 3; i++)
+  {
+    points[i]->x = center.x + (points[i]->x - center.x) * k;
+    points[i]->y = center.y + (points[i]->y - center.y) * k;
+  }
+}
