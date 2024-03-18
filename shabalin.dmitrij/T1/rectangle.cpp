@@ -5,7 +5,7 @@
 namespace shabalin
 {
 
-  Rectangle::Rectangle(point_t center, size_t width, size_t height) : 
+  Rectangle::Rectangle(point_t center, size_t width, size_t height) :
   center_(center),
   width_(width),
   height_(height)

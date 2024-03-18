@@ -5,7 +5,7 @@
 
 namespace shabalin
 {
-  Square::Square(double left_bottom_x, double left_bottom_y, double side_length) : 
+  Square::Square(double left_bottom_x, double left_bottom_y, double side_length) :
   left_bottom_{left_bottom_x, left_bottom_y},
   side_length_(side_length)
   {
