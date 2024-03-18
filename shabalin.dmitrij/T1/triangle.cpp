@@ -16,7 +16,7 @@ p3_(p3)
   }
 }
 
-double shabalin::isTriangle(point_t &p1, point_t &p2, point_t &p3)
+double shabalin::isTriangle(shabalin::point_t &p1, shabalin::point_t &p2, shabalin::point_t &p3)
 {
   return 0.5 * std::abs(p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
 }
