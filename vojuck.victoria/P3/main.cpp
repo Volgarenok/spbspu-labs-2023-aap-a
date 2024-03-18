@@ -3,8 +3,8 @@
 #include <iomanip>
 #include <cctype>
 
-char * removeDigits(char * input);
-char * removeLetters(char * input);
+char * removeDigits(const char * input, char * result);
+char * removeLetters(const char * input, char * result);
 
 int main()
 {
@@ -46,18 +46,29 @@ int main()
     if (array[0] == '\n')
     {
       delete [] array;
-      throw std::logic_error("where is srting?(");
+      throw std::logic_error("where is srting?(\n");
     }
   }
+  try
+  {
+    char * resultDigits = new char[size]{};
+    removeDigits(array, resultDigits);
+    char * resultLetters = new char[size]{};
+    removeLetters(array, resultLetters);
+    std::cout << resultDigits << "\n" << resultLetters << "\n";
+  }
+  catch (const std::bad_alloc &e)
+  {
+    std::cerr << "Not enough memory\n";
+    return 1;
+  }
   std::cin >> std::skipws;
-  std::cout << removeDigits(array) << "\n";
 
 }
 
-char * removeDigits(char* input)
+char * removeDigits(const char * input, char * result)
 {
-  char* result = input;
-  while (*input)
+  while (*input != '\n')
   {
     if (!std::isdigit(*input))
     {
@@ -70,9 +81,9 @@ char * removeDigits(char* input)
   return result;
 }
 
-char* removeLetters(char* input) {
-  char* result = input;
-  while (*input)
+char * removeLetters(const char * input, char * result)
+{
+  while (*input != '\n')
   {
     if (!std::isalpha(*input))
     {
