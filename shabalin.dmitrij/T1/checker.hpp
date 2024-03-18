@@ -1,5 +1,5 @@
-#ifndef TOKENIZER_HPP
-#define TOKENIZER_HPP
+#ifndef CHECKER_HPP
+#define CHECKER_HPP
 
 #include <string>
 #include <cstddef>
@@ -7,12 +7,12 @@
 namespace shabalin
 {
 
-class Tokenizer
+class Checker
 {
 public:
-    Tokenizer(const std::string& string);
-    Tokenizer& operator>>(std::string& string);
-    Tokenizer& operator>>(double& d);
+    Checker(const std::string& string);
+    Checker& operator>>(std::string& string);
+    Checker& operator>>(double& d);
     operator bool() const;
 private:
     std::string findNextToken();

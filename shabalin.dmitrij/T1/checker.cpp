@@ -1,16 +1,16 @@
-#include "tokenizer.hpp"
+#include "checker.hpp"
 #include <cstddef>
 
 namespace shabalin
 {
 
-  Tokenizer::Tokenizer(const std::string &string)
+  Tokenizer::Checker(const std::string &string)
   {
     string_ = string;
     begin_ = end_ = 0;
     isOk_ = true;
   }
-  std::string Tokenizer::findNextToken()
+  std::string Checker::findNextToken()
   {
     constexpr char spaceSymbol = ' ';
     begin_ = string_.find_first_not_of(spaceSymbol, end_);
@@ -19,7 +19,7 @@ namespace shabalin
     size_t tokenSize = end_;
     return string_.substr(begin_, tokenSize);
   }
-  Tokenizer &Tokenizer::operator>>(std::string &string)
+  Checker &Checker::operator>>(std::string &string)
   {
     std::string s = findNextToken();
     if (s.empty())
@@ -32,7 +32,7 @@ namespace shabalin
     }
     return *this;
   }
-  Tokenizer &Tokenizer::operator>>(double &d)
+  Checker &Checker::operator>>(double &d)
   {
     std::string s = findNextToken();
     if (s.empty())
@@ -50,7 +50,7 @@ namespace shabalin
     }
     return *this;
   }
-  Tokenizer::operator bool() const
+  Checker::operator bool() const
   {
     return isOk_;
   }
