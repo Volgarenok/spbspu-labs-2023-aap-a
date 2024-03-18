@@ -21,3 +21,11 @@ sakovskaia::Rectangle::getFrameRect() const
   point_t center{((ur_.x + ll_.x) / 2), ((ur_.y + ll_.y) / 2)};
   return {width, height, center};
 }
+
+void sakoskaia::Rectangle::move(const point_t new_center)
+{
+  point_t center{((ur_.x + ll_.x) / 2), ((ur_.y + ll_.y) / 2)};
+  double dx_ = new_center.x - center.x;
+  double dy_ = new_center.y - center.y;
+  move(dx_, dy_);
+}
