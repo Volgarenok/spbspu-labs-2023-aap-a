@@ -5,8 +5,9 @@
 
 namespace shabalin
 {
-  Square::Square(double left_bottom_x, double left_bottom_y, double side_length) : left_bottom_{left_bottom_x, left_bottom_y},
-                                                                                   side_length_(side_length)
+  Square::Square(double left_bottom_x, double left_bottom_y, double side_length) : 
+  left_bottom_{left_bottom_x, left_bottom_y},
+  side_length_(side_length)
   {
     if (side_length <= 0)
     {
@@ -16,7 +17,7 @@ namespace shabalin
 
   Square::Square(point_t center, double side_length) : 
   left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
-                                                       side_length_(side_length)
+  side_length_(side_length)
   {
     if (side_length <= 0)
     {
