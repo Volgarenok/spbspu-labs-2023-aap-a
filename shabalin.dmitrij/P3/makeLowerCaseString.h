@@ -3,7 +3,7 @@
 
 namespace shabalin
 {
-  char *makeLowerCaseString(char *str, char *result);
+  void makeLowerCaseString(char *str);
 }
 
 #endif
