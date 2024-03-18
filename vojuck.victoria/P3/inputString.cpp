@@ -8,8 +8,10 @@ char * vojuck::inputString(std::istream& input, int& size)
   int i = 0;
   if ((input >> c) && (c == '\n'))
   {
+    delete [] array;
     throw std::logic_error("the string is empty\n");
   }
+  array[i++] = c;
   while ((input >> c) && (c != '\n'))
   {
     if (!input)
