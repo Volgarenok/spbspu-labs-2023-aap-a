@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <cmath>
 #include <stdexcept>
-#include "commands.hpp"
 
 namespace shabalin
 {
@@ -17,6 +16,11 @@ p3_(p3)
   }
 }
 
+double shabalin::isTriangle(point_t &p1, point_t &p2, point_t &p3)
+{
+  return 0.5 * std::abs(p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
+}
+/*
 bool Triangle::isTriangle(point_t p1, point_t p2, point_t p3)
 {
     const double d1 = distance(p1, p2);
@@ -24,7 +28,7 @@ bool Triangle::isTriangle(point_t p1, point_t p2, point_t p3)
     const double d3 = distance(p2, p3);
     return (d1 + d2 > d3) && (d1 + d3 > d2) && (d2 + d3 > d1);
 }
-
+*/
 double Triangle::distance(point_t p1, point_t p2)
 {
     return std::sqrt(std::pow(p2.x - p1.x, 2.0) + std::pow(p2.y - p1.y, 2.0));

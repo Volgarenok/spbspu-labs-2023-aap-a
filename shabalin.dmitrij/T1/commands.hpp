@@ -21,7 +21,7 @@ bool isCommand(const std::string& command);
 bool isFigure(const std::string& figure);
 void pushFigure(const std::string& line, CompositeShape& compositeShape);
 void executeCommand(const std::string& string, CompositeShape& compositeShape);
-double isTriangle(point_t &p1, point_t &p2, point_t &p3);
+//double isTriangle(point_t &p1, point_t &p2, point_t &p3);
 }
 
 #endif
