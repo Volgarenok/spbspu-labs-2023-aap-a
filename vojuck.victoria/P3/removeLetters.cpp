@@ -3,6 +3,13 @@
 
 char * vojuck::removeLetters(const char * input, char * result)
 {
+  if (*input == ' ')
+  {
+    while (*input == ' ')
+    {
+      input++;
+    }
+  }
   while (*input != '\n')
   {
     if (!std::isalpha(*input))
