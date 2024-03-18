@@ -28,6 +28,6 @@ int main()
     return 2;
   }
   std::cin >> std::skipws;
-
+  delete [] array;
 }
 
