@@ -16,7 +16,10 @@ int main()
   {
     if (command == "RECTANGLE")
     {
-      float x1, y1, x2, y2 = 0;
+      float x1 = 0;
+      float y1 = 0;
+      float x2 = 0;
+      float y2 = 0;
       std::cin >> x1 >> y1 >> x2 >> y2;
       float centerX = (x1 + x2) / 2;
       float centerY = (y1 + y2) / 2;
@@ -26,13 +29,17 @@ int main()
     }
     else if (command == "CIRCLE")
     {
-      float x, y, radius = 0;
+      float x = 0;
+      float y = 0;
+      float radius = 0;
       std::cin >> x >> y >> radius;
       shapes[shapeCount++] = new petuhov::Circle({x, y}, radius);
     }
     else if (command == "REGULAR")
     {
-      float x, y, radius = 0;
+      float x = 0;
+      float y = 0;
+      float radius = 0;
       int vertexCount = 0;
       std::cin >> x >> y >> radius >> vertexCount;
       shapes[shapeCount++] = new petuhov::Regular({x, y}, radius, vertexCount);
