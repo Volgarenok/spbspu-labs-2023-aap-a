@@ -65,23 +65,23 @@ void pushFigure(const std::string &line, shabalin::CompositeShape &compositeShap
     if (figure == shabalin::Figures::triangle)
     {
       analize >> x >> y >> x2 >> y2 >> x3 >> y3;
-      if (checker)
+      if (analize)
       {
         compositeShape.push_back(new shabalin::Triangle{{x, y}, {x2, y2}, {x3, y3}});
       }
     }
     else if (figure == shabalin::Figures::square)
     {
-      checker >> x >> y >> side;
-      if (checker)
+      analize >> x >> y >> side;
+      if (analize)
       {
         compositeShape.push_back(new shabalin::Square{{x, y}, side});
       }
     }
     else if (figure == shabalin::Figures::rectangle)
     {
-      checker >> x >> y >> x2 >> y2;
-      if (checker)
+      analize >> x >> y >> x2 >> y2;
+      if (analize)
       {
         compositeShape.push_back(new shabalin::Rectangle{{x, y}, {x2, y2}});
       }
