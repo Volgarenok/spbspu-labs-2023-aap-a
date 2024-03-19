@@ -16,7 +16,6 @@ int main()
   std::istream *inputStream = &std::cin;
   shabalin::CompositeShape shapes;
   bool scaleExecuted = false;
-  bool isError = false;
   while (*inputStream)
   {
     std::string line, entity;
@@ -44,12 +43,8 @@ int main()
     }
     catch (const std::exception& e)
     {
-      if (!isError)
-      {
-        std::cerr << e.what() << '\n';
-        return 1;
-        isError = true;
-      }
+      std::cerr << e.what() << '\n';
+      return 1;
     }
   }
   if (!scaleExecuted)
@@ -72,6 +67,7 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
   shabalin::Analize analize(line);
   std::string figure = "";
   analize >> figure;
+  bool isError = false;
   try
   {
     if (figure == shabalin::Figures::triangle)
@@ -109,8 +105,11 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
   }
   catch (const std::invalid_argument& e)
   {
-
-    std::cerr << e.what() << '\n';
+    if (!isError)
+    {
+      std::cerr << e.what() << '\n';
+      isError = true;
+    }
   }
 }
 
