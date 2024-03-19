@@ -6,6 +6,7 @@
 #include "rectangle.hpp"
 #include "ring.hpp"
 #include "regular.hpp"
+#include "circle.hpp"
 
 int main()
 {
@@ -55,6 +56,14 @@ int main()
           throw std::invalid_argument("Invalid parameters for REGULAR.");
         }
         shapes[shapeCount++] = new petuhov::Regular({x, y}, radius, vertexCount);
+      }
+      else if (command == "CIRCLE")
+      {
+        float x = 0;
+        float y = 0;
+        float radius = 0;
+        std::cin >> x >> y >> radius;
+        shapes[shapeCount++] = new petuhov::Circle({x, y}, radius);
       }
     }
     catch (const std::invalid_argument &e)
