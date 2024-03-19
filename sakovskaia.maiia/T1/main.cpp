@@ -16,8 +16,6 @@ int main()
   using namespace sakovskaia;
   Shape * shapes[1000]{};
   size_t cnt = 0;
-  point_t scalePoint = {0, 0};
-  size_t scaleRatio = 0;
   char * string = nullptr;
   bool scaleFlag = false;
   bool errorFlag = false;
