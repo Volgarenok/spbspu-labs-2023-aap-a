@@ -82,27 +82,44 @@ int main()
     std::cout << std::fixed;
     std::cout.precision(1);
 
-    // Вывод до масштабирования
     for (size_t i = 0; i < shapeCount; i++)
     {
       totalAreaBefore += shapes[i]->getArea();
-      if (i == 0) {
-        std::cout << totalAreaBefore;
-      }
+    }
+    std::cout << totalAreaBefore;
+
+    for (size_t i = 0; i < shapeCount; i++)
+    {
       petuhov::rectangle_t frame = shapes[i]->getFrameRect();
       std::cout << " " << frame.pos.x - frame.width / 2 << " " << frame.pos.y - frame.height / 2;
       std::cout << " " << frame.pos.x + frame.width / 2 << " " << frame.pos.y + frame.height / 2;
     }
-
-    // Масштабирование
     std::cout << "\n";
+
     for (size_t i = 0; i < shapeCount; i++)
     {
-      shapes[i]->scale(scale_factor);
+      petuhov::rectangle_t frame = shapes[i]->getFrameRect();
+      double oldX = frame.pos.x;
+      double oldY = frame.pos.y;
+
+      try
+      {
+        shapes[i]->scale(scale_factor);
+      }
+      catch (const std::invalid_argument &e)
+      {
+        freeShapes(shapes, shapeCount);
+        std::cerr << "Invalid scale factor." << std::endl;
+      }
+
+      double newX = scale_center.x + (oldX - scale_center.x) * scale_factor;
+      double newY = scale_center.y + (oldY - scale_center.y) * scale_factor;
+
+      shapes[i]->move({newX, newY});
+
       totalAreaAfter += shapes[i]->getArea();
     }
 
-    // Вывод после масштабирования
     std::cout << totalAreaAfter;
     for (size_t i = 0; i < shapeCount; i++)
     {
@@ -110,7 +127,6 @@ int main()
       std::cout << " " << frame.pos.x - frame.width / 2 << " " << frame.pos.y - frame.height / 2;
       std::cout << " " << frame.pos.x + frame.width / 2 << " " << frame.pos.y + frame.height / 2;
     }
-    std::cout << "\n";
 
     if (errorFlag)
     {
