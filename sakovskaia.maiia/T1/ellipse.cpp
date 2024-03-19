@@ -27,7 +27,7 @@ sakovskaia::Ellipse::getFrameRect() const
   return {width, height, center};
 }
 
-void sakovskaia::Ellipse::move(const point_t & new_center)
+void sakovskaia::Ellipse::move(const point_t new_center)
 {
   center_ = new_center;
 }
@@ -38,7 +38,7 @@ void sakovskaia::Ellipse::move(double dx, double dy)
   center_.y += dy;
 }
 
-void sakovskaia::Ellipse::scaleEllipse(double k)
+void sakovskaia::Ellipse::scaleShape(double k)
 {
   radiusX_ *= k;
   radiusY_ *= k;
