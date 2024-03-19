@@ -72,6 +72,11 @@ int main()
 
   if (command == "SCALE")
   {
+    if (shapeCount == 0)
+    {
+      std::cerr << "Error: No shapes to scale." << std::endl;
+      return 4;
+    }
     double scale_factor = 0;
     petuhov::point_t scale_center = {0, 0};
     std::cin >> scale_center.x >> scale_center.y >> scale_factor;
