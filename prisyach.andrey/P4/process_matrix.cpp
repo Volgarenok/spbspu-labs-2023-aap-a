@@ -34,9 +34,7 @@ size_t prisyach::findMaxSequence(const int * matrix, size_t rows, size_t cols)
 
 void increaseValues(int * matrix, size_t rows, size_t cols)
 {
-  size_t layer = 1;
   size_t maxLayer = std::min(rows, cols) / 2 + std::min(rows, cols) % 2;
-  size_t minDimension = std::min(rows, cols);
 
   for(size_t layer = 0; layer < maxLayer; layer++)
   {
