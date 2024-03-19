@@ -1,9 +1,9 @@
 #include <fstream>
 #include <iostream>
-#include "square.hpp"
+//#include "square.hpp"
 #include "commands.hpp"
 #include "compositeShapes.hpp"
-#include "triangle.hpp"
+//#include "triangle.hpp"
 #include "parallelogram.hpp"
 #include "rectangle.hpp"
 #include "analize.hpp"

@@ -3,8 +3,8 @@
 #include <iostream>
 #include "parallelogram.hpp"
 #include "rectangle.hpp"
-#include "square.hpp"
-#include "triangle.hpp"
+//#include "square.hpp"
+//#include "triangle.hpp"
 
 bool shabalin::isCommand(const std::string &command)
 {
