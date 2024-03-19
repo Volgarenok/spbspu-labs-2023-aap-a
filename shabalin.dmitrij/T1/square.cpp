@@ -15,7 +15,7 @@ namespace shabalin
   side_length_(side_length)
   {
   }
-  
+
   void Square::move(point_t p)
   {
     double dx = p.x - (left_bottom_.x + side_length_ / 2);
