@@ -1,5 +1,5 @@
-#ifndef BASE_TYPES_H
-#define BASE_TYPES_H
+#ifndef BASE_TYPES_HPP
+#define BASE_TYPES_HPP
 
 namespace kovtun
 {

@@ -1,14 +1,14 @@
-#ifndef ELLIPSE_H
-#define ELLIPSE_H
+#ifndef RING_HPP
+#define RING_HPP
 
-#include "shape.h"
+#include "shape.hpp"
 
 namespace kovtun
 {
-  class Ellipse : public Shape
+  class Ring : public Shape
   {
   public:
-    Ellipse(const point_t & center, double verticalRadius, double horizontalRadius);
+    Ring(const point_t & center, double outerRadius, double innerRadius);
     virtual double getArea() const;
     virtual rectangle_t getFrameRect() const;
     virtual void move(const point_t & point);
@@ -17,8 +17,8 @@ namespace kovtun
 
   private:
     point_t center_;
-    double verticalRadius_;
-    double horizontalRadius_;
+    double outerRadius_;
+    double innerRadius_;
   };
 }
 

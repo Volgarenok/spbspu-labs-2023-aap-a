@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 
-#include "base-types.h"
-#include "shape.h"
-#include "rectangle.h"
-#include "utils.h"
+#include "base-types.hpp"
+#include "shape.hpp"
+#include "rectangle.hpp"
+#include "utils.hpp"
 
 int main()
 {

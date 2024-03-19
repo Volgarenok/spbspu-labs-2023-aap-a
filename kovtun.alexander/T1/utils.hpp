@@ -1,13 +1,13 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
 #include <iostream>
 
-#include "shape.h"
-#include "rectangle.h"
-#include "circle.h"
-#include "ellipse.h"
-#include "ring.h"
+#include "shape.hpp"
+#include "rectangle.hpp"
+#include "circle.hpp"
+#include "ellipse.hpp"
+#include "ring.hpp"
 
 namespace kovtun
 {

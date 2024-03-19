@@ -1,4 +1,4 @@
-#include "ellipse.h"
+#include "ellipse.hpp"
 
 kovtun::Ellipse::Ellipse(const kovtun::point_t & center, double verticalRadius, double horizontalRadius):
     center_(center),

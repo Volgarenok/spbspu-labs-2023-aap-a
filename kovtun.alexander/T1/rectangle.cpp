@@ -1,4 +1,4 @@
-#include "rectangle.h"
+#include "rectangle.hpp"
 
 kovtun::Rectangle::Rectangle(const kovtun::point_t & leftBottomCorner, const kovtun::point_t & rightTopCorner):
     leftBottomCorner_(leftBottomCorner),

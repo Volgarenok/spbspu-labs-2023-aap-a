@@ -1,4 +1,4 @@
-#include "ring.h"
+#include "ring.hpp"
 
 kovtun::Ring::Ring(const kovtun::point_t & center, double outerRadius, double innerRadius):
     center_(center),

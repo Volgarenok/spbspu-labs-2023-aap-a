@@ -1,4 +1,4 @@
-#include "circle.h"
+#include "circle.hpp"
 
 kovtun::Circle::Circle(const kovtun::point_t &center, double radius):
     center_(center),

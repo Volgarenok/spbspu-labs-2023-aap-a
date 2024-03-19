@@ -1,7 +1,7 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
 
-#include "shape.h"
+#include "shape.hpp"
 
 namespace kovtun
 {
