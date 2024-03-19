@@ -70,6 +70,7 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
   bool isError = false;
   try
   {
+    /*
     if (figure == shabalin::Figures::triangle)
     {
       analize >> x >> y >> x2 >> y2 >> x3 >> y3;
@@ -86,7 +87,8 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
         compositeShape.push_back(new shabalin::Square{{x, y}, side});
       }
     }
-    else if (figure == shabalin::Figures::rectangle)
+    */
+    if (figure == shabalin::Figures::rectangle)
     {
       analize >> x >> y >> x2 >> y2;
       if (analize)

@@ -13,11 +13,11 @@ bool isFigure(const std::string& figure);
 //double isTriangle(point_t &p1, point_t &p2, point_t &p3);
 namespace Figures
 {
-static const std::string triangle = "TRIANGLE";
-static const std::string square = "SQUARE";
+//static const std::string triangle = "TRIANGLE";
+//static const std::string square = "SQUARE";
 static const std::string rectangle = "RECTANGLE";
 static const std::string parallelogram = "PARALLELOGRAM";
-static const std::string allFigures[] = {triangle, square, rectangle, parallelogram};
+static const std::string allFigures[] = {rectangle, parallelogram};
 }
 namespace Commands
 {
