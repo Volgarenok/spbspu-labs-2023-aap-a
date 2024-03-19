@@ -12,17 +12,10 @@ namespace shabalin
         p2_(p2),
         p3_(p3)
     {
-      /*
-        double dx1 = p2.x - p1.x;
-        double dy1 = p2.y - p1.y;
-        double dx2 = p3.x - p2.x;
-        double dy2 = p3.y - p2.y;
-
-        if (dy1 != 0 || dy2 != 0 || dx1 != dx2)
+        if (!((p1_.y == p2_.y) || (p1_.y == p3_.y) || (p2_.y == p3_.y)))
         {
             throw std::invalid_argument("Invalid parallelogram definition");
         }
-      */
     }
 
     void Parallelogram::move(point_t p)
