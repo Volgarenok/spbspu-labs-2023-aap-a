@@ -41,6 +41,7 @@ void shabalin::pushFigure(const std::string& line, shabalin::CompositeShape& com
   shabalin::Analize analize(line);
   std::string figure = "";
   analize >> figure;
+  bool isExecute = false;
   try
   {
     if (figure == shabalin::Figures::triangle)
@@ -70,7 +71,7 @@ void shabalin::pushFigure(const std::string& line, shabalin::CompositeShape& com
     else if (figure == shabalin::Figures::parallelogram)
     {
         analize >> x >> y >> x2 >> y2 >> x3 >> y3;
-        if(analize)
+        if (analize)
         {
             compositeShape.push_back(new shabalin::Parallelogram{{x, y}, {x2, y2}, {x3, y3}});
         }
@@ -78,7 +79,10 @@ void shabalin::pushFigure(const std::string& line, shabalin::CompositeShape& com
   }
   catch (const std::invalid_argument &e)
   {
-    std::cerr << e.what() << '\n';
+    if (!isExecute)
+    {
+      std::cerr << e.what() << '\n';
+    }
   }
 }
 
