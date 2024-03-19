@@ -6,30 +6,27 @@
 #include "square.hpp"
 #include "triangle.hpp"
 
-namespace shabalin
+bool shabalin::isCommand(const std::string &command)
 {
-  bool isCommand(const std::string &command)
+  for (const std::string &name : Commands::allCommands)
   {
-    for (const std::string &name : Commands::allCommands)
+    if (name == command)
     {
-      if (name == command)
-      {
-        return true;
-      }
+      return true;
     }
-    return false;
   }
-  bool isFigure(const std::string &figure)
+  return false;
+}
+bool shabalin::isFigure(const std::string &figure)
+{
+  for (const std::string &name : Figures::allFigures)
   {
-    for (const std::string &name : Figures::allFigures)
+    if (name == figure)
     {
-      if (name == figure)
-      {
-        return true;
-      }
+      return true;
     }
-    return false;
   }
+  return false;
 }
 
 double shabalin::isTriangle(shabalin::point_t &p1, shabalin::point_t &p2, shabalin::point_t &p3)

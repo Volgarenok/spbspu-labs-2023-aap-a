@@ -8,8 +8,8 @@ namespace shabalin
     class Square : public Shape
     {
     public:
-        Square(double left_bottom_x, double left_bottom_y, double side_length);
-        Square(point_t center, double side_length);
+        Square(const point_t &left_bottom, double side_length);
+        Square(const point_t &center, double side_length);
         void move(point_t p) override;
         void move(double shift_x, double shift_y) override;
         void scale(double scale) override;
