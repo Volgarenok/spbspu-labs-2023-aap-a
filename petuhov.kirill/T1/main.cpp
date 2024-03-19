@@ -103,8 +103,8 @@ int main()
       }
       catch (const std::invalid_argument &e)
       {
-        std::cerr << "Error scaling shape: " << e.what() << std::endl;
-        errorFlag = true;
+        std::cerr << "Error while scaling: " << e.what() << "\n"; 
+        return 2;
       }
     }
 
@@ -116,7 +116,7 @@ int main()
   else
   {
     std::cerr << "SCALE command is missing or invalid." << std::endl;
-    return 1;
+    return 2;
   }
 
   for (size_t i = 0; i < shapeCount; ++i)
