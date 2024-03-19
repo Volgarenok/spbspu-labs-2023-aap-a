@@ -30,6 +30,13 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
       double verticalRadius = 0.0;
       double horizontalRadius = 0.0;
       std::cin >> center.x >> center.y >> verticalRadius >> horizontalRadius;
+
+      if (verticalRadius <= 0.0 || horizontalRadius <= 0.0)
+      {
+        std::cerr << "incorrect shape options: " << instruction << "\n";
+        continue;
+      }
+
       shapes[counter] = new kovtun::Ellipse(center, verticalRadius, horizontalRadius);
     }
     else if (instruction == "CIRCLE")
@@ -37,6 +44,13 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
       kovtun::point_t center = { 0.0, 0.0 };
       double radius = 0.0;
       std::cin >> center.x >> center.y >> radius;
+
+      if (radius <= 0.0)
+      {
+        std::cerr << "incorrect shape options: " << instruction << "\n";
+        continue;
+      }
+
       shapes[counter] = new kovtun::Circle(center, radius);
     }
     else if (instruction == "RING")
@@ -45,12 +59,14 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
       double outerRadius = 0.0;
       double innerRadius = 0.0;
       std::cin >> center.x >> center.y >> outerRadius >> innerRadius;
+
+      if (outerRadius <= innerRadius || outerRadius <= 0.0 || innerRadius <= 0.0)
+      {
+        std::cerr << "incorrect shape options: " << instruction << "\n";
+        continue;
+      }
+
       shapes[counter] = new kovtun::Ring(center, outerRadius, innerRadius);
-    }
-    else if (instruction != "SCALE")
-    {
-      std::cerr << "incorrect shape: " << instruction << "\n";
-      std::cin.clear();
     }
 
     // ?
