@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <stdexcept>
 #include <string_reader.hpp>
 #include "shape.hpp"
 #include "input.hpp"
