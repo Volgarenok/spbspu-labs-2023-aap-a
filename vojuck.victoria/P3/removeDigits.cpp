@@ -3,13 +3,6 @@
 
 char * vojuck::removeDigits(const char * input, char * result)
 {
-  if (*input == ' ')
-  {
-    while (*input == ' ')
-    {
-      input++;
-    }
-  }
   while (*input != '\n')
   {
     if (!std::isdigit(*input))
