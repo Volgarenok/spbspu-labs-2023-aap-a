@@ -5,17 +5,18 @@
 
 namespace chernov
 {
-  class Circle : public Shape
+  class Circle: public Shape
   {
   public:
     Circle(point_t center, double radius);
     ~Circle() = default;
     double getArea() const override;
-    rectangle_t getFrameRect() override;
+    rectangle_t getFrameRect() const override;
     void move(point_t pos) override;
     void move(double moveX, double moveY) override;
     void scale(double multiplier) override;
     Shape* clone() const override;
+
   private:
     point_t center_;
     double radius_;
