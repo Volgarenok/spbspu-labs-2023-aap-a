@@ -18,7 +18,6 @@ namespace shabalin
   left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
   side_length_(side_length)
   {
-
   }
 
   void Square::move(point_t p)
@@ -53,7 +52,8 @@ namespace shabalin
 
   rectangle_t Square::getFrameRect() const
   {
-    return {left_bottom_, side_length_, side_length_};
+    point_t pos = { left_bottom_.x + (side_length_ / 2.0), left_bottom_.y + (side_length_ / 2.0)};
+    return {pos, side_length_, side_length_};
   }
 
   Shape *Square::clone() const
