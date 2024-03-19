@@ -14,7 +14,7 @@ int main()
   using namespace chernov;
   std::string input = "";
   size_t size = 0;
-  Shape** shapes = new Shape * [size];
+  Shape** shapes = new Shape* [size];
   bool badShapeDetected = false;
   try
   {
