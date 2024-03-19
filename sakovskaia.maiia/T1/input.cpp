@@ -21,3 +21,13 @@ sakovskaia::Shape * sakovskaia::inputRectangle(const char * string)
   point_t ur = {rectangleCoordinates[2], rectangleCoordinates[3]};
   return new Rectangle(ll, ur);
 }
+
+sakovskaia::Shape * sakovskaia::inputParallelogram(const char * string)
+{
+  double parallelogramCoordinates[6]{};
+  coorShapes(string, parallelogramCoordinates, 6);
+  point_t p1 = {parallelogramCoordinates[0], parallelogramCoordinates[1]};
+  point_t p2 = {parallelogramCoordinates[2], parallelogramCoordinates[3]};
+  point_t p3 = {parallelogramCoordinates[4], parallelogramCoordinates[5]};
+  return new Parallelogram(p1, p2, p3)
+}
