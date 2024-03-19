@@ -56,7 +56,7 @@ void Triangle::scale(double scale)
 {
     double dx = p1_.x;
     double dy = p1_.y;
-    
+
     p1_.x = dx + (p1_.x - dx) * scale;
     p1_.y = dy + (p1_.y - dy) * scale;
     p2_.x = dx + (p2_.x - dx) * scale;
