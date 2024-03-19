@@ -28,11 +28,11 @@ int main()
     {
       if (shabalin::isFigure(entity))
       {
-        pushFigure(line, shapes);
+        shabalin::pushFigure(line, shapes);
       }
       else if (shabalin::isCommand(entity))
       {
-        executeCommand(line, shapes);
+        shabalin::executeCommand(line, shapes);
         if (entity == shabalin::Commands::scale)
         {
           scaleExecuted = true;
