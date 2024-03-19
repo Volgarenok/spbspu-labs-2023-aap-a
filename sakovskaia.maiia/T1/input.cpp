@@ -2,6 +2,10 @@
 #include <cstddef>
 #include <cstring>
 #include <string>
+#include "rectangle.hpp"
+#include "parallelogram.hpp"
+#include "square.hpp"
+#include "ellipse.hpp"
 
 void sakovskaia::coorShape(const char * string, double * coordinates, size_t cnt)
 {

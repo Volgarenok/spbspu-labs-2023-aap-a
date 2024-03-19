@@ -7,8 +7,9 @@
 #include "output.hpp"
 #include "rectangle.hpp"
 #include "parallelogram.hpp"
-#include "sqare.hpp"
+#include "square.hpp"
 #include "ellipse.hpp"
+#include "scale.hpp"
 
 int main()
 {
@@ -27,7 +28,7 @@ int main()
   {
     std::cerr << e.what() << "\n";
     delete [] string;
-    freeShapes(shapes, cnt)
+    freeShapes(shapes, cnt);
     return 2;
   }
   constexpr size_t shapes_cnt = 5;
