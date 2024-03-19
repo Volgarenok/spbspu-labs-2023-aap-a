@@ -6,11 +6,6 @@ char * vojuck::inputString(std::istream& input, int& size)
   char * new_array = nullptr;
   char c = 0;
   int i = 0;
-  if (input.eof())
-  {
-    delete [] array;
-    throw std::logic_error("end of file");
-  }
   while (input >> c)
   {
     if (!input)

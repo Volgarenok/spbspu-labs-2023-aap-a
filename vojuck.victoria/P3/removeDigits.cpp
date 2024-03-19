@@ -3,7 +3,7 @@
 
 char * vojuck::removeDigits(const char * input, char * result)
 {
-  while (*input != '\n')
+  while (*input != '\0')
   {
     if (!std::isdigit(*input))
     {
