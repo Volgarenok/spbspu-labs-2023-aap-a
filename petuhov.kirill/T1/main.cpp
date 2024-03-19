@@ -25,10 +25,13 @@ int main()
         float x2 = 0;
         float y2 = 0;
         std::cin >> x1 >> y1 >> x2 >> y2;
+        if (x1 >= x2 || y1 >= y2) {
+          throw std::invalid_argument("Invalid parameters for RECTANGLE.");
+        }
         float centerX = (x1 + x2) / 2;
         float centerY = (y1 + y2) / 2;
-        float width = x1 - x2;
-        float height = y1 - y2;
+        float width = x2 - x1;
+        float height = y2 - y1;
         shapes[shapeCount++] = new petuhov::Rectangle({centerX, centerY}, width, height);
       }
       else if (command == "RING")
@@ -37,12 +40,8 @@ int main()
         float y = 0;
         float innerRadius = 0;
         float outerRadius = 0;
-        std::cin >> x >> y >> innerRadius >> outerRadius;
-        if (innerRadius <= 0 || outerRadius <= 0 || innerRadius >= outerRadius)
-        {
-          throw std::invalid_argument("Invalid parameters for RING.");
-        }
-        shapes[shapeCount++] = new petuhov::Ring({x, y}, innerRadius, outerRadius);
+        std::cin >> x >> y >> outerRadius >> innerRadius;
+        shapes[shapeCount++] = new petuhov::Ring({x, y}, outerRadius, innerRadius);
       }
       else if (command == "REGULAR")
       {
@@ -60,6 +59,7 @@ int main()
     }
     catch (const std::invalid_argument &e)
     {
+      std::cout << "Error creating shape: " << e.what() << "\n";
       errorFlag = true;
     }
   }
