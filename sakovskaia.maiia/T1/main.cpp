@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <stdexcept>
-#include "string_reader.hpp"
+#include <string_reader.hpp>
 #include "shape.hpp"
 #include "input.hpp"
 #include "output.hpp"
@@ -20,8 +20,15 @@ int main()
   size_t scaleRatio = 0;
   char * string = nullptr;
   bool scaleFlag = false;
+  bool errorFlag = false;
   while (!scaleFlag)
   {
+    if (!std::cin.good())
+    {
+      std::cerr << "Input error\n";
+      freeShapes(shapes, cnt);
+      return 1;
+    }
     try
     {
       string = readString(std::cin);
@@ -74,8 +81,6 @@ int main()
               shapes[cnt++] = shape;
             }
           }
-          outputShapes(std::cout, shapes, cnt);
-          std::cout << '\n';
           if (i == 4)
           {
             scaleFlag = true;
@@ -91,7 +96,7 @@ int main()
     }
     catch (const std::invalid_argument & e)
     {
-      std::cerr << "Invalig Arguments\n";
+      errorFlag = true;
     }
     catch (const std::logic_error & e)
     {
@@ -100,6 +105,11 @@ int main()
       freeShapes(shapes, cnt);
       return 1;
     }
+    delete [] string;
+  }
+  if (errorFlag)
+  {
+    std::cerr << "Error\n";
   }
   freeShapes(shapes, cnt);
 }
