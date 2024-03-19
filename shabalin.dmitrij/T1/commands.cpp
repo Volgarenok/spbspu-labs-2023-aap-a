@@ -28,8 +28,9 @@ bool shabalin::isFigure(const std::string &figure)
   }
   return false;
 }
-
+/*
 double shabalin::isTriangle(shabalin::point_t &p1, shabalin::point_t &p2, shabalin::point_t &p3)
 {
   return p1.x * (p2.y - p3.y) - p2.x * (p1.y - p3.y) + p3.x * (p1.y - p2.y);
 }
+*/
