@@ -1,9 +1,15 @@
 #include "square.hpp"
+#include <stdexcept>
 
 sakovskaia::Square::Square(const point_t ll, double length):
   ll_(ll),
   length_(length)
-{}
+{
+  if (length <= 0)
+  {
+    throw std::invalid_argument("Invalid arguments for square");
+  }
+}
 
 double sakovskaia::Square::getArea() const
 {

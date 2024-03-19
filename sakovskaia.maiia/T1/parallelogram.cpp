@@ -1,11 +1,22 @@
 #include "parallelogram.hpp"
 #include <cmath>
+#include <stdexcept>
 
 sakovskaia::Parallelogram::Parallelogram(point_t p1, point_t p2, point_t p3):
   p1_(p1),
   p2_(p2),
   p3_(p3)
-{}
+{
+  double det = this->getArea();
+  if (det == 0)
+  {
+    throw std::invalid_argument("Invalid arguments for parallelogram");
+  }
+  if (!((p1_.y == p2_.y) || (p1_.y == p3_.y) || (p2_.y == p3_.y)))
+  {
+    throw std::invalid_argument("No parallel sides in parallelogram");
+  }
+}
 
 double sakovskaia::Parallelogram::getArea() const
 {

@@ -1,10 +1,16 @@
 #include "rectangle.hpp"
 #include <cmath>
+#include <stdexcept>
 
 sakovskaia::Rectangle::Rectangle(point_t ll_, point_t ur_):
   ll_(ll_),
   ur_(ur_)
-{}
+{
+  if ((ll_.x >= ur_.x) || (ll_.y >= ur_.y))
+  {
+    throw std::invalid_argument("Invalid arguments for rectangle");
+  }
+}
 
 double sakovskaia::Rectangle::getArea() const
 {

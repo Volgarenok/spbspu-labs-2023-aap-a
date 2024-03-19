@@ -1,10 +1,16 @@
 #include "ellipse.hpp"
+#include <stdexcept>
 
 sakovskaia::Ellipse::Ellipse(point_t center, double radiusX, double radiusY):
   center_(center),
   radiusX_(radiusX),
   radiusY_(radiusY)
-{}
+{
+  if ((radiusX <= 0) || (radiusY <= 0))
+  {
+    throw std::invalid_argument("Invalid arguments for ellipse");
+  }
+}
 
 double sakovskaia::Ellipse::getArea() const
 {
