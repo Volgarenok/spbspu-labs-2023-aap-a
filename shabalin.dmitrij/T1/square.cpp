@@ -11,7 +11,7 @@ namespace shabalin
     {
       if (side_length <= 0)
       {
-        throw std::invalid_argument("Side length of the square must be positive");
+        std::invalid_argument("Side length of the square must be positive");
       }
     }
 

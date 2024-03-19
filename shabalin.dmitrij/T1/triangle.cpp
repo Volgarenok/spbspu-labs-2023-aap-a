@@ -12,7 +12,7 @@ p3_(p3)
 {
   if (!isTriangle(p1, p2, p3))
   {
-    throw std::invalid_argument("Can't create Triangle with given parameters");
+    std::invalid_argument("Can't create Triangle with given parameters");
   }
 }
 
