@@ -3,7 +3,6 @@
 #include "shape.hpp"
 namespace sakovskaia
 {
-
   class Square: public Shape
   {
   public:
@@ -12,8 +11,7 @@ namespace sakovskaia
     rectangle_t getFrameRect() const;
     void move(const point_t);
     void move(double dx, double dy);
-    void unsafeScale(double k);
-
+    void scaleShape(double k);
   private:
     point_t ll_;
     double length_;

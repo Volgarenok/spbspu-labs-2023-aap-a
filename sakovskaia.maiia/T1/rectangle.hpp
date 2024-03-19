@@ -12,8 +12,7 @@ namespace sakovskaia
       virtual rectangle_t getFrameRect() const;
       virtual void move(point_t);
       virtual void move(double dx, double dy);
-      virtual scaleShape(double k);
-      virtual ~Rectangle = default;
+      virtual void scaleShape(double k);
     private:
       point_t ll_;
       point_t ur_;

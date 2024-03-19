@@ -35,9 +35,9 @@ sakovskaia::Shape * sakovskaia::inputParallelogram(const char * string)
 sakovskaia::Shape * sakovskaia::inputSquare(const char * string)
 {
   double squareCoordinates[3]{};
-  coorShape(string, parallelogramCoordinates, 3);
+  coorShape(string, squareCoordinates, 3);
   point_t ll = {squareCoordinates[0], squareCoordinates[1]};
-  double lehgth = squareCoordinates[2];
+  double length = squareCoordinates[2];
   return new Square(ll, length);
 }
 

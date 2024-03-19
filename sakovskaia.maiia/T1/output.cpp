@@ -1,7 +1,7 @@
 #include "output.hpp"
 #include <ostream>
 
-void sakovskaia::outputShapes(std::ostream & output, const Shape * const shapes, size_t count)
+void sakovskaia::outputShapes(std::ostream & output, const Shape * const * shapes, size_t count)
 {
   double sum = 0;
   for (size_t i = 0; i < count; i++)
