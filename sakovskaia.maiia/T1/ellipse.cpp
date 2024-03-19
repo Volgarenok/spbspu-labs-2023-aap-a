@@ -1,7 +1,7 @@
 #include "ellipse.hpp"
 #include <stdexcept>
 
-sakovskaia::Ellipse::Ellipse(point_t center, double radiusX, double radiusY):
+sakovskaia::Ellipse::Ellipse(point_t & center, double radiusX, double radiusY):
   center_(center),
   radiusX_(radiusX),
   radiusY_(radiusY)
