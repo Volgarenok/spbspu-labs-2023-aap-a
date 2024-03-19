@@ -10,7 +10,7 @@ namespace shabalin
         side_length_(side_length)
     {
     }
-  
+
     Square::Square(point_t center, double side_length) :
         left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
         side_length_(side_length)

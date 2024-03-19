@@ -143,7 +143,7 @@ namespace shabalin
   {
     return count;
   }
-  
+
   std::ostream &operator<<(std::ostream &os, const CompositeShape &compositeShape)
   {
     os << std::fixed << std::setprecision(1) << compositeShape.getArea();
