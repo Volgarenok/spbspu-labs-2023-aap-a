@@ -9,6 +9,10 @@ namespace shabalin
         left_bottom_{left_bottom_x, left_bottom_y},
         side_length_(side_length)
     {
+      if (side_length <= 0.0)
+      {
+        throw;
+      }
     }
 
     Square::Square(point_t center, double side_length) :
