@@ -21,7 +21,7 @@ int main()
   }
   catch (const std::logic_error &e)
   {
-    std::cerr << e.what();
+    std::cerr << "Error!\n";
     return 2;
   }
   if (array != nullptr)
