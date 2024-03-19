@@ -75,40 +75,42 @@ int main()
     double scale_factor = 0;
     petuhov::point_t scale_center = {0, 0};
     std::cin >> scale_center.x >> scale_center.y >> scale_factor;
+
+    double totalAreaBefore = 0;
+    double totalAreaAfter = 0;
+
+    std::cout << std::fixed;
+    std::cout.precision(1);
+
+    // Вывод до масштабирования
     for (size_t i = 0; i < shapeCount; i++)
     {
-      try
-      {
-        std::cout << std::fixed;
-        std::cout.precision(1);
-        petuhov::rectangle_t frame = shapes[i]->getFrameRect();
-        petuhov::point_t lower_left{frame.pos.x - frame.width / 2, frame.pos.y - frame.height / 2};
-        petuhov::point_t upper_right{frame.pos.x + frame.width / 2, frame.pos.y + frame.height / 2};
-        std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
-
-        petuhov::point_t center = shapes[i]->getFrameRect().pos;
-        double deltaX = center.x - scale_center.x;
-        double deltaY = center.y - scale_center.y;
-
-        shapes[i]->move(scale_center);
-        shapes[i]->scale(scale_factor);
-
-        deltaX *= scale_factor;
-        deltaY *= scale_factor;
-        shapes[i]->move({scale_center.x + deltaX, scale_center.y + deltaY});
-
-        frame = shapes[i]->getFrameRect();
-        lower_left = {frame.pos.x - frame.width / 2, frame.pos.y - frame.height / 2};
-        upper_right = {frame.pos.x + frame.width / 2, frame.pos.y + frame.height / 2};
-        std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
+      totalAreaBefore += shapes[i]->getArea();
+      if (i == 0) {
+        std::cout << totalAreaBefore;
       }
-      catch (const std::invalid_argument &e)
-      {
-        petuhov::freeShapes(shapes, shapeCount);
-        std::cerr << "Error while scaling: " << e.what() << "\n";
-        return 2;
-      }
+      petuhov::rectangle_t frame = shapes[i]->getFrameRect();
+      std::cout << " " << frame.pos.x - frame.width / 2 << " " << frame.pos.y - frame.height / 2;
+      std::cout << " " << frame.pos.x + frame.width / 2 << " " << frame.pos.y + frame.height / 2;
     }
+
+    // Масштабирование
+    std::cout << "\n";
+    for (size_t i = 0; i < shapeCount; i++)
+    {
+      shapes[i]->scale(scale_factor);
+      totalAreaAfter += shapes[i]->getArea();
+    }
+
+    // Вывод после масштабирования
+    std::cout << totalAreaAfter;
+    for (size_t i = 0; i < shapeCount; i++)
+    {
+      petuhov::rectangle_t frame = shapes[i]->getFrameRect();
+      std::cout << " " << frame.pos.x - frame.width / 2 << " " << frame.pos.y - frame.height / 2;
+      std::cout << " " << frame.pos.x + frame.width / 2 << " " << frame.pos.y + frame.height / 2;
+    }
+    std::cout << "\n";
 
     if (errorFlag)
     {
