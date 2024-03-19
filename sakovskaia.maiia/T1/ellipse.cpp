@@ -31,3 +31,10 @@ void sakovskaia::Ellipse::move(double dx, double dy)
   center_.x += dx;
   center_.y += dy;
 }
+
+void baranov::Ellipse::scaleShape(double k)
+{
+  radiusX_ *= k;
+  radiusY_ *= k;
+}
+
