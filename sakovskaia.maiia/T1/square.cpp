@@ -37,3 +37,10 @@ void sakovskaia::Square::move(double dx, double dy)
     points[i]->y += dy;
   }
 }
+
+void sakovskaia::Square::scaleShape(double k)
+{
+  point_t center = {ll_.x + (length_ / 2.0), ll_.y + (length_ / 2.0)};
+  ll_ = center - (center - ll_) * k;
+  length_ *= k;
+}
