@@ -1,12 +1,12 @@
 #ifndef RING_HPP
-#define	RING_HPP
+#define RING_HPP
 
 #include "shape.hpp"
 #include "base-types.hpp"
 
 namespace chernov
 {
-  class Ring: public Shape
+  class Ring : public Shape
   {
   public:
     Ring(point_t center, double outer_radius, double inner_radius);

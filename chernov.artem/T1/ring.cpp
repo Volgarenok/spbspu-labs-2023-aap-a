@@ -2,7 +2,7 @@
 #include "base-types.hpp"
 #include <stdexcept>
 
-chernov::Ring::Ring(point_t center, double outer_radius, double inner_radius) :
+chernov::Ring::Ring(point_t center, double outer_radius, double inner_radius):
   center_(center),
   outer_radius_(outer_radius),
   inner_radius_(inner_radius)
