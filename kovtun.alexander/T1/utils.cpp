@@ -4,9 +4,8 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
 {
   std::string instruction = "";
   size_t counter = 0;
-  for (; instruction != "SCALE"; counter++)
+  while (in >> instruction && instruction != "SCALE")
   {
-    in >> instruction;
     if (instruction == "RECTANGLE")
     {
       // uninitialized?
@@ -68,6 +67,11 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
 
       shapes[counter] = new kovtun::Ring(center, outerRadius, innerRadius);
     }
+    else
+    {
+      std::cerr << "unsupported shape\n";
+      continue;
+    }
 
     // ?
     if (!std::cin)
@@ -75,6 +79,14 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
       std::cerr << "bad input\n";
       throw;
     }
+
+    counter++;
+  }
+
+  if (counter == 0)
+  {
+    std::cerr << "nothing to scale\n";
+    throw;
   }
 
   return counter;
