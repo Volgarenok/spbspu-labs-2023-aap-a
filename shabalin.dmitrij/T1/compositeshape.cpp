@@ -57,8 +57,8 @@ void CompositeShape::scale(point_t p, double scale)
     {
         Shape* shape = shapes[i];
         point_t oldCenter = shape->getFrameRect().pos;
-        shape->move(p);
         point_t newCenter = shape->getFrameRect().pos;
+        shape->move(p);
         shape->scale(scale);
         const double dx = (oldCenter.x - newCenter.x) * scale;
         const double dy = (oldCenter.y - newCenter.y) * scale;
