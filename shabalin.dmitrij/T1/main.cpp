@@ -55,6 +55,7 @@ int main()
   }
   return 0;
 }
+
 void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShape)
 {
   double x = 0;
@@ -102,7 +103,7 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
         }
     }
   }
-  catch (const std::invalid_argument& e)
+  catch (const std::invalid_argument &e)
   {
     std::cerr << e.what() << '\n';
   }

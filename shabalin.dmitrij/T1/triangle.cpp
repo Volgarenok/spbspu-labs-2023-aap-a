@@ -10,7 +10,7 @@ p1_(p1),
 p2_(p2),
 p3_(p3)
 {
-  bool isErrorShown = false;
+  static bool isErrorShown = false;
   if ((!isTriangle(p1, p2, p3)) && !isErrorShown)
   {
     throw std::invalid_argument("Can't create Triangle with given parameters");
