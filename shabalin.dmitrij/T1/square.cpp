@@ -18,6 +18,10 @@ namespace shabalin
   left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
   side_length_(side_length)
   {
+    if (side_length <= 0.0)
+    {
+      throw std::invalid_argument("Side length of the square must be positive");
+    }
   }
 
   void Square::move(point_t p)
@@ -38,6 +42,7 @@ namespace shabalin
   {
     double center_x = left_bottom_.x + side_length_ / 2;
     double center_y = left_bottom_.y + side_length_ / 2;
+    point_t cent = {center_x, center_y};
 
     side_length_ *= scale;
 
