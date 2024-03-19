@@ -81,29 +81,25 @@ int main()
       {
         std::cout << std::fixed;
         std::cout.precision(1);
-        petuhov::point_t lower_left {
-          shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
-          shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2
-        };
-        petuhov::point_t upper_right {
-          shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
-          shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2
-        };
+        petuhov::point_t lower_left{
+            shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
+            shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2};
+        petuhov::point_t upper_right{
+            shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
+            shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2};
         std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
         shapes[i]->scale(scale_center, scale_factor);
         lower_left = {
-          shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
-          shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2
-        };
+            shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
+            shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2};
         upper_right = {
-          shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
-          shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2
-        };
+            shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
+            shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2};
         std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
       }
       catch (const std::invalid_argument &e)
       {
-        std::cerr << "Error while scaling: " << e.what() << "\n"; 
+        std::cerr << "Error while scaling: " << e.what() << "\n";
         return 2;
       }
     }
