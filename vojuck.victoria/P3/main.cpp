@@ -21,13 +21,16 @@ int main()
   }
   catch (const std::logic_error &e)
   {
-    std::cerr << e.what() << "\n";
+    std::cerr << e.what();
     return 2;
   }
-  vojuck::removeDigits(array, result);
-  std::cout << result << "\n";
-  vojuck::removeLetters(array, result);
-  std::cout << result << "\n";
+  if (array != nullptr)
+  {
+    vojuck::removeDigits(array, result);
+    std::cout << result << "\n";
+    vojuck::removeLetters(array, result);
+    std::cout << result << "\n";
+  }
   std::cin >> std::skipws;
   delete [] array;
   delete [] result;
