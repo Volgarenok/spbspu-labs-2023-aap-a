@@ -10,7 +10,7 @@ char * vojuck::removeLetters(const char * input, char * result)
       input++;
     }
   }
-  while (*input != '\n')
+  while (*input != '\0')
   {
     if (!std::isalpha(*input))
     {
