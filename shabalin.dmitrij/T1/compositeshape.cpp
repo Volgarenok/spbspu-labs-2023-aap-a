@@ -59,10 +59,10 @@ void CompositeShape::scale(point_t p, double scale)
         point_t oldCenter = shape->getFrameRect().pos;
         point_t newCenter = shape->getFrameRect().pos;
         shape->move(p);
-        shape->scale(scale);
         const double dx = (oldCenter.x - newCenter.x) * scale;
         const double dy = (oldCenter.y - newCenter.y) * scale;
         shape->move(dx, dy);
+        shape->scale(scale);
     }
 }
 double CompositeShape::getArea() const
