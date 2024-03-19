@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <cstring>
 #include <string>
+#include "shape.hpp"
 #include "rectangle.hpp"
 #include "parallelogram.hpp"
 #include "square.hpp"
