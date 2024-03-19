@@ -2,7 +2,7 @@
 
 char * vojuck::inputString(std::istream& input, int& size)
 {
-  char * array = new char[size]{};
+  char * array = new char[size]{'\0'};
   char * new_array = nullptr;
   char c = 0;
   int i = 0;
