@@ -73,7 +73,7 @@ namespace shabalin
         double min_y = std::min({p1_.y, p2_.y, p3_.y});
         double max_y = std::max({p1_.y, p2_.y, p3_.y});
 
-        point_t center = {(min_x + max_x) / 2, (min_y + max_y) / 2};
+        point_t center = {(min_x + max_x), (min_y + max_y)};
         double width = max_x - min_x;
         double height = max_y - min_y;
 
