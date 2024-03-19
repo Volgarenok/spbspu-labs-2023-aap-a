@@ -86,10 +86,8 @@ int main()
             scaleFlag = true;
             for (size_t i = 0; i < cnt; ++i)
             {
-              scaleShapes(shapes[i], scalePoint, scaleRatio);
+              scaleOp(string, shapes, cnt, std::cout);
             }
-            outputShapes(std::cout, shapes, cnt);
-            std::cout << '\n';
           }
         }
       }
