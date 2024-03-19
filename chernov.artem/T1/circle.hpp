@@ -5,7 +5,7 @@
 
 namespace chernov
 {
-  class Circle: public Shape
+  class Circle : public Shape
   {
   public:
     Circle(point_t center, double radius);
