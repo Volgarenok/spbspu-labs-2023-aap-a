@@ -11,7 +11,7 @@ namespace sakovskaia
       virtual rectangle_t getFrameRect() const;
       virtual void move(point_t new_center);
       virtual void move(double dx, double dy);
-      virtual void scaleShape(double k) override;
+      virtual void scaleShape(double k);
     private:
       point_t center_;
       double radiusX_;

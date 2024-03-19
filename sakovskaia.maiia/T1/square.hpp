@@ -7,11 +7,11 @@ namespace sakovskaia
   {
   public:
     Square(const point_t ll, double length);
-    double getArea() const;
-    rectangle_t getFrameRect() const;
-    void move(const point_t);
-    void move(double dx, double dy);
-    void scaleShape(double k);
+    virtual double getArea() const;
+    virtual rectangle_t getFrameRect() const;
+    virtual void move(const point_t);
+    virtual void move(double dx, double dy);
+    virtual void scaleShape(double k);
   private:
     point_t ll_;
     double length_;
