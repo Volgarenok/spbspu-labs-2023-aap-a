@@ -15,7 +15,7 @@ public:
     void scale(double scale) override;
     double getArea() const override;
     double distance(point_t p1, point_t p2);
-    bool isTriangle(point_t p1, point_t p2, point_t p3);
+    //bool isTriangle(point_t p1, point_t p2, point_t p3);
     rectangle_t getFrameRect() const override;
     Shape* clone() const override;
 private:

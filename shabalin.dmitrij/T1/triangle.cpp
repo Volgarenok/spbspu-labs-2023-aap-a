@@ -10,20 +10,15 @@ p1_(p1),
 p2_(p2),
 p3_(p3)
 {
+  const double d1 = distance(p1, p2);
+  const double d2 = distance(p1, p3);
+  const double d3 = distance(p2, p3);
   static bool isErrorShown = false;
-  if ((!isTriangle(p1, p2, p3)) && !isErrorShown)
+  if ((!((d1 + d2 > d3) && (d1 + d3 > d2) && (d2 + d3 > d1))) && !isErrorShown)
   {
     throw;
     isErrorShown = true;
   }
-}
-
-bool Triangle::isTriangle(point_t p1, point_t p2, point_t p3)
-{
-    const double d1 = distance(p1, p2);
-    const double d2 = distance(p1, p3);
-    const double d3 = distance(p2, p3);
-    return (d1 + d2 > d3) && (d1 + d3 > d2) && (d2 + d3 > d1);
 }
 
 double Triangle::distance(point_t p1, point_t p2)
