@@ -2,6 +2,7 @@
 #define CIRCLE_HPP
 
 #include "shape.hpp"
+#include "ellipse.hpp"
 
 namespace kovtun
 {
@@ -16,8 +17,8 @@ namespace kovtun
     virtual void scale(double k);
 
   private:
-    point_t center_;
-    double radius_;
+    // ?
+    Ellipse ellipse_;
   };
 }
 
