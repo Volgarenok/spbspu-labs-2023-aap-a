@@ -20,3 +20,11 @@ void sakovskaia::outputShapes(std::ostream & output, const Shape * const shapes,
   }
   output << "\n";
 }
+
+void sakovskaia::freeShapes(Shape ** shapes, size_t cnt)
+{
+  for (size_t i = 0; i < cnt; ++i)
+  {
+    delete shapes[i];
+  }
+}
