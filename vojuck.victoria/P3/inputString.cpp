@@ -14,7 +14,7 @@ char * vojuck::inputString(std::istream& input, int& size)
       throw std::logic_error("input error");
     }
     array[i++] = c;
-    if (c == '\n')
+    if ((c == '\n') || (c == '\0'))
     {
       if (i == 1)
       {
