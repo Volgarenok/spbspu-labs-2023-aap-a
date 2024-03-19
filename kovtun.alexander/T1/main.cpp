@@ -1,9 +1,7 @@
 #include <iostream>
-#include <string>
 
 #include "base-types.hpp"
 #include "shape.hpp"
-#include "rectangle.hpp"
 #include "utils.hpp"
 
 int main()

@@ -8,7 +8,6 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
   {
     if (instruction == "RECTANGLE")
     {
-      // uninitialized?
       kovtun::point_t rectanglePoints[2];
       for (size_t i = 0; i < 2; i++)
       {
@@ -73,7 +72,6 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
       continue;
     }
 
-    // ?
     if (!std::cin)
     {
       std::cerr << "bad input\n";
@@ -115,9 +113,9 @@ void kovtun::showResult(std::ostream &out, kovtun::Shape ** shapes, size_t shape
       continue;
     }
 
-    kovtun::rectangle_t selfRect = shapes[i]->getFrameRect();
-    kovtun::point_t leftBottomCorner = { selfRect.pos.x - selfRect.width / 2.0, selfRect.pos.y - selfRect.height / 2.0 };
-    kovtun::point_t rightTopCorner = { selfRect.pos.x + selfRect.width / 2.0, selfRect.pos.y + selfRect.height / 2.0 };
+    kovtun::rectangle_t rect = shapes[i]->getFrameRect();
+    kovtun::point_t leftBottomCorner = { rect.pos.x - rect.width / 2.0, rect.pos.y - rect.height / 2.0 };
+    kovtun::point_t rightTopCorner = { rect.pos.x + rect.width / 2.0, rect.pos.y + rect.height / 2.0 };
     out << " " << leftBottomCorner.x << " " << leftBottomCorner.y << " " << rightTopCorner.x << " " << rightTopCorner.y;
   }
 
