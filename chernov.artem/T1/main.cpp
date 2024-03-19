@@ -1,6 +1,10 @@
+#include "rectangle.hpp"
+#include "circle.hpp"
+#include "ellipse.hpp"
 #include "ring.hpp"
 #include "shape.hpp"
 #include "base-types.hpp"
+#include "addShape.hpp"
 #include <iostream>
 #include <string>
 #include <cstddef>
@@ -39,6 +43,15 @@ int main()
           std::cerr << "Error: Invalid rectangle parameters: " << e.what() << "\n";
           delete rect;
         }
+        try
+        {
+          addFigure(shapes, size, rect);
+        }
+        catch (const std::bad_alloc& e)
+        {
+          std::cerr << "Error: Invalid rectangle add: " << e.what() << "\n";
+          delete rect;
+        }
       }
       else if (input == "RING")
       {
@@ -57,6 +70,15 @@ int main()
         {
           badShapeDetected = true;
           std::cerr << "Error: Invalid ring parameters: " << e.what() << "\n";
+          delete ring;
+        }
+        try
+        {
+          addFigure(shapes, size, ring);
+        }
+        catch (const std::bad_alloc& e)
+        {
+          std::cerr << "Error: Invalid ring add: " << e.what() << "\n";
           delete ring;
         }
       }
@@ -79,6 +101,15 @@ int main()
           std::cerr << "Error: Invalid circle parameters: " << e.what() << "\n";
           delete circle;
         }
+        try
+        {
+          addFigure(shapes, size, circle);
+        }
+        catch (const std::bad_alloc& e)
+        {
+          std::cerr << "Error: Invalid circle add: " << e.what() << "\n";
+          delete circle;
+        }
       }
       else if (input == "ELLIPSE")
       {
@@ -97,6 +128,15 @@ int main()
         {
           badShapeDetected = true;
           std::cerr << "Error: Invalid ellipse parameters: " << e.what() << "\n";
+          delete ellipse;
+        }
+        try
+        {
+          addFigure(shapes, size, ellipse);
+        }
+        catch (const std::bad_alloc& e)
+        {
+          std::cerr << "Error: Invalid ellipse add: " << e.what() << "\n";
           delete ellipse;
         }
       }
