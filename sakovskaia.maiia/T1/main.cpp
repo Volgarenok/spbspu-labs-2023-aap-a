@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <stdexcept>
-#include <string_reader.hpp>
+#include "string_reader.hpp"
 #include "shape.hpp"
 #include "input.hpp"
 #include "output.hpp"
@@ -20,7 +20,7 @@ int main()
   size_t scaleRatio = 0;
   char * string = nullptr;
   bool scaleFlag = false;
-  while (!flag)
+  while (!scaleFlag)
   {
     try
     {
@@ -89,17 +89,17 @@ int main()
         }
       }
     }
-  }
-  catch (const std::invalid_argument & e)
-  {
-    std::cerr << "Invalig Arguments\n";
-  }
-  catch (const std::logic_error & e)
+    catch (const std::invalid_argument & e)
+    {
+      std::cerr << "Invalig Arguments\n";
+    }
+    catch (const std::logic_error & e)
     {
       std::cerr << e.what() << "\n";
       delete [] string;
       freeShapes(shapes, cnt);
       return 1;
     }
+  }
   freeShapes(shapes, cnt);
 }
