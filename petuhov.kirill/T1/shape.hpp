@@ -13,7 +13,7 @@ namespace petuhov
       virtual rectangle_t getFrameRect() const = 0;
       virtual void move(const petuhov::point_t & newPos) = 0;
       virtual void move(double dx, double dy) = 0;
-      virtual void scale(double center_x, double center_y, double factor) = 0;
+      virtual void scale(double factor) = 0;
   };
 }
 

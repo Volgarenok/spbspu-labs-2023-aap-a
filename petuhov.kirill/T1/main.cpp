@@ -89,7 +89,8 @@ int main()
             shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
             shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2};
         std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
-        shapes[i]->scale(scale_center_x, scale_center_y, scale_factor);
+        shapes[i]->move(scale_center_x, scale_center_y);
+        shapes[i]->scale(scale_factor);
         lower_left = {
             shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
             shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2};

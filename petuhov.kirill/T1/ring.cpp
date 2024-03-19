@@ -31,23 +31,17 @@ void petuhov::Ring::move(const point_t &newPos)
 
 void petuhov::Ring::move(double dx, double dy)
 {
-  center_.x += dx;
-  center_.y += dy;
+  center_.x = dx;
+  center_.y = dy;
 }
 
-void petuhov::Ring::scale(const petuhov::point_t &scale_center, double factor)
+void petuhov::Ring::scale(double factor)
 {
   if (factor <= 0)
   {
     throw std::invalid_argument("Scale factor must be positive.");
   }
 
-  double dx = center_.x - scale_center_x;
-  double dy = center_.y - scale_center_y;
-
   outer_radius_ *= factor;
   inner_radius_ *= factor;
-
-  center_.x = scale_center_x + dx * factor;
-  center_.y = scale_center_y + dy * factor;
 }
