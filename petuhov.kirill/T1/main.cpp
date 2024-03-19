@@ -7,6 +7,7 @@
 #include "ring.hpp"
 #include "regular.hpp"
 #include "circle.hpp"
+#include "freeshapes.hpp"
 
 int main()
 {
@@ -103,6 +104,7 @@ int main()
       }
       catch (const std::invalid_argument &e)
       {
+        petuhov::freeShapes(shapes, shapeCount);
         std::cerr << "Error while scaling: " << e.what() << "\n";
         return 2;
       }
@@ -115,14 +117,12 @@ int main()
   }
   else
   {
+    petuhov::freeShapes(shapes, shapeCount);
     std::cerr << "SCALE command is missing or invalid." << std::endl;
     return 2;
   }
 
-  for (size_t i = 0; i < shapeCount; ++i)
-  {
-    delete shapes[i];
-  }
+  petuhov::freeShapes(shapes, shapeCount);
 
   return 0;
 }
