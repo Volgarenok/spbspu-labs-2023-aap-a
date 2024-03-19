@@ -80,7 +80,7 @@ int main()
     double scale_factor = 0;
     petuhov::point_t scale_center = {0, 0};
     std::cin >> scale_center.x >> scale_center.y >> scale_factor;
-    
+
     if (scale_factor < 0)
     {
       petuhov::freeShapes(shapes, shapeCount);
@@ -143,8 +143,7 @@ int main()
 
     if (errorFlag)
     {
-      std::cerr << "Errors were found in the description of some shapes."
-                << "\n";
+      std::cerr << "Errors were found in the description of some shapes." << "\n";
     }
   }
   else
