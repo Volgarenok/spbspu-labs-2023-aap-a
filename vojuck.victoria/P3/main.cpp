@@ -16,8 +16,6 @@ int main()
   }
   catch (const std::bad_alloc &e)
   {
-    delete [] array;
-    delete [] result;
     std::cerr << "Not enough memory\n";
     return 1;
   }

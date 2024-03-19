@@ -6,13 +6,7 @@ char * vojuck::inputString(std::istream& input, int& size)
   char * new_array = nullptr;
   char c = 0;
   int i = 0;
-  if ((input >> c) && (c == '\n'))
-  {
-    delete [] array;
-    throw std::logic_error("the string is empty\n");
-  }
-  array[i++] = c;
-  while ((input >> c) && (c != '\n'))
+  while (input >> c)
   {
     if (!input)
     {
@@ -20,6 +14,16 @@ char * vojuck::inputString(std::istream& input, int& size)
       throw std::logic_error("input error");
     }
     array[i++] = c;
+    if (c == '\n')
+    {
+      if (i == 1)
+      {
+        delete [] array;
+        throw std::logic_error("the string is empty\n");
+      }
+      array[i - 1] = '\n';
+      break;
+    }
     if (i == (size - 1))
     {
       int  new_size = size + 20;
