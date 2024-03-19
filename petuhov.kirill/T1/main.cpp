@@ -80,6 +80,13 @@ int main()
     double scale_factor = 0;
     petuhov::point_t scale_center = {0, 0};
     std::cin >> scale_center.x >> scale_center.y >> scale_factor;
+    
+    if (scale_factor < 0)
+    {
+      petuhov::freeShapes(shapes, shapeCount);
+      std::cerr << "Invalid scale factor." << "\n";
+      return 3;
+    }
 
     double totalAreaBefore = 0;
     double totalAreaAfter = 0;
@@ -114,8 +121,7 @@ int main()
       catch (const std::invalid_argument &e)
       {
         freeShapes(shapes, shapeCount);
-        std::cerr << "Invalid scale factor."
-                  << "\n";
+        std::cerr << "Invalid scale factor." << "\n";
       }
 
       double newX = scale_center.x + (oldX - scale_center.x) * scale_factor;
