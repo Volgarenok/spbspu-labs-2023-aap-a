@@ -27,7 +27,7 @@ sakovskaia::Ellipse::getFrameRect() const
   return {width, height, center};
 }
 
-void sakovskaia::Ellipse::move(const point_t new_center)
+void sakovskaia::Ellipse::move(const point_t & new_center)
 {
   center_ = new_center;
 }
