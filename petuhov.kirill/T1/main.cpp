@@ -97,8 +97,8 @@ int main()
         shapes[i]->move({scale_center.x + deltaX, scale_center.y + deltaY});
 
         frame = shapes[i]->getFrameRect();
-        petuhov::point_t lower_left{frame.pos.x - frame.width / 2, frame.pos.y - frame.height / 2};
-        petuhov::point_t upper_right{frame.pos.x + frame.width / 2, frame.pos.y + frame.height / 2};
+        lower_left{frame.pos.x - frame.width / 2, frame.pos.y - frame.height / 2};
+        upper_right{frame.pos.x + frame.width / 2, frame.pos.y + frame.height / 2};
         std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
       }
       catch (const std::invalid_argument &e)
