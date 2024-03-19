@@ -10,13 +10,18 @@ p1_(p1),
 p2_(p2),
 p3_(p3)
 {
-  static bool isErrorShown = false;
-  if ((!isTriangle(p1, p2, p3)) && !isErrorShown)
+}
+
+void shabalin::checkSideLength(double side_length)
+{
+  static bool errorShown = false;
+  if (side_length <= 0 && !errorShown)
   {
-    throw std::invalid_argument("Can't create Triangle with given parameters");
-    isErrorShown = true;
+  throw std::invalid_argument("Side length of the square must be positive");
+  errorShown = true;
   }
 }
+
 
 bool Triangle::isTriangle(point_t p1, point_t p2, point_t p3)
 {
