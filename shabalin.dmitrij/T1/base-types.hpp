@@ -3,22 +3,22 @@
 
 namespace shabalin
 {
-  struct point_t
-  {
+struct point_t
+{
     double x, y;
-  };
-  struct rectangle_t
-  {
-    point_t pos;
+};
+struct rectangle_t
+{
+    point_t center;
     double width, height;
     point_t bl() const
     {
-      return {pos.x - width / 2.0, pos.y - height / 2.0};
+        return {center.x - width / 2.0, center.y - height / 2.0};
     }
     point_t ur() const
     {
-      return {pos.x + width / 2.0, pos.y + height / 2.0};
+        return {center.x + width / 2.0, center.y + height / 2.0};
     }
-  };
+};
 }
 #endif

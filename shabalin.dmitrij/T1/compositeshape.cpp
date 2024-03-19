@@ -1,4 +1,4 @@
-#include "compositeShapes.hpp"
+#include "compositeshape.hpp"
 
 #include <algorithm>
 #include <iomanip>
@@ -7,7 +7,7 @@
 namespace shabalin
 {
 
-shabalin::CompositeShape::CompositeShape(const CompositeShape& obj)
+CompositeShape::CompositeShape(const CompositeShape& obj)
 {
     count = obj.count;
     capacity = count;
@@ -56,9 +56,9 @@ void CompositeShape::scale(point_t p, double scale)
     for (size_t i = 0; i < size(); ++i)
     {
         Shape* shape = shapes[i];
-        point_t oldCenter = shape->getFrameRect().pos;
+        point_t oldCenter = shape->getFrameRect().center;
         shape->move(p);
-        point_t newCenter = shape->getFrameRect().pos;
+        point_t newCenter = shape->getFrameRect().center;
         shape->scale(scale);
         const double dx = (oldCenter.x - newCenter.x) * scale;
         const double dy = (oldCenter.y - newCenter.y) * scale;

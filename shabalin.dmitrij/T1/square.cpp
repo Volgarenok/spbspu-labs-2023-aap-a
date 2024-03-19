@@ -1,4 +1,5 @@
 #include "square.hpp"
+
 #include <stdexcept>
 #include <algorithm>
 
@@ -8,10 +9,10 @@ namespace shabalin
         left_bottom_{left_bottom_x, left_bottom_y},
         side_length_(side_length)
     {
-      if (side_length <= 0)
-      {
-        throw std::invalid_argument("Side length of the square must be positive");
-      }
+        if (side_length <= 0)
+        {
+            throw std::invalid_argument("Side length of the square must be positive");
+        }
     }
 
     Square::Square(point_t center, double side_length) :
@@ -20,7 +21,7 @@ namespace shabalin
     {
         if (side_length <= 0)
         {
-          throw std::invalid_argument("Side length of the square must be positive");
+            throw std::invalid_argument("Side length of the square must be positive");
         }
     }
     void Square::move(point_t p)
@@ -55,8 +56,7 @@ namespace shabalin
 
     rectangle_t Square::getFrameRect() const
     {
-        point_t pos = { side_length_ / 2.0 + left_bottom_.x, side_length_ / 2.0 + left_bottom_.y};
-        return {pos, side_length_, side_length_};
+        return {left_bottom_, side_length_, side_length_};
     }
 
     Shape* Square::clone() const

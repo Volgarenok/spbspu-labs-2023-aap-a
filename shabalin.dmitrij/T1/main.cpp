@@ -3,18 +3,18 @@
 
 #include "square.hpp"
 #include "commands.hpp"
-#include "compositeShapes.hpp"
+#include "compositeshape.hpp"
 #include "triangle.hpp"
 #include "parallelogram.hpp"
 #include "rectangle.hpp"
-#include "analize.hpp"
+#include "tokenizer.hpp"
 
 void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShape);
 void executeCommand(const std::string& string, shabalin::CompositeShape& compositeShape);
 
 int main()
 {
-  std::istream *inputStream = &std::cin;
+  std::istream* inputStream = &std::cin;
   shabalin::CompositeShape shapes;
   bool scaleExecuted = false;
   while (*inputStream)
@@ -25,8 +25,8 @@ int main()
     {
       continue;
     }
-    shabalin::Analize analize(line);
-    analize >> entity;
+    shabalin::Tokenizer tokenizer(line);
+    tokenizer >> entity;
     try
     {
       if (shabalin::isFigure(entity))
@@ -65,39 +65,39 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
   double x3 = 0;
   double y3 = 0;
   double side = 0;
-  shabalin::Analize analize(line);
+  shabalin::Tokenizer tokenizer(line);
   std::string figure = "";
-  analize >> figure;
+  tokenizer >> figure;
   try
   {
     if (figure == shabalin::Figures::triangle)
     {
-      analize >> x >> y >> x2 >> y2 >> x3 >> y3;
-      if (analize)
+      tokenizer >> x >> y >> x2 >> y2 >> x3 >> y3;
+      if (tokenizer)
       {
         compositeShape.push_back(new shabalin::Triangle{{x, y}, {x2, y2}, {x3, y3}});
       }
     }
     else if (figure == shabalin::Figures::square)
     {
-      analize >> x >> y >> side;
-      if (analize)
+      tokenizer >> x >> y >> side;
+      if (tokenizer)
       {
         compositeShape.push_back(new shabalin::Square{{x, y}, side});
       }
     }
     else if (figure == shabalin::Figures::rectangle)
     {
-      analize >> x >> y >> x2 >> y2;
-      if (analize)
+      tokenizer >> x >> y >> x2 >> y2;
+      if (tokenizer)
       {
         compositeShape.push_back(new shabalin::Rectangle{{x, y}, {x2, y2}});
       }
     }
     else if (figure == shabalin::Figures::parallelogram)
     {
-        analize >> x >> y >> x2 >> y2 >> x3 >> y3;
-        if(analize)
+        tokenizer >> x >> y >> x2 >> y2 >> x3 >> y3;
+        if(tokenizer)
         {
             compositeShape.push_back(new shabalin::Parallelogram{{x, y}, {x2, y2}, {x3, y3}});
         }
@@ -111,16 +111,16 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
 
 void executeCommand(const std::string& string, shabalin::CompositeShape& compositeShape)
 {
-  shabalin::Analize analize(string);
+  shabalin::Tokenizer tokenizer(string);
   std::string commandName = "";
-  analize >> commandName;
+  tokenizer >> commandName;
   if (commandName == shabalin::Commands::scale)
   {
     double x = 0;
     double y = 0;
     double scale = 0;
-    analize >> x >> y >> scale;
-    if (analize && scale > 0.0)
+    tokenizer >> x >> y >> scale;
+    if (tokenizer && scale > 0.0)
     {
       if (compositeShape.empty())
       {
