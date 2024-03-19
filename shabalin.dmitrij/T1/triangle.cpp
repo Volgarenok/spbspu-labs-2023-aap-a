@@ -67,9 +67,9 @@ void Triangle::scale(double scale)
 
 double Triangle::getArea() const
 {
-    double a = distance(p1_, p2_);
-    double b = distance(p1_, p3_);
-    double c = distance(p2_, p3_);
+    double a = std::sqrt((p1_.x - p2_.x) * (p1_.x - p2_.x) + (p1_.y - p2_.y) * (p1_.y - p2_.y));
+    double b = std::sqrt((p1_.x - p3_.x) * (p1_.x - p3_.x) + (p1_.y - p3_.y) * (p1_.y - p3_.y));
+    double c = std::sqrt((p2_.x - p3_.x) * (p2_.x - p3_.x) + (p2_.y - p3_.y) * (p2_.y - p3_.y));
     double p = (a + b + c) / 2;
     return std::sqrt(p * (p - a) * (p - b) * (p - c));
 }
