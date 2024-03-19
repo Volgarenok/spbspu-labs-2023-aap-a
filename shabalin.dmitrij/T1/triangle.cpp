@@ -10,10 +10,12 @@ p1_(p1),
 p2_(p2),
 p3_(p3)
 {
-    if (!isTriangle(p1, p2, p3))
-    {
-        throw std::invalid_argument("Can't create Triangle with given parameters");
-    }
+  bool isErrorShown = false;
+  if ((!isTriangle(p1, p2, p3)) && !isErrorShown)
+  {
+    throw std::invalid_argument("Can't create Triangle with given parameters");
+    isErrorShown = true;
+  }
 }
 
 bool Triangle::isTriangle(point_t p1, point_t p2, point_t p3)
