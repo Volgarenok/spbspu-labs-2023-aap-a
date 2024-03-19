@@ -16,7 +16,7 @@ namespace shabalin
         double dy1 = p2.y - p1.y;
         double dx2 = p3.x - p2.x;
         double dy2 = p3.y - p2.y;
-
+        
         if (dy1 != 0 || dy2 != 0 || dx1 != dx2)
         {
             throw std::invalid_argument("Invalid parallelogram definition");
@@ -56,7 +56,7 @@ namespace shabalin
         double center_x = (p1_.x + p3_.x) / 2;
         double center_y = (p1_.y + p3_.y) / 2;
 
-        p1_.x = center_x + scale *(p1_.x - center_x);
+        p1_.x = center_x + scale * (p1_.x - center_x);
         p1_.y = center_y + scale * (p1_.y - center_y);
         p3_.x = center_x + scale * (p3_.x - center_x);
         p3_.y = center_y + scale * (p3_.y - center_y);
