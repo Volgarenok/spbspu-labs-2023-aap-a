@@ -1,5 +1,5 @@
 #include "triangle.hpp"
-
+#include <algorithm>
 #include <cmath>
 #include <stdexcept>
 
