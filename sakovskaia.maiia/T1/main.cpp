@@ -18,7 +18,6 @@ int main()
   size_t cnt = 0;
   point_t scalePoint = {0, 0};
   size_t scaleRatio = 0;
-  double k = 0;
   char * string = nullptr;
   try
   {
