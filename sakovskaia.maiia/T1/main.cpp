@@ -2,9 +2,12 @@
 #include <cstring>
 #include <string_reader.hpp>
 #include "shape.hpp"
-#include "scale.hpp"
 #include "input.hpp"
 #include "output.hpp"
+#include "rectangle.hpp"
+#include "parallelogram.hpp"
+#include "sqare.hpp"
+#include "ellipse.hpp"
 
 int main()
 {
@@ -31,6 +34,30 @@ int main()
           shapes[cnt++] = shape;
         }
       }
+      if (i == 1)
+      {
+        Shape * shape = inputParallelogram(string);
+        if (shape != nullptr)
+        {
+          shapes[cnt++] = shape;
+        }
+      }
+      if (i == 2)
+      {
+        Shape * shape = inputSquare(string);
+        if (shape != nullptr)
+        {
+          shapes[cnt++] = shape;
+        }
+      }
+      if (i == 3)
+      {
+        Shape * shape = inputEllipse(string);
+        if (shape != nullptr)
+        {
+          shapes[cnt++] = shape;
+        }
+      }
       outputShapes(std::cout, shapes, cnt);
       std::cout << '\n';
       if (i == 4)
@@ -44,6 +71,7 @@ int main()
       }
     }
   }
+  delete [] string;
   for (size_t i = 0; i < cnt; i++)
   {
     delete shapes[i];
