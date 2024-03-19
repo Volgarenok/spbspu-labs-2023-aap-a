@@ -7,20 +7,16 @@
 
 namespace shabalin
 {
-  Parallelogram::Parallelogram(point_t p1, point_t p2, point_t p3) :
+    Parallelogram::Parallelogram(point_t p1, point_t p2, point_t p3) :
         p1_(p1),
         p2_(p2),
         p3_(p3)
-  {
-    if (!((p1_.y == p2_.y) || (p1_.y == p3_.y) || (p2_.y == p3_.y)))
     {
-      throw std::logic_error("The provided points do not form a parallelogram!");
+      if (!((p1_.y == p2_.y) || (p1_.y == p3_.y) || (p2_.y == p3_.y)))
+      {
+        throw std::invalid_argument("Invalid parallelogram definition");
+      }
     }
-    if ((p1_.x == 0) && (p1_.y == 0) && (p2_.x == 0) && (p2_.y == 0) && (p3_.x == 0) && (p3_.y == 0))
-    {
-      throw std::logic_error("Invalid points for parallelogram!");
-    }
-  }
 
     void Parallelogram::move(point_t p)
     {
