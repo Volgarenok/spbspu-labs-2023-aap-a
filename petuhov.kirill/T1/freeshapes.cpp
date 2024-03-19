@@ -7,5 +7,4 @@ void petuhov::freeShapes(petuhov::Shape ** shapes, size_t shapeCount)
     delete shapes[i];
     shapes[i] = nullptr;
   }
-  delete[] shapes;
 }
