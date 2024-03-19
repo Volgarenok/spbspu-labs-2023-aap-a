@@ -18,12 +18,14 @@ int main()
     std::cin >> scaleCenter.x >> scaleCenter.y >> scaleRatio;
     if (scaleRatio <= 0.0)
     {
-      // TODO: throw?
+      std::cerr << "scaling ratio must be positive\n";
+      return 1;
     }
 
     if (shapesCount == 0)
     {
-      // TODO: throw?
+      std::cerr << "nothing to scale\n";
+      return 2;
     }
 
     kovtun::showResult(std::cout, shapes, shapesCount);
@@ -42,7 +44,7 @@ int main()
   {
     kovtun::removeShapes(shapes, shapesCount);
     std::cerr << "unexpected error occurred\n";
-    return 1;
+    return 3;
   }
 
   kovtun::removeShapes(shapes, shapesCount);
