@@ -55,7 +55,7 @@ namespace shabalin
         double center_x = (p1_.x + p3_.x) / 2;
         double center_y = (p1_.y + p3_.y) / 2;
 
-        p1_.x = center_x + scale * (p1_.x - center_x);
+        p1_.x = center_x + (p1_.x - center_x);
         p1_.y = center_y + scale * (p1_.y - center_y);
         p3_.x = center_x + scale * (p3_.x - center_x);
         p3_.y = center_y + scale * (p3_.y - center_y);
