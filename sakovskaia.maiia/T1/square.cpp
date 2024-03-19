@@ -47,6 +47,9 @@ void sakovskaia::Square::move(double dx, double dy)
 void sakovskaia::Square::scaleShape(double k)
 {
   point_t center = {ll_.x + (length_ / 2.0), ll_.y + (length_ / 2.0)};
-  ll_ = center - (center - ll_) * k;
+  point_t center_p = {center.x, center.y};
+  point_t new_center = {center_p.x - ll_.x, center_p.y - ll_.y};
+  ll_.x = center.x - new_center.x * k;
+  ll_.y = center.y - new_center.y * k;
   length_ *= k;
 }

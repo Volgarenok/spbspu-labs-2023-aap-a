@@ -6,7 +6,7 @@ namespace sakovskaia
   class Ellipse: public Shape
   {
     public:
-      Ellipse(const point_t & center, double radiusX, double radiusY);
+      Ellipse(point_t & center, double radiusX, double radiusY);
       virtual double getArea() const;
       virtual rectangle_t getFrameRect() const;
       virtual void move(point_t new_center);
