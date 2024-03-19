@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <cstddef>
 
 size_t prisyach::findMaxSequence(const int * matrix, size_t rows, size_t cols)
 {
