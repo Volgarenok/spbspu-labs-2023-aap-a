@@ -93,7 +93,6 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
         compositeShape.push_back(new shabalin::Rectangle{{x, y}, {x2, y2}});
       }
     }
-    /*
     else if (figure == shabalin::Figures::parallelogram)
     {
         analize >> x >> y >> x2 >> y2 >> x3 >> y3;
@@ -102,9 +101,8 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
             compositeShape.push_back(new shabalin::Parallelogram{{x, y}, {x2, y2}, {x3, y3}});
         }
     }
-    */
   }
-  catch (const std::exception &e)
+  catch (const std::invalid_argument &e)
   {
     std::cerr << e.what() << '\n';
   }
