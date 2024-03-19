@@ -1,9 +1,9 @@
 #include <fstream>
 #include <iostream>
-//#include "square.hpp"
+#include "square.hpp"
 #include "commands.hpp"
 #include "compositeShapes.hpp"
-//#include "triangle.hpp"
+#include "triangle.hpp"
 #include "parallelogram.hpp"
 #include "rectangle.hpp"
 #include "analize.hpp"
@@ -63,14 +63,13 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
   double y2 = 0;
   double x3 = 0;
   double y3 = 0;
-  //double side = 0;
+  double side = 0;
   shabalin::Analize analize(line);
   std::string figure = "";
   analize >> figure;
   bool isError = false;
   try
   {
-    /*
     if (figure == shabalin::Figures::triangle)
     {
       analize >> x >> y >> x2 >> y2 >> x3 >> y3;
@@ -87,7 +86,6 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
         compositeShape.push_back(new shabalin::Square{{x, y}, side});
       }
     }
-    */
     if (figure == shabalin::Figures::rectangle)
     {
       analize >> x >> y >> x2 >> y2;
