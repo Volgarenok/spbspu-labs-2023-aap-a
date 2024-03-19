@@ -18,62 +18,82 @@ int main()
   size_t scaleRatio = 0;
   double k = 0;
   char * string = nullptr;
-  string = readString(std::cin);
+  try
+  {
+    string = readString(std::cin);
+  }
+  catch (const std::logic_error & e)
+  {
+    std::cerr << e.what() << "\n";
+    delete [] string;
+    freeShapes(shapes, cnt)
+    return 2;
+  }
   constexpr size_t shapes_cnt = 5;
   const char * shapes_my[shapes_cnt] = {"RECTANGLE", "PARALLELOGRAM", "SQUARE", "ELLIPSE", "SCALE"};
-  for (size_t i = 0; i < shapes_cnt; i++)
+  try
   {
-    size_t shape_name = std::strlen(shapes_my[i]);
-    if (std::strncmp(shapes_my[i], string, shape_name) == 0)
+    for (size_t i = 0; i < shapes_cnt; i++)
     {
-      if (i == 0)
+      size_t shape_name = std::strlen(shapes_my[i]);
+      if (std::strncmp(shapes_my[i], string, shape_name) == 0)
       {
-        Shape * shape = inputRectangle(string);
-        if (shape != nullptr)
+        if (i == 0)
         {
-          shapes[cnt++] = shape;
+          Shape * shape = inputRectangle(string);
+          if (shape != nullptr)
+          {
+            shapes[cnt++] = shape;
+          }
         }
-      }
-      if (i == 1)
-      {
-        Shape * shape = inputParallelogram(string);
-        if (shape != nullptr)
+        if (i == 1)
         {
-          shapes[cnt++] = shape;
+          Shape * shape = inputParallelogram(string);
+          if (shape != nullptr)
+          {
+            shapes[cnt++] = shape;
+          }
         }
-      }
-      if (i == 2)
-      {
-        Shape * shape = inputSquare(string);
-        if (shape != nullptr)
+        if (i == 2)
         {
-          shapes[cnt++] = shape;
+          Shape * shape = inputSquare(string);
+          if (shape != nullptr)
+          {
+            shapes[cnt++] = shape;
+          }
         }
-      }
-      if (i == 3)
-      {
-        Shape * shape = inputEllipse(string);
-        if (shape != nullptr)
+        if (i == 3)
         {
-          shapes[cnt++] = shape;
-        }
-      }
-      outputShapes(std::cout, shapes, cnt);
-      std::cout << '\n';
-      if (i == 4)
-      {
-        for (size_t i = 0; i < cnt; ++i)
-        {
-          scaleShapes(shapes[i], scalePoint, scaleRatio);
+          Shape * shape = inputEllipse(string);
+          if (shape != nullptr)
+          {
+            shapes[cnt++] = shape;
+          }
         }
         outputShapes(std::cout, shapes, cnt);
         std::cout << '\n';
+        if (i == 4)
+        {
+          for (size_t i = 0; i < cnt; ++i)
+          {
+            scaleShapes(shapes[i], scalePoint, scaleRatio);
+          }
+          outputShapes(std::cout, shapes, cnt);
+          std::cout << '\n';
+        }
       }
     }
   }
-  delete [] string;
-  for (size_t i = 0; i < cnt; i++)
+  catch (const std::invalid_argument & e)
   {
-    delete shapes[i];
+    std::cerr << "Invalig Arguments\n";
   }
+  catch (const std::logic_error & e)
+    {
+      std::cerr << e.what() << "\n";
+      delete [] string;
+      freeShapes(shapes, cnt);
+      return 1;
+    }
+  freeShapes(shapes, cnt);
 }
