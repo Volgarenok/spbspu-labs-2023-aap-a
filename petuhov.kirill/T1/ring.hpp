@@ -9,16 +9,16 @@ namespace petuhov
   {
   private:
     point_t center_;
-    float outer_radius_;
-    float inner_radius_;
+    double outer_radius_;
+    double inner_radius_;
 
   public:
-    Ring(const point_t &center, float outer_radius, float inner_radius);
-    float getArea() const override;
+    Ring(const point_t &center, double outer_radius, double inner_radius);
+    double getArea() const override;
     rectangle_t getFrameRect() const override;
     void move(const point_t &newPos) override;
-    void move(float dx, float dy) override;
-    void scale(const petuhov::point_t &center, float factor) override;
+    void move(double dx, double dy) override;
+    void scale(const petuhov::point_t &center, double factor) override;
   };
 }
 

@@ -21,31 +21,31 @@ int main()
     {
       if (command == "RECTANGLE")
       {
-        float x1 = 0;
-        float y1 = 0;
-        float x2 = 0;
-        float y2 = 0;
+        double x1 = 0;
+        double y1 = 0;
+        double x2 = 0;
+        double y2 = 0;
         std::cin >> x1 >> y1 >> x2 >> y2;
-        float centerX = (x1 + x2) / 2;
-        float centerY = (y1 + y2) / 2;
-        float width = x2 - x1;
-        float height = y2 - y1;
+        double centerX = (x1 + x2) / 2;
+        double centerY = (y1 + y2) / 2;
+        double width = x2 - x1;
+        double height = y2 - y1;
         shapes[shapeCount++] = new petuhov::Rectangle({centerX, centerY}, width, height);
       }
       else if (command == "RING")
       {
-        float x = 0;
-        float y = 0;
-        float innerRadius = 0;
-        float outerRadius = 0;
+        double x = 0;
+        double y = 0;
+        double innerRadius = 0;
+        double outerRadius = 0;
         std::cin >> x >> y >> outerRadius >> innerRadius;
         shapes[shapeCount++] = new petuhov::Ring({x, y}, outerRadius, innerRadius);
       }
       else if (command == "REGULAR")
       {
-        float x = 0;
-        float y = 0;
-        float radius = 0;
+        double x = 0;
+        double y = 0;
+        double radius = 0;
         int vertexCount;
         std::cin >> x >> y >> radius >> vertexCount;
         if (radius <= 0 || vertexCount <= 2)
@@ -56,9 +56,9 @@ int main()
       }
       else if (command == "CIRCLE")
       {
-        float x = 0;
-        float y = 0;
-        float radius = 0;
+        double x = 0;
+        double y = 0;
+        double radius = 0;
         std::cin >> x >> y >> radius;
         shapes[shapeCount++] = new petuhov::Circle({x, y}, radius);
       }
@@ -71,7 +71,7 @@ int main()
 
   if (command == "SCALE")
   {
-    float scale_factor = 0;
+    double scale_factor = 0;
     petuhov::point_t scale_center = {0, 0};
     std::cin >> scale_center.x >> scale_center.y;
     std::cin >> scale_factor;

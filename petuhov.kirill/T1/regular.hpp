@@ -8,17 +8,17 @@ namespace petuhov
   class Regular : public petuhov::Shape
   {
     public:
-      Regular(const petuhov::point_t &pos, float radius, int vertexCount);
+      Regular(const petuhov::point_t &pos, double radius, int vertexCount);
 
-      float getArea() const override;
+      double getArea() const override;
       petuhov::rectangle_t getFrameRect() const override;
       void move(const petuhov::point_t &pos) override;
-      void move(float dx, float dy) override;
-      void scale(const petuhov::point_t &center, float factor) override;
+      void move(double dx, double dy) override;
+      void scale(const petuhov::point_t &center, double factor) override;
 
     private:
       petuhov::point_t center_;
-      float radius_;
+      double radius_;
       int vertexCount_;
   };
 }

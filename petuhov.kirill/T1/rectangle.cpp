@@ -1,7 +1,7 @@
 #include "rectangle.hpp"
 #include <stdexcept>
 
-petuhov::Rectangle::Rectangle(const point_t &pos, float width, float height):
+petuhov::Rectangle::Rectangle(const point_t &pos, double width, double height):
   rect_{{0,0}, 0, 0}
 {
   if (width > 0.0f && height > 0.0f)
@@ -16,7 +16,7 @@ petuhov::Rectangle::Rectangle(const point_t &pos, float width, float height):
   }
 }
 
-float petuhov::Rectangle::getArea() const
+double petuhov::Rectangle::getArea() const
 {
   return rect_.width * rect_.height;
 }
@@ -31,13 +31,13 @@ void petuhov::Rectangle::move(const petuhov::point_t &pos)
   rect_.pos = pos;
 }
 
-void petuhov::Rectangle::move(float dx, float dy)
+void petuhov::Rectangle::move(double dx, double dy)
 {
   rect_.pos.x += dx;
   rect_.pos.y += dy;
 }
 
-void petuhov::Rectangle::scale(const petuhov::point_t &center, float factor)
+void petuhov::Rectangle::scale(const petuhov::point_t &center, double factor)
 {
   if (factor > 0.0f)
   {

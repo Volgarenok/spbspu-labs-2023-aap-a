@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <cmath>
 
-petuhov::Circle::Circle(const petuhov::point_t &center, float radius):
+petuhov::Circle::Circle(const petuhov::point_t &center, double radius):
   center_(center),
   radius_(radius)
 {
@@ -12,7 +12,7 @@ petuhov::Circle::Circle(const petuhov::point_t &center, float radius):
   }
 }
 
-float petuhov::Circle::getArea() const
+double petuhov::Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
 }
@@ -27,13 +27,13 @@ void petuhov::Circle::move(const petuhov::point_t &pos)
   center_ = pos;
 }
 
-void petuhov::Circle::move(float dx, float dy)
+void petuhov::Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
 }
 
-void petuhov::Circle::scale(const petuhov::point_t &center, float factor)
+void petuhov::Circle::scale(const petuhov::point_t &center, double factor)
 {
   if (factor < 0)
   {
