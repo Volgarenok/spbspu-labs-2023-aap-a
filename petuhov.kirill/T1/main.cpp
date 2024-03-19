@@ -72,31 +72,33 @@ int main()
   if (command == "SCALE")
   {
     double scale_factor = 0;
-    double scale_center_x = 0;
-    double scale_center_y = 0;
-    std::cin >> scale_center_x >> scale_center_y;
-    std::cin >> scale_factor;
+    petuhov::point_t scale_center = {0, 0};
+    std::cin >> scale_center.x >> scale_center.y >> scale_factor;
     for (size_t i = 0; i < shapeCount; i++)
     {
       try
       {
         std::cout << std::fixed;
         std::cout.precision(1);
-        petuhov::point_t lower_left{
-            shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
-            shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2};
-        petuhov::point_t upper_right{
-            shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
-            shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2};
+        petuhov::rectangle_t frame = shapes[i]->getFrameRect();
+        petuhov::point_t lower_left{frame.pos.x - frame.width / 2, frame.pos.y - frame.height / 2};
+        petuhov::point_t upper_right{frame.pos.x + frame.width / 2, frame.pos.y + frame.height / 2};
         std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
-        shapes[i]->move(scale_center_x, scale_center_y);
+        
+        petuhov::point_t center = shapes[i]->getFrameRect().pos;
+        double deltaX = center.x - scale_center.x;
+        double deltaY = center.y - scale_center.y;
+
+        shapes[i]->move(scale_center);
         shapes[i]->scale(scale_factor);
-        lower_left = {
-            shapes[i]->getFrameRect().pos.x - shapes[i]->getFrameRect().width / 2,
-            shapes[i]->getFrameRect().pos.y - shapes[i]->getFrameRect().height / 2};
-        upper_right = {
-            shapes[i]->getFrameRect().pos.x + shapes[i]->getFrameRect().width / 2,
-            shapes[i]->getFrameRect().pos.y + shapes[i]->getFrameRect().height / 2};
+
+        deltaX *= scale_factor;
+        deltaY *= scale_factor;
+        shapes[i]->move({scale_center.x + deltaX, scale_center.y + deltaY});
+
+        frame = shapes[i]->getFrameRect();
+        petuhov::point_t lower_left{frame.pos.x - frame.width / 2, frame.pos.y - frame.height / 2};
+        petuhov::point_t upper_right{frame.pos.x + frame.width / 2, frame.pos.y + frame.height / 2};
         std::cout << shapes[i]->getArea() << " " << lower_left.x << " " << lower_left.y << " " << upper_right.x << " " << upper_right.y << "\n";
       }
       catch (const std::invalid_argument &e)

@@ -29,8 +29,8 @@ void petuhov::Circle::move(const petuhov::point_t &pos)
 
 void petuhov::Circle::move(double dx, double dy)
 {
-  center_.x = dx;
-  center_.y = dy;
+  center_.x += dx;
+  center_.y += dy;
 }
 
 void petuhov::Circle::scale(double factor)

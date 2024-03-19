@@ -31,8 +31,8 @@ void petuhov::Ring::move(const point_t &newPos)
 
 void petuhov::Ring::move(double dx, double dy)
 {
-  center_.x = dx;
-  center_.y = dy;
+  center_.x += dx;
+  center_.y += dy;
 }
 
 void petuhov::Ring::scale(double factor)

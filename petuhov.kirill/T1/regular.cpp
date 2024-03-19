@@ -44,8 +44,8 @@ void petuhov::Regular::move(const petuhov::point_t &pos)
 
 void petuhov::Regular::move(double dx, double dy)
 {
-  center_.x = dx;
-  center_.y = dy;
+  center_.x += dx;
+  center_.y += dy;
 }
 
 void petuhov::Regular::scale(double factor)
