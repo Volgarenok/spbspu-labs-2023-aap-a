@@ -10,11 +10,10 @@ p1_(p1),
 p2_(p2),
 p3_(p3)
 {
-  bool isErrorShown = false;
-  if ((!isTriangle(p1, p2, p3)) && !isErrorShown)
+  double det = (p1_.x * (p2_.y - p3_.y) - p2_.x * (p1_.y - p3_.y) + p3_.x * (p1_.y - p2_.y));
+  if (det == 0)
   {
     throw std::logic_error("Can't create Triangle with given parameters");
-    isErrorShown = true;
   }
 }
 
