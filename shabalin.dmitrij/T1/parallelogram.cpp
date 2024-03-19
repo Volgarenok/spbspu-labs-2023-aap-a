@@ -12,6 +12,7 @@ namespace shabalin
         p2_(p2),
         p3_(p3)
     {
+      /*
         double dx1 = p2.x - p1.x;
         double dy1 = p2.y - p1.y;
         double dx2 = p3.x - p2.x;
@@ -21,6 +22,7 @@ namespace shabalin
         {
             throw std::invalid_argument("Invalid parallelogram definition");
         }
+      */
     }
 
     void Parallelogram::move(point_t p)
@@ -41,7 +43,6 @@ namespace shabalin
 
     void Parallelogram::move(double shift_x, double shift_y)
     {
-
         p1_.x += shift_x;
         p1_.y += shift_y;
         p2_.x += shift_x;
