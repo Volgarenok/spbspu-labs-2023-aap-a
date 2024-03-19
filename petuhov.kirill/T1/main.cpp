@@ -26,9 +26,6 @@ int main()
         float x2 = 0;
         float y2 = 0;
         std::cin >> x1 >> y1 >> x2 >> y2;
-        if (x1 >= x2 || y1 >= y2) {
-          throw std::invalid_argument("Invalid parameters for RECTANGLE.");
-        }
         float centerX = (x1 + x2) / 2;
         float centerY = (y1 + y2) / 2;
         float width = x2 - x1;
@@ -68,7 +65,6 @@ int main()
     }
     catch (const std::invalid_argument &e)
     {
-      std::cout << "Error creating shape: " << e.what() << "\n";
       errorFlag = true;
     }
   }
