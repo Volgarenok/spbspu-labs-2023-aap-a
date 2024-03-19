@@ -1,6 +1,5 @@
 #include <fstream>
 #include <iostream>
-
 #include "square.hpp"
 #include "commands.hpp"
 #include "compositeShapes.hpp"
@@ -14,13 +13,13 @@ void executeCommand(const std::string& string, shabalin::CompositeShape& composi
 
 int main()
 {
-  std::istream *input = &std::cin;
+  std::istream *inputStream = &std::cin;
   shabalin::CompositeShape shapes;
   bool scaleExecuted = false;
-  while (*input)
+  while (*inputStream)
   {
     std::string line, entity;
-    std::getline(*input, line);
+    std::getline(*inputStream, line);
     if (line.empty())
     {
       continue;
@@ -42,7 +41,7 @@ int main()
         }
       }
     }
-    catch (const std::exception &e)
+    catch (const std::exception& e)
     {
       std::cerr << e.what() << '\n';
       return 1;
@@ -68,7 +67,6 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
   shabalin::Analize analize(line);
   std::string figure = "";
   analize >> figure;
-  //bool isExecute = false;
   try
   {
     if (figure == shabalin::Figures::triangle)
@@ -98,24 +96,24 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
     else if (figure == shabalin::Figures::parallelogram)
     {
         analize >> x >> y >> x2 >> y2 >> x3 >> y3;
-        if (analize)
+        if(analize)
         {
             compositeShape.push_back(new shabalin::Parallelogram{{x, y}, {x2, y2}, {x3, y3}});
         }
     }
   }
-  catch (const std::invalid_argument &e)
+  catch (const std::invalid_argument& e)
   {
     std::cerr << e.what() << '\n';
   }
 }
 
-void executeCommand(const std::string &string, shabalin::CompositeShape &compositeShape)
+void executeCommand(const std::string& string, shabalin::CompositeShape& compositeShape)
 {
   shabalin::Analize analize(string);
-  std::string name = "";
-  analize >> name;
-  if (name == shabalin::Commands::scale)
+  std::string commandName = "";
+  analize >> commandName;
+  if (commandName == shabalin::Commands::scale)
   {
     double x = 0;
     double y = 0;
