@@ -29,7 +29,7 @@ bool shabalin::isFigure(const std::string &figure)
   return false;
 }
 
-
+/*
 void shabalin::pushFigure(const std::string& line, shabalin::CompositeShape& compositeShape)
 {
   double x = 0;
@@ -110,3 +110,4 @@ void shabalin::executeCommand(const std::string& string, shabalin::CompositeShap
     }
   }
 }
+*/
