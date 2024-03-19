@@ -132,6 +132,7 @@ int main()
       std::cout << " " << frame.pos.x - frame.width / 2 << " " << frame.pos.y - frame.height / 2;
       std::cout << " " << frame.pos.x + frame.width / 2 << " " << frame.pos.y + frame.height / 2;
     }
+    std::cout << "\n";
 
     if (errorFlag)
     {
