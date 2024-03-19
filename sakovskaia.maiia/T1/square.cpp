@@ -36,7 +36,7 @@ void sakovskaia::Square::move(double dx, double dy)
   point_t center = {ll_.x + (length_ / 2.0), ll_.y + (length_ / 2.0)};
   center.x += dx;
   center.y += dy;
-  point_t * points[] = {&ll_, &length_};
+  point_t * points[] = {&ll_, &center};
   for (size_t i = 0; i < 2; i++)
   {
     points[i]->x += dx;
