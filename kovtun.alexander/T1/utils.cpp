@@ -82,6 +82,9 @@ size_t kovtun::parseShapes(std::istream & in, Shape ** shapes)
 
 void kovtun::showResult(std::ostream &out, kovtun::Shape ** shapes, size_t shapesCount)
 {
+  out.precision(1);
+  out << std::fixed;
+
   double totalArea = 0.0;
   for (size_t i = 0; i < shapesCount; i++)
   {
