@@ -1,5 +1,4 @@
 #include "square.hpp"
-
 #include <stdexcept>
 #include <algorithm>
 

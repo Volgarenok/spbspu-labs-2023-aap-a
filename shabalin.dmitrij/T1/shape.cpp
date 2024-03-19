@@ -1,5 +1,4 @@
 #include "shape.hpp"
-
 #include <iomanip>
 #include "base-types.hpp"
 
