@@ -103,7 +103,7 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
         }
     }
   }
-  catch (const std::invalid_argument& e)
+  catch (const std::exception &e)
   {
     if (!isError)
     {
