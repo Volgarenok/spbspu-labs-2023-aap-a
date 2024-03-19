@@ -89,7 +89,7 @@ int main(int argc, char * argv[])
 
   size_t result = prisyach::findMaxSequence(matrix, rows, cols);
   output_file << result + 1 << " " << rows << " " << cols << " ";
-  prisyach::transformMatrix(matrix, rows, cols);
+  prisyach::increaseValues(matrix, rows, cols);
   prisyach::outputMatrix(output_file, matrix, rows, cols);
 
   if (task_number == 2)
