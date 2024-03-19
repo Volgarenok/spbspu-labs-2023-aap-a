@@ -81,7 +81,7 @@ rectangle_t Triangle::getFrameRect() const
     point_t center = {(min_x + max_x) / 2, (min_y + max_y) / 2};
     double width = max_x - min_x;
     double height = max_y - min_y;
-    return rectange_t{center, width, height};
+    return rectangle_t{center, width, height};
 }
 
 Shape* Triangle::clone() const
