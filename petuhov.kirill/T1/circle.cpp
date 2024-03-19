@@ -6,7 +6,7 @@ petuhov::Circle::Circle(const petuhov::point_t &center, double radius):
   center_(center),
   radius_(radius)
 {
-  if (radius_ < 0)
+  if (radius_ <= 0)
   {
     throw std::invalid_argument("Invalid radius");
   }
