@@ -60,6 +60,6 @@ namespace shabalin
 
   Shape *Square::clone() const
   {
-    return new Square(center, side_length_);
+    return new Square(left_bottom_, side_length_);
   }
 }
