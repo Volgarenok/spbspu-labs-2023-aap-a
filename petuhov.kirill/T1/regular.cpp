@@ -2,7 +2,10 @@
 #include <stdexcept>
 #include <cmath>
 
-petuhov::Regular::Regular(const petuhov::point_t &pos, float radius, int vertexCount): center_(pos), radius_(0.0f), vertexCount_(0)
+petuhov::Regular::Regular(const petuhov::point_t &pos, float radius, int vertexCount):
+  center_(pos),
+  radius_(0.0f),
+  vertexCount_(0)
 {
   if (radius > 0.0f)
   {

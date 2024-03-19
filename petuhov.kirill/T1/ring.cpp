@@ -2,7 +2,10 @@
 #include <stdexcept>
 #include <cmath>
 
-petuhov::Ring::Ring(const point_t &center, float outer_radius, float inner_radius) : center_(center), outer_radius_(outer_radius), inner_radius_(inner_radius)
+petuhov::Ring::Ring(const point_t &center, float outer_radius, float inner_radius):
+  center_(center),
+  outer_radius_(outer_radius),
+  inner_radius_(inner_radius)
 {
   if (outer_radius <= inner_radius)
   {

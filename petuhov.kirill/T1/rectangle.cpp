@@ -1,7 +1,8 @@
 #include "rectangle.hpp"
 #include <stdexcept>
 
-petuhov::Rectangle::Rectangle(const point_t &pos, float width, float height) : rect_{{0,0}, 0, 0}
+petuhov::Rectangle::Rectangle(const point_t &pos, float width, float height):
+  rect_{{0,0}, 0, 0}
 {
   if (width > 0.0f && height > 0.0f)
   {
