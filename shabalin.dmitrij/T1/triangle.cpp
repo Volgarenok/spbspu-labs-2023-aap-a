@@ -12,17 +12,6 @@ p3_(p3)
 {
 }
 
-void shabalin::checkSideLength(double side_length)
-{
-  static bool errorShown = false;
-  if (side_length <= 0 && !errorShown)
-  {
-  throw std::invalid_argument("Side length of the square must be positive");
-  errorShown = true;
-  }
-}
-
-
 bool Triangle::isTriangle(point_t p1, point_t p2, point_t p3)
 {
     const double d1 = distance(p1, p2);

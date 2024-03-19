@@ -75,7 +75,14 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
       analize >> x >> y >> x2 >> y2 >> x3 >> y3;
       if (analize)
       {
-        compositeShape.push_back(new shabalin::Triangle{{x, y}, {x2, y2}, {x3, y3}});
+        try
+        {
+          compositeShape.push_back(new shabalin::Triangle{{x, y}, {x2, y2}, {x3, y3}});
+        }
+        catch(...)
+        {
+          throw std::invalid_argument("Error");
+        }
       }
     }
     else if (figure == shabalin::Figures::square)
@@ -83,7 +90,14 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
       analize >> x >> y >> side;
       if (analize)
       {
-        compositeShape.push_back(new shabalin::Square{{x, y}, side});
+        try
+        {
+          compositeShape.push_back(new shabalin::Square{{x, y}, side});
+        }
+        catch(...)
+        {
+          throw std::invalid_argument("Error");
+        }
       }
     }
     else if (figure == shabalin::Figures::rectangle)
@@ -91,7 +105,14 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
       analize >> x >> y >> x2 >> y2;
       if (analize)
       {
-        compositeShape.push_back(new shabalin::Rectangle{{x, y}, {x2, y2}});
+        try
+        {
+          compositeShape.push_back(new shabalin::Rectangle{{x, y}, {x2, y2}});
+        }
+        catch(...)
+        {
+          throw std::invalid_argument("Error");
+        }
       }
     }
     else if (figure == shabalin::Figures::parallelogram)

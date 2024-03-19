@@ -17,8 +17,7 @@ public:
     double distance(point_t p1, point_t p2);
     bool isTriangle(point_t p1, point_t p2, point_t p3);
     rectangle_t getFrameRect() const override;
-    void checkSideLength(double side_length);
-    Shape* clone() const;
+    Shape* clone() const override;
 private:
     point_t p1_;
     point_t p2_;
