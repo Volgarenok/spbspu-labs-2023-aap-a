@@ -9,8 +9,14 @@ namespace shabalin
         left_bottom_{left_bottom_x, left_bottom_y},
         side_length_(side_length)
     {
-      bool isError = false;
-      if (side_length <= 0)
+    }
+
+    Square::Square(point_t center, double side_length) :
+        left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
+        side_length_(side_length)
+    {
+        bool isError = false;
+        if (side_length <= 0)
         {
           if (!isError)
           {
@@ -18,16 +24,6 @@ namespace shabalin
             isError = true;
           }
           throw;
-        }
-    }
-
-    Square::Square(point_t center, double side_length) :
-        left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
-        side_length_(side_length)
-    {
-        if (side_length <= 0)
-        {
-            throw std::invalid_argument("Side length of the square must be positive");
         }
     }
     void Square::move(point_t p)
