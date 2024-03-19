@@ -29,5 +29,14 @@ sakovskaia::Shape * sakovskaia::inputParallelogram(const char * string)
   point_t p1 = {parallelogramCoordinates[0], parallelogramCoordinates[1]};
   point_t p2 = {parallelogramCoordinates[2], parallelogramCoordinates[3]};
   point_t p3 = {parallelogramCoordinates[4], parallelogramCoordinates[5]};
-  return new Parallelogram(p1, p2, p3)
+  return new Parallelogram(p1, p2, p3);
+}
+
+sakovskaia::Shape * sakovskaia::inputSquare(const char * string)
+{
+  double squareCoordinates[3]{};
+  coorShapes(string, parallelogramCoordinates, 3);
+  point_t ll = {squareCoordinates[0], squareCoordinates[1]};
+  double lehgth = squareCoordinates[2];
+  return new Square(ll, length);
 }
