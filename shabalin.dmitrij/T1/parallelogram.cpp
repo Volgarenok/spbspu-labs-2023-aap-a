@@ -17,7 +17,8 @@ namespace shabalin
         double dx2 = p3.x - p2.x;
         double dy2 = p3.y - p2.y;
 
-        if (dy1 != 0 || dy2 != 0 || dx1 != dx2) {
+        if (dy1 != 0 || dy2 != 0 || dx1 != dx2)
+        {
             throw std::invalid_argument("Invalid parallelogram definition");
         }
     }
@@ -73,7 +74,7 @@ namespace shabalin
         double min_y = std::min({p1_.y, p2_.y, p3_.y});
         double max_y = std::max({p1_.y, p2_.y, p3_.y});
 
-        point_t center = {(min_x + max_x), (min_y + max_y)};
+        point_t center = {(min_x + max_x) / 2, (min_y + max_y) / 2};
         double width = max_x - min_x;
         double height = max_y - min_y;
 

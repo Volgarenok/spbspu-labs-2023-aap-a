@@ -8,17 +8,17 @@ namespace shabalin
   left_bottom_{left_bottom_x, left_bottom_y},
   side_length_(side_length)
   {
-  }
-
-  Square::Square(point_t center, double side_length) :
-  left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
-  side_length_(side_length)
-  {
-    if (side_length <= 0.0)
+     if (side_length <= 0.0)
     {
       throw std::invalid_argument("Side length of the square must be positive");
     }
   }
+  Square::Square(point_t center, double side_length) :
+  left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
+  side_length_(side_length)
+  {
+  }
+  
 
   void Square::move(point_t p)
   {
