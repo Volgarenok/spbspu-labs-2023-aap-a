@@ -42,7 +42,6 @@ namespace shabalin
   {
     double center_x = left_bottom_.x + side_length_ / 2;
     double center_y = left_bottom_.y + side_length_ / 2;
-    point_t cent = {center_x, center_y};
 
     side_length_ *= scale;
 
