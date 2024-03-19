@@ -7,9 +7,8 @@ petuhov::Ring::Ring(const point_t &center, double outer_radius, double inner_rad
   outer_radius_(outer_radius),
   inner_radius_(inner_radius)
 {
-  if (outer_radius <= inner_radius)
-  {
-    throw std::invalid_argument("Outer radius must be greater than inner radius.");
+  if (outer_radius <= inner_radius || outer_radius <= 0 || inner_radius <= 0) {
+    throw std::invalid_argument("Invalid radius. Outer radius must be greater than inner radius and both must be positive.");
   }
 }
 

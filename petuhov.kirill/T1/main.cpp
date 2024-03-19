@@ -114,7 +114,8 @@ int main()
       catch (const std::invalid_argument &e)
       {
         freeShapes(shapes, shapeCount);
-        std::cerr << "Invalid scale factor." << "\n";
+        std::cerr << "Invalid scale factor."
+                  << "\n";
       }
 
       double newX = scale_center.x + (oldX - scale_center.x) * scale_factor;
@@ -136,13 +137,15 @@ int main()
 
     if (errorFlag)
     {
-      std::cerr << "Errors were found in the description of some shapes." << "\n";
+      std::cerr << "Errors were found in the description of some shapes."
+                << "\n";
     }
   }
   else
   {
     petuhov::freeShapes(shapes, shapeCount);
-    std::cerr << "SCALE command is missing or invalid." << "\n";
+    std::cerr << "SCALE command is missing or invalid."
+              << "\n";
     return 2;
   }
 
