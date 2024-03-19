@@ -33,7 +33,7 @@ void Triangle::move(point_t p)
 {
     double dx = p.x - (p1_.x + p2_.x + p3_.x) / 3.0;
     double dy = p.y - (p1_.y + p2_.y + p3_.y) / 3.0;
-    
+
     p1_.x += dx;
     p1_.y += dy;
     p2_.x += dx;
@@ -80,11 +80,11 @@ rectangle_t Triangle::getFrameRect() const
     double max_x = std::max({p1_.x, p2_.x, p3_.x});
     double min_y = std::min({p1_.y, p2_.y, p3_.y});
     double max_y = std::max({p1_.y, p2_.y, p3_.y});
-    
+
     point_t center = {(min_x + max_x) / 2, (min_y + max_y) / 2};
     double width = max_x - min_x;
     double height = max_y - min_y;
-    
+
     return rectangle_t{center, width, height};
 }
 
