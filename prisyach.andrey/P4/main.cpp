@@ -18,13 +18,7 @@ int main(int argc, char * argv[])
 
   try
   {
-    size_t next_char_index = 0;
-    task_number = std::stoi(argv[1], std::addressof (next_char_index));
-
-    if (argv[1][next_char_index] != '\0')
-    {
-      throw std::invalid_argument("Invalid characters in the first command line argument");
-    }
+    task_number = std::stoi(argv[1]);
   }
   catch (const std::out_of_range &)
   {
@@ -67,7 +61,7 @@ int main(int argc, char * argv[])
     return 0;
   }
 
-  int max_matrix_size[10000] = {0};
+  int max_matrix_size[10000] = {};
   int * matrix = nullptr;
 
   if (task_number == 1)
@@ -76,7 +70,7 @@ int main(int argc, char * argv[])
   }
   else
   {
-    matrix = new int[rows * cols]{0};
+    matrix = new int[rows * cols]{};
   }
 
   try
@@ -94,9 +88,8 @@ int main(int argc, char * argv[])
   }
 
   size_t result = prisyach::findMaxSequence(matrix, rows, cols);
-  output_file << result + 1 << " ";
+  output_file << result + 1 << " " << rows << " " << cols << " ";
   prisyach::transformMatrix(matrix, rows, cols);
-  output_file << rows << " " << cols << " ";
   prisyach::outputMatrix(output_file, matrix, rows, cols);
 
   if (task_number == 2)
@@ -110,6 +103,5 @@ int main(int argc, char * argv[])
     return 2;
   }
 
-  //output_file << result + 1 << "\n";
   return 0;
 }

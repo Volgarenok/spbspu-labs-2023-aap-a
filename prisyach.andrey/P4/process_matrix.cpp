@@ -31,31 +31,24 @@ size_t prisyach::findMaxSequence(const int * matrix, size_t rows, size_t cols)
   return row_max_sequence;
 }
 
-void prisyach::transformMatrix(int* matrix, size_t rows, size_t cols)
+void increaseValues(int * matrix, size_t rows, size_t cols)
 {
-  size_t minSide = std::min(rows, cols);
-  for (size_t layer = 0; layer < (minSide + 1) / 2; layer++)
+  size_t layer = 1;
+  size_t maxLayer = std::min(rows, cols) / 2 + std::min(rows, cols) % 2;
+  size_t minDimension = std::min(rows, cols);
+  
+  for(size_t layer = 0; layer < maxLayer; layer++)
   {
-    size_t count = 0;
-    for (size_t i = layer; i < cols - layer; i++)
+    for(size_t i = layer; i < cols - layer; i++)
     {
-      matrix[layer * cols + i] = layer + 2;
-      count++;
+      matrix[layer * cols + i] = layer + 1;
+      matrix[(rows - 1 - layer) * cols + i] = layer + 1;
     }
-    for (size_t i = layer + 1; i < rows - layer; i++)
+
+    for(size_t i = layer; i < rows - layer; i++)
     {
-      matrix[i * cols + cols - layer - 1] = layer + 2 + count;
-      count++;
-    }
-    for (size_t i = cols - layer - 2; i >= layer; i--)
-    {
-      matrix[(rows - layer - 1) * cols + i] = layer + 2 + count;
-      count++;
-    }
-    for (size_t i = rows - layer - 2; i > layer; i--)
-    {
-      matrix[i * cols + layer] = layer + 2 + count;
-      count++;
+      matrix[i * cols + layer] = layer + 1;
+      matrix[i * cols + (cols - 1 - layer)] = layer + 1;
     }
   }
 }
