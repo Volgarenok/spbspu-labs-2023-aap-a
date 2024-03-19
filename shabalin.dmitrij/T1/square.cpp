@@ -9,9 +9,15 @@ namespace shabalin
         left_bottom_{left_bottom_x, left_bottom_y},
         side_length_(side_length)
     {
-        if (side_length <= 0)
+      bool isError = false;
+      if (side_length <= 0)
         {
+          if (!isError)
+          {
             throw std::invalid_argument("Side length of the square must be positive");
+            isError = true;
+          }
+          throw;
         }
     }
 
