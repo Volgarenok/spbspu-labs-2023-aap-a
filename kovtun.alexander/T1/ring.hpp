@@ -2,6 +2,7 @@
 #define RING_HPP
 
 #include "shape.hpp"
+#include "ellipse.hpp"
 
 namespace kovtun
 {
@@ -16,9 +17,8 @@ namespace kovtun
     virtual void scale(double k);
 
   private:
-    point_t center_;
-    double outerRadius_;
-    double innerRadius_;
+    Ellipse outerEllipse_;
+    Ellipse innerEllipse_;
   };
 }
 

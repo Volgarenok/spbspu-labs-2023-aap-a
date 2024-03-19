@@ -1,37 +1,35 @@
 #include "ring.hpp"
 
 kovtun::Ring::Ring(const kovtun::point_t & center, double outerRadius, double innerRadius):
-    center_(center),
-    outerRadius_(outerRadius),
-    innerRadius_(innerRadius)
+    outerEllipse_(center, outerRadius, outerRadius),
+    innerEllipse_(center, innerRadius, innerRadius)
 {}
 
 double kovtun::Ring::getArea() const
 {
-  return (outerRadius_ * outerRadius_ - innerRadius_ * innerRadius_) * 3.141592;
+  return outerEllipse_.getArea() - innerEllipse_.getArea();
 }
 
 kovtun::rectangle_t kovtun::Ring::getFrameRect() const
 {
-  double side = outerRadius_ * 2;
-  rectangle_t selfRect = { side, side, center_ };
-  return selfRect;
+  return outerEllipse_.getFrameRect();
 }
 
 void kovtun::Ring::move(const kovtun::point_t & point)
 {
-  center_ = point;
+  outerEllipse_.move(point);
+  innerEllipse_.move(point);
 }
 
 void kovtun::Ring::move(double dx, double dy)
 {
-  center_.x += dx;
-  center_.y += dy;
+  outerEllipse_.move(dx, dy);
+  innerEllipse_.move(dx, dy);
 }
 
 void kovtun::Ring::scale(double k)
 {
-  outerRadius_ *= k;
-  innerRadius_ *= k;
+  outerEllipse_.scale(k);
+  innerEllipse_.scale(k);
 }
 
