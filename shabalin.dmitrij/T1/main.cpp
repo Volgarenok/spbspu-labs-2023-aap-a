@@ -63,7 +63,7 @@ void pushFigure(const std::string& line, shabalin::CompositeShape& compositeShap
   double y2 = 0;
   double x3 = 0;
   double y3 = 0;
-  double side = 0;
+  //double side = 0;
   shabalin::Analize analize(line);
   std::string figure = "";
   analize >> figure;
