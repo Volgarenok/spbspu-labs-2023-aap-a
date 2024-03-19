@@ -1,19 +1,19 @@
 #include "triangle.hpp"
-#include <algorithm>
+
 #include <cmath>
 #include <stdexcept>
 
 namespace shabalin
 {
-Triangle::Triangle(const point_t p1, const point_t p2, const point_t p3) :
+Triangle::Triangle(point_t p1, point_t p2, point_t p3) :
 p1_(p1),
 p2_(p2),
 p3_(p3)
 {
-  if (!isTriangle(p1_, p2_, p3_))
-  {
-    throw std::logic_error("Can't create Triangle with given parameters");
-  }
+    if (!isTriangle(p1, p2, p3))
+    {
+        throw std::invalid_argument("Can't create Triangle with given parameters");
+    }
 }
 
 bool Triangle::isTriangle(point_t p1, point_t p2, point_t p3)
@@ -33,7 +33,7 @@ void Triangle::move(point_t p)
 {
     double dx = p.x - (p1_.x + p2_.x + p3_.x) / 3.0;
     double dy = p.y - (p1_.y + p2_.y + p3_.y) / 3.0;
-
+    
     p1_.x += dx;
     p1_.y += dy;
     p2_.x += dx;
@@ -56,7 +56,7 @@ void Triangle::scale(double scale)
 {
     double dx = p1_.x;
     double dy = p1_.y;
-
+    
     p1_.x = dx + (p1_.x - dx) * scale;
     p1_.y = dy + (p1_.y - dy) * scale;
     p2_.x = dx + (p2_.x - dx) * scale;
@@ -80,11 +80,11 @@ rectangle_t Triangle::getFrameRect() const
     double max_x = std::max({p1_.x, p2_.x, p3_.x});
     double min_y = std::min({p1_.y, p2_.y, p3_.y});
     double max_y = std::max({p1_.y, p2_.y, p3_.y});
-
+    
     point_t center = {(min_x + max_x) / 2, (min_y + max_y) / 2};
     double width = max_x - min_x;
     double height = max_y - min_y;
-
+    
     return rectangle_t{center, width, height};
 }
 
