@@ -18,6 +18,7 @@ namespace shabalin
   left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
   side_length_(side_length)
   {
+
   }
 
   void Square::move(point_t p)
@@ -60,4 +61,3 @@ namespace shabalin
     return new Square(left_bottom_.x, left_bottom_.y, side_length_);
   }
 }
-
