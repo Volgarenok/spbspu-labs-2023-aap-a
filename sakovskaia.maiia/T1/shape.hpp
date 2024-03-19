@@ -13,6 +13,8 @@ namespace sakovskaia
       virtual void move(double, double) = 0;
       void scale(double k);
       virtual void scaleShape(double k) = 0;
+    private:
+      virtual void scaleEllipse(double k) = 0;
   };
 }
 #endif
