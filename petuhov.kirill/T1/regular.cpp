@@ -55,11 +55,11 @@ void petuhov::Regular::scale(const petuhov::point_t &center, double factor)
     throw std::invalid_argument("Invalid factor");
   }
 
-  double dx = center_.x - center.x;
-  double dy = center_.y - center.y;
+  double dx = center_.x - center_x;
+  double dy = center_.y - center_y;
 
   radius_ *= factor;
 
-  center_.x = center.x + dx * factor;
-  center_.y = center.y + dy * factor;
+  center_.x = center_x + dx * factor;
+  center_.y = center_y + dy * factor;
 }

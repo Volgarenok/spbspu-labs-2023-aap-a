@@ -18,7 +18,7 @@ namespace petuhov
     rectangle_t getFrameRect() const override;
     void move(const point_t &newPos) override;
     void move(double dx, double dy) override;
-    void scale(const petuhov::point_t &center, double factor) override;
+    void scale(double center_x, double center_y, double factor) override;
   };
 }
 

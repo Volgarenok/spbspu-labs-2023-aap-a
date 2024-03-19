@@ -40,5 +40,5 @@ void petuhov::Circle::scale(const petuhov::point_t &center, double factor)
     throw std::invalid_argument("Invalid factor");
   }
   radius_ *= factor;
-  center_ = {center.x + (center_.x - center.x) * factor, center.y + (center_.y - center.y) * factor};
+  center_ = {center_x + (center_.x - center_x) * factor, center_y + (center_.y - center_y) * factor};
 }

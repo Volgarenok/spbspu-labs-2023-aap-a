@@ -42,12 +42,12 @@ void petuhov::Ring::scale(const petuhov::point_t &scale_center, double factor)
     throw std::invalid_argument("Scale factor must be positive.");
   }
 
-  double dx = center_.x - scale_center.x;
-  double dy = center_.y - scale_center.y;
+  double dx = center_.x - scale_center_x;
+  double dy = center_.y - scale_center_y;
 
   outer_radius_ *= factor;
   inner_radius_ *= factor;
 
-  center_.x = scale_center.x + dx * factor;
-  center_.y = scale_center.y + dy * factor;
+  center_.x = scale_center_x + dx * factor;
+  center_.y = scale_center_y + dy * factor;
 }
