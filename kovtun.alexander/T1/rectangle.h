@@ -1,7 +1,7 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-#include "base_types.h"
+#include "base-types.h"
 #include "shape.h"
 
 namespace kovtun
