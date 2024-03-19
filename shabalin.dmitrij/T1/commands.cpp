@@ -41,7 +41,7 @@ void shabalin::pushFigure(const std::string& line, shabalin::CompositeShape& com
   shabalin::Analize analize(line);
   std::string figure = "";
   analize >> figure;
-  bool isExecute = false;
+  //bool isExecute = false;
   try
   {
     if (figure == shabalin::Figures::triangle)
@@ -79,10 +79,7 @@ void shabalin::pushFigure(const std::string& line, shabalin::CompositeShape& com
   }
   catch (const std::invalid_argument &e)
   {
-    if (!isExecute)
-    {
-      std::cerr << e.what() << '\n';
-    }
+    std::cerr << e.what() << '\n';
   }
 }
 
