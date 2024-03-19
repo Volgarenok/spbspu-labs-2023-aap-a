@@ -5,7 +5,7 @@
 
 namespace shabalin
 {
-Triangle::Triangle(point_t p1, point_t p2, point_t p3) :
+Triangle::Triangle(const point_t p1, const point_t p2, const point_t p3) :
 p1_(p1),
 p2_(p2),
 p3_(p3)
@@ -13,7 +13,7 @@ p3_(p3)
   bool isErrorShown = false;
   if ((!isTriangle(p1, p2, p3)) && !isErrorShown)
   {
-    throw std::invalid_argument("Can't create Triangle with given parameters");
+    throw std::logic_error("Can't create Triangle with given parameters");
     isErrorShown = true;
   }
 }

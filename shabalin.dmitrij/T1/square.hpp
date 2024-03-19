@@ -16,7 +16,6 @@ namespace shabalin
         double getArea() const override;
         rectangle_t getFrameRect() const override;
         Shape* clone() const override;
-        void checkSide(double);
     private:
         point_t left_bottom_;
         double side_length_;

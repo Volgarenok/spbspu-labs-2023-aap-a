@@ -10,22 +10,22 @@ namespace shabalin
         side_length_(side_length)
     {
     }
-
-    void Square::checkSide(double side_length_)
-    {
-        static bool errorShown = false;
-        if (side_length_ <= 0 && !errorShown)
-        {
-            throw std::invalid_argument("Side length of the square must be positive");
-            errorShown = true;
-        }
-    }
-
+  
     Square::Square(point_t center, double side_length) :
         left_bottom_{center.x - side_length / 2, center.y - side_length / 2},
         side_length_(side_length)
     {
+      static bool isError = false;
+      if (!isError)
+      {
+        if (side_length <= 0 && !isError)
+        {
+          throw std::logic_error("Side length of the square must be positive");
+          isError = true;
+        }
+      }
     }
+
     void Square::move(point_t p)
     {
         double dx = p.x - (left_bottom_.x + side_length_ / 2);
