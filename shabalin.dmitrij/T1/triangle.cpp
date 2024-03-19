@@ -33,7 +33,7 @@ void Triangle::move(point_t p)
 {
     double dx = p.x - (p1_.x + p2_.x + p3_.x) / 3.0;
     double dy = p.y - (p1_.y + p2_.y + p3_.y) / 3.0;
-    
+
     p1_.x += dx;
     p1_.y += dy;
     p2_.x += dx;
