@@ -6,6 +6,11 @@ char * vojuck::inputString(std::istream& input, int& size)
   char * new_array = nullptr;
   char c = 0;
   int i = 0;
+  if (input.eof())
+  {
+    delete [] array;
+    throw std::logic_error("end of file");
+  }
   while (input >> c)
   {
     if (!input)
@@ -21,7 +26,7 @@ char * vojuck::inputString(std::istream& input, int& size)
         delete [] array;
         throw std::logic_error("the string is empty\n");
       }
-      array[i - 1] = '\n';
+      array[i - 1] = '\0';
       break;
     }
     if (i == (size - 1))
