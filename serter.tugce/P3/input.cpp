@@ -23,46 +23,47 @@ void serter::checkForEmptyString(const char* buffer, size_t& bufferSize)
     }
 }
 
-char* serter::inputString(size_t& bufferSize)
+char* serter::inputString(std::istream& input, size_t& bufferSize)
 {
-  char* buffer = new char[bufferSize]{};
+  char* buffer = new char[bufferSize] {};
+
   char character = 0;
   size_t index = 0;
 
-  std::cin >> std::noskipws;
+  input >> std::noskipws;
 
-  while (std::cin >> character)
+  while (input >> character)
   {
-    if (!std::cin)
+    if (!input)
     {
-      delete[] buffer;
       throw std::runtime_error("Invalid input");
     }
 
     if (index == bufferSize - 1)
     {
-      bufferSize *= 20;
-      char* newBuffer = new char[bufferSize]{};
-      for(size_t i = 0; i < index; ++i)
+      bufferSize += 20;
+      char* tempBuffer = new char[bufferSize] {};
+
+      for (size_t j = 0; j < index; j++)
       {
-        newBuffer[i] = buffer[i];
+        tempBuffer[j] = buffer[j];
       }
+
       delete[] buffer;
-      for(size_t i = 0; i < bufferSize; ++i)
-      {
-        buffer[i] = newBuffer[i];
-      }
-      delete[] newBuffer;
+      buffer = tempBuffer;
     }
 
-    buffer[index++] = character;
+    buffer[index] = character;
+    index++;
 
     if (character == '\n')
     {
       buffer[index - 1] = '\0';
       break;
     }
+
   }
   serter::checkForEmptyString(buffer, bufferSize);
   return buffer;
 }
+
