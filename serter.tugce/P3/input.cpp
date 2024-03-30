@@ -65,3 +65,4 @@ char* serter::inputString(std::istream& input, size_t& bufferSize)
   }
   return buffer;
 }
+
