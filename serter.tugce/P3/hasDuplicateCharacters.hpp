@@ -8,5 +8,3 @@ namespace serter
   int hasDuplicateCharacters(const char* str, size_t sizeOfString);
 }
 
-#endif
-

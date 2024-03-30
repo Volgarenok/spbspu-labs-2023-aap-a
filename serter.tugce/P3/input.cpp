@@ -63,7 +63,6 @@ char* serter::inputString(std::istream& input, size_t& bufferSize)
     }
 
   }
-  serter::checkForEmptyString(buffer, bufferSize);
   return buffer;
 }
 

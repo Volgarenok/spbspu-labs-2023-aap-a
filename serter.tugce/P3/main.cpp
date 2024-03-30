@@ -11,6 +11,7 @@ int main()
   try
   {
     buffer = serter::inputString(std::cin, bufferSize);
+    serter::checkForEmptyString(buffer, bufferSize);
     std::cout << serter::hasDuplicateCharacters(buffer, bufferSize) << '\n';
     delete[] buffer;
     return 0;
