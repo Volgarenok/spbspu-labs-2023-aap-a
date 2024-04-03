@@ -1,6 +1,7 @@
 #include <cctype>
 #include "removeDigits.hpp"
 
+
 char * vojuck::removeDigits(const char * input, char * result)
 {
   while (*input != '\0')
