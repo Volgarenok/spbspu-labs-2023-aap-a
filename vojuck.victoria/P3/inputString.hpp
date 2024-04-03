@@ -4,7 +4,7 @@
 
 namespace vojuck
 {
-  char * inputString(std::istream& input, int& size);
+  char * inputString(std::istream& input);
 }
 
 #endif

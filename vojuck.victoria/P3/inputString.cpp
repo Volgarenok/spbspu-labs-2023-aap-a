@@ -1,50 +1,46 @@
 #include "inputString.hpp"
-
-char * vojuck::inputString(std::istream& input, int& size)
+#include <stdexcept>
+char * vojuck::inputString(std::istream& input)
 {
+  int size = 20;
   char * array = new char[size]{};
   char * new_array = nullptr;
   char c = 0;
   int i = 0;
-  while (input >> c)
+
+  while ((input >> c) && (c != '\n'))
   {
     if (!input)
     {
       delete [] array;
-      throw std::logic_error("input error");
+      throw std::logic_error("no input");
     }
     array[i++] = c;
-    if ((c == '\n') || (c == '\0'))
-    {
-      if (i == 1)
-      {
-        delete [] array;
-        throw std::logic_error("the string is empty\n");
-      }
-      array[i - 1] = '\0';
-      break;
-    }
     if (i == (size - 1))
     {
-      int  new_size = size + 20;
+      int new_size = size +20;
       try
       {
-        new_array = new char[new_size]{};
-        for (int j = 0; j < i; j++)
-        {
-          new_array[j] = array[j];
-        }
-        delete [] array;
-        array = new_array;
-        size = new_size;
+         new_array = new char [new_size];
       }
-      catch (const std::bad_alloc &e)
+      catch(...)
       {
-        delete [] array;
-        throw;
+        delete [] new_array;
+        array = nullptr;
       }
+      if (array == nullptr)
+      {
+        std::logic_error("Unable to create buffer");
+      }
+      for (int j = 0; j < i; j++)
+      {
+        new_array[j] = array[j];
+      }
+      delete [] array;
+      array = new_array;
+      size = new_size;
     }
-    array[i] = '\n';
   }
+  array[i] = '\0';
   return array;
 }
